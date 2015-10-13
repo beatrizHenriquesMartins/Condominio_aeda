@@ -14,9 +14,13 @@ using namespace std;
 
 class Habitacao {
 	string morada;
-	int baseMensal;
+	int areaHabitacao;
 public:
-	Habitacao(string morada);
+	Habitacao(string morada, int areaHabitacao);
+	virtual ~Habitacao() {
+
+	};
+	virtual float mensalidade() const;
 };
 
 #endif /* SRC_HABITACAO_H_ */

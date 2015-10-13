@@ -7,9 +7,11 @@
 
 #include "Vivenda.h"
 
-Vivenda::Vivenda(string morada, int areaHabitacional, int areaExterior, bool temPiscina, int baseMensal): Habitacao(morada) {
-	this->areaHabitacional = areaHabitacional;
+Vivenda::Vivenda(string morada, int areaHabitacao, int areaExterior, bool temPiscina): Habitacao(morada, areaHabitacao) {
 	this->areaExterior = areaExterior;
 	this->temPiscina = temPiscina;
-	this->baseMensal = baseMensal;
+}
+
+float Vivenda::mensalidade() const {
+	return Habitacao::mensalidade() + 0.1 * areaExterior + 10 * temPiscina;
 }

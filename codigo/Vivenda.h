@@ -14,12 +14,12 @@
 using namespace std;
 
 class Vivenda: public Habitacao {
-	int areaHabitacional;
 	int areaExterior;
 	bool temPiscina;
-	int baseMensal;
 public:
-	Vivenda(string morada, int areaHabitacional, int areaExterior, bool temPiscina, int baseMensal);
+	Vivenda(string morada, int areaHabitacao, int areaExterior, bool temPiscina);
+	// mensalidadeHabitacao + 0.1 * areaExterior + 10 * temPiscina
+	float mensalidade() const;
 };
 
 #endif /* SRC_VIVENDA_H_ */
