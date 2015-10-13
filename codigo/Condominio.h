@@ -18,6 +18,8 @@ class Condominio {
 	vector<Habitacao *> habitacoes;
 public:
 	Condominio(vector<Habitacao *> habitacoes);
+	void adicionaHabitacao(Habitacao * habitacao);
+	float pagarMensalidade(Habitacao * habitacao) const; // retorna -1 caso a habitação não exista
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

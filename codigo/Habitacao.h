@@ -19,8 +19,10 @@ public:
 	Habitacao(string morada, int areaHabitacao);
 	virtual ~Habitacao() {
 
-	};
+	}
+	;
 	virtual float mensalidade() const;
+	string getMorada() const;
 };
 
 #endif /* SRC_HABITACAO_H_ */

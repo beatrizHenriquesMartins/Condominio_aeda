@@ -15,3 +15,7 @@ Habitacao::Habitacao(string morada, int areaHabitacao) {
 float Habitacao::mensalidade() const {
 	return 50 + 0.2 * areaHabitacao;
 }
+
+string Habitacao::getMorada() const {
+	return morada;
+}
