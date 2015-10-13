@@ -7,11 +7,11 @@
 
 #include "Apartamento.h"
 
-Apartamento::Apartamento(string morada, int areaHabitacao, string tipologia, int piso): Habitacao(morada, areaHabitacao) {
+Apartamento::Apartamento(string morada, int areaHabitacao, int tipologia, int piso): Habitacao(morada, areaHabitacao) {
 	this->tipologia = tipologia;
 	this->piso = piso;
 }
 
 float Apartamento::mensalidade() const {
-	return Habitacao::mensalidade() + piso;
+	return Habitacao::mensalidade() + piso + tipologia;
 }

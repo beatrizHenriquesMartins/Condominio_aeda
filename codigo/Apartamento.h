@@ -14,10 +14,10 @@
 using namespace std;
 
 class Apartamento: public Habitacao {
-	string tipologia;
+	int tipologia;
 	int piso;
 public:
-	Apartamento(string morada, int areaHabitacao, string tipologia, int piso);
+	Apartamento(string morada, int areaHabitacao, int tipologia, int piso);
 	float mensalidade() const;
 };
 

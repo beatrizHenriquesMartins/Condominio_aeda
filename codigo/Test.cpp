@@ -5,10 +5,10 @@
 #include "Vivenda.h"
 
 void testa_mensalidade() {
-	Apartamento a1("Rua da circunvalacao", 100, "T1", 1);
+	Apartamento a1("Rua da circunvalacao", 100, 1, 1);
 	Vivenda v1("Rua da constituicao", 100, 200, true);
 
-	ASSERT_EQUAL_DELTA(71, a1.mensalidade(), 0.001); // 50 + 0.2 * areaHabitacao + piso
+	ASSERT_EQUAL_DELTA(72, a1.mensalidade(), 0.001); // 50 + 0.2 * areaHabitacao + piso
 	ASSERT_EQUAL_DELTA(100, v1.mensalidade(), 0.001); // 50 + 0.2 * areaHabitacao + 0.1 * areaExterior + 10 * temPiscina
 }
 
