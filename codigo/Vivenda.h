@@ -18,7 +18,6 @@ class Vivenda: public Habitacao {
 	bool temPiscina;
 public:
 	Vivenda(string morada, int areaHabitacao, int areaExterior, bool temPiscina);
-	// mensalidadeHabitacao + 0.1 * areaExterior + 10 * temPiscina
 	float mensalidade() const;
 };
 
