@@ -21,15 +21,23 @@ void testa_pagarMensalidade() {
 	Habitacao *v1 = new Vivenda("Rua da constituicao", 100, 200, true);
 	Habitacao *v2 = new Vivenda("Rua da boavista", 100, 200, false);
 
+	vector<Habitacao *> habitacoes;
+
+	Cliente *cliente1 = new Cliente("Maria", 12345678, habitacoes);
+
+	cliente1->adicionaHabitacao(a1);
+	cliente1->adicionaHabitacao(v1);
+
 	string nome = "BestCondominio";
 	int nif = 122312543;
-	vector<Habitacao *> habitacoes;
+	vector<Cliente *> clientes;
 	vector<Empregado *> empregados;
 	Servico * servico = new Servico(empregados, 2, 2, 2);
-	Condominio *c1 = new Condominio(nome, nif, habitacoes, servico);
+	Condominio *c1 = new Condominio(nome, nif, clientes, servico);
 
-	c1->adicionaHabitacao(a1);
-	c1->adicionaHabitacao(v1);
+	c1->adicionaCliente(cliente1);
+
+	//cout << "Morada do cliente: " << c1->getClientes()[0]->getHabitacoes()[0]->getMorada() << endl;
 
 	// Testa pagarMensalidade de um apartamento
 	ASSERT_EQUAL_DELTA(72, a1->mensalidade(), 0.001);
@@ -103,11 +111,15 @@ void testa_requesitaServico() {
 	s1.adicionaEmpregado(e5);
 	s1.adicionaEmpregado(e6);
 
-	string nome = "BestCondominio";
-	int nif = 122312543;
 	vector<Habitacao *> habitacoes;
 
-	Condominio *c1 = new Condominio(nome, nif, habitacoes, &s1);
+	Cliente *cliente1 = new Cliente("Maria", 12345678, habitacoes);
+
+	string nome = "BestCondominio";
+	int nif = 122312543;
+	vector<Cliente *> clientes;
+
+	Condominio *c1 = new Condominio(nome, nif, clientes, &s1);
 
 	// Verifica se é possível requesitar um serviço de cada tipo
 	ASSERT_EQUAL(0, c1->requesitaServico("Limpeza"));
@@ -142,11 +154,15 @@ void testa_fimDoServico() {
 	s1.adicionaEmpregado(e5);
 	s1.adicionaEmpregado(e6);
 
-	string nome = "BestCondominio";
-	int nif = 122312543;
 	vector<Habitacao *> habitacoes;
 
-	Condominio *c1 = new Condominio(nome, nif, habitacoes, &s1);
+	Cliente *cliente1 = new Cliente("Maria", 12345678, habitacoes);
+
+	string nome = "BestCondominio";
+	int nif = 122312543;
+	vector<Cliente *> clientes;
+
+	Condominio *c1 = new Condominio(nome, nif, clientes, &s1);
 
 	// REQUISITA SERVIÇOS
 	ASSERT_EQUAL(0, c1->requesitaServico("Limpeza"));

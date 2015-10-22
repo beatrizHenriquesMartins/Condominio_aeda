@@ -19,3 +19,7 @@ float Habitacao::mensalidade() const {
 string Habitacao::getMorada() const {
 	return morada;
 }
+
+bool Habitacao::operator ==(const Habitacao & hab) {
+	return this->morada == hab.morada;
+}

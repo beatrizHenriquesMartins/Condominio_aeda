@@ -12,17 +12,19 @@
 #include <vector>
 #include "Habitacao.h"
 #include "Servico.h"
+#include "Cliente.h"
 
 using namespace std;
 
 class Condominio {
 	string nome;
 	int nif;
-	vector<Habitacao *> habitacoes;
+	vector<Cliente *> clientes;
 	Servico * servico;
 public:
-	Condominio(string nome, int nif, vector<Habitacao *> habitacoes, Servico * servico);
-	void adicionaHabitacao(Habitacao * habitacao);
+	Condominio(string nome, int nif, vector<Cliente *> clientes, Servico * servico);
+	void adicionaCliente(Cliente * cliente);
+	vector<Cliente *> getClientes() const;
 	float pagarMensalidade(Habitacao * habitacao) const; // retorna -1 caso a habitação não exista
 	int requesitaServico(string tipo);
 	int fimDoServico(Empregado * empregado);

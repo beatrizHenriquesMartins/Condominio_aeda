@@ -7,25 +7,33 @@
 
 #include "Condominio.h"
 
-Condominio::Condominio(string nome, int nif, vector<Habitacao *> habitacoes,
+Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes,
 		Servico * servico) {
 	this->nome = nome;
 	this->nif = nif;
-	this->habitacoes = habitacoes;
 	this->servico = servico;
 }
 
-void Condominio::adicionaHabitacao(Habitacao * habitacao) {
-	habitacoes.push_back(habitacao);
+void Condominio::adicionaCliente(Cliente * cliente) {
+	clientes.push_back(cliente);
+}
+
+vector<Cliente *> Condominio::getClientes() const {
+	return clientes;
 }
 
 float Condominio::pagarMensalidade(Habitacao * habitacao) const {
-	vector<Habitacao *>::const_iterator itb = habitacoes.begin();
-	vector<Habitacao *>::const_iterator ite = habitacoes.end();
+	vector<Cliente *>::const_iterator itb_cliente = clientes.begin();
+	vector<Cliente *>::const_iterator ite_cliente = clientes.end();
 
-	for (; itb != ite; itb++) {
-		if ((*itb)->getMorada() == habitacao->getMorada())
-			return (*itb)->mensalidade();
+	for (; itb_cliente != ite_cliente; itb_cliente++) {
+		vector<Habitacao *>::const_iterator itb_hab = (*itb_cliente)->getHabitacoes().begin();
+		vector<Habitacao *>::const_iterator ite_hab = (*itb_cliente)->getHabitacoes().end();
+
+		for(; itb_hab != ite_hab; itb_hab++) {
+			if ((*itb_hab) == habitacao)
+				return (*itb_hab)->mensalidade();
+		}
 	}
 
 	return -1;

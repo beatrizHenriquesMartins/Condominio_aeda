@@ -23,6 +23,7 @@ public:
 	;
 	virtual float mensalidade() const;
 	string getMorada() const;
+	bool operator==(const Habitacao & hab);
 };
 
 #endif /* SRC_HABITACAO_H_ */
