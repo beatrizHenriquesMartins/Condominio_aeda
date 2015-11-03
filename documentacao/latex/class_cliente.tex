@@ -8,7 +8,11 @@
 vector$<$ \hyperlink{class_habitacao}{Habitacao} $\ast$ $>$ \hyperlink{class_cliente_a6625c1bb73828bcaa067f41b7590408f}{get\+Habitacoes} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter as habitações do cliente. \end{DoxyCompactList}\item 
 void \hyperlink{class_cliente_a7fafc50727fce6fef1d06e231ed87f3a}{adiciona\+Habitacao} (\hyperlink{class_habitacao}{Habitacao} $\ast$habitacao)
-\begin{DoxyCompactList}\small\item\em Torna o cliente proprietário de uma dada habitação. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Torna o cliente proprietário de uma dada habitação. \end{DoxyCompactList}\item 
+int \hyperlink{class_cliente_a800f49dc0761b67a61e563ca9a1478a7}{get\+BI} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o número do bilhete de identidade do cliente. \end{DoxyCompactList}\item 
+string \hyperlink{class_cliente_a0325de899469e2fed48ffda2b5b291cf}{get\+Nome} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o nome do cliente. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -53,6 +57,20 @@ Torna o cliente proprietário de uma dada habitação.
 {\em habitacao} & -\/ habitação que se pretende adicionar. \\
 \hline
 \end{DoxyParams}
+\index{Cliente@{Cliente}!get\+BI@{get\+BI}}
+\index{get\+BI@{get\+BI}!Cliente@{Cliente}}
+\subsubsection[{get\+B\+I() const }]{\setlength{\rightskip}{0pt plus 5cm}int Cliente\+::get\+BI (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_cliente_a800f49dc0761b67a61e563ca9a1478a7}{}\label{class_cliente_a800f49dc0761b67a61e563ca9a1478a7}
+
+
+Função para obter o número do bilhete de identidade do cliente. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o número do bilhete de identidade do cliente. 
+\end{DoxyReturn}
 \index{Cliente@{Cliente}!get\+Habitacoes@{get\+Habitacoes}}
 \index{get\+Habitacoes@{get\+Habitacoes}!Cliente@{Cliente}}
 \subsubsection[{get\+Habitacoes() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Habitacao} $\ast$ $>$ Cliente\+::get\+Habitacoes (
@@ -66,6 +84,20 @@ Função para obter as habitações do cliente.
 
 \begin{DoxyReturn}{Returns}
 Retorna as habitações do cliente. 
+\end{DoxyReturn}
+\index{Cliente@{Cliente}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!Cliente@{Cliente}}
+\subsubsection[{get\+Nome() const }]{\setlength{\rightskip}{0pt plus 5cm}string Cliente\+::get\+Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_cliente_a0325de899469e2fed48ffda2b5b291cf}{}\label{class_cliente_a0325de899469e2fed48ffda2b5b291cf}
+
+
+Função para obter o nome do cliente. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o nome do cliente. 
 \end{DoxyReturn}
 
 

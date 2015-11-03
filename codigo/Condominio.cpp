@@ -13,8 +13,20 @@ Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes, Servico
 	this->servico = servico;
 }
 
-void Condominio::adicionaCliente(Cliente * cliente) {
-	clientes.push_back(cliente);
+bool Condominio::existeCliente(Cliente * cliente) {
+	for (unsigned int i = 0; i < clientes.size(); i++)
+		if (clientes[i]->getBI() == cliente->getBI())
+			return true;// encontrou
+	return false; // não encontrou
+}
+
+int Condominio::adicionaCliente(Cliente * cliente) {
+	if(!existeCliente(cliente)) {
+		clientes.push_back(cliente);
+		return 0;
+	}
+	else
+		throw ClienteExistente(cliente->getBI());
 }
 
 vector<Cliente *> Condominio::getClientes() const {

@@ -13,6 +13,7 @@
 #include "Habitacao.h"
 #include "Servico.h"
 #include "Cliente.h"
+#include "excecoes.h"
 
 class Condominio {
 	string nome;
@@ -29,10 +30,17 @@ public:
 	 */
 	Condominio(string nome, int nif, vector<Cliente *> clientes, Servico * servico);
 	/**
+	 * @brief Verifica se um dado cliente pertence ao condomínio.
+	 * @param cliente - cliente que se pretende procurar.
+	 * @return Retorna verdade se o cliente pertence ao condomínio e falso caso contrário.
+	 */
+	bool existeCliente(Cliente * cliente);
+	/**
 	 * @brief Adiciona um cliente aos clientes do condomínio.
 	 * @param cliente - cliente que se quer adicionar aos clientes do condomínio.
+	 * @return Retorna 0 em caso de sucesso.
 	 */
-	void adicionaCliente(Cliente * cliente);
+	int adicionaCliente(Cliente * cliente);
 	/**
 	 * @brief Função para obter os clientes do condomínio.
 	 * @return Retorna os clientes do condomínio.

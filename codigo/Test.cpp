@@ -37,8 +37,6 @@ void testa_pagarMensalidade() {
 
 	c1->adicionaCliente(cliente1);
 
-	//cout << "Morada do cliente: " << c1->getClientes()[0]->getHabitacoes()[0]->getMorada() << endl;
-
 	// Testa pagarMensalidade de um apartamento
 	ASSERT_EQUAL_DELTA(72, a1->mensalidade(), 0.001);
 	ASSERT_EQUAL_DELTA(72, c1->pagarMensalidade(a1), 0.001);
@@ -98,6 +96,7 @@ void testa_adicionaEmpregado() {
 	catch(LimiteMaximoEmpregados &e) {
 		cout << "-> Apanhou exceção LimiteMaximoEmpregados. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
 	}
+
 	// para o tipo Canalizacao
 	ASSERT_THROWS(s1->adicionaEmpregado(e8), LimiteMaximoEmpregados);
 	try {
@@ -106,6 +105,7 @@ void testa_adicionaEmpregado() {
 	catch(LimiteMaximoEmpregados &e) {
 		cout << "-> Apanhou exceção LimiteMaximoEmpregados. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
 	}
+
 	// para o tipo Pintura
 	ASSERT_THROWS(s1->adicionaEmpregado(e9), LimiteMaximoEmpregados);
 	try {
@@ -244,6 +244,33 @@ void testa_fimDoServico() {
 	ASSERT_EQUAL(-1, c1->fimDoServico(e2));
 }
 
+void testa_adicionaCliente() {
+	vector<Habitacao *> hab;
+	Cliente *c1 = new Cliente("Maria", 12345678, hab);
+	Cliente *c2 = new Cliente("Manuela", 12345678, hab);
+	Cliente *c3 = new Cliente("Maria", 98765432, hab);
+
+	vector<Cliente *> clientes;
+	vector<Empregado *> empregados;
+	Servico s1(empregados, 2, 2, 2);
+	Condominio *cond = new Condominio("Condo", 213453423, clientes, &s1);
+
+	// Verifica se é possível adicionar um cliente
+	ASSERT_EQUAL(0, cond->adicionaCliente(c1));
+
+	// Verifica se é possível adicionar um cliente com o mesmo nome
+	ASSERT_EQUAL(0, cond->adicionaCliente(c3));
+
+	// Verifica se é possível adicionar um cliente que já existe
+	ASSERT_THROWS(cond->adicionaCliente(c2), ClienteExistente);
+	try {
+		cond->adicionaCliente(c2);
+	}
+	catch(ClienteExistente &e) {
+		cout << "-> Apanhou exceção ClienteExistente. O cliente  com BI " << e.getBI() << " já existe no condomínio." << endl;
+	}
+}
+
 void runSuite() {
 	cute::suite s;
 	s.push_back(CUTE(testa_mensalidade));
@@ -251,6 +278,7 @@ void runSuite() {
 	s.push_back(CUTE(testa_adicionaEmpregado));
 	s.push_back(CUTE(testa_requisitaServico));
 	s.push_back(CUTE(testa_fimDoServico));
+	s.push_back(CUTE(testa_adicionaCliente));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "Testes unitarios Condominio");
 }

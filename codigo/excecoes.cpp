@@ -46,3 +46,13 @@ EmpregadosIndisponiveis::EmpregadosIndisponiveis(string t) : tipo(t) {
 string EmpregadosIndisponiveis::getTipo() const {
 	return tipo;
 }
+
+// --- CLIENTE EXISTENTE ---
+
+ClienteExistente::ClienteExistente(int num_bi) : bi(num_bi) {
+
+}
+
+int ClienteExistente::getBI() const {
+	return bi;
+}

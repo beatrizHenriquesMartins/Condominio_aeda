@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>My Project: Member List</title>
+<title>My Project: ClienteExistente Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,19 +82,72 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="class_cliente_existente-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Cliente Member List</div>  </div>
+<div class="title">ClienteExistente Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a41a3b66f6250ba0c560938a8a98f6ed1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente_existente.html#a41a3b66f6250ba0c560938a8a98f6ed1">ClienteExistente</a> (int num_bi)</td></tr>
+<tr class="memdesc:a41a3b66f6250ba0c560938a8a98f6ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria exceção quando se tenta adicionar um cliente que já existe nos clientes do condomínio.  <a href="#a41a3b66f6250ba0c560938a8a98f6ed1">More...</a><br /></td></tr>
+<tr class="separator:a41a3b66f6250ba0c560938a8a98f6ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a016ce3ba6d57803848aadbf181d672e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente_existente.html#a016ce3ba6d57803848aadbf181d672e7">getBI</a> () const </td></tr>
+<tr class="memdesc:a016ce3ba6d57803848aadbf181d672e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para obter o número do bilhete de identidade do cliente.  <a href="#a016ce3ba6d57803848aadbf181d672e7">More...</a><br /></td></tr>
+<tr class="separator:a016ce3ba6d57803848aadbf181d672e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a41a3b66f6250ba0c560938a8a98f6ed1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ClienteExistente::ClienteExistente </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_bi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
-<p>This is the complete list of members for <a class="el" href="class_cliente.html">Cliente</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_cliente.html#a7fafc50727fce6fef1d06e231ed87f3a">adicionaHabitacao</a>(Habitacao *habitacao)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_cliente.html#a2bccaf416e225c0f925e69ec132f415a">Cliente</a>(string nome, int bi, vector&lt; Habitacao * &gt; habitacoes)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_cliente.html#a800f49dc0761b67a61e563ca9a1478a7">getBI</a>() const </td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_cliente.html#a6625c1bb73828bcaa067f41b7590408f">getHabitacoes</a>() const </td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_cliente.html#a0325de899469e2fed48ffda2b5b291cf">getNome</a>() const </td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>Cria exceção quando se tenta adicionar um cliente que já existe nos clientes do condomínio. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_bi</td><td>- número do bilhete de identidade do cliente. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a016ce3ba6d57803848aadbf181d672e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ClienteExistente::getBI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função para obter o número do bilhete de identidade do cliente. </p>
+<dl class="section return"><dt>Returns</dt><dd>Retorna o número do bilhete de identidade do cliente. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="excecoes_8h_source.html">excecoes.h</a></li>
+<li>excecoes.cpp</li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

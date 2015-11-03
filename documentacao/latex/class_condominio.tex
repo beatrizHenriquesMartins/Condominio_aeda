@@ -5,7 +5,9 @@
 \item 
 \hyperlink{class_condominio_a73d20c28b4b08007af711d30626b38bb}{Condominio} (string nome, int nif, vector$<$ \hyperlink{class_cliente}{Cliente} $\ast$ $>$ clientes, \hyperlink{class_servico}{Servico} $\ast$servico)
 \begin{DoxyCompactList}\small\item\em Função que cria um condominio. \end{DoxyCompactList}\item 
-void \hyperlink{class_condominio_a423f977875d9b8b5fdc5af2d9cd9dbf2}{adiciona\+Cliente} (\hyperlink{class_cliente}{Cliente} $\ast$cliente)
+bool \hyperlink{class_condominio_ac042d33289613d0ea997bddf42353909}{existe\+Cliente} (\hyperlink{class_cliente}{Cliente} $\ast$cliente)
+\begin{DoxyCompactList}\small\item\em Verifica se um dado cliente pertence ao condomínio. \end{DoxyCompactList}\item 
+int \hyperlink{class_condominio_ae27a8bd9f2e1ad20b18dd34b4bd997d6}{adiciona\+Cliente} (\hyperlink{class_cliente}{Cliente} $\ast$cliente)
 \begin{DoxyCompactList}\small\item\em Adiciona um cliente aos clientes do condomínio. \end{DoxyCompactList}\item 
 vector$<$ \hyperlink{class_cliente}{Cliente} $\ast$ $>$ \hyperlink{class_condominio_a6a9100e8a8a48847785f4c4b108ab8db}{get\+Clientes} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter os clientes do condomínio. \end{DoxyCompactList}\item 
@@ -48,11 +50,11 @@ Função que cria um condominio.
 \subsection{Member Function Documentation}
 \index{Condominio@{Condominio}!adiciona\+Cliente@{adiciona\+Cliente}}
 \index{adiciona\+Cliente@{adiciona\+Cliente}!Condominio@{Condominio}}
-\subsubsection[{adiciona\+Cliente(\+Cliente $\ast$cliente)}]{\setlength{\rightskip}{0pt plus 5cm}void Condominio\+::adiciona\+Cliente (
+\subsubsection[{adiciona\+Cliente(\+Cliente $\ast$cliente)}]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::adiciona\+Cliente (
 \begin{DoxyParamCaption}
 \item[{{\bf Cliente} $\ast$}]{cliente}
 \end{DoxyParamCaption}
-)}\hypertarget{class_condominio_a423f977875d9b8b5fdc5af2d9cd9dbf2}{}\label{class_condominio_a423f977875d9b8b5fdc5af2d9cd9dbf2}
+)}\hypertarget{class_condominio_ae27a8bd9f2e1ad20b18dd34b4bd997d6}{}\label{class_condominio_ae27a8bd9f2e1ad20b18dd34b4bd997d6}
 
 
 Adiciona um cliente aos clientes do condomínio. 
@@ -62,6 +64,28 @@ Adiciona um cliente aos clientes do condomínio.
 {\em cliente} & -\/ cliente que se quer adicionar aos clientes do condomínio. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso. 
+\end{DoxyReturn}
+\index{Condominio@{Condominio}!existe\+Cliente@{existe\+Cliente}}
+\index{existe\+Cliente@{existe\+Cliente}!Condominio@{Condominio}}
+\subsubsection[{existe\+Cliente(\+Cliente $\ast$cliente)}]{\setlength{\rightskip}{0pt plus 5cm}bool Condominio\+::existe\+Cliente (
+\begin{DoxyParamCaption}
+\item[{{\bf Cliente} $\ast$}]{cliente}
+\end{DoxyParamCaption}
+)}\hypertarget{class_condominio_ac042d33289613d0ea997bddf42353909}{}\label{class_condominio_ac042d33289613d0ea997bddf42353909}
+
+
+Verifica se um dado cliente pertence ao condomínio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cliente} & -\/ cliente que se pretende procurar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdade se o cliente pertence ao condomínio e falso caso contrário. 
+\end{DoxyReturn}
 \index{Condominio@{Condominio}!fim\+Do\+Servico@{fim\+Do\+Servico}}
 \index{fim\+Do\+Servico@{fim\+Do\+Servico}!Condominio@{Condominio}}
 \subsubsection[{fim\+Do\+Servico(\+Empregado $\ast$empregado)}]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::fim\+Do\+Servico (

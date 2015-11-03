@@ -34,6 +34,16 @@ public:
 	 * @param habitacao - habitação que se pretende adicionar.
 	 */
 	void adicionaHabitacao(Habitacao * habitacao);
+	/**
+	 *@brief Função para obter o número do bilhete de identidade do cliente.
+	 *@return Retorna o número do bilhete de identidade do cliente.
+	 */
+	int getBI() const;
+	/**
+	 *@brief Função para obter o nome do cliente.
+	 *@return Retorna o nome do cliente.
+	 */
+	string getNome() const;
 };
 
 #endif /* SRC_CLIENTE_H_ */

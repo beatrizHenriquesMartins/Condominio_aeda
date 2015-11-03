@@ -21,3 +21,11 @@ void Cliente::adicionaHabitacao(Habitacao * habitacao) {
 	// Melhorar! verificar se já existe esta habitação no vector de habitações
 	habitacoes.push_back(habitacao);
 }
+
+int Cliente::getBI() const {
+	return bi;
+}
+
+string Cliente::getNome() const {
+	return nome;
+}
