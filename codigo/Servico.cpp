@@ -119,3 +119,19 @@ int Servico::getServicosDisponiveis() const {
 vector<Empregado *> Servico::getEmpregados() const {
 	return empregados;
 }
+
+int Servico::decServicosDisponiveis() {
+	// TODO: Se o número de empregados no vector empregados for zero lançar excepção!
+	if(servicosDisponiveis!=0) {
+		servicosDisponiveis--;
+		return 0;
+	}
+	else
+		return -1;
+}
+
+int Servico::incServicosDisponiveis() {
+	// TODO: Se o número de empregados no vector empregados for zero lançar excepção!
+	servicosDisponiveis++;
+	return 0;
+}

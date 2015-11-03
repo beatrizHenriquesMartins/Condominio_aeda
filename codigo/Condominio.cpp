@@ -63,6 +63,7 @@ int Condominio::requisitaServico(string tipo) {
 			for (unsigned int i = 0; i < empregados.size(); i++) {
 				if (empregados[i]->getTipo() == "Limpeza" && empregados[i]->getLivre()) {
 					empregados[i]->setLivre(false);
+					servico->decServicosDisponiveis();
 					break;
 				}
 			}
@@ -78,6 +79,7 @@ int Condominio::requisitaServico(string tipo) {
 			for (unsigned int i = 0; i < empregados.size(); i++) {
 				if (empregados[i]->getTipo() == "Canalizacao" && empregados[i]->getLivre()) {
 					empregados[i]->setLivre(false);
+					servico->decServicosDisponiveis();
 					break;
 				}
 			}
@@ -91,6 +93,7 @@ int Condominio::requisitaServico(string tipo) {
 			for (unsigned int i = 0; i < empregados.size(); i++) {
 				if (empregados[i]->getTipo() == "Pintura" && empregados[i]->getLivre()) {
 					empregados[i]->setLivre(false);
+					servico->decServicosDisponiveis();
 					break;
 				}
 			}
@@ -105,6 +108,7 @@ int Condominio::fimDoServico(Empregado * empregado) {
 		// Empregado pertence a este Condominio e não estava livre
 		if(servico->getEmpregados()[i]->getBI() == empregado->getBI() && !empregado->getLivre()) {
 			servico->getEmpregados()[i]->setLivre(true);
+			servico->incServicosDisponiveis();
 			return 0;
 		}
 	}

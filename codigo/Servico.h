@@ -75,6 +75,16 @@ public:
 	 * @return Retorna os empregados da empresa de serviços.
 	 */
 	vector<Empregado *> getEmpregados() const;
+	/**
+	 * @brief Função decrementa o número de servicos disponiveis.
+	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.
+	 */
+	int decServicosDisponiveis();
+	/**
+	 * @brief Função incrementa o número de servicos disponiveis.
+	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.
+	 */
+	int incServicosDisponiveis();
 };
 
 #endif /* SRC_SERVICO_H_ */
