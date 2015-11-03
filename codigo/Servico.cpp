@@ -10,7 +10,7 @@
 Servico::Servico(vector<Empregado *> empregados, int maxEmpLimpeza, int maxEmpCanalizacao, int maxEmpPintura) {
 	this->empregados = empregados;
 
-	this->servicosDisponiveis = empregados.size();
+	this->servicosDisponiveis = getServicosDisponiveis();
 
 	this->maxEmpLimpeza = maxEmpLimpeza;
 	this->maxEmpCanalizacao = maxEmpCanalizacao;
@@ -105,7 +105,14 @@ int Servico::adicionaEmpregado(Empregado * empregado) {
 }
 
 int Servico::getServicosDisponiveis() const {
-	return servicosDisponiveis;
+	int n = 0;
+
+	for(unsigned int i = 0; i < empregados.size(); i++) {
+		if(empregados[i]->getLivre())
+			n++;
+	}
+
+	return n;
 }
 
 vector<Empregado *> Servico::getEmpregados() const {

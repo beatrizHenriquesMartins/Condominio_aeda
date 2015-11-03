@@ -65,8 +65,8 @@ public:
 	 */
 	int adicionaEmpregado(Empregado *empregado);
 	/**
-	 * @brief Função para obter o número de empregados na empresa de serviços.
-	 * @return Retorna o número de empregados na empresa de serviços.
+	 * @brief Função para obter o número de empregados que estão livres na empresa de serviços.
+	 * @return Retorna o número de empregados que estão livres na empresa de serviços.
 	 */
 	int getServicosDisponiveis() const;
 	/**
