@@ -36,3 +36,13 @@ ServicoInvalido::ServicoInvalido(string t) : tipo(t) {
 string ServicoInvalido::getTipo() const {
 	return tipo;
 }
+
+// --- EMPREGADOS INDISPONIVEIS ---
+
+EmpregadosIndisponiveis::EmpregadosIndisponiveis(string t) : tipo(t) {
+
+}
+
+string EmpregadosIndisponiveis::getTipo() const {
+	return tipo;
+}

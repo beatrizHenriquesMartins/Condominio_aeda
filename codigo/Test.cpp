@@ -83,7 +83,7 @@ void testa_adicionaEmpregado() {
 		s1->adicionaEmpregado(e1);
 	}
 	catch(EmpregadoExistente &e) {
-		cout << "Apanhou exceção. Empregado já existe e tem bi: " << e.getBI() << endl;
+		cout << "-> Apanhou exceção EmpregadoExistente. Empregado já existe e tem bi: " << e.getBI() << endl;
 	}
 
 	// Testa o número de serviços disponíveis
@@ -96,7 +96,7 @@ void testa_adicionaEmpregado() {
 		s1->adicionaEmpregado(e7);
 	}
 	catch(LimiteMaximoEmpregados &e) {
-		cout << "Apanhou exceção. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
+		cout << "-> Apanhou exceção LimiteMaximoEmpregados. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
 	}
 	// para o tipo Canalizacao
 	ASSERT_THROWS(s1->adicionaEmpregado(e8), LimiteMaximoEmpregados);
@@ -104,7 +104,7 @@ void testa_adicionaEmpregado() {
 		s1->adicionaEmpregado(e8);
 	}
 	catch(LimiteMaximoEmpregados &e) {
-		cout << "Apanhou exceção. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
+		cout << "-> Apanhou exceção LimiteMaximoEmpregados. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
 	}
 	// para o tipo Pintura
 	ASSERT_THROWS(s1->adicionaEmpregado(e9), LimiteMaximoEmpregados);
@@ -112,7 +112,7 @@ void testa_adicionaEmpregado() {
 		s1->adicionaEmpregado(e9);
 	}
 	catch(LimiteMaximoEmpregados &e) {
-		cout << "Apanhou exceção. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
+		cout << "-> Apanhou exceção LimiteMaximoEmpregados. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
 	}
 
 	// Testa um serviço que não é válido
@@ -121,7 +121,7 @@ void testa_adicionaEmpregado() {
 		s1->adicionaEmpregado(e10);
 	}
 	catch(ServicoInvalido &e) {
-		cout << "Apanhou exceção. " << e.getTipo() << " não existe nesta empresa de serviços." << endl;
+		cout << "-> Apanhou exceção ServicoInvalido. " << e.getTipo() << " não existe nesta empresa de serviços." << endl;
 	}
 }
 
@@ -160,12 +160,42 @@ void testa_requisitaServico() {
 	ASSERT_EQUAL(0, c1->requisitaServico("Pintura"));
 
 	// Verifica se é possível requesitar um serviço que não está disponível
-	ASSERT_EQUAL(-2, c1->requisitaServico("Limpeza"));
-	ASSERT_EQUAL(-2, c1->requisitaServico("Canalizacao"));
-	ASSERT_EQUAL(-2, c1->requisitaServico("Pintura"));
+	// Limpeza
+	ASSERT_THROWS(c1->requisitaServico("Limpeza"), EmpregadosIndisponiveis);
+	try {
+		c1->requisitaServico("Limpeza");
+	}
+	catch(EmpregadosIndisponiveis &e) {
+		cout << "-> Apanhou exceção EmpregadosIndisponiveis. Empregados de " << e.getTipo() << " não estão disponíveis de momento." << endl;
+	}
+
+	// Canalização
+	ASSERT_THROWS(c1->requisitaServico("Canalizacao"), EmpregadosIndisponiveis);
+	try {
+		c1->requisitaServico("Canalizacao");
+	}
+	catch(EmpregadosIndisponiveis &e) {
+		cout << "-> Apanhou exceção EmpregadosIndisponiveis. Empregados de " << e.getTipo() << " não estão disponíveis de momento." << endl;
+	}
+
+	//Pintura
+	ASSERT_THROWS(c1->requisitaServico("Pintura"), EmpregadosIndisponiveis);
+	try {
+		c1->requisitaServico("Pintura");
+	}
+	catch(EmpregadosIndisponiveis &e) {
+		cout << "-> Apanhou exceção EmpregadosIndisponiveis. Empregados de " << e.getTipo() << " não estão disponíveis de momento." << endl;
+	}
 
 	// Verifica se é possível requesitar um serviço inexistente
-	ASSERT_EQUAL(-1, c1->requisitaServico("Cozinha"));
+	ASSERT_THROWS(c1->requisitaServico("Cozinha"), ServicoInvalido);
+	try {
+		c1->requisitaServico("Cozinha");
+	}
+	catch(ServicoInvalido &e) {
+		cout << "-> Apanhou exceção ServicoInvalido. " << e.getTipo() << " não existe nesta empresa de serviços." << endl;
+	}
+
 }
 
 void testa_fimDoServico() {

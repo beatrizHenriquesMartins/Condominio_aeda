@@ -16,7 +16,7 @@ class EmpregadoExistente {
 	int bi;
 public:
 	/**
-	 * @brief Cria exceção para quando se tenta adicionar um empregado que já existe.
+	 * @brief Cria exceção quando se tenta adicionar um empregado que já existe.
 	 * @param num_bi - Número do bilhete de identidade do empregado.
 	 */
 	EmpregadoExistente(int num_bi);
@@ -31,7 +31,7 @@ class LimiteMaximoEmpregados {
 	string tipo;
 public:
 	/**
-	 * @brief Cria exceção para quando se tenta adicionar um empregado de um tipo que já atingiu o limite máximo definido pela empresa de serviços.
+	 * @brief Cria exceção quando se tenta adicionar um empregado de um tipo que já atingiu o limite máximo definido pela empresa de serviços.
 	 * @param t - tipo de empregado.
 	 */
 	LimiteMaximoEmpregados(string t);
@@ -46,10 +46,26 @@ class ServicoInvalido {
 	string tipo;
 public:
 	/**
-	 * @brief Cria exceção para quando se tenta adicionar um empregado de um tipo que não existe na empresa de serviços.
+	 * @brief Cria exceção quando se tenta adicionar um empregado de um tipo que não existe na empresa de serviços.
 	 * @param t - tipo de empregado.
 	 */
 	ServicoInvalido(string t);
+	/**
+	 * @brief Função para obter o tipo de empregado.
+	 * @return Retorna o tipo de empregado.
+	 */
+	string getTipo() const;
+};
+
+
+class EmpregadosIndisponiveis {
+	string tipo;
+public:
+	/**
+	 * @brief Cria exceção quando se tenta requisitar um empregado de um tipo que não tem empregados disponíveis no momento.
+	 * @param t - tipo de empregado.
+	 */
+	EmpregadosIndisponiveis(string t);
 	/**
 	 * @brief Função para obter o tipo de empregado.
 	 * @return Retorna o tipo de empregado.

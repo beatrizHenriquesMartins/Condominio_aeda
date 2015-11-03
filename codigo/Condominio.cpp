@@ -44,7 +44,8 @@ int Condominio::requisitaServico(string tipo) {
 	if (tipo == "Limpeza") {
 		// Não tem empregados de Limpeza disponíveis
 		if (servico->numEmpLimpezaLivres() == 0)
-			return -2;
+			throw EmpregadosIndisponiveis(tipo);
+
 		// Pode requisitar o empregado
 		else {
 			for (unsigned int i = 0; i < empregados.size(); i++) {
@@ -58,7 +59,9 @@ int Condominio::requisitaServico(string tipo) {
 	} else if (tipo == "Canalizacao") {
 		// Não tem empregados de Canalizacao disponíveis
 		if (servico->numEmpCanalizacaoLivres() == 0)
-			return -2;
+			throw EmpregadosIndisponiveis(tipo);
+
+		// Pode requisitar o empregado
 		else
 			for (unsigned int i = 0; i < empregados.size(); i++) {
 				if (empregados[i]->getTipo() == "Canalizacao" && empregados[i]->getLivre()) {
@@ -69,7 +72,9 @@ int Condominio::requisitaServico(string tipo) {
 	} else if (tipo == "Pintura") {
 		// Não tem empregados de Pintura disponíveis
 		if (servico->numEmpPinturaLivres() == 0)
-			return -2;
+			throw EmpregadosIndisponiveis(tipo);
+
+		// Pode requisitar o empregado
 		else
 			for (unsigned int i = 0; i < empregados.size(); i++) {
 				if (empregados[i]->getTipo() == "Pintura" && empregados[i]->getLivre()) {
@@ -78,7 +83,7 @@ int Condominio::requisitaServico(string tipo) {
 				}
 			}
 	} else
-		return -1;
+		throw ServicoInvalido(tipo);
 
 	return 0;
 }

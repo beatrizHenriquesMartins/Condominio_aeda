@@ -8,5 +8,5 @@ var searchData=
   ['getmorada',['getMorada',['../class_habitacao.html#a17ef78eef7746f92bd2814893bfafbab',1,'Habitacao']]],
   ['getnome',['getNome',['../class_empregado.html#a3b7e1e37085dc3233372303dc5fad063',1,'Empregado']]],
   ['getservicosdisponiveis',['getServicosDisponiveis',['../class_servico.html#a1a9fbbe6413835ba366355cc4131c413',1,'Servico']]],
-  ['gettipo',['getTipo',['../class_empregado.html#a31668a30674046ed45b1543de5948b39',1,'Empregado::getTipo()'],['../class_limite_maximo_empregados.html#ad7fe69080cc2cafa0ad4fd6d1ffdcb84',1,'LimiteMaximoEmpregados::getTipo()'],['../class_servico_invalido.html#a37bda530abd6e7d3743be5d01517a26e',1,'ServicoInvalido::getTipo()']]]
+  ['gettipo',['getTipo',['../class_empregado.html#a31668a30674046ed45b1543de5948b39',1,'Empregado::getTipo()'],['../class_limite_maximo_empregados.html#ad7fe69080cc2cafa0ad4fd6d1ffdcb84',1,'LimiteMaximoEmpregados::getTipo()'],['../class_servico_invalido.html#a37bda530abd6e7d3743be5d01517a26e',1,'ServicoInvalido::getTipo()'],['../class_empregados_indisponiveis.html#aa73e22a2ba58fb1d73e8edbc65498dd1',1,'EmpregadosIndisponiveis::getTipo()']]]
 ];
