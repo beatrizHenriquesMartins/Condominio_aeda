@@ -18,5 +18,6 @@ vector<Habitacao *> Cliente::getHabitacoes() const {
 }
 
 void Cliente::adicionaHabitacao(Habitacao * habitacao) {
+	// Melhorar! verificar se já existe esta habitação no vector de habitações
 	habitacoes.push_back(habitacao);
 }

@@ -92,7 +92,7 @@ void testa_adicionaEmpregado() {
 	ASSERT_EQUAL(-3, s1->adicionaEmpregado(e10));
 }
 
-void testa_requesitaServico() {
+void testa_requisitaServico() {
 	vector<Empregado *> empregados;
 
 	Empregado *e1 = new Limpeza("Sara", 12345678, "Limpeza", true);
@@ -122,17 +122,17 @@ void testa_requesitaServico() {
 	Condominio *c1 = new Condominio(nome, nif, clientes, &s1);
 
 	// Verifica se é possível requesitar um serviço de cada tipo
-	ASSERT_EQUAL(0, c1->requesitaServico("Limpeza"));
-	ASSERT_EQUAL(0, c1->requesitaServico("Canalizacao"));
-	ASSERT_EQUAL(0, c1->requesitaServico("Pintura"));
+	ASSERT_EQUAL(0, c1->requisitaServico("Limpeza"));
+	ASSERT_EQUAL(0, c1->requisitaServico("Canalizacao"));
+	ASSERT_EQUAL(0, c1->requisitaServico("Pintura"));
 
 	// Verifica se é possível requesitar um serviço que não está disponível
-	ASSERT_EQUAL(-2, c1->requesitaServico("Limpeza"));
-	ASSERT_EQUAL(-2, c1->requesitaServico("Canalizacao"));
-	ASSERT_EQUAL(-2, c1->requesitaServico("Pintura"));
+	ASSERT_EQUAL(-2, c1->requisitaServico("Limpeza"));
+	ASSERT_EQUAL(-2, c1->requisitaServico("Canalizacao"));
+	ASSERT_EQUAL(-2, c1->requisitaServico("Pintura"));
 
 	// Verifica se é possível requesitar um serviço inexistente
-	ASSERT_EQUAL(-1, c1->requesitaServico("Cozinha"));
+	ASSERT_EQUAL(-1, c1->requisitaServico("Cozinha"));
 }
 
 void testa_fimDoServico() {
@@ -165,9 +165,9 @@ void testa_fimDoServico() {
 	Condominio *c1 = new Condominio(nome, nif, clientes, &s1);
 
 	// REQUISITA SERVIÇOS
-	ASSERT_EQUAL(0, c1->requesitaServico("Limpeza"));
-	ASSERT_EQUAL(0, c1->requesitaServico("Canalizacao"));
-	ASSERT_EQUAL(0, c1->requesitaServico("Pintura"));
+	ASSERT_EQUAL(0, c1->requisitaServico("Limpeza"));
+	ASSERT_EQUAL(0, c1->requisitaServico("Canalizacao"));
+	ASSERT_EQUAL(0, c1->requisitaServico("Pintura"));
 
 	// Verifica se os empregados voltam a ficar livres
 	ASSERT_EQUAL(0, c1->fimDoServico(e1));
@@ -186,7 +186,7 @@ void runSuite() {
 	s.push_back(CUTE(testa_mensalidade));
 	s.push_back(CUTE(testa_pagarMensalidade));
 	s.push_back(CUTE(testa_adicionaEmpregado));
-	s.push_back(CUTE(testa_requesitaServico));
+	s.push_back(CUTE(testa_requisitaServico));
 	s.push_back(CUTE(testa_fimDoServico));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "Testes unitarios Condominio");

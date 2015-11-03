@@ -7,8 +7,7 @@
 
 #include "Condominio.h"
 
-Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes,
-		Servico * servico) {
+Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes, Servico * servico) {
 	this->nome = nome;
 	this->nif = nif;
 	this->servico = servico;
@@ -39,7 +38,7 @@ float Condominio::pagarMensalidade(Habitacao * habitacao) const {
 	return -1;
 }
 
-int Condominio::requesitaServico(string tipo) {
+int Condominio::requisitaServico(string tipo) {
 	vector<Empregado *> empregados = servico->getEmpregados();
 
 	if (tipo == "Limpeza") {

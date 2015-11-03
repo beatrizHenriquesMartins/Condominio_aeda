@@ -12,15 +12,27 @@
 #include <vector>
 #include "Habitacao.h"
 
-using namespace std;
-
 class Cliente {
 	string nome;
 	int bi;
 	vector<Habitacao *> habitacoes;
 public:
+	/**
+	 * @brief Função que cria um cliente.
+	 * @param nome - nome do cliente.
+	 * @param bi - número do bilhete de identidade.
+	 * @param habitacoes - habitações das quais o cliente é proprietário.
+	 */
 	Cliente(string nome, int bi, vector<Habitacao *> habitacoes);
+	/**
+	 * @brief Função para obter as habitações do cliente.
+	 * @return Retorna as habitações do cliente.
+	 */
 	vector<Habitacao *> getHabitacoes() const;
+	/**
+	 * @brief Torna o cliente proprietário de uma dada habitação.
+	 * @param habitacao - habitação que se pretende adicionar.
+	 */
 	void adicionaHabitacao(Habitacao * habitacao);
 };
 
