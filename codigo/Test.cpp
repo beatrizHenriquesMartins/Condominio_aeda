@@ -78,18 +78,51 @@ void testa_adicionaEmpregado() {
 	ASSERT_EQUAL(0, s1->adicionaEmpregado(e3));
 
 	// Testa se adiciona um empregado que já existe
-	ASSERT_EQUAL(-1, s1->adicionaEmpregado(e1));
+	ASSERT_THROWS(s1->adicionaEmpregado(e1), EmpregadoExistente);
+	try {
+		s1->adicionaEmpregado(e1);
+	}
+	catch(EmpregadoExistente &e) {
+		cout << "Apanhou exceção. Empregado já existe e tem bi: " << e.getBI() << endl;
+	}
 
 	// Testa o número de serviços disponíveis
 	ASSERT_EQUAL(6, s1->getServicosDisponiveis());
 
 	// Testa se é possível adicionar mais empregados que o limite definido pelo utilizador
-	ASSERT_EQUAL(-2, s1->adicionaEmpregado(e7)); // para o tipo Limpeza
-	ASSERT_EQUAL(-2, s1->adicionaEmpregado(e8)); // para o tipo Canalizacao
-	ASSERT_EQUAL(-2, s1->adicionaEmpregado(e9)); // para o tipo Pintura
+	// para o tipo Limpeza
+	ASSERT_THROWS(s1->adicionaEmpregado(e7), LimiteMaximoEmpregados);
+	try {
+		s1->adicionaEmpregado(e7);
+	}
+	catch(LimiteMaximoEmpregados &e) {
+		cout << "Apanhou exceção. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
+	}
+	// para o tipo Canalizacao
+	ASSERT_THROWS(s1->adicionaEmpregado(e8), LimiteMaximoEmpregados);
+	try {
+		s1->adicionaEmpregado(e8);
+	}
+	catch(LimiteMaximoEmpregados &e) {
+		cout << "Apanhou exceção. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
+	}
+	// para o tipo Pintura
+	ASSERT_THROWS(s1->adicionaEmpregado(e9), LimiteMaximoEmpregados);
+	try {
+		s1->adicionaEmpregado(e9);
+	}
+	catch(LimiteMaximoEmpregados &e) {
+		cout << "Apanhou exceção. Número máximo de empregados do tipo " << e.getTipo() << " foi atingido." << endl;
+	}
 
 	// Testa um serviço que não é válido
-	ASSERT_EQUAL(-3, s1->adicionaEmpregado(e10));
+	ASSERT_THROWS(s1->adicionaEmpregado(e10), ServicoInvalido);
+	try {
+		s1->adicionaEmpregado(e10);
+	}
+	catch(ServicoInvalido &e) {
+		cout << "Apanhou exceção. " << e.getTipo() << " não existe nesta empresa de serviços." << endl;
+	}
 }
 
 void testa_requisitaServico() {

@@ -12,6 +12,7 @@
 #include "Limpeza.h"
 #include "Canalizacao.h"
 #include "Pintura.h"
+#include "excecoes.h"
 
 class Servico {
 	vector<Empregado *> empregados;

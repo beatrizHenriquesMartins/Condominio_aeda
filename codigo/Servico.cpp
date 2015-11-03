@@ -19,6 +19,7 @@ Servico::Servico(vector<Empregado *> empregados, int maxEmpLimpeza, int maxEmpCa
 
 int Servico::numEmpLimpeza() const {
 	int num = 0;
+
 	for (unsigned int i = 0; i < empregados.size(); i++)
 		if (empregados[i]->getTipo() == "Limpeza")
 			num++;
@@ -76,27 +77,27 @@ int Servico::adicionaEmpregado(Empregado * empregado) {
 	// Verifica se empregado já existe
 	for (unsigned int i = 0; i < empregados.size(); i++)
 		if (empregado->getBI() == empregados[i]->getBI())
-			return -1; // Falta lançar Excepção
+			throw EmpregadoExistente(empregado->getBI());
 
 	// Verifica se limite de empregados desse tipo foi atingido
 	if (empregado->getTipo() == "Limpeza") {
 
 		if (numEmpLimpeza() >= maxEmpLimpeza)
-			return -2; // Falta lançar Excepção
+			throw LimiteMaximoEmpregados(empregado->getTipo());
 
 	} else if (empregado->getTipo() == "Canalizacao") {
 
 		if (numEmpCanalizacao() >= maxEmpCanalizacao)
-			return -2; // Falta lançar Excepção
+			throw LimiteMaximoEmpregados(empregado->getTipo());
 
 	} else if (empregado->getTipo() == "Pintura") {
 
 		if (numEmpPintura() >= maxEmpPintura)
-			return -2; // Falta lançar Excepção
+			throw LimiteMaximoEmpregados(empregado->getTipo());
 
 	} else
 		// Não é um tipo de serviço válido
-		return -3;
+		throw ServicoInvalido(empregado->getTipo());
 
 	// Adiciona empregado
 	empregados.push_back(empregado);
