@@ -155,4 +155,19 @@ public:
 	string getMorada() const;
 };
 
+class HabitacaoExistente {
+	string morada;
+public:
+	/**
+	 * @brief Cria exceção quando se tenta adicionar uma habitação que já existe.
+	 * @param m - morada da habitação.
+	 */
+	HabitacaoExistente(string m);
+	/**
+	 * @brief Função para obter a morada da habitação.
+	 * @return Retorna a morada da habitação.
+	 */
+	string getMorada() const;
+};
+
 #endif /* SRC_EXCECOES_H_ */

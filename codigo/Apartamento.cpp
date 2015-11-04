@@ -15,3 +15,11 @@ Apartamento::Apartamento(string morada, int areaHabitacao, int tipologia, int pi
 float Apartamento::mensalidade() const {
 	return Habitacao::mensalidade() + piso + tipologia;
 }
+
+int Apartamento::getTipologia() const {
+	return tipologia;
+}
+
+int Apartamento::getPiso() const {
+	return piso;
+}

@@ -7,6 +7,8 @@
 \begin{DoxyCompactList}\small\item\em Função que cria um cliente. \end{DoxyCompactList}\item 
 vector$<$ \hyperlink{class_habitacao}{Habitacao} $\ast$ $>$ \hyperlink{class_cliente_a6625c1bb73828bcaa067f41b7590408f}{get\+Habitacoes} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter as habitações do cliente. \end{DoxyCompactList}\item 
+bool \hyperlink{class_cliente_a26825ee89b523a84613dd37ec58589a5}{existe\+Habitacao} (\hyperlink{class_habitacao}{Habitacao} $\ast$habitacao)
+\begin{DoxyCompactList}\small\item\em Verifica se uma dada habitação existe nas habitações do cliente. \end{DoxyCompactList}\item 
 void \hyperlink{class_cliente_a7fafc50727fce6fef1d06e231ed87f3a}{adiciona\+Habitacao} (\hyperlink{class_habitacao}{Habitacao} $\ast$habitacao)
 \begin{DoxyCompactList}\small\item\em Torna o cliente proprietário de uma dada habitação. \end{DoxyCompactList}\item 
 int \hyperlink{class_cliente_a800f49dc0761b67a61e563ca9a1478a7}{get\+BI} () const 
@@ -59,6 +61,25 @@ Torna o cliente proprietário de uma dada habitação.
 {\em habitacao} & -\/ habitação que se pretende adicionar. \\
 \hline
 \end{DoxyParams}
+\index{Cliente@{Cliente}!existe\+Habitacao@{existe\+Habitacao}}
+\index{existe\+Habitacao@{existe\+Habitacao}!Cliente@{Cliente}}
+\subsubsection[{existe\+Habitacao(\+Habitacao $\ast$habitacao)}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::existe\+Habitacao (
+\begin{DoxyParamCaption}
+\item[{{\bf Habitacao} $\ast$}]{habitacao}
+\end{DoxyParamCaption}
+)}\hypertarget{class_cliente_a26825ee89b523a84613dd37ec58589a5}{}\label{class_cliente_a26825ee89b523a84613dd37ec58589a5}
+
+
+Verifica se uma dada habitação existe nas habitações do cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em habitacao} & -\/ habitação que se pretende procurar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdade se a habitação pertence às habitações do cliente e falso caso contrário. 
+\end{DoxyReturn}
 \index{Cliente@{Cliente}!get\+BI@{get\+BI}}
 \index{get\+BI@{get\+BI}!Cliente@{Cliente}}
 \subsubsection[{get\+B\+I() const }]{\setlength{\rightskip}{0pt plus 5cm}int Cliente\+::get\+BI (

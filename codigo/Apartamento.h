@@ -28,6 +28,16 @@ public:
 	 * @return Retorna o valor da base mensal de condomínio.
 	 */
 	float mensalidade() const;
+	/**
+	 * @brief Função para obter a tipologia.
+	 * @return Retorna a tipologia.
+	 */
+	int getTipologia() const;
+	/**
+	 * @brief Função para obter o piso.
+	 * @return Retorna o piso.
+	 */
+	int getPiso() const;
 };
 
 #endif /* SRC_APARTAMENTO_H_ */

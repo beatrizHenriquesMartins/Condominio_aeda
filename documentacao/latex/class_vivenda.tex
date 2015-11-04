@@ -12,7 +12,11 @@ Inheritance diagram for Vivenda\+:\begin{figure}[H]
 \hyperlink{class_vivenda_a55423f0f9af77c03237c80a07e9e7509}{Vivenda} (string morada, int area\+Habitacao, int area\+Exterior, bool tem\+Piscina)
 \begin{DoxyCompactList}\small\item\em Função que cria uma vivenda. \end{DoxyCompactList}\item 
 float \hyperlink{class_vivenda_ad542e2b2f31da8c24b706211efc880d8}{mensalidade} () const 
-\begin{DoxyCompactList}\small\item\em Função que calcula o valor da base mensal de condomínio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função que calcula o valor da base mensal de condomínio. \end{DoxyCompactList}\item 
+int \hyperlink{class_vivenda_a28bc8d025d1fd0da9a49dc73d34165ef}{get\+Area\+Exterior} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter a área exterior. \end{DoxyCompactList}\item 
+bool \hyperlink{class_vivenda_aa65508502441fffa1efa69e8708ecc85}{get\+Tem\+Piscina} () const 
+\begin{DoxyCompactList}\small\item\em Função para verificar se a vivenda tem piscina. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -44,6 +48,34 @@ Função que cria uma vivenda.
 
 
 \subsection{Member Function Documentation}
+\index{Vivenda@{Vivenda}!get\+Area\+Exterior@{get\+Area\+Exterior}}
+\index{get\+Area\+Exterior@{get\+Area\+Exterior}!Vivenda@{Vivenda}}
+\subsubsection[{get\+Area\+Exterior() const }]{\setlength{\rightskip}{0pt plus 5cm}int Vivenda\+::get\+Area\+Exterior (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_vivenda_a28bc8d025d1fd0da9a49dc73d34165ef}{}\label{class_vivenda_a28bc8d025d1fd0da9a49dc73d34165ef}
+
+
+Função para obter a área exterior. 
+
+\begin{DoxyReturn}{Returns}
+Retorna a área exterior. 
+\end{DoxyReturn}
+\index{Vivenda@{Vivenda}!get\+Tem\+Piscina@{get\+Tem\+Piscina}}
+\index{get\+Tem\+Piscina@{get\+Tem\+Piscina}!Vivenda@{Vivenda}}
+\subsubsection[{get\+Tem\+Piscina() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Vivenda\+::get\+Tem\+Piscina (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_vivenda_aa65508502441fffa1efa69e8708ecc85}{}\label{class_vivenda_aa65508502441fffa1efa69e8708ecc85}
+
+
+Função para verificar se a vivenda tem piscina. 
+
+\begin{DoxyReturn}{Returns}
+Retorna verdade se a vivenda tem piscina e falso caso contrário. 
+\end{DoxyReturn}
 \index{Vivenda@{Vivenda}!mensalidade@{mensalidade}}
 \index{mensalidade@{mensalidade}!Vivenda@{Vivenda}}
 \subsubsection[{mensalidade() const }]{\setlength{\rightskip}{0pt plus 5cm}float Vivenda\+::mensalidade (

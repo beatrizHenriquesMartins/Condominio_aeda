@@ -30,6 +30,16 @@ public:
 	 * @return Retorna o valor da base mensal de condomínio.
 	 */
 	float mensalidade() const;
+	/**
+	 * @brief Função para obter a área exterior.
+	 * @return Retorna a área exterior.
+	 */
+	int getAreaExterior() const;
+	/**
+	 * @brief Função para verificar se a vivenda tem piscina.
+	 * @return Retorna verdade se a vivenda tem piscina e falso caso contrário.
+	 */
+	bool getTemPiscina() const;
 };
 
 #endif /* SRC_VIVENDA_H_ */

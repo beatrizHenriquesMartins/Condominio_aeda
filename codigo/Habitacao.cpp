@@ -20,6 +20,10 @@ string Habitacao::getMorada() const {
 	return morada;
 }
 
+int Habitacao::getAreaHabitacao() const {
+	return areaHabitacao;
+}
+
 bool Habitacao::operator ==(const Habitacao & hab) {
 	return this->morada == hab.morada;
 }

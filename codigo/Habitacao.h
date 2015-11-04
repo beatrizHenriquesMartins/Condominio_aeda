@@ -37,6 +37,11 @@ public:
 	 */
 	string getMorada() const;
 	/**
+	 * @brief Função para obter a area habitacional.
+	 * @return Retorna a area habitacional.
+	 */
+	int getAreaHabitacao() const;
+	/**
 	 * @brief Operador para verificar se duas habitações são a mesma.
 	 * @param hab - habitação externa com a qual vai ser comparada a habitação.
 	 * @return Retorna verdade caso as habitações sejam a mesma e falso caso contrário.

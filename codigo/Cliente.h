@@ -30,6 +30,12 @@ public:
 	 */
 	vector<Habitacao *> getHabitacoes() const;
 	/**
+	 * @brief Verifica se uma dada habitação existe nas habitações do cliente.
+	 * @param habitacao - habitação que se pretende procurar.
+	 * @return Retorna verdade se a habitação pertence às habitações do cliente e falso caso contrário.
+	 */
+	bool existeHabitacao(Habitacao *habitacao);
+	/**
 	 * @brief Torna o cliente proprietário de uma dada habitação.
 	 * @param habitacao - habitação que se pretende adicionar.
 	 */

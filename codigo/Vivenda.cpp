@@ -15,3 +15,11 @@ Vivenda::Vivenda(string morada, int areaHabitacao, int areaExterior, bool temPis
 float Vivenda::mensalidade() const {
 	return Habitacao::mensalidade() + 0.1 * areaExterior + 10 * temPiscina;
 }
+
+int Vivenda::getAreaExterior() const {
+	return areaExterior;
+}
+
+bool Vivenda::getTemPiscina() const {
+	return temPiscina;
+}

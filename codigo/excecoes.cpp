@@ -102,3 +102,13 @@ HabitacaoInexistente::HabitacaoInexistente(string m) : morada(m) {
 string HabitacaoInexistente::getMorada() const {
 	return morada;
 }
+
+// --- HABITACAO EXISTENTE ---
+
+HabitacaoExistente::HabitacaoExistente(string m) : morada(m) {
+
+}
+
+string HabitacaoExistente::getMorada() const {
+	return morada;
+}

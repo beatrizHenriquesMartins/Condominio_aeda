@@ -17,9 +17,20 @@ vector<Habitacao *> Cliente::getHabitacoes() const {
 	return habitacoes;
 }
 
+// Sequential Search alterado
+
+bool Cliente::existeHabitacao(Habitacao *habitacao) {
+	for (unsigned int i = 0; i < habitacoes.size(); i++)
+		if (*habitacoes[i] == *habitacao)
+			return true;// encontrou
+	return false; // não encontrou
+}
+
 void Cliente::adicionaHabitacao(Habitacao * habitacao) {
-	// Melhorar! verificar se já existe esta habitação no vector de habitações
-	habitacoes.push_back(habitacao);
+	if(!existeHabitacao(habitacao))
+		habitacoes.push_back(habitacao);
+	else
+		throw HabitacaoExistente(habitacao->getMorada());
 }
 
 int Cliente::getBI() const {

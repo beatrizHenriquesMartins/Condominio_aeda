@@ -356,6 +356,28 @@ void testa_removeEmpregado() {
 	}
 }
 
+void testa_adicionaHabitacao() {
+	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, 1, 1);
+
+	vector<Habitacao *> habitacoes;
+
+	Cliente *cliente1 = new Cliente("Maria", 12345678, habitacoes);
+	Cliente *cliente2 = new Cliente("Manuel", 98765432, habitacoes);
+
+	// Verifica se é possível adicionar uma habitação
+	cliente1->adicionaHabitacao(a1);
+	cliente2->adicionaHabitacao(a1);
+
+	// Verifica se é possível adicionar uma habitação que já existe
+	ASSERT_THROWS(cliente1->adicionaHabitacao(a1), HabitacaoExistente);
+	try {
+		cliente1->adicionaHabitacao(a1);
+	}
+	catch(HabitacaoExistente &e) {
+		cout << "-> Apanhou exceção HabitacaoExistente. A habitação com morada \"" << e.getMorada() << "\" já existe neste cliente." << endl;
+	}
+}
+
 void runSuite() {
 	cute::suite s;
 	s.push_back(CUTE(testa_mensalidade));
@@ -365,6 +387,7 @@ void runSuite() {
 	s.push_back(CUTE(testa_fimDoServico));
 	s.push_back(CUTE(testa_adicionaCliente));
 	s.push_back(CUTE(testa_removeEmpregado));
+	s.push_back(CUTE(testa_adicionaHabitacao));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "Testes unitarios Condominio");
 }
