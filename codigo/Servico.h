@@ -114,4 +114,5 @@ public:
 	int procuraEmpregado(Empregado *empregado);
 };
 
+
 #endif /* SRC_SERVICO_H_ */
