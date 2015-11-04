@@ -95,12 +95,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a73d20c28b4b08007af711d30626b38bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#a73d20c28b4b08007af711d30626b38bb">Condominio</a> (string nome, int nif, vector&lt; <a class="el" href="class_cliente.html">Cliente</a> * &gt; clientes, <a class="el" href="class_servico.html">Servico</a> *servico)</td></tr>
 <tr class="memdesc:a73d20c28b4b08007af711d30626b38bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que cria um condominio.  <a href="#a73d20c28b4b08007af711d30626b38bb">More...</a><br /></td></tr>
 <tr class="separator:a73d20c28b4b08007af711d30626b38bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac042d33289613d0ea997bddf42353909"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#ac042d33289613d0ea997bddf42353909">existeCliente</a> (<a class="el" href="class_cliente.html">Cliente</a> *cliente)</td></tr>
-<tr class="memdesc:ac042d33289613d0ea997bddf42353909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um dado cliente pertence ao condomínio.  <a href="#ac042d33289613d0ea997bddf42353909">More...</a><br /></td></tr>
-<tr class="separator:ac042d33289613d0ea997bddf42353909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08e2bf58344131ff357f2f7ed62a56fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#a08e2bf58344131ff357f2f7ed62a56fb">existeCliente</a> (<a class="el" href="class_cliente.html">Cliente</a> *cliente)</td></tr>
+<tr class="memdesc:a08e2bf58344131ff357f2f7ed62a56fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um dado cliente pertence ao condomínio.  <a href="#a08e2bf58344131ff357f2f7ed62a56fb">More...</a><br /></td></tr>
+<tr class="separator:a08e2bf58344131ff357f2f7ed62a56fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae27a8bd9f2e1ad20b18dd34b4bd997d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#ae27a8bd9f2e1ad20b18dd34b4bd997d6">adicionaCliente</a> (<a class="el" href="class_cliente.html">Cliente</a> *cliente)</td></tr>
 <tr class="memdesc:ae27a8bd9f2e1ad20b18dd34b4bd997d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um cliente aos clientes do condomínio.  <a href="#ae27a8bd9f2e1ad20b18dd34b4bd997d6">More...</a><br /></td></tr>
 <tr class="separator:ae27a8bd9f2e1ad20b18dd34b4bd997d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62185f435dd9c3538a795aa7908beac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#ac62185f435dd9c3538a795aa7908beac">removeCliente</a> (<a class="el" href="class_cliente.html">Cliente</a> *cliente)</td></tr>
+<tr class="memdesc:ac62185f435dd9c3538a795aa7908beac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um dado cliente dos clientes do condomínio.  <a href="#ac62185f435dd9c3538a795aa7908beac">More...</a><br /></td></tr>
+<tr class="separator:ac62185f435dd9c3538a795aa7908beac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a9100e8a8a48847785f4c4b108ab8db"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_cliente.html">Cliente</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#a6a9100e8a8a48847785f4c4b108ab8db">getClientes</a> () const </td></tr>
 <tr class="memdesc:a6a9100e8a8a48847785f4c4b108ab8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para obter os clientes do condomínio.  <a href="#a6a9100e8a8a48847785f4c4b108ab8db">More...</a><br /></td></tr>
 <tr class="separator:a6a9100e8a8a48847785f4c4b108ab8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,12 +197,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a class="anchor" id="ac042d33289613d0ea997bddf42353909"></a>
+<a class="anchor" id="a08e2bf58344131ff357f2f7ed62a56fb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Condominio::existeCliente </td>
+          <td class="memname">int Condominio::existeCliente </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_cliente.html">Cliente</a> *&#160;</td>
           <td class="paramname"><em>cliente</em></td><td>)</td>
@@ -215,7 +218,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Retorna verdade se o cliente pertence ao condomínio e falso caso contrário. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a posição do cliente que pertence ao condomínio ou -1 caso o cliente não exista. </dd></dl>
 
 </div>
 </div>
@@ -284,6 +287,31 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Retorna o valor a pagar da base mensal de condomínio daquela habitação e -1 caso a habitação não exista. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac62185f435dd9c3538a795aa7908beac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Condominio::removeCliente </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_cliente.html">Cliente</a> *&#160;</td>
+          <td class="paramname"><em>cliente</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um dado cliente dos clientes do condomínio. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cliente</td><td>- cliente que se quer remover dos clientes do condomínio. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna 0 em caso de sucesso. </dd></dl>
 
 </div>
 </div>

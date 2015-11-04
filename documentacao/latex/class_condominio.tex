@@ -5,10 +5,12 @@
 \item 
 \hyperlink{class_condominio_a73d20c28b4b08007af711d30626b38bb}{Condominio} (string nome, int nif, vector$<$ \hyperlink{class_cliente}{Cliente} $\ast$ $>$ clientes, \hyperlink{class_servico}{Servico} $\ast$servico)
 \begin{DoxyCompactList}\small\item\em Função que cria um condominio. \end{DoxyCompactList}\item 
-bool \hyperlink{class_condominio_ac042d33289613d0ea997bddf42353909}{existe\+Cliente} (\hyperlink{class_cliente}{Cliente} $\ast$cliente)
+int \hyperlink{class_condominio_a08e2bf58344131ff357f2f7ed62a56fb}{existe\+Cliente} (\hyperlink{class_cliente}{Cliente} $\ast$cliente)
 \begin{DoxyCompactList}\small\item\em Verifica se um dado cliente pertence ao condomínio. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_ae27a8bd9f2e1ad20b18dd34b4bd997d6}{adiciona\+Cliente} (\hyperlink{class_cliente}{Cliente} $\ast$cliente)
 \begin{DoxyCompactList}\small\item\em Adiciona um cliente aos clientes do condomínio. \end{DoxyCompactList}\item 
+int \hyperlink{class_condominio_ac62185f435dd9c3538a795aa7908beac}{remove\+Cliente} (\hyperlink{class_cliente}{Cliente} $\ast$cliente)
+\begin{DoxyCompactList}\small\item\em Remove um dado cliente dos clientes do condomínio. \end{DoxyCompactList}\item 
 vector$<$ \hyperlink{class_cliente}{Cliente} $\ast$ $>$ \hyperlink{class_condominio_a6a9100e8a8a48847785f4c4b108ab8db}{get\+Clientes} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter os clientes do condomínio. \end{DoxyCompactList}\item 
 float \hyperlink{class_condominio_a16747ea7d4e1b442b1985725f5a9aeab}{pagar\+Mensalidade} (\hyperlink{class_habitacao}{Habitacao} $\ast$habitacao) const 
@@ -72,11 +74,11 @@ Retorna 0 em caso de sucesso.
 \end{DoxyReturn}
 \index{Condominio@{Condominio}!existe\+Cliente@{existe\+Cliente}}
 \index{existe\+Cliente@{existe\+Cliente}!Condominio@{Condominio}}
-\subsubsection[{existe\+Cliente(\+Cliente $\ast$cliente)}]{\setlength{\rightskip}{0pt plus 5cm}bool Condominio\+::existe\+Cliente (
+\subsubsection[{existe\+Cliente(\+Cliente $\ast$cliente)}]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::existe\+Cliente (
 \begin{DoxyParamCaption}
 \item[{{\bf Cliente} $\ast$}]{cliente}
 \end{DoxyParamCaption}
-)}\hypertarget{class_condominio_ac042d33289613d0ea997bddf42353909}{}\label{class_condominio_ac042d33289613d0ea997bddf42353909}
+)}\hypertarget{class_condominio_a08e2bf58344131ff357f2f7ed62a56fb}{}\label{class_condominio_a08e2bf58344131ff357f2f7ed62a56fb}
 
 
 Verifica se um dado cliente pertence ao condomínio. 
@@ -87,7 +89,7 @@ Verifica se um dado cliente pertence ao condomínio.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Retorna verdade se o cliente pertence ao condomínio e falso caso contrário. 
+Retorna a posição do cliente que pertence ao condomínio ou -\/1 caso o cliente não exista. 
 \end{DoxyReturn}
 \index{Condominio@{Condominio}!fim\+Do\+Servico@{fim\+Do\+Servico}}
 \index{fim\+Do\+Servico@{fim\+Do\+Servico}!Condominio@{Condominio}}
@@ -140,6 +142,25 @@ Função para efetuar o pagamento da base mensal de condomínio de uma habitaç�
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Retorna o valor a pagar da base mensal de condomínio daquela habitação e -\/1 caso a habitação não exista. 
+\end{DoxyReturn}
+\index{Condominio@{Condominio}!remove\+Cliente@{remove\+Cliente}}
+\index{remove\+Cliente@{remove\+Cliente}!Condominio@{Condominio}}
+\subsubsection[{remove\+Cliente(\+Cliente $\ast$cliente)}]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::remove\+Cliente (
+\begin{DoxyParamCaption}
+\item[{{\bf Cliente} $\ast$}]{cliente}
+\end{DoxyParamCaption}
+)}\hypertarget{class_condominio_ac62185f435dd9c3538a795aa7908beac}{}\label{class_condominio_ac62185f435dd9c3538a795aa7908beac}
+
+
+Remove um dado cliente dos clientes do condomínio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cliente} & -\/ cliente que se quer remover dos clientes do condomínio. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso. 
 \end{DoxyReturn}
 \index{Condominio@{Condominio}!requisita\+Servico@{requisita\+Servico}}
 \index{requisita\+Servico@{requisita\+Servico}!Condominio@{Condominio}}
