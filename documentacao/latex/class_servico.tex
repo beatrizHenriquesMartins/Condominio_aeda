@@ -34,7 +34,9 @@ int \hyperlink{class_servico_a019fcbffefddc52608ee3e34a8479e85}{get\+Num\+Max\+L
 int \hyperlink{class_servico_a74c8980bc7ca92ce7cc6f9e41d73ca38}{get\+Num\+Max\+Canalizacao} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter o número máximo de canalizadores permitidos. \end{DoxyCompactList}\item 
 int \hyperlink{class_servico_a34c593b378ec48353f86e807644fa97e}{get\+Num\+Max\+Pintura} () const 
-\begin{DoxyCompactList}\small\item\em Função para obter o número máximo de pintores permitidos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função para obter o número máximo de pintores permitidos. \end{DoxyCompactList}\item 
+int \hyperlink{class_servico_afe9dc57bcaa1f3ea20963d5e46b3c194}{procura\+Empregado} (\hyperlink{class_empregado}{Empregado} $\ast$empregado)
+\begin{DoxyCompactList}\small\item\em Procura um dado empregado nos empregados da empresa de serviços. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -266,6 +268,25 @@ Função para obter o número de pintores livres.
 
 \begin{DoxyReturn}{Returns}
 Retorna o número de pintores livres. 
+\end{DoxyReturn}
+\index{Servico@{Servico}!procura\+Empregado@{procura\+Empregado}}
+\index{procura\+Empregado@{procura\+Empregado}!Servico@{Servico}}
+\subsubsection[{procura\+Empregado(\+Empregado $\ast$empregado)}]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::procura\+Empregado (
+\begin{DoxyParamCaption}
+\item[{{\bf Empregado} $\ast$}]{empregado}
+\end{DoxyParamCaption}
+)}\hypertarget{class_servico_afe9dc57bcaa1f3ea20963d5e46b3c194}{}\label{class_servico_afe9dc57bcaa1f3ea20963d5e46b3c194}
+
+
+Procura um dado empregado nos empregados da empresa de serviços. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em empregado} & -\/ empregado que se pretende procurar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna a posição do empregado no vetor de empregados ou -\/1 caso não exista. 
 \end{DoxyReturn}
 \index{Servico@{Servico}!remove\+Empregado@{remove\+Empregado}}
 \index{remove\+Empregado@{remove\+Empregado}!Servico@{Servico}}

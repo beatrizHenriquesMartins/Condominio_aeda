@@ -33,3 +33,7 @@ bool Empregado::getLivre() const {
 void Empregado::setLivre(bool livre) {
 	this->livre = livre;
 }
+
+bool Empregado::operator ==(const Empregado &empregado) {
+	return (this->bi == empregado.getBI());
+}

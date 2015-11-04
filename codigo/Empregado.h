@@ -51,6 +51,12 @@ public:
 	 * @param livre - valor que indica se se quer alterar o empregado para livre ou para ocupado.
 	 */
 	void setLivre(bool livre);
+	/**
+	 * @brief Operador para verificar se dois empregados são o mesmo.
+	 * @param empregado - empregado externo com a qual vai ser comparado o empregado.
+	 * @return Retorna verdade caso os empregados sejam o mesmo e falso caso contrário.
+	 */
+	bool operator==(const Empregado &empregado);
 };
 
 #endif /* SRC_EMPREGADO_H_ */

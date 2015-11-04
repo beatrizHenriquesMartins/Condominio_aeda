@@ -72,14 +72,21 @@ int Servico::numEmpPinturaLivres() const {
 	return num;
 }
 
+// Sequential Search alterado
+int Servico::procuraEmpregado(Empregado *empregado) {
+	for (unsigned int i = 0; i < empregados.size(); i++)
+		if(*empregados[i] == *empregado)
+			return i;
+	return -1;
+}
+
 int Servico::adicionaEmpregado(Empregado * empregado) {
 
 	// Verifica se empregado já existe
-	for (unsigned int i = 0; i < empregados.size(); i++)
-		if (empregado->getBI() == empregados[i]->getBI())
-			throw EmpregadoExistente(empregado->getBI());
+	if(procuraEmpregado(empregado)!=-1)
+		throw EmpregadoExistente(empregado->getBI());
 
-	// Verifica se limite de empregados desse tipo foi atingido
+	// Verifica se o limite de empregados desse tipo foi atingido
 	if (empregado->getTipo() == "Limpeza") {
 
 		if (numEmpLimpeza() >= maxEmpLimpeza)
@@ -101,28 +108,30 @@ int Servico::adicionaEmpregado(Empregado * empregado) {
 
 	// Adiciona empregado
 	empregados.push_back(empregado);
-	servicosDisponiveis++;
+	incServicosDisponiveis();
 	return 0;
 }
 
 int Servico::removeEmpregado(Empregado *empregado) {
+	int id;
+
 	// Verificar se o vetor de empregados está vazio
 	if(empregados.size() == 0)
 		throw EmpresaSemEmpregados();
 
 	// Verificar se o empregado existe
-	for (unsigned int i = 0; i < empregados.size(); i++) {
-			if (empregado->getBI() == empregados[i]->getBI()) {
-				if(!empregados[i]->getLivre())
-					throw EmpregadoOcupado(empregado->getBI());
+	if((id = procuraEmpregado(empregado)) != -1) {
+		if(!empregados[id]->getLivre())
+			throw EmpregadoOcupado(empregado->getBI());
 
-				else {
-					decServicosDisponiveis();
-					empregados.erase(empregados.begin()+i);
-					return 0;
-				}
-			}
+		else {
+			decServicosDisponiveis();
+			empregados.erase(empregados.begin()+id);
+			return 0;
+		}
 	}
+
+	// Empregado não existe
 	throw EmpregadoInexistente(empregado->getBI());
 }
 

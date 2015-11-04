@@ -20,7 +20,9 @@ string \hyperlink{class_empregado_a31668a30674046ed45b1543de5948b39}{get\+Tipo} 
 bool \hyperlink{class_empregado_a79d9a4467c7c506f26f178fe94f3084d}{get\+Livre} () const 
 \begin{DoxyCompactList}\small\item\em Função para verificar se um empregado está livre. \end{DoxyCompactList}\item 
 void \hyperlink{class_empregado_a81997099011c547e71bc52c5e69532d9}{set\+Livre} (bool livre)
-\begin{DoxyCompactList}\small\item\em Função que altera o estado do empregado para livre ou ocupado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função que altera o estado do empregado para livre ou ocupado. \end{DoxyCompactList}\item 
+bool \hyperlink{class_empregado_a853fad9194cfb37648003e7b4acd431c}{operator==} (const \hyperlink{class_empregado}{Empregado} \&empregado)
+\begin{DoxyCompactList}\small\item\em Operador para verificar se dois empregados são o mesmo. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -105,6 +107,25 @@ Função para obter o tipo de empregado.
 
 \begin{DoxyReturn}{Returns}
 Retorna o tipo de empregado. 
+\end{DoxyReturn}
+\index{Empregado@{Empregado}!operator==@{operator==}}
+\index{operator==@{operator==}!Empregado@{Empregado}}
+\subsubsection[{operator==(const Empregado \&empregado)}]{\setlength{\rightskip}{0pt plus 5cm}bool Empregado\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Empregado} \&}]{empregado}
+\end{DoxyParamCaption}
+)}\hypertarget{class_empregado_a853fad9194cfb37648003e7b4acd431c}{}\label{class_empregado_a853fad9194cfb37648003e7b4acd431c}
+
+
+Operador para verificar se dois empregados são o mesmo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em empregado} & -\/ empregado externo com a qual vai ser comparado o empregado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdade caso os empregados sejam o mesmo e falso caso contrário. 
 \end{DoxyReturn}
 \index{Empregado@{Empregado}!set\+Livre@{set\+Livre}}
 \index{set\+Livre@{set\+Livre}!Empregado@{Empregado}}
