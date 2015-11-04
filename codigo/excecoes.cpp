@@ -57,6 +57,16 @@ int ClienteExistente::getBI() const {
 	return bi;
 }
 
+// --- CLIENTE INEXISTENTE ---
+
+ClienteInexistente::ClienteInexistente(int num_bi) : bi(num_bi) {
+
+}
+
+int ClienteInexistente::getBI() const {
+	return bi;
+}
+
 // --- EMPRESA SEM EMPREGADOS ---
 
 EmpresaSemEmpregados::EmpresaSemEmpregados() {

@@ -80,7 +80,7 @@ int Servico::procuraEmpregado(Empregado *empregado) {
 	return -1;
 }
 
-int Servico::adicionaEmpregado(Empregado * empregado) {
+int Servico::adicionaEmpregado(Empregado *empregado) {
 
 	// Verifica se empregado já existe
 	if(procuraEmpregado(empregado)!=-1)

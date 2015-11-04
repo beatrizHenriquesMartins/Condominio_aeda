@@ -60,6 +60,12 @@ public:
 	 */
 	int numEmpPinturaLivres() const;
 	/**
+	 * @brief Procura um dado empregado nos empregados da empresa de serviços.
+	 * @param empregado - empregado que se pretende procurar.
+	 * @return Retorna a posição do empregado no vetor de empregados ou -1 caso não exista.
+	 */
+	int procuraEmpregado(Empregado *empregado);
+	/**
 	 * @brief Adiciona um empregado aos empregados da empresa de serviços.
 	 * @param empregado - empregado que se quer adicionar aos empregados da empresa de serviços.
 	 * @return Retorna 0 em caso de sucesso.
@@ -106,12 +112,6 @@ public:
 	 * @return Retorna o número máximo de pintores permitidos.
 	 */
 	int getNumMaxPintura() const;
-	/**
-	 * @brief Procura um dado empregado nos empregados da empresa de serviços.
-	 * @param empregado - empregado que se pretende procurar.
-	 * @return Retorna a posição do empregado no vetor de empregados ou -1 caso não exista.
-	 */
-	int procuraEmpregado(Empregado *empregado);
 };
 
 

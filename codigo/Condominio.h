@@ -19,7 +19,7 @@ class Condominio {
 	string nome;
 	int nif;
 	vector<Cliente *> clientes;
-	Servico * servico;
+	Servico *servico;
 public:
 	/**
 	 * @brief Função que cria um condominio.
@@ -28,19 +28,25 @@ public:
 	 * @param clientes - clientes do condomínio.
 	 * @param serviço - empresa de serviços.
 	 */
-	Condominio(string nome, int nif, vector<Cliente *> clientes, Servico * servico);
+	Condominio(string nome, int nif, vector<Cliente *> clientes, Servico *servico);
 	/**
 	 * @brief Verifica se um dado cliente pertence ao condomínio.
 	 * @param cliente - cliente que se pretende procurar.
-	 * @return Retorna verdade se o cliente pertence ao condomínio e falso caso contrário.
+	 * @return Retorna a posição do cliente que pertence ao condomínio ou -1 caso o cliente não exista.
 	 */
-	bool existeCliente(Cliente * cliente);
+	int existeCliente(Cliente *cliente);
 	/**
 	 * @brief Adiciona um cliente aos clientes do condomínio.
 	 * @param cliente - cliente que se quer adicionar aos clientes do condomínio.
 	 * @return Retorna 0 em caso de sucesso.
 	 */
-	int adicionaCliente(Cliente * cliente);
+	int adicionaCliente(Cliente *cliente);
+	/**
+	 * @brief Remove um dado cliente dos clientes do condomínio.
+	 * @param cliente - cliente que se quer remover dos clientes do condomínio.
+	 * @return Retorna 0 em caso de sucesso.
+	 */
+	int removeCliente(Cliente *cliente);
 	/**
 	 * @brief Função para obter os clientes do condomínio.
 	 * @return Retorna os clientes do condomínio.
@@ -51,7 +57,7 @@ public:
 	 * @param habitacao - habitação da qual se quer efetuar o pagamento da base mensal de condomínio.
 	 * @return Retorna o valor a pagar da base mensal de condomínio daquela habitação e  -1 caso a habitação não exista.
 	 */
-	float pagarMensalidade(Habitacao * habitacao) const;
+	float pagarMensalidade(Habitacao *habitacao) const;
 	/**
 	 * @brief Requisita um empregado de um dado tipo.
 	 * @tipo - tipo do empregado pretendido.
@@ -68,7 +74,7 @@ public:
 	 * @param empregado - empregado que terminou o serviço.
 	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.
 	 */
-	int fimDoServico(Empregado * empregado);
+	int fimDoServico(Empregado *empregado);
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

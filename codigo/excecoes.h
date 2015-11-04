@@ -87,6 +87,21 @@ public:
 	int getBI() const;
 };
 
+class ClienteInexistente {
+	int bi;
+public:
+	/**
+	 * @brief Cria exceção quando se tenta adicionar um cliente que já existe nos clientes do condomínio.
+	 * @param num_bi - número do bilhete de identidade do cliente.
+	 */
+	ClienteInexistente(int num_bi);
+	/**
+	 * @brief Função para obter o número do bilhete de identidade do cliente.
+	 * @return Retorna o número do bilhete de identidade do cliente.
+	 */
+	int getBI() const;
+};
+
 class EmpresaSemEmpregados {
 public:
 	/**

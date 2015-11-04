@@ -412,6 +412,31 @@ void testa_removeHabitacao() {
 	ASSERT_EQUAL(0, cliente1->removeHabitacao(a1));
 }
 
+void testa_removeCliente() {
+	vector<Habitacao *> hab;
+	Cliente *c1 = new Cliente("Maria", 12345678, hab);
+	Cliente *c2 = new Cliente("Manuela", 12345678, hab);
+
+	vector<Cliente *> clientes;
+	vector<Empregado *> empregados;
+	Servico s1(empregados, 2, 2, 2);
+	Condominio *cond = new Condominio("Condo", 213453423, clientes, &s1);
+
+	// Verifica se é possível remover um cliente que não existe
+
+	ASSERT_THROWS(cond->removeCliente(c2), ClienteInexistente);
+	try {
+		cond->removeCliente(c2);
+	}
+	catch(ClienteInexistente &e) {
+		cout << "-> Apanhou exceção ClienteInexistente. O cliente  com BI " << e.getBI() << " não existe no condomínio." << endl;
+	}
+
+	// Verifica se é possível remover um cliente
+	ASSERT_EQUAL(0, cond->adicionaCliente(c1));
+
+}
+
 void runSuite() {
 	cute::suite s;
 	s.push_back(CUTE(testa_mensalidade));
@@ -423,6 +448,7 @@ void runSuite() {
 	s.push_back(CUTE(testa_removeEmpregado));
 	s.push_back(CUTE(testa_adicionaHabitacao));
 	s.push_back(CUTE(testa_removeHabitacao));
+	s.push_back(CUTE(testa_removeCliente));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "Testes unitarios Condominio");
 }

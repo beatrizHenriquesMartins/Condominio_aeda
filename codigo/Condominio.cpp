@@ -7,21 +7,21 @@
 
 #include "Condominio.h"
 
-Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes, Servico * servico) {
+Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes, Servico *servico) {
 	this->nome = nome;
 	this->nif = nif;
 	this->servico = servico;
 }
 
-bool Condominio::existeCliente(Cliente * cliente) {
+int Condominio::existeCliente(Cliente *cliente) {
 	for (unsigned int i = 0; i < clientes.size(); i++)
 		if (*clientes[i] == *cliente)
-			return true;// encontrou
-	return false; // não encontrou
+			return i;// encontrou
+	return -1; // não encontrou
 }
 
-int Condominio::adicionaCliente(Cliente * cliente) {
-	if(!existeCliente(cliente)) {
+int Condominio::adicionaCliente(Cliente *cliente) {
+	if(existeCliente(cliente) == -1) {
 		clientes.push_back(cliente);
 		return 0;
 	}
@@ -29,11 +29,22 @@ int Condominio::adicionaCliente(Cliente * cliente) {
 		throw ClienteExistente(cliente->getBI());
 }
 
+int Condominio::removeCliente(Cliente *cliente) {
+	int i;
+
+	if((i = existeCliente(cliente)) != -1){
+		clientes.erase(clientes.begin()+i);
+		return 0;
+	}
+	else
+		throw ClienteInexistente(cliente->getBI());
+}
+
 vector<Cliente *> Condominio::getClientes() const {
 	return clientes;
 }
 
-float Condominio::pagarMensalidade(Habitacao * habitacao) const {
+float Condominio::pagarMensalidade(Habitacao *habitacao) const {
 	vector<Cliente *>::const_iterator itb_cliente = clientes.begin();
 	vector<Cliente *>::const_iterator ite_cliente = clientes.end();
 
@@ -95,7 +106,7 @@ int Condominio::requisitaServico(string tipo) {
 	return 0;
 }
 
-int Condominio::fimDoServico(Empregado * empregado) {
+int Condominio::fimDoServico(Empregado *empregado) {
 	bool existe = false;
 	int ocupado = false;
 	for(unsigned int i = 0; i < servico->getEmpregados().size(); i++) {
