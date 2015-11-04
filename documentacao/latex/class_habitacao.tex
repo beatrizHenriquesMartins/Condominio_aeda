@@ -18,7 +18,9 @@ string \hyperlink{class_habitacao_a17ef78eef7746f92bd2814893bfafbab}{get\+Morada
 int \hyperlink{class_habitacao_a8b8dc61b41f3bda37f3e517fe63f877a}{get\+Area\+Habitacao} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter a area habitacional. \end{DoxyCompactList}\item 
 bool \hyperlink{class_habitacao_acd290b8d83f41d4667867d5dc353166e}{operator==} (const \hyperlink{class_habitacao}{Habitacao} \&hab)
-\begin{DoxyCompactList}\small\item\em Operador para verificar se duas habitações são a mesma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Operador para verificar se duas habitações são a mesma. \end{DoxyCompactList}\item 
+void \hyperlink{class_habitacao_a2a8c7343f36b0d9415aef14b09bca511}{adiciona\+Servico} (\hyperlink{class_empregado}{Empregado} $\ast$servico)
+\begin{DoxyCompactList}\small\item\em Adiciona um serviço ao histórico de serviços. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -44,6 +46,22 @@ Função que cria uma habitação.
 
 
 \subsection{Member Function Documentation}
+\index{Habitacao@{Habitacao}!adiciona\+Servico@{adiciona\+Servico}}
+\index{adiciona\+Servico@{adiciona\+Servico}!Habitacao@{Habitacao}}
+\subsubsection[{adiciona\+Servico(\+Empregado $\ast$servico)}]{\setlength{\rightskip}{0pt plus 5cm}void Habitacao\+::adiciona\+Servico (
+\begin{DoxyParamCaption}
+\item[{{\bf Empregado} $\ast$}]{servico}
+\end{DoxyParamCaption}
+)}\hypertarget{class_habitacao_a2a8c7343f36b0d9415aef14b09bca511}{}\label{class_habitacao_a2a8c7343f36b0d9415aef14b09bca511}
+
+
+Adiciona um serviço ao histórico de serviços. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em servico} & -\/ servico que foi requisitado. \\
+\hline
+\end{DoxyParams}
 \index{Habitacao@{Habitacao}!get\+Area\+Habitacao@{get\+Area\+Habitacao}}
 \index{get\+Area\+Habitacao@{get\+Area\+Habitacao}!Habitacao@{Habitacao}}
 \subsubsection[{get\+Area\+Habitacao() const }]{\setlength{\rightskip}{0pt plus 5cm}int Habitacao\+::get\+Area\+Habitacao (

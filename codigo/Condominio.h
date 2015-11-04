@@ -61,20 +61,28 @@ public:
 	/**
 	 * @brief Requisita um empregado de um dado tipo.
 	 * @tipo - tipo do empregado pretendido.
+	 * @return Retorna o Empregado que vai fazer o serviço.
 	 */
-	void requisitaEmpregado(string tipo);
+	Empregado * requisitaEmpregado(string tipo);
 	/**
 	 * @brief Requisita um serviço de um dado tipo.
 	 * @param tipo - o tipo de serviço pode ser Limpeza, Canalizacao ou Pintura.
+	 * @param habitacao - habitação para a qual é requisitado o serviço.
 	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.
 	 */
-	int requisitaServico(string tipo);
+	int requisitaServico(string tipo, Habitacao *habitacao);
 	/**
 	 * @brief Coloca um empregado livre quando acaba de prestar um serviço.
 	 * @param empregado - empregado que terminou o serviço.
 	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.
 	 */
 	int fimDoServico(Empregado *empregado);
+	/**
+	 * @brief Procura uma dada habitação.
+	 * @param habitacao - habitação que se pretende procurar.
+	 * @return Retorna o iterador para a posição da habitação procurada no vector de habitações do cliente.
+	 */
+	vector<Habitacao *>::iterator procuraHabitacao(Habitacao *habitacao);
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

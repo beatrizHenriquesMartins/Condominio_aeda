@@ -9,12 +9,15 @@
 #define SRC_HABITACAO_H_
 
 #include <iostream>
+#include <vector>
+#include "Empregado.h"
 
 using namespace std;
 
 class Habitacao {
 	string morada;
 	int areaHabitacao;
+	vector<Empregado *> servicos; // Histórico de serviços da habitação
 public:
 	/**
 	 * @brief Função que cria uma habitação.
@@ -47,6 +50,11 @@ public:
 	 * @return Retorna verdade caso as habitações sejam a mesma e falso caso contrário.
 	 */
 	bool operator==(const Habitacao & hab);
+	/**
+	 * @brief Adiciona um serviço ao histórico de serviços.
+	 * @param servico - servico que foi requisitado.
+	 */
+	void adicionaServico(Empregado *servico);
 };
 
 #endif /* SRC_HABITACAO_H_ */

@@ -15,13 +15,14 @@ vector$<$ \hyperlink{class_cliente}{Cliente} $\ast$ $>$ \hyperlink{class_condomi
 \begin{DoxyCompactList}\small\item\em Função para obter os clientes do condomínio. \end{DoxyCompactList}\item 
 float \hyperlink{class_condominio_a16747ea7d4e1b442b1985725f5a9aeab}{pagar\+Mensalidade} (\hyperlink{class_habitacao}{Habitacao} $\ast$habitacao) const 
 \begin{DoxyCompactList}\small\item\em Função para efetuar o pagamento da base mensal de condomínio de uma habitação. \end{DoxyCompactList}\item 
-void \hyperlink{class_condominio_aea1924bda939d39928ea1660c290e152}{requisita\+Empregado} (string tipo)\hypertarget{class_condominio_aea1924bda939d39928ea1660c290e152}{}\label{class_condominio_aea1924bda939d39928ea1660c290e152}
-
+\hyperlink{class_empregado}{Empregado} $\ast$ \hyperlink{class_condominio_a5eec0c5c3a1cb566332431939bcbcb56}{requisita\+Empregado} (string tipo)
 \begin{DoxyCompactList}\small\item\em Requisita um empregado de um dado tipo.  -\/ tipo do empregado pretendido. \end{DoxyCompactList}\item 
-int \hyperlink{class_condominio_ac80b64964b0336941a0fb70213745d3c}{requisita\+Servico} (string tipo)
+int \hyperlink{class_condominio_adb5c91a9114dbc1c0f3c8c3e9f835152}{requisita\+Servico} (string tipo, \hyperlink{class_habitacao}{Habitacao} $\ast$habitacao)
 \begin{DoxyCompactList}\small\item\em Requisita um serviço de um dado tipo. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_af2c2cdd83d43ea6641542efe01ff94b9}{fim\+Do\+Servico} (\hyperlink{class_empregado}{Empregado} $\ast$empregado)
-\begin{DoxyCompactList}\small\item\em Coloca um empregado livre quando acaba de prestar um serviço. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Coloca um empregado livre quando acaba de prestar um serviço. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{class_habitacao}{Habitacao} $\ast$ $>$\+::iterator \hyperlink{class_condominio_a19d0973b7485841e6b1be8a242367e9c}{procura\+Habitacao} (\hyperlink{class_habitacao}{Habitacao} $\ast$habitacao)
+\begin{DoxyCompactList}\small\item\em Procura uma dada habitação. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -143,6 +144,25 @@ Função para efetuar o pagamento da base mensal de condomínio de uma habitaç�
 \begin{DoxyReturn}{Returns}
 Retorna o valor a pagar da base mensal de condomínio daquela habitação e -\/1 caso a habitação não exista. 
 \end{DoxyReturn}
+\index{Condominio@{Condominio}!procura\+Habitacao@{procura\+Habitacao}}
+\index{procura\+Habitacao@{procura\+Habitacao}!Condominio@{Condominio}}
+\subsubsection[{procura\+Habitacao(\+Habitacao $\ast$habitacao)}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Habitacao} $\ast$ $>$\+::iterator Condominio\+::procura\+Habitacao (
+\begin{DoxyParamCaption}
+\item[{{\bf Habitacao} $\ast$}]{habitacao}
+\end{DoxyParamCaption}
+)}\hypertarget{class_condominio_a19d0973b7485841e6b1be8a242367e9c}{}\label{class_condominio_a19d0973b7485841e6b1be8a242367e9c}
+
+
+Procura uma dada habitação. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em habitacao} & -\/ habitação que se pretende procurar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o iterador para a posição da habitação procurada no vector de habitações do cliente. 
+\end{DoxyReturn}
 \index{Condominio@{Condominio}!remove\+Cliente@{remove\+Cliente}}
 \index{remove\+Cliente@{remove\+Cliente}!Condominio@{Condominio}}
 \subsubsection[{remove\+Cliente(\+Cliente $\ast$cliente)}]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::remove\+Cliente (
@@ -162,13 +182,28 @@ Remove um dado cliente dos clientes do condomínio.
 \begin{DoxyReturn}{Returns}
 Retorna 0 em caso de sucesso. 
 \end{DoxyReturn}
-\index{Condominio@{Condominio}!requisita\+Servico@{requisita\+Servico}}
-\index{requisita\+Servico@{requisita\+Servico}!Condominio@{Condominio}}
-\subsubsection[{requisita\+Servico(string tipo)}]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::requisita\+Servico (
+\index{Condominio@{Condominio}!requisita\+Empregado@{requisita\+Empregado}}
+\index{requisita\+Empregado@{requisita\+Empregado}!Condominio@{Condominio}}
+\subsubsection[{requisita\+Empregado(string tipo)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Empregado} $\ast$ Condominio\+::requisita\+Empregado (
 \begin{DoxyParamCaption}
 \item[{string}]{tipo}
 \end{DoxyParamCaption}
-)}\hypertarget{class_condominio_ac80b64964b0336941a0fb70213745d3c}{}\label{class_condominio_ac80b64964b0336941a0fb70213745d3c}
+)}\hypertarget{class_condominio_a5eec0c5c3a1cb566332431939bcbcb56}{}\label{class_condominio_a5eec0c5c3a1cb566332431939bcbcb56}
+
+
+Requisita um empregado de um dado tipo.  -\/ tipo do empregado pretendido. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o \hyperlink{class_empregado}{Empregado} que vai fazer o serviço. 
+\end{DoxyReturn}
+\index{Condominio@{Condominio}!requisita\+Servico@{requisita\+Servico}}
+\index{requisita\+Servico@{requisita\+Servico}!Condominio@{Condominio}}
+\subsubsection[{requisita\+Servico(string tipo, Habitacao $\ast$habitacao)}]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::requisita\+Servico (
+\begin{DoxyParamCaption}
+\item[{string}]{tipo, }
+\item[{{\bf Habitacao} $\ast$}]{habitacao}
+\end{DoxyParamCaption}
+)}\hypertarget{class_condominio_adb5c91a9114dbc1c0f3c8c3e9f835152}{}\label{class_condominio_adb5c91a9114dbc1c0f3c8c3e9f835152}
 
 
 Requisita um serviço de um dado tipo. 
@@ -176,6 +211,8 @@ Requisita um serviço de um dado tipo.
 
 \begin{DoxyParams}{Parameters}
 {\em tipo} & -\/ o tipo de serviço pode ser \hyperlink{class_limpeza}{Limpeza}, \hyperlink{class_canalizacao}{Canalizacao} ou \hyperlink{class_pintura}{Pintura}. \\
+\hline
+{\em habitacao} & -\/ habitação para a qual é requisitado o serviço. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

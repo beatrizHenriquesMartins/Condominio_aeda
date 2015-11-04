@@ -27,3 +27,7 @@ int Habitacao::getAreaHabitacao() const {
 bool Habitacao::operator ==(const Habitacao & hab) {
 	return this->morada == hab.morada;
 }
+
+void Habitacao::adicionaServico(Empregado *servico) {
+	servicos.push_back(servico);
+}
