@@ -19,18 +19,31 @@ vector<Habitacao *> Cliente::getHabitacoes() const {
 
 // Sequential Search alterado
 
-bool Cliente::existeHabitacao(Habitacao *habitacao) {
+int Cliente::existeHabitacao(Habitacao *habitacao) {
 	for (unsigned int i = 0; i < habitacoes.size(); i++)
 		if (*habitacoes[i] == *habitacao)
-			return true;// encontrou
-	return false; // não encontrou
+			return i;// encontrou
+	return -1; // não encontrou
 }
 
-void Cliente::adicionaHabitacao(Habitacao * habitacao) {
-	if(!existeHabitacao(habitacao))
+int Cliente::adicionaHabitacao(Habitacao *habitacao) {
+	if(existeHabitacao(habitacao) == -1) {
 		habitacoes.push_back(habitacao);
+		return 0;
+	}
 	else
 		throw HabitacaoExistente(habitacao->getMorada());
+}
+
+int Cliente::removeHabitacao(Habitacao *habitacao) {
+	int i;
+
+	if((i = existeHabitacao(habitacao)) != -1){
+		habitacoes.erase(habitacoes.begin()+i);
+		return 0;
+	}
+	else
+		throw HabitacaoInexistente(habitacao->getMorada());
 }
 
 int Cliente::getBI() const {

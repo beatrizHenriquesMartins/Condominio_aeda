@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 #include "Habitacao.h"
+#include "excecoes.h"
 
 class Cliente {
 	string nome;
@@ -32,14 +33,21 @@ public:
 	/**
 	 * @brief Verifica se uma dada habitação existe nas habitações do cliente.
 	 * @param habitacao - habitação que se pretende procurar.
-	 * @return Retorna verdade se a habitação pertence às habitações do cliente e falso caso contrário.
+	 * @return Retorna a posição da habitação que pertence às habitações do cliente ou -1 caso não exista.
 	 */
-	bool existeHabitacao(Habitacao *habitacao);
+	int existeHabitacao(Habitacao *habitacao);
 	/**
 	 * @brief Torna o cliente proprietário de uma dada habitação.
 	 * @param habitacao - habitação que se pretende adicionar.
+	 * @return Retorna 0 em caso de sucesso.
 	 */
-	void adicionaHabitacao(Habitacao * habitacao);
+	int adicionaHabitacao(Habitacao *habitacao);
+	/**
+	 * @brief Remove uma habitação das habitações do cliente.
+	 * @param habitacao - habitação que se pretende remover.
+	 * @return Retorna 0 em caso de sucesso.
+	 */
+	int removeHabitacao(Habitacao *habitacao);
 	/**
 	 *@brief Função para obter o número do bilhete de identidade do cliente.
 	 *@return Retorna o número do bilhete de identidade do cliente.

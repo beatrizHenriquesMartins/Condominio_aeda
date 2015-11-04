@@ -366,8 +366,8 @@ void testa_adicionaHabitacao() {
 	Cliente *cliente2 = new Cliente("Manuel", 98765432, habitacoes);
 
 	// Verifica se é possível adicionar uma habitação
-	cliente1->adicionaHabitacao(a1);
-	cliente2->adicionaHabitacao(a1);
+	ASSERT_EQUAL(0, cliente1->adicionaHabitacao(a1));
+	ASSERT_EQUAL(0, cliente2->adicionaHabitacao(a1));
 
 	// Verifica se é possível adicionar uma habitação que já existe
 	ASSERT_THROWS(cliente1->adicionaHabitacao(a1), HabitacaoExistente);
@@ -377,6 +377,39 @@ void testa_adicionaHabitacao() {
 	catch(HabitacaoExistente &e) {
 		cout << "-> Apanhou exceção HabitacaoExistente. A habitação com morada \"" << e.getMorada() << "\" já existe neste cliente." << endl;
 	}
+}
+
+void testa_removeHabitacao() {
+	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, 1, 1);
+	Habitacao *v1 = new Vivenda("Rua da constituicao", 100, 200, true);
+
+	vector<Habitacao *> habitacoes;
+
+	Cliente *cliente1 = new Cliente("Maria", 12345678, habitacoes);
+	Cliente *cliente2 = new Cliente("Manuel", 98765432, habitacoes);
+
+	cliente1->adicionaHabitacao(a1);
+
+	// Verifica se é possível remover uma habitação num cliente sem habitações
+	ASSERT_THROWS(cliente2->removeHabitacao(a1), HabitacaoInexistente);
+	try {
+		cliente2->removeHabitacao(a1);
+	}
+	catch(HabitacaoInexistente &e) {
+		cout << "-> Apanhou exceção HabitacaoInexistente. A habitação com morada \"" << e.getMorada() << "\" não existe neste cliente." << endl;
+	}
+
+	// Verifica se é possível remover uma habitação inexistente
+	ASSERT_THROWS(cliente1->removeHabitacao(v1), HabitacaoInexistente);
+	try {
+		cliente1->removeHabitacao(v1);
+	}
+	catch(HabitacaoInexistente &e) {
+		cout << "-> Apanhou exceção HabitacaoInexistente. A habitação com morada \"" << e.getMorada() << "\" não existe neste cliente." << endl;
+	}
+
+	// Verifica se é possível remover uma habitação de um cliente
+	ASSERT_EQUAL(0, cliente1->removeHabitacao(a1));
 }
 
 void runSuite() {
@@ -389,12 +422,13 @@ void runSuite() {
 	s.push_back(CUTE(testa_adicionaCliente));
 	s.push_back(CUTE(testa_removeEmpregado));
 	s.push_back(CUTE(testa_adicionaHabitacao));
+	s.push_back(CUTE(testa_removeHabitacao));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "Testes unitarios Condominio");
 }
 
 int main() {
 	runSuite();
-    menu();
+	menu();
 	return 0;
 }
