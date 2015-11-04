@@ -44,6 +44,12 @@ public:
 	 *@return Retorna o nome do cliente.
 	 */
 	string getNome() const;
+	/**
+	 * @brief Operador para verificar se dois clientes são o mesmo.
+	 * @param cliente - cliente externo com a qual vai ser comparado o cliente.
+	 * @return Retorna verdade caso os clientes sejam o mesmo e falso caso contrário.
+	 */
+	bool operator==(const Cliente &cliente);
 };
 
 #endif /* SRC_CLIENTE_H_ */

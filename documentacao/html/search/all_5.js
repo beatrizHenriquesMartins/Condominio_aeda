@@ -5,7 +5,7 @@ var searchData=
   ['getempregados',['getEmpregados',['../class_servico.html#a9d7003d0cc174b05ee16b329d4c96b44',1,'Servico']]],
   ['gethabitacoes',['getHabitacoes',['../class_cliente.html#a6625c1bb73828bcaa067f41b7590408f',1,'Cliente']]],
   ['getlivre',['getLivre',['../class_empregado.html#a79d9a4467c7c506f26f178fe94f3084d',1,'Empregado']]],
-  ['getmorada',['getMorada',['../class_habitacao.html#a17ef78eef7746f92bd2814893bfafbab',1,'Habitacao']]],
+  ['getmorada',['getMorada',['../class_habitacao_inexistente.html#a9a264d65436e97bfbca1e401d410de80',1,'HabitacaoInexistente::getMorada()'],['../class_habitacao.html#a17ef78eef7746f92bd2814893bfafbab',1,'Habitacao::getMorada()']]],
   ['getnome',['getNome',['../class_cliente.html#a0325de899469e2fed48ffda2b5b291cf',1,'Cliente::getNome()'],['../class_empregado.html#a3b7e1e37085dc3233372303dc5fad063',1,'Empregado::getNome()']]],
   ['getnummaxcanalizacao',['getNumMaxCanalizacao',['../class_servico.html#a74c8980bc7ca92ce7cc6f9e41d73ca38',1,'Servico']]],
   ['getnummaxlimpeza',['getNumMaxLimpeza',['../class_servico.html#a019fcbffefddc52608ee3e34a8479e85',1,'Servico']]],

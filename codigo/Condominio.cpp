@@ -15,7 +15,7 @@ Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes, Servico
 
 bool Condominio::existeCliente(Cliente * cliente) {
 	for (unsigned int i = 0; i < clientes.size(); i++)
-		if (clientes[i]->getBI() == cliente->getBI())
+		if (*clientes[i] == *cliente)
 			return true;// encontrou
 	return false; // não encontrou
 }
@@ -33,6 +33,8 @@ vector<Cliente *> Condominio::getClientes() const {
 	return clientes;
 }
 
+
+
 float Condominio::pagarMensalidade(Habitacao * habitacao) const {
 	vector<Cliente *>::const_iterator itb_cliente = clientes.begin();
 	vector<Cliente *>::const_iterator ite_cliente = clientes.end();
@@ -41,13 +43,12 @@ float Condominio::pagarMensalidade(Habitacao * habitacao) const {
 		vector<Habitacao *>::const_iterator itb_hab = (*itb_cliente)->getHabitacoes().begin();
 		vector<Habitacao *>::const_iterator ite_hab = (*itb_cliente)->getHabitacoes().end();
 
-		for(; itb_hab != ite_hab; itb_hab++) {
-			if ((*itb_hab) == habitacao)
-				return (*itb_hab)->mensalidade();
-		}
+		itb_hab = find(itb_hab, ite_hab, habitacao);
+		if(itb_hab!=ite_hab)
+			return (*itb_hab)->mensalidade();
 	}
 
-	return -1;
+	throw HabitacaoInexistente(habitacao->getMorada());
 }
 
 int Condominio::requisitaServico(string tipo) {

@@ -29,3 +29,7 @@ int Cliente::getBI() const {
 string Cliente::getNome() const {
 	return nome;
 }
+
+bool Cliente::operator ==(const Cliente & cliente) {
+	return (this->bi == cliente.getBI());
+}

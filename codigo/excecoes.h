@@ -90,7 +90,7 @@ public:
 class EmpresaSemEmpregados {
 public:
 	/**
-	 * @brief Cria exceção quando se tenta remover um empregado de uma empresa de serviços que não tem empregados.
+	 * @brief Cria exceção quando a empresa de serviços não tem empregados.
 	 */
 	EmpresaSemEmpregados();
 };
@@ -123,6 +123,21 @@ public:
 	 * @return Retorna o número do bilhete de identidade do empregado.
 	 */
 	int getBI() const;
+};
+
+class HabitacaoInexistente {
+	string morada;
+public:
+	/**
+	 * @brief Cria exceção quando se procura uma habitação que não existe.
+	 * @param m - morada da habitação que foi procurada.
+	 */
+	HabitacaoInexistente(string m);
+	/**
+	 * @brief Função para obter a morada da habitação.
+	 * @return Retorna a morada da habitação.
+	 */
+	string getMorada() const;
 };
 
 #endif /* SRC_EXCECOES_H_ */

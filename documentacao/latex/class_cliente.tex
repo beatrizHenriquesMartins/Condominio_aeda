@@ -12,7 +12,9 @@ void \hyperlink{class_cliente_a7fafc50727fce6fef1d06e231ed87f3a}{adiciona\+Habit
 int \hyperlink{class_cliente_a800f49dc0761b67a61e563ca9a1478a7}{get\+BI} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter o número do bilhete de identidade do cliente. \end{DoxyCompactList}\item 
 string \hyperlink{class_cliente_a0325de899469e2fed48ffda2b5b291cf}{get\+Nome} () const 
-\begin{DoxyCompactList}\small\item\em Função para obter o nome do cliente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função para obter o nome do cliente. \end{DoxyCompactList}\item 
+bool \hyperlink{class_cliente_a1d84706fef989238713cf6efe3824696}{operator==} (const \hyperlink{class_cliente}{Cliente} \&cliente)
+\begin{DoxyCompactList}\small\item\em Operador para verificar se dois clientes são o mesmo. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -98,6 +100,25 @@ Função para obter o nome do cliente.
 
 \begin{DoxyReturn}{Returns}
 Retorna o nome do cliente. 
+\end{DoxyReturn}
+\index{Cliente@{Cliente}!operator==@{operator==}}
+\index{operator==@{operator==}!Cliente@{Cliente}}
+\subsubsection[{operator==(const Cliente \&cliente)}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Cliente} \&}]{cliente}
+\end{DoxyParamCaption}
+)}\hypertarget{class_cliente_a1d84706fef989238713cf6efe3824696}{}\label{class_cliente_a1d84706fef989238713cf6efe3824696}
+
+
+Operador para verificar se dois clientes são o mesmo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cliente} & -\/ cliente externo com a qual vai ser comparado o cliente. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdade caso os clientes sejam o mesmo e falso caso contrário. 
 \end{DoxyReturn}
 
 

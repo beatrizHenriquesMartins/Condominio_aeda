@@ -151,7 +151,10 @@ vector<Empregado *> Servico::getEmpregados() const {
 }
 
 int Servico::decServicosDisponiveis() {
-	// TODO: Se o número de empregados no vector empregados for zero lançar excepção!
+	// Não é possível decrementar quando o tamanho é zero porque não existe serviços disponíveis negativos
+	if(empregados.size() == 0)
+		throw EmpresaSemEmpregados();
+
 	if(servicosDisponiveis!=0) {
 		servicosDisponiveis--;
 		return 0;
@@ -161,7 +164,11 @@ int Servico::decServicosDisponiveis() {
 }
 
 int Servico::incServicosDisponiveis() {
-	// TODO: Se o número de empregados no vector empregados for zero lançar excepção!
+	// Não é possível incrementar quando o tamanho é zero porque ainda não existem empregados na empresa.
+	// O que garante que só incrementa os serviços disponíveis depois de adicionar um empregado à empresa de serviços.
+	if(empregados.size() == 0)
+			throw EmpresaSemEmpregados();
+
 	servicosDisponiveis++;
 	return 0;
 }

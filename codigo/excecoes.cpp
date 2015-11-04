@@ -82,3 +82,13 @@ EmpregadoInexistente::EmpregadoInexistente(int num_bi) : bi(num_bi) {
 int EmpregadoInexistente::getBI() const {
 	return bi;
 }
+
+// --- HABITACAO INEXISTENTE ---
+
+HabitacaoInexistente::HabitacaoInexistente(string m) : morada(m) {
+
+}
+
+string HabitacaoInexistente::getMorada() const {
+	return morada;
+}

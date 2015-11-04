@@ -46,7 +46,13 @@ void testa_pagarMensalidade() {
 	ASSERT_EQUAL_DELTA(100, c1->pagarMensalidade(v1), 0.001);
 
 	// Testa pagarMensalidade de uma Habitação que não existe
-	ASSERT_EQUAL(-1, c1->pagarMensalidade(v2));
+	ASSERT_THROWS(c1->pagarMensalidade(v2), HabitacaoInexistente);
+	try {
+		c1->pagarMensalidade(v2);
+	}
+	catch(HabitacaoInexistente &e) {
+		cout << "-> Apanhou exceção HabitacaoInexistente. A habitação com morada \"" << e.getMorada() << "\" não existe neste condomínio." << endl;
+	}
 }
 
 void testa_adicionaEmpregado() {
@@ -64,6 +70,15 @@ void testa_adicionaEmpregado() {
 	Empregado *e10 = new Pintura("Ricardo", 98762903, "Cozinha", true);
 
 	Servico *s1 = new Servico(empregados, 2, 2, 2);
+
+	// Verifica se é possível incrementar o número de empregados disponíveis quando a empresa não tem empregados
+	ASSERT_THROWS(s1->incServicosDisponiveis(), EmpresaSemEmpregados);
+	try {
+		s1->incServicosDisponiveis();
+	}
+	catch(EmpresaSemEmpregados &e) {
+		cout << "-> Apanhou exceção EmpresaSemEmpregados. A empresa ainda não tem empregados por isso não é possível incrementar o número de serviços disponíveis." << endl;
+	}
 
 	// Testa se consegue adicionar novos empregados
 	ASSERT_EQUAL(0, s1->adicionaEmpregado(e1));
@@ -282,6 +297,15 @@ void testa_removeEmpregado() {
 	Empregado *e3 = new Pintura("Jose", 109876543, "Pintura", true);
 	Empregado *e4 = new Limpeza("Manuel", 11223344, "Limpeza", true);
 	Empregado *e5 = new Canalizacao("Luis", 55667788, "Canalizacao", true);
+
+	// Verifica se é possível decrementar o número de serviços disponíveis quando a empresa ainda não tem empregados.
+	ASSERT_THROWS(s1->decServicosDisponiveis(), EmpresaSemEmpregados);
+	try {
+		s1->decServicosDisponiveis();
+	}
+	catch(EmpresaSemEmpregados &e) {
+		cout << "-> Apanhou exceção EmpresaSemEmpregados. A empresa ainda não tem empregados por isso não é possível decrementar o número de serviços disponíveis." << endl;
+	}
 
 	// Verifica se é possível remover um empregado de uma empresa de serviços sem empregados
 	ASSERT_THROWS(s1->removeEmpregado(e0), EmpresaSemEmpregados);
