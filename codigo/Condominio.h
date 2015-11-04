@@ -53,6 +53,11 @@ public:
 	 */
 	float pagarMensalidade(Habitacao * habitacao) const;
 	/**
+	 * @brief Requisita um empregado de um dado tipo.
+	 * @tipo - tipo do empregado pretendido.
+	 */
+	void requisitaEmpregado(string tipo);
+	/**
 	 * @brief Requisita um serviço de um dado tipo.
 	 * @param tipo - o tipo de serviço pode ser Limpeza, Canalizacao ou Pintura.
 	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.

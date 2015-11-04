@@ -110,6 +110,21 @@ public:
 	int getBI() const;
 };
 
+class EmpregadoLivre {
+	int bi;
+public:
+	/**
+	 * @brief Cria exceção quando se tenta finalizar um serviço de um empregado que está livre.
+	 * @param num_bi - número do bilhete de identidade do empregado.
+	 */
+	EmpregadoLivre(int num_bi);
+	/**
+	 * @brief Função para obter o número do bilhete de identidade do empregado.
+	 * @return Retorna o número do bilhete de identidade do empregado.
+	 */
+	int getBI() const;
+};
+
 class EmpregadoInexistente {
 	int bi;
 public:

@@ -222,6 +222,7 @@ void testa_fimDoServico() {
 	Empregado *e4 = new Limpeza("Manuel", 11223344, "Limpeza", false);
 	Empregado *e5 = new Canalizacao("Luis", 55667788, "Canalizacao", false);
 	Empregado *e6 = new Pintura("Jose", 90908080, "Pintura", false);
+	Empregado *e7 = new Pintura("Maria", 10927363, "Pintura", false);
 
 	Servico s1(empregados, 2, 2, 2);
 
@@ -255,8 +256,23 @@ void testa_fimDoServico() {
 	ASSERT_EQUAL(0, c1->fimDoServico(e5));
 	ASSERT_EQUAL(0, c1->fimDoServico(e6));
 
+	// Verifica se consegue colocar um empregado que não está nos empregados da empresa de serviços
+	ASSERT_THROWS(c1->fimDoServico(e7), EmpregadoInexistente);
+	try {
+		c1->fimDoServico(e7);
+	}
+	catch(EmpregadoInexistente &e) {
+		cout << "-> Apanhou exceção EmpregadoInexistente. Empregado com BI: " << e.getBI() << " não existe nesta empresa de serviços." << endl;
+	}
+
 	// Verifica se consegue colocar livre um empregado que já está livre
-	ASSERT_EQUAL(-1, c1->fimDoServico(e2));
+	ASSERT_THROWS(c1->fimDoServico(e2), EmpregadoLivre);
+	try {
+		c1->fimDoServico(e2);
+	}
+	catch(EmpregadoLivre &e) {
+		cout << "-> Apanhou exceção EmpregadoLivre. Empregado com BI: " << e.getBI() << " está livre." << endl;
+	}
 }
 
 void testa_adicionaCliente() {

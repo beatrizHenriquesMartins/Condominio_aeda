@@ -33,8 +33,6 @@ vector<Cliente *> Condominio::getClientes() const {
 	return clientes;
 }
 
-
-
 float Condominio::pagarMensalidade(Habitacao * habitacao) const {
 	vector<Cliente *>::const_iterator itb_cliente = clientes.begin();
 	vector<Cliente *>::const_iterator ite_cliente = clientes.end();
@@ -51,24 +49,27 @@ float Condominio::pagarMensalidade(Habitacao * habitacao) const {
 	throw HabitacaoInexistente(habitacao->getMorada());
 }
 
-int Condominio::requisitaServico(string tipo) {
+void Condominio::requisitaEmpregado(string tipo) {
 	vector<Empregado *> empregados = servico->getEmpregados();
 
+	for (unsigned int i = 0; i < empregados.size(); i++) {
+		if (empregados[i]->getTipo() == tipo && empregados[i]->getLivre()) {
+			empregados[i]->setLivre(false);
+			servico->decServicosDisponiveis();
+			break;
+		}
+	}
+}
+
+int Condominio::requisitaServico(string tipo) {
 	if (tipo == "Limpeza") {
 		// Não tem empregados de Limpeza disponíveis
 		if (servico->numEmpLimpezaLivres() == 0)
 			throw EmpregadosIndisponiveis(tipo);
 
 		// Pode requisitar o empregado
-		else {
-			for (unsigned int i = 0; i < empregados.size(); i++) {
-				if (empregados[i]->getTipo() == "Limpeza" && empregados[i]->getLivre()) {
-					empregados[i]->setLivre(false);
-					servico->decServicosDisponiveis();
-					break;
-				}
-			}
-		}
+		else
+			requisitaEmpregado(tipo);
 
 	} else if (tipo == "Canalizacao") {
 		// Não tem empregados de Canalizacao disponíveis
@@ -77,13 +78,8 @@ int Condominio::requisitaServico(string tipo) {
 
 		// Pode requisitar o empregado
 		else
-			for (unsigned int i = 0; i < empregados.size(); i++) {
-				if (empregados[i]->getTipo() == "Canalizacao" && empregados[i]->getLivre()) {
-					empregados[i]->setLivre(false);
-					servico->decServicosDisponiveis();
-					break;
-				}
-			}
+			requisitaEmpregado(tipo);
+
 	} else if (tipo == "Pintura") {
 		// Não tem empregados de Pintura disponíveis
 		if (servico->numEmpPinturaLivres() == 0)
@@ -91,13 +87,8 @@ int Condominio::requisitaServico(string tipo) {
 
 		// Pode requisitar o empregado
 		else
-			for (unsigned int i = 0; i < empregados.size(); i++) {
-				if (empregados[i]->getTipo() == "Pintura" && empregados[i]->getLivre()) {
-					empregados[i]->setLivre(false);
-					servico->decServicosDisponiveis();
-					break;
-				}
-			}
+			requisitaEmpregado(tipo);
+
 	} else
 		throw ServicoInvalido(tipo);
 
@@ -105,14 +96,24 @@ int Condominio::requisitaServico(string tipo) {
 }
 
 int Condominio::fimDoServico(Empregado * empregado) {
+	bool existe = false;
+	int ocupado = false;
 	for(unsigned int i = 0; i < servico->getEmpregados().size(); i++) {
 		// Empregado pertence a este Condominio e não estava livre
-		if(servico->getEmpregados()[i]->getBI() == empregado->getBI() && !empregado->getLivre()) {
-			servico->getEmpregados()[i]->setLivre(true);
-			servico->incServicosDisponiveis();
-			return 0;
+		if(*servico->getEmpregados()[i] == *empregado) {
+			existe = true;
+			if(!empregado->getLivre()) {
+				ocupado = true;
+				servico->getEmpregados()[i]->setLivre(true);
+				servico->incServicosDisponiveis();
+				return 0;
+			}
 		}
 	}
 
-	return -1;
+	if(!existe)
+		throw EmpregadoInexistente(empregado->getBI());
+
+	if(!ocupado)
+		throw EmpregadoLivre(empregado->getBI());
 }

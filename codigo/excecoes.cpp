@@ -73,6 +73,16 @@ int EmpregadoOcupado::getBI() const {
 	return bi;
 }
 
+// -- EMPREGADO LIVRE ---
+
+EmpregadoLivre::EmpregadoLivre(int num_bi) : bi(num_bi) {
+
+}
+
+int EmpregadoLivre::getBI() const {
+	return bi;
+}
+
 // --- EMPREGADO INEXISTENTE ---
 
 EmpregadoInexistente::EmpregadoInexistente(int num_bi) : bi(num_bi) {
