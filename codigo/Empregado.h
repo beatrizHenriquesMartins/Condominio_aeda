@@ -8,6 +8,7 @@
 #ifndef SRC_EMPREGADO_H_
 #define SRC_EMPREGADO_H_
 
+#include <iostream>
 #include <string>
 
 using namespace std;

@@ -8,5 +8,6 @@
 #include "Canalizacao.h"
 
 Canalizacao::Canalizacao(string nome, int bi, string tipo, bool livre) : Empregado(nome, bi, tipo, livre) {
-
+	if(tipo!="Canalizacao")
+		cerr << "Atenção! Foi criado um canalizador com o tipo " << tipo << ", com o bi " << bi << "." << endl;
 }

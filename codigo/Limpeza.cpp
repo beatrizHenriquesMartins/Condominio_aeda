@@ -8,5 +8,6 @@
 #include "Limpeza.h"
 
 Limpeza::Limpeza(string nome, int bi, string tipo, bool livre) : Empregado(nome, bi, tipo, livre) {
-
+	if(tipo!="Limpeza")
+		cerr << "Atenção! Foi criado um empregado de limpeza com o tipo " << tipo << ", com o bi " << bi << "." << endl;
 }

@@ -87,4 +87,42 @@ public:
 	int getBI() const;
 };
 
+class EmpresaSemEmpregados {
+public:
+	/**
+	 * @brief Cria exceção quando se tenta remover um empregado de uma empresa de serviços que não tem empregados.
+	 */
+	EmpresaSemEmpregados();
+};
+
+class EmpregadoOcupado {
+	int bi;
+public:
+	/**
+	 * @brief Cria exceção quando se tenta remover um empregado que está ocupado.
+	 * @param num_bi - número do bilhete de identidade do empregado.
+	 */
+	EmpregadoOcupado(int num_bi);
+	/**
+	 * @brief Função para obter o número do bilhete de identidade do empregado.
+	 * @return Retorna o número do bilhete de identidade do empregado.
+	 */
+	int getBI() const;
+};
+
+class EmpregadoInexistente {
+	int bi;
+public:
+	/**
+	 * @brief Cria exceção quando se tenta remover um empregado que não existe.
+	 * @param num_bi - número do bilhete de identidade do empregado.
+	 */
+	EmpregadoInexistente(int num_bi);
+	/**
+	 * @brief Função para obter o número do bilhete de identidade do empregado.
+	 * @return Retorna o número do bilhete de identidade do empregado.
+	 */
+	int getBI() const;
+};
+
 #endif /* SRC_EXCECOES_H_ */

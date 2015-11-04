@@ -6,11 +6,11 @@
 \hyperlink{class_servico_a920dbd3231fa6ca3ba9e118764bb7d4b}{Servico} (vector$<$ \hyperlink{class_empregado}{Empregado} $\ast$ $>$ empregados, int max\+Emp\+Limpeza, int max\+Emp\+Canalizacao, int max\+Emp\+Pintura)
 \begin{DoxyCompactList}\small\item\em Função que cria uma empresa de serviços. \end{DoxyCompactList}\item 
 int \hyperlink{class_servico_a590ca90b6563c337eeb55b08255a4894}{num\+Emp\+Limpeza} () const 
-\begin{DoxyCompactList}\small\item\em Função para obter o número máximo de empregados de limpeza permitidos. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Função para obter o número de empregados de limpeza existentes. \end{DoxyCompactList}\item 
 int \hyperlink{class_servico_a09dedacf7c261a12e86e263510748c74}{num\+Emp\+Canalizacao} () const 
-\begin{DoxyCompactList}\small\item\em Função para obter o número máximo de canalizadores permitidos. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Função para obter o número de canalizadores existentes. \end{DoxyCompactList}\item 
 int \hyperlink{class_servico_a9e2a6c88d5e6aa250fe4472cd2cec3bf}{num\+Emp\+Pintura} () const 
-\begin{DoxyCompactList}\small\item\em Função para obter o número máximo de pintores permitidos. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Função para obter o número de pintores existentes. \end{DoxyCompactList}\item 
 int \hyperlink{class_servico_a6cd98c383025f6a00a4314caab86a016}{num\+Emp\+Limpeza\+Livres} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter o número de empregados de limpeza livres. \end{DoxyCompactList}\item 
 int \hyperlink{class_servico_a459265d6c8a9a6e5e4c33e8aada812bb}{num\+Emp\+Canalizacao\+Livres} () const 
@@ -19,10 +19,22 @@ int \hyperlink{class_servico_a83583e1dca00f51715e03a1f33818494}{num\+Emp\+Pintur
 \begin{DoxyCompactList}\small\item\em Função para obter o número de pintores livres. \end{DoxyCompactList}\item 
 int \hyperlink{class_servico_a6e3eb546bad5975cf8e678ae4e6f6ea3}{adiciona\+Empregado} (\hyperlink{class_empregado}{Empregado} $\ast$empregado)
 \begin{DoxyCompactList}\small\item\em Adiciona um empregado aos empregados da empresa de serviços. \end{DoxyCompactList}\item 
+int \hyperlink{class_servico_af2d0e60b4f9b4c1a3e9c545d00a87659}{remove\+Empregado} (\hyperlink{class_empregado}{Empregado} $\ast$empregado)
+\begin{DoxyCompactList}\small\item\em Remove um empregado dos empregados da empresa. \end{DoxyCompactList}\item 
 int \hyperlink{class_servico_a1a9fbbe6413835ba366355cc4131c413}{get\+Servicos\+Disponiveis} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter o número de empregados que estão livres na empresa de serviços. \end{DoxyCompactList}\item 
 vector$<$ \hyperlink{class_empregado}{Empregado} $\ast$ $>$ \hyperlink{class_servico_a9d7003d0cc174b05ee16b329d4c96b44}{get\+Empregados} () const 
-\begin{DoxyCompactList}\small\item\em Função para obter os empregados da empresa de serviços. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função para obter os empregados da empresa de serviços. \end{DoxyCompactList}\item 
+int \hyperlink{class_servico_a61f4dc0bff250f3be3c23b495c2b0e91}{dec\+Servicos\+Disponiveis} ()
+\begin{DoxyCompactList}\small\item\em Função decrementa o número de servicos disponiveis. \end{DoxyCompactList}\item 
+int \hyperlink{class_servico_a099b6ca2af6f7d577d1fe6b36349975c}{inc\+Servicos\+Disponiveis} ()
+\begin{DoxyCompactList}\small\item\em Função incrementa o número de servicos disponiveis. \end{DoxyCompactList}\item 
+int \hyperlink{class_servico_a019fcbffefddc52608ee3e34a8479e85}{get\+Num\+Max\+Limpeza} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o número máximo de empregados de limpeza permitidos. \end{DoxyCompactList}\item 
+int \hyperlink{class_servico_a74c8980bc7ca92ce7cc6f9e41d73ca38}{get\+Num\+Max\+Canalizacao} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o número máximo de canalizadores permitidos. \end{DoxyCompactList}\item 
+int \hyperlink{class_servico_a34c593b378ec48353f86e807644fa97e}{get\+Num\+Max\+Pintura} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o número máximo de pintores permitidos. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -71,7 +83,21 @@ Adiciona um empregado aos empregados da empresa de serviços.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Retorna 0 em caso de sucesso, -\/1 se o empregado já existe, -\/2 se o limite de empregados desse tipo foi atingido ou -\/3 se não é tipo de serviço válido 
+Retorna 0 em caso de sucesso. 
+\end{DoxyReturn}
+\index{Servico@{Servico}!dec\+Servicos\+Disponiveis@{dec\+Servicos\+Disponiveis}}
+\index{dec\+Servicos\+Disponiveis@{dec\+Servicos\+Disponiveis}!Servico@{Servico}}
+\subsubsection[{dec\+Servicos\+Disponiveis()}]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::dec\+Servicos\+Disponiveis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_servico_a61f4dc0bff250f3be3c23b495c2b0e91}{}\label{class_servico_a61f4dc0bff250f3be3c23b495c2b0e91}
+
+
+Função decrementa o número de servicos disponiveis. 
+
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
 \end{DoxyReturn}
 \index{Servico@{Servico}!get\+Empregados@{get\+Empregados}}
 \index{get\+Empregados@{get\+Empregados}!Servico@{Servico}}
@@ -87,6 +113,48 @@ Função para obter os empregados da empresa de serviços.
 \begin{DoxyReturn}{Returns}
 Retorna os empregados da empresa de serviços. 
 \end{DoxyReturn}
+\index{Servico@{Servico}!get\+Num\+Max\+Canalizacao@{get\+Num\+Max\+Canalizacao}}
+\index{get\+Num\+Max\+Canalizacao@{get\+Num\+Max\+Canalizacao}!Servico@{Servico}}
+\subsubsection[{get\+Num\+Max\+Canalizacao() const }]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::get\+Num\+Max\+Canalizacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_servico_a74c8980bc7ca92ce7cc6f9e41d73ca38}{}\label{class_servico_a74c8980bc7ca92ce7cc6f9e41d73ca38}
+
+
+Função para obter o número máximo de canalizadores permitidos. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o número máximo de canalizadores permitidos. 
+\end{DoxyReturn}
+\index{Servico@{Servico}!get\+Num\+Max\+Limpeza@{get\+Num\+Max\+Limpeza}}
+\index{get\+Num\+Max\+Limpeza@{get\+Num\+Max\+Limpeza}!Servico@{Servico}}
+\subsubsection[{get\+Num\+Max\+Limpeza() const }]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::get\+Num\+Max\+Limpeza (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_servico_a019fcbffefddc52608ee3e34a8479e85}{}\label{class_servico_a019fcbffefddc52608ee3e34a8479e85}
+
+
+Função para obter o número máximo de empregados de limpeza permitidos. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o número máximo de empregados de limpeza permitidos. 
+\end{DoxyReturn}
+\index{Servico@{Servico}!get\+Num\+Max\+Pintura@{get\+Num\+Max\+Pintura}}
+\index{get\+Num\+Max\+Pintura@{get\+Num\+Max\+Pintura}!Servico@{Servico}}
+\subsubsection[{get\+Num\+Max\+Pintura() const }]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::get\+Num\+Max\+Pintura (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_servico_a34c593b378ec48353f86e807644fa97e}{}\label{class_servico_a34c593b378ec48353f86e807644fa97e}
+
+
+Função para obter o número máximo de pintores permitidos. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o número máximo de pintores permitidos. 
+\end{DoxyReturn}
 \index{Servico@{Servico}!get\+Servicos\+Disponiveis@{get\+Servicos\+Disponiveis}}
 \index{get\+Servicos\+Disponiveis@{get\+Servicos\+Disponiveis}!Servico@{Servico}}
 \subsubsection[{get\+Servicos\+Disponiveis() const }]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::get\+Servicos\+Disponiveis (
@@ -101,6 +169,20 @@ Função para obter o número de empregados que estão livres na empresa de serv
 \begin{DoxyReturn}{Returns}
 Retorna o número de empregados que estão livres na empresa de serviços. 
 \end{DoxyReturn}
+\index{Servico@{Servico}!inc\+Servicos\+Disponiveis@{inc\+Servicos\+Disponiveis}}
+\index{inc\+Servicos\+Disponiveis@{inc\+Servicos\+Disponiveis}!Servico@{Servico}}
+\subsubsection[{inc\+Servicos\+Disponiveis()}]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::inc\+Servicos\+Disponiveis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_servico_a099b6ca2af6f7d577d1fe6b36349975c}{}\label{class_servico_a099b6ca2af6f7d577d1fe6b36349975c}
+
+
+Função incrementa o número de servicos disponiveis. 
+
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
+\end{DoxyReturn}
 \index{Servico@{Servico}!num\+Emp\+Canalizacao@{num\+Emp\+Canalizacao}}
 \index{num\+Emp\+Canalizacao@{num\+Emp\+Canalizacao}!Servico@{Servico}}
 \subsubsection[{num\+Emp\+Canalizacao() const }]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::num\+Emp\+Canalizacao (
@@ -110,10 +192,10 @@ Retorna o número de empregados que estão livres na empresa de serviços.
 ) const}\hypertarget{class_servico_a09dedacf7c261a12e86e263510748c74}{}\label{class_servico_a09dedacf7c261a12e86e263510748c74}
 
 
-Função para obter o número máximo de canalizadores permitidos. 
+Função para obter o número de canalizadores existentes. 
 
 \begin{DoxyReturn}{Returns}
-Retorna o número máximo de canalizadores permitidos. 
+Retorna o número de canalizadores existentes. 
 \end{DoxyReturn}
 \index{Servico@{Servico}!num\+Emp\+Canalizacao\+Livres@{num\+Emp\+Canalizacao\+Livres}}
 \index{num\+Emp\+Canalizacao\+Livres@{num\+Emp\+Canalizacao\+Livres}!Servico@{Servico}}
@@ -138,10 +220,10 @@ Retorna o número de canalizadores livres.
 ) const}\hypertarget{class_servico_a590ca90b6563c337eeb55b08255a4894}{}\label{class_servico_a590ca90b6563c337eeb55b08255a4894}
 
 
-Função para obter o número máximo de empregados de limpeza permitidos. 
+Função para obter o número de empregados de limpeza existentes. 
 
 \begin{DoxyReturn}{Returns}
-Retorna o número máximo de empregados de limpeza permitidos. 
+Retorna o número de empregados de limpeza existentes. 
 \end{DoxyReturn}
 \index{Servico@{Servico}!num\+Emp\+Limpeza\+Livres@{num\+Emp\+Limpeza\+Livres}}
 \index{num\+Emp\+Limpeza\+Livres@{num\+Emp\+Limpeza\+Livres}!Servico@{Servico}}
@@ -166,10 +248,10 @@ Retorna o número de empregados de limpeza livres.
 ) const}\hypertarget{class_servico_a9e2a6c88d5e6aa250fe4472cd2cec3bf}{}\label{class_servico_a9e2a6c88d5e6aa250fe4472cd2cec3bf}
 
 
-Função para obter o número máximo de pintores permitidos. 
+Função para obter o número de pintores existentes. 
 
 \begin{DoxyReturn}{Returns}
-Retorna o número máximo de pintores permitidos. 
+Retorna o número de pintores existentes. 
 \end{DoxyReturn}
 \index{Servico@{Servico}!num\+Emp\+Pintura\+Livres@{num\+Emp\+Pintura\+Livres}}
 \index{num\+Emp\+Pintura\+Livres@{num\+Emp\+Pintura\+Livres}!Servico@{Servico}}
@@ -184,6 +266,25 @@ Função para obter o número de pintores livres.
 
 \begin{DoxyReturn}{Returns}
 Retorna o número de pintores livres. 
+\end{DoxyReturn}
+\index{Servico@{Servico}!remove\+Empregado@{remove\+Empregado}}
+\index{remove\+Empregado@{remove\+Empregado}!Servico@{Servico}}
+\subsubsection[{remove\+Empregado(\+Empregado $\ast$empregado)}]{\setlength{\rightskip}{0pt plus 5cm}int Servico\+::remove\+Empregado (
+\begin{DoxyParamCaption}
+\item[{{\bf Empregado} $\ast$}]{empregado}
+\end{DoxyParamCaption}
+)}\hypertarget{class_servico_af2d0e60b4f9b4c1a3e9c545d00a87659}{}\label{class_servico_af2d0e60b4f9b4c1a3e9c545d00a87659}
+
+
+Remove um empregado dos empregados da empresa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em empregado} & -\/ empregado que se quer remover dos empregados da empresa de serviços. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso. 
 \end{DoxyReturn}
 
 

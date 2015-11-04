@@ -105,6 +105,27 @@ int Servico::adicionaEmpregado(Empregado * empregado) {
 	return 0;
 }
 
+int Servico::removeEmpregado(Empregado *empregado) {
+	// Verificar se o vetor de empregados está vazio
+	if(empregados.size() == 0)
+		throw EmpresaSemEmpregados();
+
+	// Verificar se o empregado existe
+	for (unsigned int i = 0; i < empregados.size(); i++) {
+			if (empregado->getBI() == empregados[i]->getBI()) {
+				if(!empregados[i]->getLivre())
+					throw EmpregadoOcupado(empregado->getBI());
+
+				else {
+					decServicosDisponiveis();
+					empregados.erase(empregados.begin()+i);
+					return 0;
+				}
+			}
+	}
+	throw EmpregadoInexistente(empregado->getBI());
+}
+
 int Servico::getServicosDisponiveis() const {
 	int n = 0;
 
@@ -134,4 +155,16 @@ int Servico::incServicosDisponiveis() {
 	// TODO: Se o número de empregados no vector empregados for zero lançar excepção!
 	servicosDisponiveis++;
 	return 0;
+}
+
+int Servico::getNumMaxLimpeza() const {
+	return maxEmpLimpeza;
+}
+
+int Servico::getNumMaxCanalizacao() const {
+	return maxEmpCanalizacao;
+}
+
+int Servico::getNumMaxPintura() const {
+	return maxEmpPintura;
 }

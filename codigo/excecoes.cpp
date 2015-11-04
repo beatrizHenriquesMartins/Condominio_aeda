@@ -56,3 +56,29 @@ ClienteExistente::ClienteExistente(int num_bi) : bi(num_bi) {
 int ClienteExistente::getBI() const {
 	return bi;
 }
+
+// --- EMPRESA SEM EMPREGADOS ---
+
+EmpresaSemEmpregados::EmpresaSemEmpregados() {
+
+}
+
+// --- EMPREGADO OCUPADO ---
+
+EmpregadoOcupado::EmpregadoOcupado(int num_bi) : bi(num_bi) {
+
+}
+
+int EmpregadoOcupado::getBI() const {
+	return bi;
+}
+
+// --- EMPREGADO INEXISTENTE ---
+
+EmpregadoInexistente::EmpregadoInexistente(int num_bi) : bi(num_bi) {
+
+}
+
+int EmpregadoInexistente::getBI() const {
+	return bi;
+}

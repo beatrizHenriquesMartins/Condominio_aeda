@@ -271,6 +271,51 @@ void testa_adicionaCliente() {
 	}
 }
 
+void testa_removeEmpregado() {
+	vector<Empregado *> empregados;
+
+	Servico *s1 = new Servico(empregados, 2, 2, 2);
+
+	Empregado *e0 = new Limpeza("Joao", 99878901, "Limpeza", true);
+	Empregado *e1 = new Limpeza("Sara", 12345678, "Limpeza", true);
+	Empregado *e2 = new Canalizacao("Luis", 87654321, "Canalizacao", false);
+	Empregado *e3 = new Pintura("Jose", 109876543, "Pintura", true);
+	Empregado *e4 = new Limpeza("Manuel", 11223344, "Limpeza", true);
+	Empregado *e5 = new Canalizacao("Luis", 55667788, "Canalizacao", true);
+
+	// Verifica se é possível remover um empregado de uma empresa de serviços sem empregados
+	ASSERT_THROWS(s1->removeEmpregado(e0), EmpresaSemEmpregados);
+	try {
+		s1->removeEmpregado(e0);
+	}
+	catch(EmpresaSemEmpregados &e) {
+		cout << "-> Apanhou exceção EmpresaSemEmpregados. A empresa ainda não tem empregados." << endl;
+	}
+
+	s1->adicionaEmpregado(e1);
+	s1->adicionaEmpregado(e2);
+	s1->adicionaEmpregado(e3);
+	s1->adicionaEmpregado(e4);
+
+	// Verifica se é possível remover um empregado que está ocupado.
+	ASSERT_THROWS(s1->removeEmpregado(e2), EmpregadoOcupado);
+	try {
+		s1->removeEmpregado(e2);
+	}
+	catch(EmpregadoOcupado &e) {
+		cout << "-> Apanhou exceção EmpregadoOcupado. O empregado com bi " << e.getBI() << " está ocupado." << endl;
+	}
+
+	// Verifica se é possível remover um empregado que não existe na empresa de serviços
+	ASSERT_THROWS(s1->removeEmpregado(e5), EmpregadoInexistente);
+	try {
+		s1->removeEmpregado(e5);
+	}
+	catch(EmpregadoInexistente &e) {
+		cout << "-> Apanhou exceção EmpregadoInexistente. O empregado com bi " << e.getBI() << " não existe nesta empresa de serviços." << endl;
+	}
+}
+
 void runSuite() {
 	cute::suite s;
 	s.push_back(CUTE(testa_mensalidade));
@@ -279,6 +324,7 @@ void runSuite() {
 	s.push_back(CUTE(testa_requisitaServico));
 	s.push_back(CUTE(testa_fimDoServico));
 	s.push_back(CUTE(testa_adicionaCliente));
+	s.push_back(CUTE(testa_removeEmpregado));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "Testes unitarios Condominio");
 }
