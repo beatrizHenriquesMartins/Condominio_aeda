@@ -4,6 +4,7 @@
 #include "Apartamento.h"
 #include "Vivenda.h"
 #include "Condominio.h"
+#include "menu.h"
 
 void testa_mensalidade() {
 	Apartamento a1("Rua da circunvalacao", 100, 1, 1);
@@ -394,5 +395,6 @@ void runSuite() {
 
 int main() {
 	runSuite();
+    menu();
 	return 0;
 }
