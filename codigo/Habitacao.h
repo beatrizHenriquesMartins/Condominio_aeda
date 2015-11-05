@@ -55,6 +55,11 @@ public:
 	 * @param servico - servico que foi requisitado.
 	 */
 	void adicionaServico(Empregado *servico);
+	/**
+	 * @brief Função para obter o histórico de serviços prestados nesta habitação.
+	 * @return Retorna o histórico de serviços prestados nesta habitação.
+	 */
+	vector<Empregado *> getServicos() const;
 };
 
 #endif /* SRC_HABITACAO_H_ */

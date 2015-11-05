@@ -83,22 +83,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Apartamento Member List</div>  </div>
+<div class="title">Condominio Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_apartamento.html">Apartamento</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_condominio.html">Condominio</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_habitacao.html#a2a8c7343f36b0d9415aef14b09bca511">adicionaServico</a>(Empregado *servico)</td><td class="entry"><a class="el" href="class_habitacao.html">Habitacao</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_apartamento.html#ae5b9a8701fd002ea97962d4e7b3ace87">Apartamento</a>(string morada, int areaHabitacao, int tipologia, int piso)</td><td class="entry"><a class="el" href="class_apartamento.html">Apartamento</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_habitacao.html#a8b8dc61b41f3bda37f3e517fe63f877a">getAreaHabitacao</a>() const </td><td class="entry"><a class="el" href="class_habitacao.html">Habitacao</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_habitacao.html#a17ef78eef7746f92bd2814893bfafbab">getMorada</a>() const </td><td class="entry"><a class="el" href="class_habitacao.html">Habitacao</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_apartamento.html#a63f2569f807dc98bb632b4830ed18af4">getPiso</a>() const </td><td class="entry"><a class="el" href="class_apartamento.html">Apartamento</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_apartamento.html#a8f933db9b6eb43fc714246e30b4bcf24">getTipologia</a>() const </td><td class="entry"><a class="el" href="class_apartamento.html">Apartamento</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_habitacao.html#a3b5e5edb0ca3b52025ef46a796fcf18d">Habitacao</a>(string morada, int areaHabitacao)</td><td class="entry"><a class="el" href="class_habitacao.html">Habitacao</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_apartamento.html#a3626df5dabd6871c5f9fce39e8c70249">mensalidade</a>() const </td><td class="entry"><a class="el" href="class_apartamento.html">Apartamento</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_habitacao.html#acd290b8d83f41d4667867d5dc353166e">operator==</a>(const Habitacao &amp;hab)</td><td class="entry"><a class="el" href="class_habitacao.html">Habitacao</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Habitacao</b>() (defined in <a class="el" href="class_habitacao.html">Habitacao</a>)</td><td class="entry"><a class="el" href="class_habitacao.html">Habitacao</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_condominio.html#ae27a8bd9f2e1ad20b18dd34b4bd997d6">adicionaCliente</a>(Cliente *cliente)</td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_condominio.html#a73d20c28b4b08007af711d30626b38bb">Condominio</a>(string nome, int nif, vector&lt; Cliente * &gt; clientes, Servico *servico)</td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_condominio.html#a08e2bf58344131ff357f2f7ed62a56fb">existeCliente</a>(Cliente *cliente)</td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_condominio.html#af2c2cdd83d43ea6641542efe01ff94b9">fimDoServico</a>(Empregado *empregado)</td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_condominio.html#a6a9100e8a8a48847785f4c4b108ab8db">getClientes</a>() const </td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_condominio.html#a16747ea7d4e1b442b1985725f5a9aeab">pagarMensalidade</a>(Habitacao *habitacao) const </td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_condominio.html#ac62185f435dd9c3538a795aa7908beac">removeCliente</a>(Cliente *cliente)</td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_condominio.html#a5eec0c5c3a1cb566332431939bcbcb56">requisitaEmpregado</a>(string tipo)</td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_condominio.html#adb5c91a9114dbc1c0f3c8c3e9f835152">requisitaServico</a>(string tipo, Habitacao *habitacao)</td><td class="entry"><a class="el" href="class_condominio.html">Condominio</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

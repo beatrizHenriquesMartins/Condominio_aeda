@@ -9,5 +9,5 @@
 
 Pintura::Pintura(string nome, int bi, string tipo, bool livre) : Empregado(nome, bi, tipo, livre) {
 	if(tipo!="Pintura")
-		cerr << "Atenção! Foi criado um pintor com o tipo " << tipo << ", com o bi " << bi << "." << endl;
+		cout << "Atenção! Foi criado um pintor com o tipo " << tipo << ", com o bi " << bi << "." << endl;
 }

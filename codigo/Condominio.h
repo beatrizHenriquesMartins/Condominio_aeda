@@ -77,12 +77,6 @@ public:
 	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.
 	 */
 	int fimDoServico(Empregado *empregado);
-	/**
-	 * @brief Procura uma dada habitação.
-	 * @param habitacao - habitação que se pretende procurar.
-	 * @return Retorna o iterador para a posição da habitação procurada no vector de habitações do cliente.
-	 */
-	vector<Habitacao *>::iterator procuraHabitacao(Habitacao *habitacao);
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

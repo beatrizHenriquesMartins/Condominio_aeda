@@ -20,7 +20,9 @@ int \hyperlink{class_habitacao_a8b8dc61b41f3bda37f3e517fe63f877a}{get\+Area\+Hab
 bool \hyperlink{class_habitacao_acd290b8d83f41d4667867d5dc353166e}{operator==} (const \hyperlink{class_habitacao}{Habitacao} \&hab)
 \begin{DoxyCompactList}\small\item\em Operador para verificar se duas habitações são a mesma. \end{DoxyCompactList}\item 
 void \hyperlink{class_habitacao_a2a8c7343f36b0d9415aef14b09bca511}{adiciona\+Servico} (\hyperlink{class_empregado}{Empregado} $\ast$servico)
-\begin{DoxyCompactList}\small\item\em Adiciona um serviço ao histórico de serviços. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Adiciona um serviço ao histórico de serviços. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{class_empregado}{Empregado} $\ast$ $>$ \hyperlink{class_habitacao_ae157cbc24ee34cd97c48eb6c114804e9}{get\+Servicos} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o histórico de serviços prestados nesta habitação. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -89,6 +91,20 @@ Função para obter a morada da habitação.
 
 \begin{DoxyReturn}{Returns}
 Retorna a morada da habitação. 
+\end{DoxyReturn}
+\index{Habitacao@{Habitacao}!get\+Servicos@{get\+Servicos}}
+\index{get\+Servicos@{get\+Servicos}!Habitacao@{Habitacao}}
+\subsubsection[{get\+Servicos() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Empregado} $\ast$ $>$ Habitacao\+::get\+Servicos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_habitacao_ae157cbc24ee34cd97c48eb6c114804e9}{}\label{class_habitacao_ae157cbc24ee34cd97c48eb6c114804e9}
+
+
+Função para obter o histórico de serviços prestados nesta habitação. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o histórico de serviços prestados nesta habitação. 
 \end{DoxyReturn}
 \index{Habitacao@{Habitacao}!mensalidade@{mensalidade}}
 \index{mensalidade@{mensalidade}!Habitacao@{Habitacao}}

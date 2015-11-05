@@ -173,6 +173,8 @@ void testa_requisitaServico() {
 
 	Condominio *c1 = new Condominio(nome, nif, clientes, &s1);
 
+	c1->adicionaCliente(cliente1);
+
 	// Verifica se é possível requesitar um serviço de cada tipo
 	ASSERT_EQUAL(0, c1->requisitaServico("Limpeza", a1));
 	ASSERT_EQUAL(0, c1->requisitaServico("Canalizacao", a1));
@@ -180,41 +182,45 @@ void testa_requisitaServico() {
 
 	// Verifica se é possível requesitar um serviço que não está disponível
 	// Limpeza
-	/*ASSERT_THROWS(c1->requisitaServico("Limpeza", a1), EmpregadosIndisponiveis);
+	ASSERT_THROWS(c1->requisitaServico("Limpeza", a1), EmpregadosIndisponiveis);
 	try {
 		c1->requisitaServico("Limpeza", a1);
 	}
 	catch(EmpregadosIndisponiveis &e) {
 		cout << "-> Apanhou exceção EmpregadosIndisponiveis. Empregados de " << e.getTipo() << " não estão disponíveis de momento." << endl;
-	}*/
+	}
 
 	// Canalização
-	/*ASSERT_THROWS(c1->requisitaServico("Canalizacao", a1), EmpregadosIndisponiveis);
+	ASSERT_THROWS(c1->requisitaServico("Canalizacao", a1), EmpregadosIndisponiveis);
 	try {
 		c1->requisitaServico("Canalizacao", a1);
 	}
 	catch(EmpregadosIndisponiveis &e) {
 		cout << "-> Apanhou exceção EmpregadosIndisponiveis. Empregados de " << e.getTipo() << " não estão disponíveis de momento." << endl;
-	}*/
+	}
 
 	//Pintura
-	/*ASSERT_THROWS(c1->requisitaServico("Pintura", a1), EmpregadosIndisponiveis);
+	ASSERT_THROWS(c1->requisitaServico("Pintura", a1), EmpregadosIndisponiveis);
 	try {
 		c1->requisitaServico("Pintura", a1);
 	}
 	catch(EmpregadosIndisponiveis &e) {
 		cout << "-> Apanhou exceção EmpregadosIndisponiveis. Empregados de " << e.getTipo() << " não estão disponíveis de momento." << endl;
-	}*/
+	}
 
 	// Verifica se é possível requesitar um serviço inexistente
-	/*ASSERT_THROWS(c1->requisitaServico("Cozinha", a1), ServicoInvalido);
+	ASSERT_THROWS(c1->requisitaServico("Cozinha", a1), ServicoInvalido);
 	try {
 		c1->requisitaServico("Cozinha", a1);
 	}
 	catch(ServicoInvalido &e) {
 		cout << "-> Apanhou exceção ServicoInvalido. " << e.getTipo() << " não existe nesta empresa de serviços." << endl;
-	}*/
+	}
 
+	// Verfica se foram adicionados os serviços no histórico de serviços
+	for(unsigned int i = 0; i<a1->getServicos().size(); i++) {
+		cout << "Servico no." << i << ": Foi prestado por: " << "nome -> " << a1->getServicos()[i]->getNome() << ", BI -> " << a1->getServicos()[i]->getBI()<< endl;
+	}
 }
 
 void testa_fimDoServico() {
@@ -249,6 +255,8 @@ void testa_fimDoServico() {
 	vector<Cliente *> clientes;
 
 	Condominio *c1 = new Condominio(nome, nif, clientes, &s1);
+
+	c1->adicionaCliente(cliente1);
 
 	// REQUISITA SERVIÇOS
 	ASSERT_EQUAL(0, c1->requisitaServico("Limpeza", a1));

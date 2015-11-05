@@ -70,11 +70,11 @@ Empregado * Condominio::requisitaEmpregado(string tipo) {
 			return empregados[i];
 		}
 	}
-
 	return NULL;
 }
 
 int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
+	bool encontrou = false;
 	if (tipo == "Limpeza") {
 		// Não tem empregados de Limpeza disponíveis
 		if (servico->numEmpLimpezaLivres() == 0)
@@ -84,8 +84,18 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 		else {
 			Empregado *servico = requisitaEmpregado(tipo);
 
-			vector<Habitacao *>::iterator it = procuraHabitacao(habitacao);
-			(*it)->adicionaServico(servico);
+			for (unsigned int i = 0; i < clientes.size(); i++) {
+
+				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
+					if(clientes[i]->getHabitacoes()[j] == habitacao) {
+						encontrou = true;
+						clientes[i]->getHabitacoes()[j]->adicionaServico(servico);
+					}
+				}
+			}
+
+			if(!encontrou)
+				throw HabitacaoInexistente(habitacao->getMorada());
 		}
 
 	} else if (tipo == "Canalizacao") {
@@ -97,8 +107,18 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 		else{
 			Empregado *servico = requisitaEmpregado(tipo);
 
-			vector<Habitacao *>::iterator it = procuraHabitacao(habitacao);
-			(*it)->adicionaServico(servico);
+			for (unsigned int i = 0; i < clientes.size(); i++) {
+
+				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
+					if(clientes[i]->getHabitacoes()[j] == habitacao) {
+						encontrou = true;
+						clientes[i]->getHabitacoes()[j]->adicionaServico(servico);
+					}
+				}
+			}
+
+			if(!encontrou)
+				throw HabitacaoInexistente(habitacao->getMorada());
 		}
 
 	} else if (tipo == "Pintura") {
@@ -110,8 +130,18 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 		else {
 			Empregado *servico = requisitaEmpregado(tipo);
 
-			vector<Habitacao *>::iterator it = procuraHabitacao(habitacao);
-			(*it)->adicionaServico(servico);
+			for (unsigned int i = 0; i < clientes.size(); i++) {
+
+				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
+					if(clientes[i]->getHabitacoes()[j] == habitacao) {
+						encontrou = true;
+						clientes[i]->getHabitacoes()[j]->adicionaServico(servico);
+					}
+				}
+			}
+
+			if(!encontrou)
+				throw HabitacaoInexistente(habitacao->getMorada());
 		}
 
 	} else
@@ -141,19 +171,4 @@ int Condominio::fimDoServico(Empregado *empregado) {
 
 	if(!ocupado)
 		throw EmpregadoLivre(empregado->getBI());
-}
-
-vector<Habitacao *>::iterator Condominio::procuraHabitacao(Habitacao *habitacao) {
-	vector<Cliente *>::const_iterator itb_cliente = clientes.begin();
-	vector<Cliente *>::const_iterator ite_cliente = clientes.end();
-
-	for (; itb_cliente != ite_cliente; itb_cliente++) {
-		vector<Habitacao *>::iterator itb_hab = (*itb_cliente)->getHabitacoes().begin();
-		vector<Habitacao *>::iterator ite_hab = (*itb_cliente)->getHabitacoes().end();
-
-		itb_hab = find(itb_hab, ite_hab, habitacao);
-		if(itb_hab!=ite_hab)
-			return itb_hab;
-	}
-	//throw HabitacaoInexistente(habitacao->getMorada());
 }

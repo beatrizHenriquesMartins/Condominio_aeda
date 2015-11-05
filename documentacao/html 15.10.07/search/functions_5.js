@@ -13,6 +13,7 @@ var searchData=
   ['getnummaxlimpeza',['getNumMaxLimpeza',['../class_servico.html#a019fcbffefddc52608ee3e34a8479e85',1,'Servico']]],
   ['getnummaxpintura',['getNumMaxPintura',['../class_servico.html#a34c593b378ec48353f86e807644fa97e',1,'Servico']]],
   ['getpiso',['getPiso',['../class_apartamento.html#a63f2569f807dc98bb632b4830ed18af4',1,'Apartamento']]],
+  ['getservicos',['getServicos',['../class_habitacao.html#ae157cbc24ee34cd97c48eb6c114804e9',1,'Habitacao']]],
   ['getservicosdisponiveis',['getServicosDisponiveis',['../class_servico.html#a1a9fbbe6413835ba366355cc4131c413',1,'Servico']]],
   ['gettempiscina',['getTemPiscina',['../class_vivenda.html#aa65508502441fffa1efa69e8708ecc85',1,'Vivenda']]],
   ['gettipo',['getTipo',['../class_empregado.html#a31668a30674046ed45b1543de5948b39',1,'Empregado::getTipo()'],['../class_limite_maximo_empregados.html#ad7fe69080cc2cafa0ad4fd6d1ffdcb84',1,'LimiteMaximoEmpregados::getTipo()'],['../class_servico_invalido.html#a37bda530abd6e7d3743be5d01517a26e',1,'ServicoInvalido::getTipo()'],['../class_empregados_indisponiveis.html#aa73e22a2ba58fb1d73e8edbc65498dd1',1,'EmpregadosIndisponiveis::getTipo()']]],

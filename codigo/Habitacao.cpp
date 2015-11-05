@@ -31,3 +31,7 @@ bool Habitacao::operator ==(const Habitacao & hab) {
 void Habitacao::adicionaServico(Empregado *servico) {
 	servicos.push_back(servico);
 }
+
+vector<Empregado *> Habitacao::getServicos() const {
+	return servicos;
+}

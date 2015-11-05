@@ -20,9 +20,7 @@ float \hyperlink{class_condominio_a16747ea7d4e1b442b1985725f5a9aeab}{pagar\+Mens
 int \hyperlink{class_condominio_adb5c91a9114dbc1c0f3c8c3e9f835152}{requisita\+Servico} (string tipo, \hyperlink{class_habitacao}{Habitacao} $\ast$habitacao)
 \begin{DoxyCompactList}\small\item\em Requisita um serviço de um dado tipo. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_af2c2cdd83d43ea6641542efe01ff94b9}{fim\+Do\+Servico} (\hyperlink{class_empregado}{Empregado} $\ast$empregado)
-\begin{DoxyCompactList}\small\item\em Coloca um empregado livre quando acaba de prestar um serviço. \end{DoxyCompactList}\item 
-vector$<$ \hyperlink{class_habitacao}{Habitacao} $\ast$ $>$\+::iterator \hyperlink{class_condominio_a19d0973b7485841e6b1be8a242367e9c}{procura\+Habitacao} (\hyperlink{class_habitacao}{Habitacao} $\ast$habitacao)
-\begin{DoxyCompactList}\small\item\em Procura uma dada habitação. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Coloca um empregado livre quando acaba de prestar um serviço. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -143,25 +141,6 @@ Função para efetuar o pagamento da base mensal de condomínio de uma habitaç�
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Retorna o valor a pagar da base mensal de condomínio daquela habitação e -\/1 caso a habitação não exista. 
-\end{DoxyReturn}
-\index{Condominio@{Condominio}!procura\+Habitacao@{procura\+Habitacao}}
-\index{procura\+Habitacao@{procura\+Habitacao}!Condominio@{Condominio}}
-\subsubsection[{procura\+Habitacao(\+Habitacao $\ast$habitacao)}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Habitacao} $\ast$ $>$\+::iterator Condominio\+::procura\+Habitacao (
-\begin{DoxyParamCaption}
-\item[{{\bf Habitacao} $\ast$}]{habitacao}
-\end{DoxyParamCaption}
-)}\hypertarget{class_condominio_a19d0973b7485841e6b1be8a242367e9c}{}\label{class_condominio_a19d0973b7485841e6b1be8a242367e9c}
-
-
-Procura uma dada habitação. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em habitacao} & -\/ habitação que se pretende procurar. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Retorna o iterador para a posição da habitação procurada no vector de habitações do cliente. 
 \end{DoxyReturn}
 \index{Condominio@{Condominio}!remove\+Cliente@{remove\+Cliente}}
 \index{remove\+Cliente@{remove\+Cliente}!Condominio@{Condominio}}
