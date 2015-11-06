@@ -5,11 +5,9 @@
  *      Author: teresachaves
  */
 
-#include <iostream>
+#include "interface.h"
 
-using namespace std;
-
-void menuEmpregado() {
+void Interface::menuEmpregado() {
 	int op;
 
 	do {
@@ -40,7 +38,7 @@ void menuEmpregado() {
 	} while (op != 3);
 }
 
-void menuCliente() {
+void Interface::menuCliente() {
 	int op;
 
 	do {
@@ -91,7 +89,7 @@ void menuCliente() {
 	}while(op != 8);
 }
 
-void menuCondominio() {
+void Interface::menuCondominio() {
 	int op;
 
 	do {
@@ -130,7 +128,7 @@ void menuCondominio() {
 	} while (op != 5);
 }
 
-void menuPrincipal() {
+void Interface::menuPrincipal() {
 	int op;
 
 	do {
@@ -138,7 +136,7 @@ void menuPrincipal() {
 			cout << "     1. Condominio" << endl;
 			cout << "     2. Cliente" << endl;
 			cout << "     3. Empregaado" << endl;
-			cout << "     2. Sair" << endl;
+			cout << "     4. Sair" << endl;
 			cout << "Introduza uma opção: ";
 			cin >> op;
 			cout << endl;
@@ -168,11 +166,97 @@ void menuPrincipal() {
 	} while (op != 4);
 }
 
-int main() {
+int Interface::readHabitacoes(string nome) {
+	ifstream file(nome);
+	if(!file.is_open())
+		return -1;
+
+	string tipo;
+	while(getline(file, tipo)){
+		string morada;
+		string areaHabitacao;
+		getline(file, morada);
+		getline(file, areaHabitacao);
+
+		if(tipo == "a") {
+			string tipologia;
+			string piso;
+			getline(file, tipologia);
+			getline(file, piso);
+
+			Habitacao * h = new Apartamento(morada, atoi(areaHabitacao.c_str()), atoi(tipologia.c_str()), atoi(piso.c_str()));
+			habitacoes.push_back(h);
+		}
+		if(tipo == "v") {
+			string areaExterior;
+			string temPiscina;
+			getline(file, areaExterior);
+			getline(file, temPiscina);
+
+			Habitacao * h = new Vivenda(morada, atoi(areaHabitacao.c_str()), atoi(areaExterior.c_str()), atoi(temPiscina.c_str()));
+			habitacoes.push_back(h);
+		}
+	}
+	return 0;
+}
+
+int Interface::readClientes(string nome) {
+	/*ifstream file(nome);
+	if(!file.is_open())
+		return -1;
+
+	string tipo;
+	while(getline(file, tipo)){
+		string nomeCliente;
+		string bi;
+		string tipo;
+		getline(file, nomeCliente);
+		getline(file, bi);
+		getline(file, tipo);
+
+		if(tipo == "habs") {
+			string morada;
+			while(getline(file, morada) != "endHabs") {
+
+			}
+		}
+	}
+	return 0;*/
+}
+
+int Interface::readEmpregados(string nome) {
+
+}
+
+int Interface::readCondominio(string nome) {
+
+}
+
+Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroCondominio) {
+	readHabitacoes(ficheiroHabitacoes);
+	readClientes(ficheiroClientes);
+	readEmpregados(ficheiroEmpregados);
+	readCondominio(ficheiroCondominio);
+}
+
+int main(int argc, char *argv[]) {
+	// Verifica número de argumentos
+	if(argc != 5) {
+		cerr << "É necessário especificar o nome dos 4 ficheiros.";
+		return -1;
+	}
+	string argv1 = argv[1];
+	string argv2 = argv[2];
+	string argv3 = argv[3];
+	string argv4 = argv[4];
+
+	Interface interface(argv1, argv2, argv3, argv4);
 
 	cout << endl << " ***** GESTÃO DE UM CONDOMINIO *****" << endl << endl;
 
-	menuPrincipal();
+
+
+	interface.menuPrincipal();
 
 	return 0;
 }
