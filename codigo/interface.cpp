@@ -243,7 +243,40 @@ int Interface::readClientes(string nome) {
 }
 
 int Interface::readEmpregados(string nome) {
+	ifstream file(nome);
+	if(!file.is_open())
+		return -1;
 
+	string nomeEmpregado;
+	while(getline(file, nomeEmpregado)){
+		string bi;
+		string tipo;
+		getline(file, bi);
+		getline(file, tipo);
+
+		if(tipo == "Limpeza") {
+			string livre;
+			getline(file, livre);
+
+			Empregado *e = new Limpeza(nomeEmpregado, atoi(bi.c_str()), tipo, atoi(livre.c_str()));
+			empregados.push_back(e);
+		}
+		if(tipo == "Canalizacao") {
+			string livre;
+			getline(file, livre);
+
+			Empregado *e = new Canalizacao(nomeEmpregado, atoi(bi.c_str()), tipo, atoi(livre.c_str()));
+			empregados.push_back(e);
+		}
+		if(tipo == "Pintura") {
+			string livre;
+			getline(file, livre);
+
+			Empregado *e = new Pintura(nomeEmpregado, atoi(bi.c_str()), tipo, atoi(livre.c_str()));
+			empregados.push_back(e);
+		}
+	}
+	return 0;
 }
 
 int Interface::readCondominio(string nome) {
@@ -275,6 +308,16 @@ Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string 
 	}
 
 	readEmpregados(ficheiroEmpregados);
+
+	// Para testar se está a funcionar
+	for(unsigned int i = 0; i < empregados.size(); i++) {
+			Empregado *e = empregados[i];
+			cout << e->getNome() << endl;
+			cout << e->getBI() << endl;
+			cout << e->getTipo() << endl;
+			cout << e->getLivre() << endl;
+	}
+
 	readCondominio(ficheiroCondominio);
 }
 

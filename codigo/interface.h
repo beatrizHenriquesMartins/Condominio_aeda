@@ -15,6 +15,7 @@
 #include "Apartamento.h"
 #include "Vivenda.h"
 #include "Cliente.h"
+#include "Empregado.h"
 
 using namespace std;
 
@@ -22,6 +23,7 @@ class Interface {
 	Condominio *condominio;
 	vector<Habitacao *> habitacoes;
 	vector<Cliente *> clientes;
+	vector<Empregado *> empregados;
 public:
 	Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroCondominio);
 	int readHabitacoes(string nome);
