@@ -200,28 +200,46 @@ int Interface::readHabitacoes(string nome) {
 	return 0;
 }
 
+int Interface::procuraHabitacao(string morada) {
+	for(unsigned int i = 0; i < habitacoes.size(); i++ ) {
+		Habitacao *h = habitacoes[i];
+		if(h->getMorada() == morada)
+			return i;
+	}
+	return -1;
+}
+
 int Interface::readClientes(string nome) {
-	/*ifstream file(nome);
+	ifstream file(nome);
 	if(!file.is_open())
 		return -1;
 
-	string tipo;
-	while(getline(file, tipo)){
-		string nomeCliente;
+	string nomeCliente;
+	while(getline(file, nomeCliente)){
 		string bi;
 		string tipo;
-		getline(file, nomeCliente);
+		vector<Habitacao *> habs;
 		getline(file, bi);
 		getline(file, tipo);
 
 		if(tipo == "habs") {
 			string morada;
-			while(getline(file, morada) != "endHabs") {
+			getline(file, morada);
 
+			while(morada != "endHabs") {
+				int i = procuraHabitacao(morada);
+
+				habs.push_back(habitacoes[i]);
+				habitacoes.erase(habitacoes.begin()+i);
+
+				getline(file, morada);
 			}
+
+			Cliente *c = new Cliente(nomeCliente, atoi(bi.c_str()), habs);
+			clientes.push_back(c);
 		}
 	}
-	return 0;*/
+	return 0;
 }
 
 int Interface::readEmpregados(string nome) {
@@ -234,7 +252,28 @@ int Interface::readCondominio(string nome) {
 
 Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroCondominio) {
 	readHabitacoes(ficheiroHabitacoes);
+
+	// Para testar se está a funcionar
+	for(unsigned int i = 0; i < habitacoes.size(); i++) {
+		Habitacao *h = habitacoes[i];
+		cout << h->getMorada() << endl;
+		cout << h->getAreaHabitacao() << endl;
+	}
+
 	readClientes(ficheiroClientes);
+
+	// Para testar se está a funcionar
+	for(unsigned int i = 0; i < clientes.size(); i++) {
+		Cliente *c = clientes[i];
+		cout << c->getNome() << endl;
+		cout << c->getBI() << endl;
+		for(unsigned int k = 0; k < clientes[i]->getHabitacoes().size(); k++) {
+			Habitacao *h = clientes[i]->getHabitacoes()[k];
+			cout << h->getMorada() << endl;
+			cout << h->getAreaHabitacao() << endl;
+		}
+	}
+
 	readEmpregados(ficheiroEmpregados);
 	readCondominio(ficheiroCondominio);
 }
@@ -245,6 +284,7 @@ int main(int argc, char *argv[]) {
 		cerr << "É necessário especificar o nome dos 4 ficheiros.";
 		return -1;
 	}
+
 	string argv1 = argv[1];
 	string argv2 = argv[2];
 	string argv3 = argv[3];

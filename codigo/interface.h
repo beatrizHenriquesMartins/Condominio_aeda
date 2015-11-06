@@ -14,15 +14,18 @@
 #include "Condominio.h"
 #include "Apartamento.h"
 #include "Vivenda.h"
+#include "Cliente.h"
 
 using namespace std;
 
 class Interface {
 	Condominio *condominio;
 	vector<Habitacao *> habitacoes;
+	vector<Cliente *> clientes;
 public:
 	Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroCondominio);
 	int readHabitacoes(string nome);
+	int procuraHabitacao(string morada);
 	int readClientes(string nome);
 	int readEmpregados(string nome);
 	int readCondominio(string nome);
