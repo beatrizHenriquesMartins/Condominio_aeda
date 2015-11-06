@@ -24,13 +24,16 @@ class Interface {
 	vector<Habitacao *> habitacoes;
 	vector<Cliente *> clientes;
 	vector<Empregado *> empregados;
+	vector<Empregado *> servicosPrestados;
 public:
-	Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroCondominio);
+	Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroServicos, string ficheiroCondominio);
 	int readHabitacoes(string nome);
 	int procuraHabitacao(string morada);
 	int readClientes(string nome);
 	int readEmpregados(string nome);
 	int readCondominio(string nome);
+	int procuraEmpregado(int bi);
+	int readServicos(string nome);
 	void menuPrincipal();
 	void menuCondominio();
 	void menuCliente();

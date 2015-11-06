@@ -105,16 +105,16 @@ void Interface::menuCondominio() {
 		cout << endl;
 
 		switch (op) {
-		case 1:
+		case 1: // Adiciona Cliente
 			break;
 
-		case 2:
+		case 2: // Remover Cliente
 			break;
 
-		case 3:
+		case 3: // Consultar Lista Clientes
 			break;
 
-		case 4:
+		case 4: // Consultar dados Clientes
 			break;
 
 		case 5:
@@ -230,7 +230,6 @@ int Interface::readClientes(string nome) {
 				int i = procuraHabitacao(morada);
 
 				habs.push_back(habitacoes[i]);
-				habitacoes.erase(habitacoes.begin()+i);
 
 				getline(file, morada);
 			}
@@ -304,10 +303,45 @@ int Interface::readCondominio(string nome) {
 	return 0;
 }
 
-Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroCondominio) {
+int Interface::procuraEmpregado(int bi) {
+	for(unsigned int i = 0; i < empregados.size(); i++ ) {
+		Empregado *e = empregados[i];
+		if(e->getBI() == bi)
+			return i;
+	}
+	return -1;
+}
+
+int Interface::readServicos(string nome) {
+	ifstream file(nome);
+	if(!file.is_open())
+		return -1;
+
+	string morada;
+	while(getline(file, morada)){
+		int i_hab = procuraHabitacao(morada);
+
+		string bi;
+		getline(file, bi);
+		while(bi != "end") {
+			int i_emp = procuraEmpregado(atoi(bi.c_str()));
+
+			Habitacao * hab = habitacoes[i_hab];
+			Empregado * emp = empregados[i_emp];
+			hab->adicionaServico(emp);
+
+			getline(file, bi);
+		}
+	}
+
+	return 0;
+}
+
+Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroServicos, string ficheiroCondominio) {
 	readHabitacoes(ficheiroHabitacoes);
 
 	// Para testar se está a funcionar
+	cout << "--- Habitações ---" << endl;
 	for(unsigned int i = 0; i < habitacoes.size(); i++) {
 		Habitacao *h = habitacoes[i];
 		cout << h->getMorada() << endl;
@@ -317,6 +351,7 @@ Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string 
 	readClientes(ficheiroClientes);
 
 	// Para testar se está a funcionar
+	cout << "--- Clientes ---" << endl;
 	for(unsigned int i = 0; i < clientes.size(); i++) {
 		Cliente *c = clientes[i];
 		cout << c->getNome() << endl;
@@ -331,12 +366,34 @@ Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string 
 	readEmpregados(ficheiroEmpregados);
 
 	// Para testar se está a funcionar
+	cout << "--- Empregados ---" << endl;
 	for(unsigned int i = 0; i < empregados.size(); i++) {
 			Empregado *e = empregados[i];
 			cout << e->getNome() << endl;
 			cout << e->getBI() << endl;
 			cout << e->getTipo() << endl;
 			cout << e->getLivre() << endl;
+	}
+
+	readServicos(ficheiroServicos);
+
+	// Para testar se está a funcionar
+	cout << "--- Serviços ---" << endl;
+	for(unsigned int i = 0; i < clientes.size(); i++) {
+		Cliente * cli = clientes[i];
+
+		for(unsigned int j = 0; j < cli->getHabitacoes().size(); j++) {
+			Habitacao * hab = cli->getHabitacoes()[j];
+			cout << hab->getMorada() << endl;
+
+			for(unsigned int k = 0; k < hab->getServicos().size(); k++) {
+				Empregado * servico = hab->getServicos()[k];
+				cout << servico->getNome() << endl;
+				cout << servico->getBI() << endl;
+				cout << servico->getTipo() << endl;
+				cout << servico->getLivre() << endl;
+			}
+		}
 	}
 
 	readCondominio(ficheiroCondominio);
@@ -347,17 +404,29 @@ Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string 
 	for(unsigned int i = 0; i < condominio->getClientes().size(); i++) {
 		Cliente * cli = condominio->getClientes()[i];
 
+		cout << "--- Cliente ---" << endl;
 		cout << cli->getNome() << endl;
 		cout << cli->getBI() << endl;
 
 		//habitacoes de cada cliente
+		cout << "--- Habitações ---" << endl;
 		for(unsigned int j = 0; j < cli->getHabitacoes().size(); j++) {
 			Habitacao *h = cli->getHabitacoes()[j];
 			cout << h->getMorada() << endl;
 			cout << h->getAreaHabitacao() << endl;
+
+			cout << "--- Serviços da habitação ---" << endl;
+			for(unsigned int k = 0; k < h->getServicos().size(); k++) {
+				Empregado * servico = h->getServicos()[k];
+				cout << servico->getNome() << endl;
+				cout << servico->getBI() << endl;
+				cout << servico->getTipo() << endl;
+				cout << servico->getLivre() << endl;
+			}
 		}
 	}
 	//empregados do condominio
+	cout << "--- Empregados ---" << endl;
 	for(unsigned int i = 0; i < condominio->getServico()->getEmpregados().size(); i++) {
 			Empregado *e = condominio->getServico()->getEmpregados()[i];
 			cout << e->getNome() << endl;
@@ -370,7 +439,7 @@ Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string 
 
 int main(int argc, char *argv[]) {
 	// Verifica número de argumentos
-	if(argc != 5) {
+	if(argc != 6) {
 		cerr << "É necessário especificar o nome dos 4 ficheiros.";
 		return -1;
 	}
@@ -379,12 +448,11 @@ int main(int argc, char *argv[]) {
 	string argv2 = argv[2];
 	string argv3 = argv[3];
 	string argv4 = argv[4];
+	string argv5 = argv[5];
 
-	Interface interface(argv1, argv2, argv3, argv4);
+	Interface interface(argv1, argv2, argv3, argv4, argv5);
 
 	cout << endl << " ***** GESTÃO DE UM CONDOMINIO *****" << endl << endl;
-
-
 
 	interface.menuPrincipal();
 
