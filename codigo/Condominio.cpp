@@ -89,7 +89,8 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
 					if(clientes[i]->getHabitacoes()[j] == habitacao) {
 						encontrou = true;
-						clientes[i]->getHabitacoes()[j]->adicionaServico(servico);
+						Habitacao * h = clientes[i]->getHabitacoes()[j];
+						h->adicionaServico(servico);
 					}
 				}
 			}
@@ -112,7 +113,8 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
 					if(clientes[i]->getHabitacoes()[j] == habitacao) {
 						encontrou = true;
-						clientes[i]->getHabitacoes()[j]->adicionaServico(servico);
+						Habitacao * h = clientes[i]->getHabitacoes()[j];
+						h->adicionaServico(servico);
 					}
 				}
 			}
@@ -135,7 +137,8 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
 					if(clientes[i]->getHabitacoes()[j] == habitacao) {
 						encontrou = true;
-						clientes[i]->getHabitacoes()[j]->adicionaServico(servico);
+						Habitacao * h = clientes[i]->getHabitacoes()[j];
+						h->adicionaServico(servico);
 					}
 				}
 			}
@@ -171,4 +174,20 @@ int Condominio::fimDoServico(Empregado *empregado) {
 
 	if(!ocupado)
 		throw EmpregadoLivre(empregado->getBI());
+}
+
+int Condominio::consultaCliente(int cliente) const {
+	for(unsigned int i = 0; i < clientes.size(); i++) {
+		if(clientes[i]->getBI() == cliente) {
+			cout << "BI: " << cliente << endl;
+			cout << "Nome: " << clientes[i]->getNome() << endl;
+			cout << "Habitacoes: ";
+			for(unsigned int k = 0; k < clientes[i]->getHabitacoes().size(); k++) {
+				Habitacao * h = clientes[i]->getHabitacoes()[k];
+				cout << h->getMorada() << endl;
+			}
+			return 0;
+		}
+	}
+	throw ClienteInexistente(cliente);
 }

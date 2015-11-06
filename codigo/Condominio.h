@@ -77,6 +77,12 @@ public:
 	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.
 	 */
 	int fimDoServico(Empregado *empregado);
+	/**
+	 * @brief Consulta dados de um dado cliente.
+	 * @param cliente - bi do cliente que vai ser procurado.
+	 * @return Retorna 0 em caso de sucesso.
+	 */
+	int consultaCliente(int cliente) const;
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

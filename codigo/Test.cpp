@@ -4,7 +4,6 @@
 #include "Apartamento.h"
 #include "Vivenda.h"
 #include "Condominio.h"
-#include "menu.h"
 
 void testa_mensalidade() {
 	Apartamento a1("Rua da circunvalacao", 100, 1, 1);
@@ -162,6 +161,7 @@ void testa_requisitaServico() {
 
 	vector<Habitacao *> habitacoes;
 	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, 1, 1);
+	Habitacao *a2 = new Apartamento("Rua da Boavista", 100, 1, 1);
 
 	Cliente *cliente1 = new Cliente("Maria", 12345678, habitacoes);
 
@@ -221,6 +221,15 @@ void testa_requisitaServico() {
 	for(unsigned int i = 0; i<a1->getServicos().size(); i++) {
 		cout << "Servico no." << i << ": Foi prestado por: " << "nome -> " << a1->getServicos()[i]->getNome() << ", BI -> " << a1->getServicos()[i]->getBI()<< endl;
 	}
+
+	// Verifica se é possível requisitar um serviço para uma habitacao inexistente.
+	/*ASSERT_THROWS(c1->requisitaServico("Cozinha", a2), HabitacaoInexistente);
+	try {
+		c1->requisitaServico("Cozinha", a2);
+	}
+	catch(HabitacaoInexistente &e) {
+		cout << "-> Apanhou exceção HabitacaoInexistente. A habitação com morada \"" << e.getMorada() << "\" não existe." << endl;
+	}*/
 }
 
 void testa_fimDoServico() {
@@ -467,8 +476,8 @@ void runSuite() {
 	cute::makeRunner(lis)(s, "Testes unitarios Condominio");
 }
 
-int main() {
+/*int main() {
 	runSuite();
 	menu();
 	return 0;
-}
+}*/
