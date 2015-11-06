@@ -280,7 +280,28 @@ int Interface::readEmpregados(string nome) {
 }
 
 int Interface::readCondominio(string nome) {
+	ifstream file(nome);
+	if(!file.is_open())
+		return -1;
 
+	string nomeCondominio;
+	while(getline(file, nomeCondominio)){
+		string nif;
+		string maxEmpLimpeza;
+		string maxEmpCanalizacao;
+		string maxEmpPintura;
+
+		getline(file, nif);
+		getline(file, maxEmpLimpeza);
+		getline(file, maxEmpCanalizacao);
+		getline(file, maxEmpPintura);
+
+		Servico *s = new Servico(empregados, atoi(maxEmpLimpeza.c_str()), atoi(maxEmpCanalizacao.c_str()), atoi(maxEmpPintura.c_str()));
+
+		condominio = new Condominio(nomeCondominio, atoi(nif.c_str()), clientes, s);
+	}
+
+	return 0;
 }
 
 Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string ficheiroEmpregados, string ficheiroCondominio) {
@@ -319,6 +340,32 @@ Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes, string 
 	}
 
 	readCondominio(ficheiroCondominio);
+
+	cout << "--- Condominio ---" << endl << endl;
+
+	//cliente
+	for(unsigned int i = 0; i < condominio->getClientes().size(); i++) {
+		Cliente * cli = condominio->getClientes()[i];
+
+		cout << cli->getNome() << endl;
+		cout << cli->getBI() << endl;
+
+		//habitacoes de cada cliente
+		for(unsigned int j = 0; j < cli->getHabitacoes().size(); j++) {
+			Habitacao *h = cli->getHabitacoes()[j];
+			cout << h->getMorada() << endl;
+			cout << h->getAreaHabitacao() << endl;
+		}
+	}
+	//empregados do condominio
+	for(unsigned int i = 0; i < condominio->getServico()->getEmpregados().size(); i++) {
+			Empregado *e = condominio->getServico()->getEmpregados()[i];
+			cout << e->getNome() << endl;
+			cout << e->getBI() << endl;
+			cout << e->getTipo() << endl;
+			cout << e->getLivre() << endl;
+	}
+
 }
 
 int main(int argc, char *argv[]) {

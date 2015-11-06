@@ -83,6 +83,11 @@ public:
 	 * @return Retorna 0 em caso de sucesso.
 	 */
 	int consultaCliente(int cliente) const;
+	/**
+	 * @brief Função para obter a empresa de serviços.
+	 * @return Retorna a empresa de serviços.
+	 */
+	Servico * getServico() const;
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

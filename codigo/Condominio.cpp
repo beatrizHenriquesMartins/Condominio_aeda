@@ -11,6 +11,7 @@ Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes, Servico
 	this->nome = nome;
 	this->nif = nif;
 	this->servico = servico;
+	this->clientes = clientes;
 }
 
 int Condominio::existeCliente(Cliente *cliente) {
@@ -190,4 +191,8 @@ int Condominio::consultaCliente(int cliente) const {
 		}
 	}
 	throw ClienteInexistente(cliente);
+}
+
+Servico * Condominio::getServico() const {
+	return servico;
 }
