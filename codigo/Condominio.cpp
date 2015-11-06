@@ -196,3 +196,7 @@ int Condominio::consultaCliente(int cliente) const {
 Servico * Condominio::getServico() const {
 	return servico;
 }
+
+string Condominio::getNome() const {
+	return nome;
+}

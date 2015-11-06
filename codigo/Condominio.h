@@ -88,6 +88,11 @@ public:
 	 * @return Retorna a empresa de serviços.
 	 */
 	Servico * getServico() const;
+	/**
+	 * @brief Função para obter o nome do condominio.
+	 * @return Retorna o nome do condominio.
+	 */
+	string getNome() const;
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

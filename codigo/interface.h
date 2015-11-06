@@ -11,6 +11,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include "Condominio.h"
 #include "Apartamento.h"
 #include "Vivenda.h"
@@ -35,6 +36,11 @@ public:
 	int procuraEmpregado(int bi);
 	int readServicos(string nome);
 	void menuPrincipal();
+	void imprimeClientes();
+	int procuraCliente(int bi);
+	void imprimeDadosCliente();
+	void adicionaCliente();
+	void removeCliente();
 	void menuCondominio();
 	void menuCliente();
 	void menuEmpregado();
