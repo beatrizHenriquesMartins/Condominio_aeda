@@ -23,3 +23,12 @@ int Vivenda::getAreaExterior() const {
 bool Vivenda::getTemPiscina() const {
 	return temPiscina;
 }
+
+void Vivenda::getInformacoes() const {
+	Habitacao::getInformacoes();
+	cout << "Área Exterior: " << getAreaExterior() << endl;
+	if(temPiscina)
+		cout << "Piscina: Sim" << endl;
+	else
+		cout << "Piscina: Não" << endl;
+}

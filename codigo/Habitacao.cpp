@@ -35,3 +35,8 @@ void Habitacao::adicionaServico(Empregado *servico) {
 vector<Empregado *> Habitacao::getServicos() const {
 	return servicos;
 }
+
+void Habitacao::getInformacoes() const {
+	cout << "Morada: " << getMorada() << endl;
+	cout << "Área Habitacional: " << getAreaHabitacao() << endl;
+}

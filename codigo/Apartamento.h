@@ -38,6 +38,8 @@ public:
 	 * @return Retorna o piso.
 	 */
 	int getPiso() const;
+
+	void getInformacoes() const;
 };
 
 #endif /* SRC_APARTAMENTO_H_ */

@@ -60,6 +60,8 @@ public:
 	 * @return Retorna o histórico de serviços prestados nesta habitação.
 	 */
 	vector<Empregado *> getServicos() const;
+
+	virtual void getInformacoes() const;
 };
 
 #endif /* SRC_HABITACAO_H_ */

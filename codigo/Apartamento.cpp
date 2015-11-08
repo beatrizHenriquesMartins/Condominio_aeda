@@ -23,3 +23,9 @@ int Apartamento::getTipologia() const {
 int Apartamento::getPiso() const {
 	return piso;
 }
+
+void Apartamento::getInformacoes() const {
+	Habitacao::getInformacoes();
+	cout << "Tipologia: " << getTipologia() << endl;
+	cout << "Piso: " << getPiso() << endl;
+}

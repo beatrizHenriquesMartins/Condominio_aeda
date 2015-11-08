@@ -514,28 +514,21 @@ void Interface::pagaMensalidade() {
 }
 
 void Interface::consultarDadosHabitacao() {
-	int bi;
 	string morada;
 
-	cout << "Introduza o BI do Cliente: ";
-	cin >> bi;
+	cout << "Introduza a morada da habitação: ";
+	cin.ignore();
+	getline(cin, morada);
 	cout << "\n";
 
-	int i = procuraCliente(bi);
-	Cliente* c = condominio->getClientes()[i];
-
-	cout << "Introduza a morada: ";
-	cin >> morada;
-	cout << "\n";
-
-	int j = procuraHabitacao(morada);
-	Habitacao* h = c->getHabitacoes()[j];
-
-	cout << "Informação Habitacao:" << endl;
-	cout << "Morada: " << h->getMorada() << endl;
-	cout << "Área Habitação: " << h->getAreaHabitacao() << "m^2" << endl;
-
-//como saber se é Apartamento ou Vivenda
+	for(unsigned int i = 0; i < condominio->getClientes().size(); i++) {
+		Cliente *c = condominio->getClientes()[i];
+		for(unsigned int j = 0; j < c->getHabitacoes().size(); j++) {
+			Habitacao *h = c->getHabitacoes()[j];
+			if(h->getMorada() == morada)
+				h->getInformacoes();
+		}
+	}
 }
 
 void Interface::historicoServicos() {
@@ -547,29 +540,29 @@ void Interface::historicoServicos() {
 }
 
 void Interface::historicoServicosHabitacao() {
-	int bi;
+	string morada;
 
-	cout << "Introduza o BI do Cliente: ";
-	cin >> bi;
+	cout << "Introduza a morada da habitação: ";
+	cin.ignore();
+	getline(cin, morada);
 	cout << "\n";
 
-	int i = procuraCliente(bi);
-	Cliente* c = condominio->getClientes()[i];
-
-	vector<Habitacao*> h = c->getHabitacoes();
-
-	for (int i = 0; i < h.size(); i++) {
-		if (h.size() != 0) {
-			Habitacao *hab = h[i];
-			cout << "Habitação: " << endl;
-			cout << "     Morada: " << hab->getMorada() << endl;
-			vector<Empregado*> s = hab->getServicos();
-			cout << "     Serviços Prestados: " << endl;
-			for (int j = 0; s.size(); j++) {
-				cout << "             - " << s[i];
+	for(unsigned int i = 0; i < condominio->getClientes().size(); i++) {
+		Cliente *c = condominio->getClientes()[i];
+		for(unsigned int j = 0; j < c->getHabitacoes().size(); j++) {
+			Habitacao *h = c->getHabitacoes()[j];
+			if(h->getMorada() == morada) {
+				for(unsigned int k = 0; k < h->getServicos().size(); k++) {
+					Empregado *e = h->getServicos()[k];
+					cout << "Nome: " << e->getNome() << endl;
+					cout << "BI: " << e->getBI() << endl;
+					cout << "Tipo: " << e->getTipo() << endl;
+				}
 			}
 		}
 	}
+
+	cout << endl;
 }
 
 void Interface::menuPrincipal() {
@@ -754,7 +747,7 @@ void Interface::menuCliente() {
 			break;
 
 		case 4:
-			//duvidas
+			requisitaServico();
 			break;
 
 		case 5:
@@ -814,6 +807,27 @@ void Interface::menuEmpregado() {
 			break;
 		}
 	} while (op != 3);
+}
+
+void Interface::requisitaServico() {
+	cout << "Morada: " << endl;
+	string morada;
+	cin.ignore();
+	getline(cin, morada);
+
+	cout << "Tipo de serviço: " << endl;
+	string tipo;
+	cin >> tipo;
+	cin.ignore();
+
+	for(unsigned int i = 0; i < condominio->getClientes().size(); i++) {
+		Cliente *c = condominio->getClientes()[i];
+		for(unsigned int j = 0; j < c->getHabitacoes().size(); j++) {
+			Habitacao *h = c->getHabitacoes()[j];
+			if(h->getMorada() == morada)
+				condominio->requisitaServico(tipo, h);
+		}
+	}
 }
 
 int main(int argc, char *argv[]) {

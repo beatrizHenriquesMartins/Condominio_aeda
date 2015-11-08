@@ -60,6 +60,7 @@ public:
 	void menuCondominio();
 	void menuCliente();
 	void menuEmpregado();
+	void requisitaServico();
 };
 
 #endif /* SRC_INTERFACE_H_ */

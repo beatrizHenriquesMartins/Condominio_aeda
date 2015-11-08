@@ -40,6 +40,8 @@ public:
 	 * @return Retorna verdade se a vivenda tem piscina e falso caso contrário.
 	 */
 	bool getTemPiscina() const;
+
+	void getInformacoes() const;
 };
 
 #endif /* SRC_VIVENDA_H_ */
