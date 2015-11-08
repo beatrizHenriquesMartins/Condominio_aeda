@@ -340,19 +340,24 @@ void Interface::imprimeDadosCliente() {
 }
 
 void Interface::imprimeHabitacoes() {
-	Cliente* c = condominio->getClientes();
-	vector<Habitacao*> h = c->getHabitacoes();
+	vector<Cliente*> c = condominio->getClientes();
 
-	cout << "Lista Habitções: " << endl;
+	for(unsigned int i = 0; i < c.size(); i++) {
+		vector<Habitacao*> habs = c[i]->getHabitacoes();
 
-	for (int i = 0; i < h.size(); i++) {
-		if (h.size() != 0) {
-			cout << "     Morada: " << h[i]->getMorada() << endl;
-			cout << "     Área Habitação: " << h[i]->getAreaHabitacao() << "m^2"
-					<< endl;
-			cout << "     Mensalidade: " << h[i]->mensalidade() << "€" << endl;
+		cout << "Lista Habitações do cliente " << c[i]->getBI() << ": " << endl;
+
+		for (int j = 0; j < habs.size(); j++) {
+			Habitacao *hab = habs[j];
+			cout << "     Morada: " << hab->getMorada() << endl;
+			cout << "     Área Habitação: " << hab->getAreaHabitacao() << "m^2" << endl;
+			cout << "     Mensalidade: " << hab->mensalidade() << "€" << endl;
 		}
+
+		cout << endl;
 	}
+
+	cout << endl;
 }
 
 void Interface::adicionaCliente() {
@@ -373,42 +378,46 @@ void Interface::adicionaCliente() {
 	condominio->adicionaCliente(c);
 }
 
-void Interface::adicionahabitacao() {
+void Interface::adicionaHabitacao() {
 	int bi, nHab, areaHab;
 	string tipoHab, morada;
 
 	cout << "Introduza o BI do Cliente: ";
 	cin >> bi;
-	cout << "\n";
+	cin.ignore();
 
 	Cliente* c = clientes[procuraCliente(bi)];
 	vector<Habitacao*> h = c->getHabitacoes();
 
 	cout << "N.º de habitações novas: ";
 	cin >> nHab;
+	cin.ignore();
 
-	while (h.size() < nHab) {
-		cout << "Vivenda ou Moradia: ";
-		cin >> tipoHab;
+	while (nHab>0 ) {
+		cout << "Vivenda ou Apartamento: ";
+		getline(cin, tipoHab);
 
 		if (tipoHab == "Vivenda") {
 			cout << "Morada: ";
-			cin >> morada;
+			getline(cin, morada);
 			cout << "\n";
 
 			cout << "Área Habitação: ";
 			cin >> areaHab;
+			cin.ignore();
 			cout << "\n";
 
 			int areaExterior;
 
 			cout << "Área Exterior: ";
 			cin >> areaExterior;
+			cin.ignore();
 			cout << "\n";
 
 			string piscina;
 			cout << "Tem Piscina? (S ou N) ";
 			cin >> piscina;
+			cin.ignore();
 			if (piscina == "S") {
 				Vivenda* habitacao = new Vivenda(morada, areaHab, areaExterior,
 						true);
@@ -420,28 +429,30 @@ void Interface::adicionahabitacao() {
 			}
 		} else if (tipoHab == "Apartamento") {
 			cout << "Morada: ";
-			cin >> morada;
+			getline(cin, morada);
 			cout << "\n";
 
 			cout << "Área Habitação: ";
 			cin >> areaHab;
+			cin.ignore();
 			cout << "\n";
 
 			int tipologia, piso;
 
-			cout
-					<< "Tipologia (escreva apenas o número. Exemplo: T3 escreve-se 3): ";
+			cout << "Tipologia (escreva apenas o número. Exemplo: T3 escreve-se 3): ";
 			cin >> tipologia;
+			cin.ignore();
 			cout << "\n";
 
 			cout << "Piso: ";
 			cin >> piso;
+			cin.ignore();
 			cout << "\n";
 
-			Apartamento* habitacao = new Apartamento(morada, areaHab, tipologia,
-					piso);
+			Apartamento* habitacao = new Apartamento(morada, areaHab, tipologia, piso);
 			c->adicionaHabitacao(habitacao);
 		}
+		nHab--;
 	}
 }
 
@@ -462,19 +473,24 @@ void Interface::removeHabitacao() {
 	string morada;
 	cout << "Introduza o BI do Cliente: ";
 	cin >> bi;
+	cin.ignore();
 	cout << "\n";
 
 	int i = procuraCliente(bi);
 	Cliente* c = condominio->getClientes()[i];
 
 	cout << "Introduza a morada: ";
-	cin >> morada;
+	getline(cin, morada);
 	cout << "\n";
 
-	int j = procuraHabitacao(morada);
+	for (unsigned int j = 0; j < c->getHabitacoes().size(); j++) {
+		Habitacao *h = c->getHabitacoes()[j];
+		if (h->getMorada() == morada){
+			c->removeHabitacao(h);
+			break;
+		}
+	}
 
-	Habitacao* h = c->getHabitacoes()[j];
-	c->removeHabitacao(h);
 }
 
 void Interface::pagaMensalidade() {
@@ -489,8 +505,9 @@ void Interface::pagaMensalidade() {
 	vector<Habitacao*> h = c->getHabitacoes();
 
 	for (int i = 0; i < h.size(); i++) {
-		cout << h[i]->getMorada() << ": " << h[i]->mensalidade() << "€";
-		total = total + h[i]->mensalidade();
+		Habitacao *hab = h[i];
+		cout << hab->getMorada() << ": " << hab->mensalidade() << "€";
+		total = total + hab->mensalidade();
 	}
 	cout << "Total a pagar: " << total << "€";
 
@@ -543,9 +560,10 @@ void Interface::historicoServicosHabitacao() {
 
 	for (int i = 0; i < h.size(); i++) {
 		if (h.size() != 0) {
+			Habitacao *hab = h[i];
 			cout << "Habitação: " << endl;
-			cout << "     Morada: " << h[i]->getMorada() << endl;
-			vector<Empregado*> s = h[i]->getServicos();
+			cout << "     Morada: " << hab->getMorada() << endl;
+			vector<Empregado*> s = hab->getServicos();
 			cout << "     Serviços Prestados: " << endl;
 			for (int j = 0; s.size(); j++) {
 				cout << "             - " << s[i];
@@ -727,7 +745,7 @@ void Interface::menuCliente() {
 
 		case 2:
 			cout << "2. Adicionar habitação" << endl;
-			adicionahabitacao();
+			adicionaHabitacao();
 			break;
 
 		case 3:
@@ -799,7 +817,7 @@ void Interface::menuEmpregado() {
 }
 
 int main(int argc, char *argv[]) {
-// Verifica número de argumentos
+	// Verifica número de argumentos
 	if (argc != 6) {
 		cerr << "É necessário especificar o nome dos 4 ficheiros.";
 		return -1;

@@ -13,7 +13,7 @@
 
 using namespace std;
 
-class Vivenda: /*public*/Habitacao {
+class Vivenda: public Habitacao {
 	int areaExterior;
 	bool temPiscina;
 public:
@@ -24,8 +24,7 @@ public:
 	 * @param areaExterior - area exterior.
 	 * @param temPiscina - caso a vivenda tenha piscina então é verdadeiro, caso contrário é falso.
 	 */
-	Vivenda(string morada, int areaHabitacao, int areaExterior,
-			bool temPiscina);
+	Vivenda(string morada, int areaHabitacao, int areaExterior, bool temPiscina);
 	/**
 	 * @brief Função que calcula o valor da base mensal de condomínio.
 	 * @return Retorna o valor da base mensal de condomínio.

@@ -12,10 +12,10 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "Apartamento.h"
-#include "Canalizacao.h"
-#include "Cliente.h"
 #include "Condominio.h"
+#include "Apartamento.h"
+#include "Vivenda.h"
+#include "Cliente.h"
 #include "Empregado.h"
 #include "excecoes.h"
 #include "Habitacao.h"
@@ -49,7 +49,7 @@ public:
 	void imprimeDadosCliente();
 	void imprimeHabitacoes();
 	void adicionaCliente();
-	void adicionahabitacao();
+	void adicionaHabitacao();
 	void removeCliente();
 	void removeHabitacao();
 	void pagaMensalidade();

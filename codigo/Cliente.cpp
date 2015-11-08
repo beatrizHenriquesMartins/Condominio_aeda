@@ -7,13 +7,10 @@
 
 #include "Cliente.h"
 
-Cliente::Cliente(string nome, int bi, vector<Habitacao *> habitacoes) :
-		nome(nome), bi(bi), habitacoes(habitacoes) {
-	/*
-	 this->nome = nome;
-	 this->bi = bi;
-	 this->habitacoes = habitacoes;
-	 */
+Cliente::Cliente(string nome, int bi, vector<Habitacao *> habitacoes) {
+	this->nome = nome;
+	this->bi = bi;
+	this->habitacoes = habitacoes;
 }
 
 vector<Habitacao *> Cliente::getHabitacoes() const {
@@ -25,25 +22,27 @@ vector<Habitacao *> Cliente::getHabitacoes() const {
 int Cliente::existeHabitacao(Habitacao *habitacao) {
 	for (unsigned int i = 0; i < habitacoes.size(); i++)
 		if (*habitacoes[i] == *habitacao)
-			return i; // encontrou
+			return i;// encontrou
 	return -1; // não encontrou
 }
 
 int Cliente::adicionaHabitacao(Habitacao *habitacao) {
-	if (existeHabitacao(habitacao) == -1) {
+	if(existeHabitacao(habitacao) == -1) {
 		habitacoes.push_back(habitacao);
 		return 0;
-	} else
+	}
+	else
 		throw HabitacaoExistente(habitacao->getMorada());
 }
 
 int Cliente::removeHabitacao(Habitacao *habitacao) {
 	int i;
 
-	if ((i = existeHabitacao(habitacao)) != -1) {
-		habitacoes.erase(habitacoes.begin() + i);
+	if((i = existeHabitacao(habitacao)) != -1){
+		habitacoes.erase(habitacoes.begin()+i);
 		return 0;
-	} else
+	}
+	else
 		throw HabitacaoInexistente(habitacao->getMorada());
 }
 
