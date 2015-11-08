@@ -11,7 +11,7 @@
 #include <iostream>
 #include "Habitacao.h"
 
-class Apartamento: public Habitacao {
+class Apartamento: /*public*/Habitacao {
 	int tipologia;
 	int piso;
 public:

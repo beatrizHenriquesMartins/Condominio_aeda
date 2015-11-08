@@ -16,7 +16,7 @@
 class Cliente {
 	string nome;
 	int bi;
-	vector<Habitacao *> habitacoes;
+	vector<Habitacao*> habitacoes;
 public:
 	/**
 	 * @brief Função que cria um cliente.
@@ -24,7 +24,7 @@ public:
 	 * @param bi - número do bilhete de identidade.
 	 * @param habitacoes - habitações das quais o cliente é proprietário.
 	 */
-	Cliente(string nome, int bi, vector<Habitacao *> habitacoes);
+	Cliente(string nome, int bi, vector<Habitacao*> habitacoes);
 	/**
 	 * @brief Função para obter as habitações do cliente.
 	 * @return Retorna as habitações do cliente.
