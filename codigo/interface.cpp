@@ -539,6 +539,22 @@ void Interface::historicoServicos() {
 	}
 }
 
+void Interface::terminaServico(){
+	int bi;
+	string morada;
+
+	cout <<"Introduza BI do Empregado: ";
+	cin>>bi;
+	cin.ignore();
+	cout<<"\n";
+
+	int i=procuraEmpregado(bi);
+	Servico* s = condominio->getServico();
+	Empregado* e=s->getEmpregados()[i];
+
+	condominio->fimDoServico(e);
+}
+
 void Interface::historicoServicosHabitacao() {
 	string morada;
 
@@ -791,7 +807,8 @@ void Interface::menuEmpregado() {
 
 		switch (op) {
 		case 1:
-			//duvidas
+			cout << "1. Terminar serviço" << endl;
+			terminaServico();
 			break;
 
 		case 2:

@@ -56,6 +56,7 @@ public:
 	void consultarDadosHabitacao();
 	void historicoServicos();
 	void historicoServicosHabitacao();
+	void terminaServico();
 	void menuPrincipal();
 	void menuCondominio();
 	void menuCliente();
