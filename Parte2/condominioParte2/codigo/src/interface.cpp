@@ -6,6 +6,8 @@
  */
 
 #include "interface.h"
+#include <dirent.h>
+#include <string>
 
 Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes,
 		string ficheiroEmpregados, string ficheiroServicos,
@@ -860,24 +862,107 @@ void Interface::requisitaServico() {
 	}
 }
 
-int main(int argc, char *argv[]) {
-	// Verifica número de argumentos
-	if (argc != 6) {
-		cerr << "É necessário especificar o nome dos 4 ficheiros.";
-		return -1;
+// Função para recolher o nome de todos os diretórios
+vector<string> getDirs(vector<string> &dirNames) {
+	const char* PATH = "condominios";
+	stringstream ss;
+	vector<string> ret;
+
+	DIR *dir = opendir(PATH);
+
+	struct dirent *entry = readdir(dir);
+
+	while (entry != NULL)
+	{
+		if(strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+			entry = readdir(dir);
+
+		else if (entry->d_type == DT_DIR) {
+			dirNames.push_back(entry->d_name); // para guardar os nomes das pastas
+
+			// para guardar o nome dos condominios
+			ss << entry->d_name;
+			string s = ss.str();
+			string name = s.substr(s.find("-")+1);
+			ss.str("");
+			ss.clear();
+			ret.push_back(name);
+			entry = readdir(dir);
+		}
 	}
 
-	string argv1 = argv[1];
-	string argv2 = argv[2];
-	string argv3 = argv[3];
-	string argv4 = argv[4];
-	string argv5 = argv[5];
+	closedir(dir);
 
-	Interface interface(argv1, argv2, argv3, argv4, argv5);
+	return ret;
+}
 
-	cout << endl << " ***** GESTÃO DE UM CONDOMINIO *****" << endl << endl;
+// Função para verificar se o input é válido
+bool validInput(string in) {
+	for(unsigned int i = 0; i < in.size(); i++) {
+		if(!isdigit(in[i]))
+			return false;
+	}
+	return true;
+}
 
-	interface.menuPrincipal();
+int main() {
+	vector<string> nomeDirs;
+	vector<string> cond = getDirs(nomeDirs);
+	string op;
+
+	while(1) {
+		vector<string>::iterator itb = cond.begin();
+		int i = 1;
+
+		cout << " * * * * * * * * * * * * * * * * * * * *  " << endl;
+		cout << "*                                        *" << endl;
+		cout << "*   Bem vindo ao gestor de condominios   *" << endl;
+		cout << "*                                        *" << endl;
+		cout << " * * * * * * * * * * * * * * * * * * * *  "<< endl << endl;
+
+		for(; itb!= cond.end(); itb++) {
+			cout << i << ". " << (*itb) << endl;
+			i++;
+		}
+
+		cout << i++ << ". Adicionar um novo condominio" << endl;
+		cout << i++ << ". Remover um condominio" << endl;
+		cout << i++ << ". Sair" << endl;
+		cout << endl << "> ";
+
+		getline(cin, op);
+
+		if(validInput(op)) {
+
+			// é um condominio
+			if(atoi(op.c_str()) <= cond.size()) {
+				string dirCond = nomeDirs[atoi(op.c_str())-1];
+
+				string ficheiroHabitacoes = "condominios/" + dirCond + "/habitacoes.txt";
+				string ficheiroClientes = "condominios/" + dirCond + "/clientes.txt";
+				string ficheiroEmpregados = "condominios/" + dirCond + "/empregados.txt";
+				string ficheiroServicos = "condominios/" + dirCond + "/servicos.txt";
+				string ficheiroCondominio = "condominios/" + dirCond + "/condominio.txt";
+
+				Interface interface(ficheiroHabitacoes, ficheiroClientes, ficheiroEmpregados, ficheiroServicos, ficheiroCondominio);
+				interface.menuPrincipal();
+				cin.ignore();
+			}
+
+			// é uma das outras opções
+			if(atoi(op.c_str()) == cond.size()+1) { // adiciona novo condominio
+
+			}
+			else if(atoi(op.c_str()) == cond.size()+2) { // remover um condominio
+
+			}
+			else if(atoi(op.c_str()) == cond.size()+3)
+				return 0;
+			else
+				cout << "Por favor escolha uma opcao valida!" << endl << endl;
+		} else
+			cout << "Por favor escolha uma opcao valida!" << endl << endl;
+	}
 
 	return 0;
 }
