@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="class_condominio-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Condominio Class Reference</div>  </div>
@@ -119,6 +120,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abfbd356bc26fde54dc40de2f9174f430"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#abfbd356bc26fde54dc40de2f9174f430">consultaCliente</a> (int cliente) const </td></tr>
 <tr class="memdesc:abfbd356bc26fde54dc40de2f9174f430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta dados de um dado cliente.  <a href="#abfbd356bc26fde54dc40de2f9174f430">More...</a><br /></td></tr>
 <tr class="separator:abfbd356bc26fde54dc40de2f9174f430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37df336e62f83189d9193f039e58935d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#a37df336e62f83189d9193f039e58935d">getId</a> () const </td></tr>
+<tr class="memdesc:a37df336e62f83189d9193f039e58935d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que retorna o identificador do condomínio.  <a href="#a37df336e62f83189d9193f039e58935d">More...</a><br /></td></tr>
+<tr class="separator:a37df336e62f83189d9193f039e58935d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e358e29fa8b970fe11c8208aaadab95"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#a7e358e29fa8b970fe11c8208aaadab95">getNome</a> () const </td></tr>
 <tr class="memdesc:a7e358e29fa8b970fe11c8208aaadab95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para obter o nome do condominio.  <a href="#a7e358e29fa8b970fe11c8208aaadab95">More...</a><br /></td></tr>
 <tr class="separator:a7e358e29fa8b970fe11c8208aaadab95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +153,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae0521eb8186f3c4000cc8c0fa6d4b762"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#ae0521eb8186f3c4000cc8c0fa6d4b762">setEmail</a> (string email)</td></tr>
 <tr class="memdesc:ae0521eb8186f3c4000cc8c0fa6d4b762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para atualizar o email do condomínio.  <a href="#ae0521eb8186f3c4000cc8c0fa6d4b762">More...</a><br /></td></tr>
 <tr class="separator:ae0521eb8186f3c4000cc8c0fa6d4b762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6726cb42e54e4084b0824ea1c2bd9172"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#a6726cb42e54e4084b0824ea1c2bd9172">operator==</a> (const <a class="el" href="class_condominio.html">Condominio</a> &amp;cond)</td></tr>
+<tr class="memdesc:a6726cb42e54e4084b0824ea1c2bd9172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador para verificar se dois condomínios são o mesmo.  <a href="#a6726cb42e54e4084b0824ea1c2bd9172">More...</a><br /></td></tr>
+<tr class="separator:a6726cb42e54e4084b0824ea1c2bd9172"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ad6d8cc37886212f5dbf8260c25a94961"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6d8cc37886212f5dbf8260c25a94961"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>lastId</b> = 0</td></tr>
+<tr class="separator:ad6d8cc37886212f5dbf8260c25a94961"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3d835c6017cd8020d49bf550246bdca6"></a>
@@ -351,6 +364,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a37df336e62f83189d9193f039e58935d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Condominio::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que retorna o identificador do condomínio. </p>
+<dl class="section return"><dt>Returns</dt><dd>Retorna o identificador do condomínio. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a131891ab8b9ca504227ec3f9edcbc326"></a>
 <div class="memitem">
 <div class="memproto">
@@ -420,6 +451,31 @@ Public Member Functions</h2></td></tr>
 
 <p>Função para obter a empresa de serviços. </p>
 <dl class="section return"><dt>Returns</dt><dd>Retorna a empresa de serviços. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6726cb42e54e4084b0824ea1c2bd9172"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Condominio::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_condominio.html">Condominio</a> &amp;&#160;</td>
+          <td class="paramname"><em>cond</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Operador para verificar se dois condomínios são o mesmo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cond</td><td>- condomínio externa com a qual vai ser comparado o condominio. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna verdade caso os condomínios sejam o mesmo e falso caso contrário. </dd></dl>
 
 </div>
 </div>

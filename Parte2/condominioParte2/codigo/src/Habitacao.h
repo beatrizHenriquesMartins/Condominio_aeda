@@ -35,22 +35,6 @@ public:
 	 */
 	virtual float mensalidade() const;
 	/**
-	 * @brief Função para obter a morada da habitação.
-	 * @return Retorna a morada da habitação.
-	 */
-	string getMorada() const;
-	/**
-	 * @brief Função para obter a area habitacional.
-	 * @return Retorna a area habitacional.
-	 */
-	int getAreaHabitacao() const;
-	/**
-	 * @brief Operador para verificar se duas habitações são a mesma.
-	 * @param hab - habitação externa com a qual vai ser comparada a habitação.
-	 * @return Retorna verdade caso as habitações sejam a mesma e falso caso contrário.
-	 */
-	bool operator==(const Habitacao & hab);
-	/**
 	 * @brief Adiciona um serviço ao histórico de serviços.
 	 * @param servico - servico que foi requisitado.
 	 */
@@ -60,8 +44,42 @@ public:
 	 * @return Retorna o histórico de serviços prestados nesta habitação.
 	 */
 	vector<Empregado *> getServicos() const;
-
+    /**
+	 * @brief Função para obter as informações da habitação.
+	 * @return Retorna as informações da habitação.
+	 */
 	virtual void getInformacoes() const;
+    /**
+	 * @brief Função para obter a morada da habitação.
+	 * @return Retorna a morada da habitação.
+	 */
+	string getMorada() const;
+	/**
+	 * @brief Função para obter a area habitacional.
+	 * @return Retorna a area habitacional.
+	 */
+	int getAreaHabitacao() const;
+    /**
+     * @brief Função para atualizar a morada da habitação.
+     * @param morada - Morada da habitação.
+     */
+    void setMorada(string morada);
+    /**
+     * @brief Função para atualizar a área habitacional.
+     * @param morada - Área habitacional.
+     */
+    void setAreaHabitacao(int areaHabitacao);
+    /**
+     * @brief Função para atualizar os serviços da habitação.
+     * @param servicos - Serviços da habitação a serem atualizados.
+    */
+    void setServicos(vector<Empregado *> servicos);
+    /**
+	 * @brief Operador para verificar se duas habitações são a mesma.
+	 * @param hab - habitação externa com a qual vai ser comparada a habitação.
+	 * @return Retorna verdade caso as habitações sejam a mesma e falso caso contrário.
+	 */
+	bool operator==(const Habitacao & hab);
 };
 
 #endif /* SRC_HABITACAO_H_ */

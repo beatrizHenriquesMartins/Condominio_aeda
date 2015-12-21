@@ -16,6 +16,7 @@
 #include "excecoes.h"
 
 class Condominio {
+	int id;
 	string nome;
 	int nif;
 	int numeroTelefone;
@@ -23,6 +24,7 @@ class Condominio {
 	vector<Cliente *> clientes;
 	Servico *servico;
 public:
+	static int lastId;
 	/**
 	 * @brief Função que cria um condominio.
 	 * @param nome - nome do condomínio.
@@ -84,6 +86,11 @@ public:
 	 */
 	int consultaCliente(int cliente) const;
 	/**
+	 * @brief Função que retorna o identificador do condomínio.
+	 * @return Retorna o identificador do condomínio.
+	 */
+	int getId() const;
+	/**
 	 * @brief Função para obter o nome do condominio.
 	 * @return Retorna o nome do condominio.
 	 */
@@ -133,6 +140,12 @@ public:
 	 *@param email - Novo email do condomínio.
 	 */
 	void setEmail(string email);
+	/**
+	 * @brief Operador para verificar se dois condomínios são o mesmo.
+	 * @param cond - condomínio externa com a qual vai ser comparado o condominio.
+	 * @return Retorna verdade caso os condomínios sejam o mesmo e falso caso contrário.
+	 */
+	bool operator==(const Condominio & cond);
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

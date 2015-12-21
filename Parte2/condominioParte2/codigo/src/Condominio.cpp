@@ -7,8 +7,11 @@
 
 #include "Condominio.h"
 
+int Condominio::lastId = 0;
+
 Condominio::Condominio(string nome, int nif, int numeroTelefone, string email,
 		vector<Cliente *> clientes, Servico *servico) {
+	this->id = ++lastId; // primeiro id é 1
 	this->nome = nome;
 	this->nif = nif;
 	this->numeroTelefone = numeroTelefone;
@@ -204,6 +207,10 @@ int Condominio::consultaCliente(int cliente) const {
 	throw ClienteInexistente(cliente);
 }
 
+int Condominio::getId() const {
+	return id;
+}
+
 string Condominio::getNome() const {
 	return nome;
 }
@@ -242,4 +249,8 @@ void Condominio::setNumeroTelefone(int numeroTelefone) {
 
 void Condominio::setEmail(string email) {
 	this->email = email;
+}
+
+bool Condominio::operator ==(const Condominio & cond) {
+	return this->id == cond.getId();
 }

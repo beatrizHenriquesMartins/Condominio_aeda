@@ -6,5 +6,6 @@ var searchData=
   ['empregadolivre',['EmpregadoLivre',['../class_empregado_livre.html',1,'']]],
   ['empregadoocupado',['EmpregadoOcupado',['../class_empregado_ocupado.html',1,'']]],
   ['empregadosindisponiveis',['EmpregadosIndisponiveis',['../class_empregados_indisponiveis.html',1,'']]],
+  ['empresacondominios',['EmpresaCondominios',['../class_empresa_condominios.html',1,'']]],
   ['empresasemempregados',['EmpresaSemEmpregados',['../class_empresa_sem_empregados.html',1,'']]]
 ];

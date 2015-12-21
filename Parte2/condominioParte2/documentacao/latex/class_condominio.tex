@@ -21,6 +21,8 @@ int \hyperlink{class_condominio_af2c2cdd83d43ea6641542efe01ff94b9}{fim\+Do\+Serv
 \begin{DoxyCompactList}\small\item\em Coloca um empregado livre quando acaba de prestar um serviço. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_abfbd356bc26fde54dc40de2f9174f430}{consulta\+Cliente} (int cliente) const 
 \begin{DoxyCompactList}\small\item\em Consulta dados de um dado cliente. \end{DoxyCompactList}\item 
+int \hyperlink{class_condominio_a37df336e62f83189d9193f039e58935d}{get\+Id} () const 
+\begin{DoxyCompactList}\small\item\em Função que retorna o identificador do condomínio. \end{DoxyCompactList}\item 
 string \hyperlink{class_condominio_a7e358e29fa8b970fe11c8208aaadab95}{get\+Nome} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter o nome do condominio. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_a131891ab8b9ca504227ec3f9edcbc326}{get\+N\+IF} () const 
@@ -40,7 +42,15 @@ void \hyperlink{class_condominio_a89d828306fcbcc0df34d52e07b7e9bb7}{set\+N\+IF} 
 void \hyperlink{class_condominio_a7f454a535fe1ebc3ab244415d963b719}{set\+Numero\+Telefone} (int numero\+Telefone)
 \begin{DoxyCompactList}\small\item\em Função para atualizar o número de telefone do condomínio. \end{DoxyCompactList}\item 
 void \hyperlink{class_condominio_ae0521eb8186f3c4000cc8c0fa6d4b762}{set\+Email} (string email)
-\begin{DoxyCompactList}\small\item\em Função para atualizar o email do condomínio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função para atualizar o email do condomínio. \end{DoxyCompactList}\item 
+bool \hyperlink{class_condominio_a6726cb42e54e4084b0824ea1c2bd9172}{operator==} (const \hyperlink{class_condominio}{Condominio} \&cond)
+\begin{DoxyCompactList}\small\item\em Operador para verificar se dois condomínios são o mesmo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries last\+Id} = 0\hypertarget{class_condominio_ad6d8cc37886212f5dbf8260c25a94961}{}\label{class_condominio_ad6d8cc37886212f5dbf8260c25a94961}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -182,6 +192,20 @@ Função para obter o email do condominio.
 \begin{DoxyReturn}{Returns}
 Retorna o email do condominio. 
 \end{DoxyReturn}
+\index{Condominio@{Condominio}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Condominio@{Condominio}}
+\subsubsection[{get\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_condominio_a37df336e62f83189d9193f039e58935d}{}\label{class_condominio_a37df336e62f83189d9193f039e58935d}
+
+
+Função que retorna o identificador do condomínio. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o identificador do condomínio. 
+\end{DoxyReturn}
 \index{Condominio@{Condominio}!get\+N\+IF@{get\+N\+IF}}
 \index{get\+N\+IF@{get\+N\+IF}!Condominio@{Condominio}}
 \subsubsection[{get\+N\+I\+F() const }]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::get\+N\+IF (
@@ -237,6 +261,25 @@ Função para obter a empresa de serviços.
 
 \begin{DoxyReturn}{Returns}
 Retorna a empresa de serviços. 
+\end{DoxyReturn}
+\index{Condominio@{Condominio}!operator==@{operator==}}
+\index{operator==@{operator==}!Condominio@{Condominio}}
+\subsubsection[{operator==(const Condominio \&cond)}]{\setlength{\rightskip}{0pt plus 5cm}bool Condominio\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Condominio} \&}]{cond}
+\end{DoxyParamCaption}
+)}\hypertarget{class_condominio_a6726cb42e54e4084b0824ea1c2bd9172}{}\label{class_condominio_a6726cb42e54e4084b0824ea1c2bd9172}
+
+
+Operador para verificar se dois condomínios são o mesmo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cond} & -\/ condomínio externa com a qual vai ser comparado o condominio. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdade caso os condomínios sejam o mesmo e falso caso contrário. 
 \end{DoxyReturn}
 \index{Condominio@{Condominio}!pagar\+Mensalidade@{pagar\+Mensalidade}}
 \index{pagar\+Mensalidade@{pagar\+Mensalidade}!Condominio@{Condominio}}
