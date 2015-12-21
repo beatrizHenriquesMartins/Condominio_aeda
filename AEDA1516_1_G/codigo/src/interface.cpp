@@ -303,8 +303,8 @@ int Interface::readServicos(string nome) {
 }
 
 void Interface::imprimeClientes() {
-	cout << endl << "--- Lista de Clientes do condominio "
-			<< condominio->getNome() << " ---" << endl << endl;
+	cout << endl << "*** Lista de Clientes do condominio "
+			<< condominio->getNome() << " ***" << endl << endl;
 
 	for (unsigned int i = 0; i < condominio->getClientes().size(); i++) {
 		Cliente *c = condominio->getClientes()[i];
@@ -327,7 +327,7 @@ int Interface::procuraCliente(int bi) {
 }
 
 void Interface::imprimeDadosCliente() {
-	cout << endl << "--- Dados do Cliente ---" << endl << endl;
+	cout << endl << "*** Dados do Cliente ***" << endl << endl;
 
 	cout << endl << "Número do bilhete de identidade do cliente: ";
 	int bi;
@@ -360,7 +360,7 @@ void Interface::imprimeHabitacoes() {
 	for (unsigned int i = 0; i < c.size(); i++) {
 		vector<Habitacao*> habs = c[i]->getHabitacoes();
 
-		cout << "Lista Habitações do cliente " << c[i]->getBI() << ": " << endl;
+		cout << "*** Lista Habitações do cliente " << c[i]->getBI() << " ***" << endl;
 
 		for (int j = 0; j < habs.size(); j++) {
 			Habitacao *hab = habs[j];
@@ -377,7 +377,7 @@ void Interface::imprimeHabitacoes() {
 }
 
 void Interface::adicionaCliente() {
-	cout << endl << "--- Adicionar um cliente novo ---" << endl;
+	cout << endl << "*** Adicionar um cliente novo ***" << endl;
 
 	cout << "Nome: ";
 	string nome;
@@ -483,7 +483,7 @@ void Interface::adicionaHabitacao() {
 }
 
 void Interface::removeCliente() {
-	cout << endl << "--- Remover um cliente novo ---" << endl;
+	cout << endl << "*** Remover um cliente novo ***" << endl;
 
 	cout << "BI: ";
 	int bi;
@@ -603,12 +603,12 @@ void Interface::menuPrincipal() {
 	int op;
 
 	do {
-		cout << "Menu Principal" << endl;
+		cout << endl << "*** Menu Principal ***" << endl << endl;
 		cout << "     1. Condominio" << endl;
 		cout << "     2. Cliente" << endl;
 		cout << "     3. Empregaado" << endl;
 		cout << "     4. Sair" << endl;
-		cout << "Introduza uma opção: ";
+		cout << ">  ";
 		cin >> op;
 		cout << endl;
 
@@ -626,7 +626,6 @@ void Interface::menuPrincipal() {
 			break;
 
 		case 4:
-			cout << "A sair do programa..." << endl;
 			break;
 
 		default:
@@ -641,20 +640,20 @@ void Interface::menuCondominio() {
 	int op;
 
 	do {
-		cout << "Condomínio" << endl;
+		cout << endl << "*** Condomínio ***" << endl << endl;
 		cout << "     1. Adiciona Cliente" << endl;
 		cout << "     2. Remover Cliente" << endl;
 		cout << "     3. Consultar Lista  Clientes" << endl;
 		cout << "     4. Consultar dados Cliente" << endl;
 		cout << "     5. Sair" << endl;
 
-		cout << "Introduza uma opção: ";
+		cout << "> ";
 		cin >> op;
 		cout << endl;
 
 		switch (op) {
 		case 1:
-			cout << "1. Adiciona Cliente" << endl << endl;
+			cout << endl << "*** Adiciona Cliente ***" << endl << endl;
 			adicionaCliente();
 
 			// Para testar se está a funcionar
@@ -689,7 +688,7 @@ void Interface::menuCondominio() {
 			break;
 
 		case 2: // Remover Cliente
-			cout << "2. Remover Cliente" << endl << endl;
+			cout << endl << "*** Remover Cliente ***" << endl << endl;
 			removeCliente();
 
 			// Para testar se está a funcionar
@@ -724,12 +723,12 @@ void Interface::menuCondominio() {
 			break;
 
 		case 3:
-			cout << "3. Consultar Lista  Clientes" << endl << endl;
+			cout << endl << "*** Consultar Lista  Clientes ***" << endl << endl;
 			imprimeClientes();
 			break;
 
 		case 4:
-			cout << "4. Consultar dados Cliente" << endl << endl;
+			cout << endl << "*** Consultar dados Cliente ***" << endl << endl;
 			imprimeDadosCliente();
 			break;
 
@@ -747,7 +746,7 @@ void Interface::menuCliente() {
 	int op;
 
 	do {
-		cout << "Cliente" << endl;
+		cout << "*** Cliente ***" << endl << endl;
 		cout << "     1. Pagar mensalidade" << endl;
 		cout << "     2. Adicionar habitação" << endl;
 		cout << "     3. Remover habitação" << endl;
@@ -757,43 +756,43 @@ void Interface::menuCliente() {
 		cout << "     7. Listar histórico serviços habitação" << endl;
 		cout << "     8. Sair" << endl;
 
-		cout << "Introduza uma opção: ";
+		cout << "> ";
 		cin >> op;
 		cout << endl;
 
 		switch (op) {
 		case 1:
-			cout << "1. Pagar mensalidade" << endl << endl;
+			cout << endl << "*** Pagar mensalidade ***" << endl << endl;
 			pagaMensalidade();
 			break;
 
 		case 2:
-			cout << "2. Adicionar habitação" << endl;
+			cout << endl << "*** Adicionar habitação ***" << endl << endl;
 			adicionaHabitacao();
 			break;
 
 		case 3:
-			cout << "3. Remover habitação" << endl;
+			cout << endl << "*** Remover habitação ***" << endl << endl;
 			removeHabitacao();
 			break;
 
 		case 4:
+			cout << endl << "*** Requisita Serviço ***" << endl << endl;
 			requisitaServico();
 			break;
 
 		case 5:
-			cout << "5. Listar habitações" << endl;
+			cout << endl << "*** Listar habitações ***" << endl << endl;
 			imprimeHabitacoes();
 			break;
 
 		case 6:
-			cout << "6. Consultar dados habitação" << endl;
+			cout << endl << "*** Consultar dados habitação ***" << endl << endl;
 			consultarDadosHabitacao();
 			break;
 
 		case 7:
-			//duvidas
-			cout << "7. Listar histórico serviços habitação" << endl;
+			cout << endl << "*** Listar histórico serviços habitação ***" << endl << endl;
 			historicoServicosHabitacao();
 			break;
 
@@ -811,23 +810,23 @@ void Interface::menuEmpregado() {
 	int op;
 
 	do {
-		cout << "Empregado" << endl;
+		cout << endl << "*** Empregado ***" << endl << endl;
 		cout << "     1. Terminar serviço" << endl;
 		cout << "     2. Consultar histórico serviços" << endl;
 		cout << "     3. Sair" << endl;
 
-		cout << "Introduza uma opção: ";
+		cout << "> ";
 		cin >> op;
 		cout << endl;
 
 		switch (op) {
 		case 1:
-			cout << "1. Terminar serviço" << endl;
+			cout << endl << "*** Terminar serviço ***" << endl << endl;
 			terminaServico();
 			break;
 
 		case 2:
-			cout << "2. Consultar histórico serviços" << endl;
+			cout << endl << "*** Consultar histórico serviços ***" << endl << endl;
 			historicoServicosHabitacao();
 			break;
 
@@ -945,6 +944,9 @@ int main() {
 				string ficheiroCondominio = "condominios/" + dirCond + "/condominio.txt";
 
 				Interface interface(ficheiroHabitacoes, ficheiroClientes, ficheiroEmpregados, ficheiroServicos, ficheiroCondominio);
+
+				cout << endl << cond[atoi(op.c_str())-1] << endl;
+
 				interface.menuPrincipal();
 				cin.ignore();
 			}
