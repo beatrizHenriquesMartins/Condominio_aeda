@@ -7,7 +7,10 @@
 
 #include "Canalizacao.h"
 
-Canalizacao::Canalizacao(string nome, int bi, string tipo, bool livre) : Empregado(nome, bi, tipo, livre) {
-	if(tipo!="Canalizacao")
-		cout << "Atenção! Foi criado um canalizador com o tipo " << tipo << ", com o bi " << bi << "." << endl;
+Canalizacao::Canalizacao(string nome, int bi, int numeroTelemovel, string email,
+		string tipo, bool livre) :
+		Empregado(nome, bi, numeroTelemovel, email, tipo, livre) {
+	if (tipo != "Canalizacao")
+		cout << "Atenção! Foi criado um canalizador com o tipo " << tipo
+				<< ", com o bi " << bi << "." << endl;
 }

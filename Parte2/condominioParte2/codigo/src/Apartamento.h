@@ -29,6 +29,11 @@ public:
 	 */
 	float mensalidade() const;
 	/**
+	 * @brief Função para obter as informações do apartamento
+	 * @return Retorna as informações do apartamento
+	 */
+	void getInformacoes() const;
+	/**
 	 * @brief Função para obter a tipologia.
 	 * @return Retorna a tipologia.
 	 */
@@ -38,8 +43,17 @@ public:
 	 * @return Retorna o piso.
 	 */
 	int getPiso() const;
+	/**
+	 * @brief Função para atualizar a tipologia do apartamento.
+	 * @param tipologia - Tipologia do apartamento.
+	 */
+	void setTipologia(int tipologia);
+	/**
+	 * @brief Função para atualizar o piso do apartamento.
+	 * @param piso - Piso do apartamento.
+	 */
+	void setPiso(int piso);
 
-	void getInformacoes() const;
 };
 
 #endif /* SRC_APARTAMENTO_H_ */

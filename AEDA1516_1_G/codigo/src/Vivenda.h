@@ -24,7 +24,8 @@ public:
 	 * @param areaExterior - area exterior.
 	 * @param temPiscina - caso a vivenda tenha piscina então é verdadeiro, caso contrário é falso.
 	 */
-	Vivenda(string morada, int areaHabitacao, int areaExterior, bool temPiscina);
+	Vivenda(string morada, int areaHabitacao, int areaExterior,
+			bool temPiscina);
 	/**
 	 * @brief Função que calcula o valor da base mensal de condomínio.
 	 * @return Retorna o valor da base mensal de condomínio.
@@ -40,8 +41,21 @@ public:
 	 * @return Retorna verdade se a vivenda tem piscina e falso caso contrário.
 	 */
 	bool getTemPiscina() const;
-
+	/**
+	 * @brief Função para obter as informações da vivenda.
+	 * @return Retorna as informações da vivenda.
+	 */
 	void getInformacoes() const;
+	/**
+	 * @brief Função para atualizar a área exterior da vivenda.
+	 * @param areaExterior - Área exterior da vivenda.
+	 */
+	void setAreaExterior(int areaExterior);
+	/**
+	 * @brief Função para atualizar se a vivenda tem piscina ou não.
+	 * @param temPiscina - Tem piscina ou não.
+	 */
+	void setTemPiscina(bool temPiscina);
 };
 
 #endif /* SRC_VIVENDA_H_ */

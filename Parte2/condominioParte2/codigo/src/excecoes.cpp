@@ -9,7 +9,8 @@
 
 // --- EMPREGADO EXISTENTE ---
 
-EmpregadoExistente::EmpregadoExistente(int num_bi) : bi(num_bi) {
+EmpregadoExistente::EmpregadoExistente(int num_bi) :
+		bi(num_bi) {
 
 }
 
@@ -19,7 +20,8 @@ int EmpregadoExistente::getBI() const {
 
 // --- LIMITE MAXIMO DE EMPREGADOS ---
 
-LimiteMaximoEmpregados::LimiteMaximoEmpregados(string t) : tipo(t) {
+LimiteMaximoEmpregados::LimiteMaximoEmpregados(string t) :
+		tipo(t) {
 
 }
 
@@ -29,7 +31,8 @@ string LimiteMaximoEmpregados::getTipo() const {
 
 // --- SERVICO INVALIDO ---
 
-ServicoInvalido::ServicoInvalido(string t) : tipo(t) {
+ServicoInvalido::ServicoInvalido(string t) :
+		tipo(t) {
 
 }
 
@@ -39,7 +42,8 @@ string ServicoInvalido::getTipo() const {
 
 // --- EMPREGADOS INDISPONIVEIS ---
 
-EmpregadosIndisponiveis::EmpregadosIndisponiveis(string t) : tipo(t) {
+EmpregadosIndisponiveis::EmpregadosIndisponiveis(string t) :
+		tipo(t) {
 
 }
 
@@ -49,7 +53,8 @@ string EmpregadosIndisponiveis::getTipo() const {
 
 // --- CLIENTE EXISTENTE ---
 
-ClienteExistente::ClienteExistente(int num_bi) : bi(num_bi) {
+ClienteExistente::ClienteExistente(int num_bi) :
+		bi(num_bi) {
 
 }
 
@@ -59,7 +64,8 @@ int ClienteExistente::getBI() const {
 
 // --- CLIENTE INEXISTENTE ---
 
-ClienteInexistente::ClienteInexistente(int num_bi) : bi(num_bi) {
+ClienteInexistente::ClienteInexistente(int num_bi) :
+		bi(num_bi) {
 
 }
 
@@ -75,7 +81,8 @@ EmpresaSemEmpregados::EmpresaSemEmpregados() {
 
 // --- EMPREGADO OCUPADO ---
 
-EmpregadoOcupado::EmpregadoOcupado(int num_bi) : bi(num_bi) {
+EmpregadoOcupado::EmpregadoOcupado(int num_bi) :
+		bi(num_bi) {
 
 }
 
@@ -85,7 +92,8 @@ int EmpregadoOcupado::getBI() const {
 
 // -- EMPREGADO LIVRE ---
 
-EmpregadoLivre::EmpregadoLivre(int num_bi) : bi(num_bi) {
+EmpregadoLivre::EmpregadoLivre(int num_bi) :
+		bi(num_bi) {
 
 }
 
@@ -95,7 +103,8 @@ int EmpregadoLivre::getBI() const {
 
 // --- EMPREGADO INEXISTENTE ---
 
-EmpregadoInexistente::EmpregadoInexistente(int num_bi) : bi(num_bi) {
+EmpregadoInexistente::EmpregadoInexistente(int num_bi) :
+		bi(num_bi) {
 
 }
 
@@ -105,7 +114,8 @@ int EmpregadoInexistente::getBI() const {
 
 // --- HABITACAO INEXISTENTE ---
 
-HabitacaoInexistente::HabitacaoInexistente(string m) : morada(m) {
+HabitacaoInexistente::HabitacaoInexistente(string m) :
+		morada(m) {
 
 }
 
@@ -115,7 +125,8 @@ string HabitacaoInexistente::getMorada() const {
 
 // --- HABITACAO EXISTENTE ---
 
-HabitacaoExistente::HabitacaoExistente(string m) : morada(m) {
+HabitacaoExistente::HabitacaoExistente(string m) :
+		morada(m) {
 
 }
 

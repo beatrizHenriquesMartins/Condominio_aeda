@@ -7,7 +7,9 @@
 
 #include "Vivenda.h"
 
-Vivenda::Vivenda(string morada, int areaHabitacao, int areaExterior, bool temPiscina) : Habitacao(morada, areaHabitacao) {
+Vivenda::Vivenda(string morada, int areaHabitacao, int areaExterior,
+		bool temPiscina) :
+		Habitacao(morada, areaHabitacao) {
 	this->areaExterior = areaExterior;
 	this->temPiscina = temPiscina;
 }
@@ -27,8 +29,16 @@ bool Vivenda::getTemPiscina() const {
 void Vivenda::getInformacoes() const {
 	Habitacao::getInformacoes();
 	cout << "Área Exterior: " << getAreaExterior() << endl;
-	if(temPiscina)
+	if (temPiscina)
 		cout << "Piscina: Sim" << endl;
 	else
 		cout << "Piscina: Não" << endl;
+}
+
+void Vivenda::setAreaExterior(int areaExterior) {
+	this->areaExterior = areaExterior;
+}
+
+void Vivenda::setTemPiscina(bool temPiscina) {
+	this->temPiscina = temPiscina;
 }

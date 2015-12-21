@@ -7,7 +7,8 @@
 
 #include "Servico.h"
 
-Servico::Servico(vector<Empregado *> empregados, int maxEmpLimpeza, int maxEmpCanalizacao, int maxEmpPintura) {
+Servico::Servico(vector<Empregado *> empregados, int maxEmpLimpeza,
+		int maxEmpCanalizacao, int maxEmpPintura) {
 	this->empregados = empregados;
 
 	this->servicosDisponiveis = getServicosDisponiveis();
@@ -57,7 +58,8 @@ int Servico::numEmpLimpezaLivres() const {
 int Servico::numEmpCanalizacaoLivres() const {
 	int num = 0;
 	for (unsigned int i = 0; i < empregados.size(); i++)
-		if (empregados[i]->getTipo() == "Canalizacao" && empregados[i]->getLivre())
+		if (empregados[i]->getTipo() == "Canalizacao"
+				&& empregados[i]->getLivre())
 			num++;
 
 	return num;
@@ -75,7 +77,7 @@ int Servico::numEmpPinturaLivres() const {
 // Sequential Search alterado
 int Servico::procuraEmpregado(Empregado *empregado) {
 	for (unsigned int i = 0; i < empregados.size(); i++)
-		if(*empregados[i] == *empregado)
+		if (*empregados[i] == *empregado)
 			return i;
 	return -1;
 }
@@ -83,7 +85,7 @@ int Servico::procuraEmpregado(Empregado *empregado) {
 int Servico::adicionaEmpregado(Empregado *empregado) {
 
 	// Verifica se empregado já existe
-	if(procuraEmpregado(empregado)!=-1)
+	if (procuraEmpregado(empregado) != -1)
 		throw EmpregadoExistente(empregado->getBI());
 
 	// Verifica se o limite de empregados desse tipo foi atingido
@@ -116,17 +118,17 @@ int Servico::removeEmpregado(Empregado *empregado) {
 	int id;
 
 	// Verificar se o vetor de empregados está vazio
-	if(empregados.size() == 0)
+	if (empregados.size() == 0)
 		throw EmpresaSemEmpregados();
 
 	// Verificar se o empregado existe
-	if((id = procuraEmpregado(empregado)) != -1) {
-		if(!empregados[id]->getLivre())
+	if ((id = procuraEmpregado(empregado)) != -1) {
+		if (!empregados[id]->getLivre())
 			throw EmpregadoOcupado(empregado->getBI());
 
 		else {
 			decServicosDisponiveis();
-			empregados.erase(empregados.begin()+id);
+			empregados.erase(empregados.begin() + id);
 			return 0;
 		}
 	}
@@ -138,8 +140,8 @@ int Servico::removeEmpregado(Empregado *empregado) {
 int Servico::getServicosDisponiveis() const {
 	int n = 0;
 
-	for(unsigned int i = 0; i < empregados.size(); i++) {
-		if(empregados[i]->getLivre())
+	for (unsigned int i = 0; i < empregados.size(); i++) {
+		if (empregados[i]->getLivre())
 			n++;
 	}
 
@@ -152,22 +154,21 @@ vector<Empregado *> Servico::getEmpregados() const {
 
 int Servico::decServicosDisponiveis() {
 	// Não é possível decrementar quando o tamanho é zero porque não existe serviços disponíveis negativos
-	if(empregados.size() == 0)
+	if (empregados.size() == 0)
 		throw EmpresaSemEmpregados();
 
-	if(servicosDisponiveis!=0) {
+	if (servicosDisponiveis != 0) {
 		servicosDisponiveis--;
 		return 0;
-	}
-	else
+	} else
 		return -1;
 }
 
 int Servico::incServicosDisponiveis() {
 	// Não é possível incrementar quando o tamanho é zero porque ainda não existem empregados na empresa.
 	// O que garante que só incrementa os serviços disponíveis depois de adicionar um empregado à empresa de serviços.
-	if(empregados.size() == 0)
-			throw EmpresaSemEmpregados();
+	if (empregados.size() == 0)
+		throw EmpresaSemEmpregados();
 
 	servicosDisponiveis++;
 	return 0;
@@ -183,4 +184,34 @@ int Servico::getNumMaxCanalizacao() const {
 
 int Servico::getNumMaxPintura() const {
 	return maxEmpPintura;
+}
+
+int Servico::setNumMaxLimpeza(int maxEmpLimpeza) {
+
+	if (numEmpLimpeza() > maxEmpLimpeza)
+		return -1;
+	else
+		this->maxEmpLimpeza = maxEmpLimpeza;
+
+	return 0;
+}
+
+int Servico::setNumMaxCanalizacao(int maxEmpCanalizacao) {
+
+	if (numEmpCanalizacao() > maxEmpCanalizacao)
+		return -1;
+	else
+		this->maxEmpCanalizacao = maxEmpCanalizacao;
+
+	return 0;
+}
+
+int Servico::setNumMaxPintura(int maxEmpPintura) {
+
+	if (numEmpPintura() > maxEmpPintura)
+		return -1;
+	else
+		this->maxEmpPintura = maxEmpPintura;
+
+	return 0;
 }

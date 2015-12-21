@@ -16,10 +16,13 @@ public:
 	 * @brief Função que cria um empregado de limpeza.
 	 * @param nome - nome do empregado.
 	 * @param bi - número do bilhete de identidade.
+	 * @param numeroTelemovel - número de telemóvel do empregado.
+	 * @param email - email do empregado
 	 * @param tipo - o tipo deve ser "limpeza", caso contrário é lançada uma exceção.
 	 * @param livre - se for verdadeiro então o empregado está livre, caso contrário está ocupado.
 	 */
-	Limpeza(string nome, int bi, string tipo, bool livre);
+	Limpeza(string nome, int bi, int numeroTelemovel, string email, string tipo,
+			bool livre);
 };
 
 #endif /* SRC_LIMPEZA_H_ */

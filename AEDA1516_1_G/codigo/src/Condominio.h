@@ -18,6 +18,8 @@
 class Condominio {
 	string nome;
 	int nif;
+	int numeroTelefone;
+	string email;
 	vector<Cliente *> clientes;
 	Servico *servico;
 public:
@@ -25,10 +27,13 @@ public:
 	 * @brief Função que cria um condominio.
 	 * @param nome - nome do condomínio.
 	 * @param nif - número de identificação fiscal do condomínio.
+	 * @param numeroTelefone - número de telefone do condomínio.
+	 * @param email - email do condomínio.
 	 * @param clientes - clientes do condomínio.
 	 * @param serviço - empresa de serviços.
 	 */
-	Condominio(string nome, int nif, vector<Cliente *> clientes, Servico *servico);
+	Condominio(string nome, int nif, int numeroTelefone, string email,
+			vector<Cliente *> clientes, Servico *servico);
 	/**
 	 * @brief Verifica se um dado cliente pertence ao condomínio.
 	 * @param cliente - cliente que se pretende procurar.
@@ -47,11 +52,6 @@ public:
 	 * @return Retorna 0 em caso de sucesso.
 	 */
 	int removeCliente(Cliente *cliente);
-	/**
-	 * @brief Função para obter os clientes do condomínio.
-	 * @return Retorna os clientes do condomínio.
-	 */
-	vector<Cliente *> getClientes() const;
 	/**
 	 * @brief Função para efetuar o pagamento da base mensal de condomínio de uma habitação.
 	 * @param habitacao - habitação da qual se quer efetuar o pagamento da base mensal de condomínio.
@@ -84,15 +84,55 @@ public:
 	 */
 	int consultaCliente(int cliente) const;
 	/**
+	 * @brief Função para obter o nome do condominio.
+	 * @return Retorna o nome do condominio.
+	 */
+	string getNome() const;
+	/**
+	 * @brief Função para obter o NIF do condominio.
+	 * @return Retorna o NIF do condominio.
+	 */
+	int getNIF() const;
+	/**
+	 * @brief Função para obter o número de telefone do condominio.
+	 * @return Retorna o número de telefone do condominio.
+	 */
+	int getNumeroTelefone() const;
+	/**
+	 * @brief Função para obter o email do condominio.
+	 * @return Retorna o email do condominio.
+	 */
+	string getEmail() const;
+	/**
+	 * @brief Função para obter os clientes do condomínio.
+	 * @return Retorna os clientes do condomínio.
+	 */
+	vector<Cliente *> getClientes() const;
+	/**
 	 * @brief Função para obter a empresa de serviços.
 	 * @return Retorna a empresa de serviços.
 	 */
 	Servico * getServico() const;
 	/**
-	 * @brief Função para obter o nome do condominio.
-	 * @return Retorna o nome do condominio.
+	 *@brief Função para atualizar o nome do condomínio.
+	 *@param nome - Novo nome do condomínio.
 	 */
-	string getNome() const;
+	void setNome(string nome);
+	/**
+	 *@brief Função para atualizar o NIF do condomínio.
+	 *@param nif - Novo NIF do condomínio.
+	 */
+	void setNIF(int nif);
+	/**
+	 *@brief Função para atualizar o número de telefone do condomínio.
+	 *@param numeroTelefone - Novo número de telefone do condomínio.
+	 */
+	void setNumeroTelefone(int numeroTelefone);
+	/**
+	 *@brief Função para atualizar o email do condomínio.
+	 *@param email - Novo email do condomínio.
+	 */
+	void setEmail(string email);
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

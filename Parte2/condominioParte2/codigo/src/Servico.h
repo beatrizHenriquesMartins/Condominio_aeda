@@ -28,7 +28,8 @@ public:
 	 * @param maxEmpCanalizacao - número máximo de canalizadores permitidos nesta empresa.
 	 * @param maxEmpPintura - número máximo de pintores permitidos nesta empresa.
 	 */
-	Servico(vector<Empregado *> empregados, int maxEmpLimpeza, int maxEmpCanalizacao, int maxEmpPintura);
+	Servico(vector<Empregado *> empregados, int maxEmpLimpeza,
+			int maxEmpCanalizacao, int maxEmpPintura);
 	/**
 	 * @brief Função para obter o número de empregados de limpeza existentes.
 	 * @return Retorna o número de empregados de limpeza existentes.
@@ -78,16 +79,6 @@ public:
 	 */
 	int removeEmpregado(Empregado *empregado);
 	/**
-	 * @brief Função para obter o número de empregados que estão livres na empresa de serviços.
-	 * @return Retorna o número de empregados que estão livres na empresa de serviços.
-	 */
-	int getServicosDisponiveis() const;
-	/**
-	 * @brief Função para obter os empregados da empresa de serviços.
-	 * @return Retorna os empregados da empresa de serviços.
-	 */
-	vector<Empregado *> getEmpregados() const;
-	/**
 	 * @brief Função decrementa o número de servicos disponiveis.
 	 * @return Retorna 0 em caso de sucesso e -1 caso o número de empregados disponíveis seja zero.
 	 */
@@ -97,6 +88,16 @@ public:
 	 * @return Retorna 0 em caso de sucesso.
 	 */
 	int incServicosDisponiveis();
+	/**
+	 * @brief Função para obter o número de empregados que estão livres na empresa de serviços.
+	 * @return Retorna o número de empregados que estão livres na empresa de serviços.
+	 */
+	int getServicosDisponiveis() const;
+	/**
+	 * @brief Função para obter os empregados da empresa de serviços.
+	 * @return Retorna os empregados da empresa de serviços.
+	 */
+	vector<Empregado *> getEmpregados() const;
 	/**
 	 * @brief Função para obter o número máximo de empregados de limpeza permitidos.
 	 * @return Retorna o número máximo de empregados de limpeza permitidos.
@@ -112,7 +113,24 @@ public:
 	 * @return Retorna o número máximo de pintores permitidos.
 	 */
 	int getNumMaxPintura() const;
+	/**
+	 * @brief Função para atualizar o número máximo de empregados de limpeza.
+	 * @param maxEmpLimpeza - Número máximo de empregados de limpeza.
+	 * @return Retorna 0 caso o número de empregados de limpeza atual seja inferior ou igual ao número máximo a alterar, e -1 caso contrário.
+	 */
+	int setNumMaxLimpeza(int maxEmpLimpeza);
+	/**
+	 * @brief Função para atualizar o número máximo de empregados de canalização.
+	 * @param maxEmpCanalizacao - Número máximo de empregados de canalização.
+	 * @return Retorna 0 caso o número de empregados de canalização atual seja inferior ou igual ao número máximo a alterar, e -1 caso contrário.
+	 */
+	int setNumMaxCanalizacao(int maxEmpCanalizacao);
+	/**
+	 * @brief Função para atualizar o número máximo de empregados de pintura.
+	 * @param maxEmpPintura - Número máximo de empregados de pintura.
+	 * @return Retorna 0 caso o número de empregados de pintura atual seja inferior ou igual ao número máximo a alterar, e -1 caso contrário.
+	 */
+	int setNumMaxPintura(int maxEmpPintura);
 };
-
 
 #endif /* SRC_SERVICO_H_ */

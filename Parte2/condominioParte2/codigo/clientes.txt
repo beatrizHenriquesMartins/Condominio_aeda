@@ -2,20 +2,20 @@ Maria
 12345678
 habs
 Rua da circunvalacao
-endHabs
 123456789
 maria@email.com
+endHabs
 Manuela
 99887766
 habs
 Rua da constituicao
-endHabs
 234567890
 manuela@email.com
+endHabs
 Maria
 98765432
 habs
 Rua da boavista
-endHabs
 345678901
 mariatm@email.com
+endHabs

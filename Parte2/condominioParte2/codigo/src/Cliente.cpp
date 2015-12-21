@@ -7,17 +7,13 @@
 
 #include "Cliente.h"
 
-Cliente::Cliente(string nome, int bi, vector<Habitacao *> habitacoes,
-		int numeroTelemovel, string email) {
+Cliente::Cliente(string nome, int bi, int numeroTelemovel, string email,
+		vector<Habitacao *> habitacoes) {
 	this->nome = nome;
 	this->bi = bi;
-	this->habitacoes = habitacoes;
 	this->numeroTelemovel = numeroTelemovel;
 	this->email = email;
-}
-
-vector<Habitacao *> Cliente::getHabitacoes() const {
-	return habitacoes;
+	this->habitacoes = habitacoes;
 }
 
 // Sequential Search alterado
@@ -47,6 +43,10 @@ int Cliente::removeHabitacao(Habitacao *habitacao) {
 		throw HabitacaoInexistente(habitacao->getMorada());
 }
 
+vector<Habitacao *> Cliente::getHabitacoes() const {
+	return habitacoes;
+}
+
 int Cliente::getBI() const {
 	return bi;
 }
@@ -55,11 +55,14 @@ string Cliente::getNome() const {
 	return nome;
 }
 
-bool Cliente::operator ==(const Cliente & cliente) {
-	return (this->bi == cliente.getBI());
+int Cliente::getNumeroTelemovel() const {
+	return numeroTelemovel;
 }
 
-//
+string Cliente::getEmail() const {
+	return email;
+}
+
 void Cliente::setNome(string nome) {
 	this->nome = nome;
 }
@@ -68,20 +71,16 @@ void Cliente::setBI(int bi) {
 	this->bi = bi;
 }
 
-int Cliente::getNumeroTelemovel() const {
-	return numeroTelemovel;
-}
-
 void Cliente::setNumeroTelemovel(int numeroTelemovel) {
 	this->numeroTelemovel = numeroTelemovel;
 }
 
-string Cliente::getEMail() const {
-	return email;
-}
-
 void Cliente::setEmail(string email) {
 	this->email = email;
+}
+
+bool Cliente::operator ==(const Cliente & cliente) {
+	return (this->bi == cliente.getBI());
 }
 
 bool Cliente::operator <(const Cliente &cliente) {

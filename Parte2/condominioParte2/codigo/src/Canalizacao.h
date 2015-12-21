@@ -16,11 +16,13 @@ public:
 	 * @brief Função que cria um empregado canalizador.
 	 * @param nome - nome do empregado.
 	 * @param bi - número do bilhete de identidade.
+	 * @param numeroTelemovel - número de telemóvel do empregado.
+	 * @param email - email do empregado.
 	 * @param tipo - o tipo deve ser "canalizador", caso contrário é lançada uma exceção.
 	 * @param livre - se for verdadeiro então o empregado está livre, caso contrário está ocupado.
 	 */
-	Canalizacao(string nome, int bi, string tipo, bool livre,
-			int numeroTelemovel, string email);
+	Canalizacao(string nome, int bi, int numeroTelemovel, string email,
+			string tipo, bool livre);
 };
 
 #endif /* SRC_CANALIZACAO_H_ */

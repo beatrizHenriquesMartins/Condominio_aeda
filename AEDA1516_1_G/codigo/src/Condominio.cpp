@@ -7,9 +7,12 @@
 
 #include "Condominio.h"
 
-Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes, Servico *servico) {
+Condominio::Condominio(string nome, int nif, int numeroTelefone, string email,
+		vector<Cliente *> clientes, Servico *servico) {
 	this->nome = nome;
 	this->nif = nif;
+	this->numeroTelefone = numeroTelefone;
+	this->email = email;
 	this->servico = servico;
 	this->clientes = clientes;
 }
@@ -17,32 +20,26 @@ Condominio::Condominio(string nome, int nif, vector<Cliente *> clientes, Servico
 int Condominio::existeCliente(Cliente *cliente) {
 	for (unsigned int i = 0; i < clientes.size(); i++)
 		if (*clientes[i] == *cliente)
-			return i;// encontrou
+			return i; // encontrou
 	return -1; // não encontrou
 }
 
 int Condominio::adicionaCliente(Cliente *cliente) {
-	if(existeCliente(cliente) == -1) {
+	if (existeCliente(cliente) == -1) {
 		clientes.push_back(cliente);
 		return 0;
-	}
-	else
+	} else
 		throw ClienteExistente(cliente->getBI());
 }
 
 int Condominio::removeCliente(Cliente *cliente) {
 	int i;
 
-	if((i = existeCliente(cliente)) != -1){
-		clientes.erase(clientes.begin()+i);
+	if ((i = existeCliente(cliente)) != -1) {
+		clientes.erase(clientes.begin() + i);
 		return 0;
-	}
-	else
+	} else
 		throw ClienteInexistente(cliente->getBI());
-}
-
-vector<Cliente *> Condominio::getClientes() const {
-	return clientes;
 }
 
 float Condominio::pagarMensalidade(Habitacao *habitacao) const {
@@ -50,11 +47,13 @@ float Condominio::pagarMensalidade(Habitacao *habitacao) const {
 	vector<Cliente *>::const_iterator ite_cliente = clientes.end();
 
 	for (; itb_cliente != ite_cliente; itb_cliente++) {
-		vector<Habitacao *>::const_iterator itb_hab = (*itb_cliente)->getHabitacoes().begin();
-		vector<Habitacao *>::const_iterator ite_hab = (*itb_cliente)->getHabitacoes().end();
+		vector<Habitacao *>::const_iterator itb_hab =
+				(*itb_cliente)->getHabitacoes().begin();
+		vector<Habitacao *>::const_iterator ite_hab =
+				(*itb_cliente)->getHabitacoes().end();
 
 		itb_hab = find(itb_hab, ite_hab, habitacao);
-		if(itb_hab!=ite_hab)
+		if (itb_hab != ite_hab)
 			return (*itb_hab)->mensalidade();
 	}
 
@@ -87,8 +86,11 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 
 			for (unsigned int i = 0; i < clientes.size(); i++) {
 
-				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
-					if(clientes[i]->getHabitacoes()[j] == habitacao) {
+				for (unsigned int j = 0;
+						j < clientes[i]->getHabitacoes().size(); j++) {
+					vector<Habitacao *> habs = clientes[i]->getHabitacoes();
+					Habitacao *hab = habs[j];
+					if (hab->getMorada() == habitacao->getMorada()) {
 						encontrou = true;
 						Habitacao * h = clientes[i]->getHabitacoes()[j];
 						h->adicionaServico(servico);
@@ -96,7 +98,7 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 				}
 			}
 
-			if(!encontrou)
+			if (!encontrou)
 				throw HabitacaoInexistente(habitacao->getMorada());
 		}
 
@@ -106,13 +108,16 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 			throw EmpregadosIndisponiveis(tipo);
 
 		// Pode requisitar o empregado
-		else{
+		else {
 			Empregado *servico = requisitaEmpregado(tipo);
 
 			for (unsigned int i = 0; i < clientes.size(); i++) {
 
-				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
-					if(clientes[i]->getHabitacoes()[j] == habitacao) {
+				for (unsigned int j = 0;
+						j < clientes[i]->getHabitacoes().size(); j++) {
+					vector<Habitacao *> habs = clientes[i]->getHabitacoes();
+					Habitacao *hab = habs[j];
+					if (hab->getMorada() == habitacao->getMorada()) {
 						encontrou = true;
 						Habitacao * h = clientes[i]->getHabitacoes()[j];
 						h->adicionaServico(servico);
@@ -120,7 +125,7 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 				}
 			}
 
-			if(!encontrou)
+			if (!encontrou)
 				throw HabitacaoInexistente(habitacao->getMorada());
 		}
 
@@ -135,8 +140,11 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 
 			for (unsigned int i = 0; i < clientes.size(); i++) {
 
-				for(unsigned int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
-					if(clientes[i]->getHabitacoes()[j] == habitacao) {
+				for (unsigned int j = 0;
+						j < clientes[i]->getHabitacoes().size(); j++) {
+					vector<Habitacao *> habs = clientes[i]->getHabitacoes();
+					Habitacao *hab = habs[j];
+					if (hab->getMorada() == habitacao->getMorada()) {
 						encontrou = true;
 						Habitacao * h = clientes[i]->getHabitacoes()[j];
 						h->adicionaServico(servico);
@@ -144,7 +152,7 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 				}
 			}
 
-			if(!encontrou)
+			if (!encontrou)
 				throw HabitacaoInexistente(habitacao->getMorada());
 		}
 
@@ -157,11 +165,11 @@ int Condominio::requisitaServico(string tipo, Habitacao *habitacao) {
 int Condominio::fimDoServico(Empregado *empregado) {
 	bool existe = false;
 	int ocupado = false;
-	for(unsigned int i = 0; i < servico->getEmpregados().size(); i++) {
+	for (unsigned int i = 0; i < servico->getEmpregados().size(); i++) {
 		// Empregado pertence a este Condominio e não estava livre
-		if(*servico->getEmpregados()[i] == *empregado) {
+		if (*servico->getEmpregados()[i] == *empregado) {
 			existe = true;
-			if(!empregado->getLivre()) {
+			if (!empregado->getLivre()) {
 				ocupado = true;
 				servico->getEmpregados()[i]->setLivre(true);
 				servico->incServicosDisponiveis();
@@ -170,20 +178,23 @@ int Condominio::fimDoServico(Empregado *empregado) {
 		}
 	}
 
-	if(!existe)
+	if (!existe)
 		throw EmpregadoInexistente(empregado->getBI());
 
-	if(!ocupado)
+	if (!ocupado)
 		throw EmpregadoLivre(empregado->getBI());
+
+	return 0;
 }
 
 int Condominio::consultaCliente(int cliente) const {
-	for(unsigned int i = 0; i < clientes.size(); i++) {
-		if(clientes[i]->getBI() == cliente) {
+	for (unsigned int i = 0; i < clientes.size(); i++) {
+		if (clientes[i]->getBI() == cliente) {
 			cout << "BI: " << cliente << endl;
 			cout << "Nome: " << clientes[i]->getNome() << endl;
 			cout << "Habitacoes: ";
-			for(unsigned int k = 0; k < clientes[i]->getHabitacoes().size(); k++) {
+			for (unsigned int k = 0; k < clientes[i]->getHabitacoes().size();
+					k++) {
 				Habitacao * h = clientes[i]->getHabitacoes()[k];
 				cout << h->getMorada() << endl;
 			}
@@ -193,10 +204,42 @@ int Condominio::consultaCliente(int cliente) const {
 	throw ClienteInexistente(cliente);
 }
 
+string Condominio::getNome() const {
+	return nome;
+}
+
+int Condominio::getNIF() const {
+	return nif;
+}
+
+int Condominio::getNumeroTelefone() const {
+	return numeroTelefone;
+}
+
+string Condominio::getEmail() const {
+	return email;
+}
+
+vector<Cliente *> Condominio::getClientes() const {
+	return clientes;
+}
+
 Servico * Condominio::getServico() const {
 	return servico;
 }
 
-string Condominio::getNome() const {
-	return nome;
+void Condominio::setNome(string nome) {
+	this->nome = nome;
+}
+
+void Condominio::setNIF(int nif) {
+	this->nif = nif;
+}
+
+void Condominio::setNumeroTelefone(int numeroTelefone) {
+	this->numeroTelefone = numeroTelefone;
+}
+
+void Condominio::setEmail(string email) {
+	this->email = email;
 }
