@@ -7,9 +7,9 @@
 
 #include "Vivenda.h"
 
-Vivenda::Vivenda(string morada, int areaHabitacao, int areaExterior,
+Vivenda::Vivenda(string morada, int areaHabitacao, string tipo, int areaExterior,
 		bool temPiscina) :
-		Habitacao(morada, areaHabitacao) {
+		Habitacao(morada, areaHabitacao, tipo) {
 	this->areaExterior = areaExterior;
 	this->temPiscina = temPiscina;
 }

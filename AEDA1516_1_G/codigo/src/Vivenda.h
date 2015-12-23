@@ -24,7 +24,7 @@ public:
 	 * @param areaExterior - area exterior.
 	 * @param temPiscina - caso a vivenda tenha piscina então é verdadeiro, caso contrário é falso.
 	 */
-	Vivenda(string morada, int areaHabitacao, int areaExterior,
+	Vivenda(string morada, int areaHabitacao, string tipo, int areaExterior,
 			bool temPiscina);
 	/**
 	 * @brief Função que calcula o valor da base mensal de condomínio.

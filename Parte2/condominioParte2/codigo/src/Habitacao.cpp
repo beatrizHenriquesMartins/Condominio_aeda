@@ -7,9 +7,10 @@
 
 #include "Habitacao.h"
 
-Habitacao::Habitacao(string morada, int areaHabitacao) {
+Habitacao::Habitacao(string morada, int areaHabitacao, string tipo) {
 	this->morada = morada;
 	this->areaHabitacao = areaHabitacao;
+	this->tipo = tipo;
 }
 
 float Habitacao::mensalidade() const {
@@ -29,6 +30,10 @@ string Habitacao::getMorada() const {
 	return morada;
 }
 
+string Habitacao::getTipo() const {
+	return tipo;
+}
+
 int Habitacao::getAreaHabitacao() const {
 	return areaHabitacao;
 }
@@ -43,6 +48,10 @@ void Habitacao::setMorada(string morada) {
 
 void Habitacao::setAreaHabitacao(int areaHabitacao) {
     this->areaHabitacao = areaHabitacao;
+}
+
+void Habitacao::setTipo(string tipo) {
+	this->tipo = tipo;
 }
 
 void Habitacao::setServicos(vector<Empregado *> servicos) {

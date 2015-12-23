@@ -9,12 +9,16 @@
 #define SRC_SERVICO_H_
 
 #include <vector>
+#include <unordered_set>
 #include "Limpeza.h"
 #include "Canalizacao.h"
 #include "Pintura.h"
 #include "excecoes.h"
 
+// typedef unordered_set<Empregado, hashServico, igualServico> tabHEmpregados;
+
 class Servico {
+	//tabHEmpregados tabEmpregados;
 	vector<Empregado *> empregados;
 	int servicosDisponiveis;
 	int maxEmpLimpeza;
@@ -131,6 +135,21 @@ public:
 	 * @return Retorna 0 caso o número de empregados de pintura atual seja inferior ou igual ao número máximo a alterar, e -1 caso contrário.
 	 */
 	int setNumMaxPintura(int maxEmpPintura);
+};
+
+struct igualServico {
+	bool operator()(const string &s1, const string &s2) const { // operador de igualdade
+		return s1 == s2;
+	}
+};
+
+struct hashServico {
+	int operator()(const string &s1) const {
+		int v = 0;
+		for (unsigned int i = 0; i < s1.size(); i++)
+			v = 37 * v + s1[i];
+		return v;
+	}
 };
 
 #endif /* SRC_SERVICO_H_ */

@@ -15,6 +15,16 @@ int \hyperlink{class_interface_ad59e6bc08a709c085139c660bbb90429}{read\+Servicos
 \begin{DoxyCompactList}\small\item\em Função que lê informação do ficheiro dos serviços. \end{DoxyCompactList}\item 
 int \hyperlink{class_interface_a33674b11f816b6614f9e5c69d346c706}{read\+Condominio} (string nome)
 \begin{DoxyCompactList}\small\item\em Função que lê informação do ficheiro do condomínio . \end{DoxyCompactList}\item 
+int \hyperlink{class_interface_ab958fd934d292ca384de456f3a0e2887}{write\+Habitacoes} (string nome\+\_\+hab)
+\begin{DoxyCompactList}\small\item\em Função que escreve os dados das habitações atuais para o ficheiro de habitações. \end{DoxyCompactList}\item 
+int \hyperlink{class_interface_a8e61f486409d01cb374ad5abf4d019ce}{write\+Clientes} ()
+\begin{DoxyCompactList}\small\item\em Função que escreve os dados dos clientes atuais para o ficheiro de clientes. \end{DoxyCompactList}\item 
+int \hyperlink{class_interface_ac720fe22aaab1baed246761e2e5cff08}{write\+Empregados} ()
+\begin{DoxyCompactList}\small\item\em Função que escreve os dados dos empregados atuais para o ficheiro de empregados. \end{DoxyCompactList}\item 
+int \hyperlink{class_interface_a246699e8b6e64e72e6134ab9e159bbdf}{write\+Servicos} ()
+\begin{DoxyCompactList}\small\item\em Função que escreve os dados dos serviços atuais para o ficheiro de serviços. \end{DoxyCompactList}\item 
+int \hyperlink{class_interface_a4ea6569a9bce79db7d0135efc0778124}{write\+Condominio} ()
+\begin{DoxyCompactList}\small\item\em Função que escreve os dados do condomínio atual para o ficheiro do condomínio. \end{DoxyCompactList}\item 
 int \hyperlink{class_interface_ac6040bbfe9d93dbe66073486895b350f}{procura\+Habitacao} (string morada)
 \begin{DoxyCompactList}\small\item\em Função que procura uma habitação pela morada. \end{DoxyCompactList}\item 
 int \hyperlink{class_interface_af478030a7565af1f96580afaafdd0cde}{procura\+Cliente} (int bi)
@@ -23,55 +33,65 @@ int \hyperlink{class_interface_a3f5893a482f5a1b2161dfcea02b79746}{procura\+Empre
 \begin{DoxyCompactList}\small\item\em Função que procura um empregado pelo bilhete de identidade. \end{DoxyCompactList}\item 
 void \hyperlink{class_interface_adc4b93f87de9383d2d450435f38de4b3}{imprime\+Clientes} ()\hypertarget{class_interface_adc4b93f87de9383d2d450435f38de4b3}{}\label{class_interface_adc4b93f87de9383d2d450435f38de4b3}
 
-\begin{DoxyCompactList}\small\item\em Imprime. \end{DoxyCompactList}\item 
-void {\bfseries imprime\+Dados\+Cliente} ()\hypertarget{class_interface_ad534a51f3ad3d4127764dfeb8ec6889c}{}\label{class_interface_ad534a51f3ad3d4127764dfeb8ec6889c}
+\begin{DoxyCompactList}\small\item\em Imprime no ecrã a lista de clientes de um condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_ad534a51f3ad3d4127764dfeb8ec6889c}{imprime\+Dados\+Cliente} ()\hypertarget{class_interface_ad534a51f3ad3d4127764dfeb8ec6889c}{}\label{class_interface_ad534a51f3ad3d4127764dfeb8ec6889c}
 
-\item 
-void {\bfseries imprime\+Habitacoes} ()\hypertarget{class_interface_a45714f2fad37ed40fa88432d3c2cf26f}{}\label{class_interface_a45714f2fad37ed40fa88432d3c2cf26f}
+\begin{DoxyCompactList}\small\item\em Imprime no ecrã os dados de um cliente do condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_aed67f4ad69432e696dee93694029fb2e}{imprime\+Dados\+Condominio} ()\hypertarget{class_interface_aed67f4ad69432e696dee93694029fb2e}{}\label{class_interface_aed67f4ad69432e696dee93694029fb2e}
 
-\item 
-void {\bfseries adiciona\+Cliente} ()\hypertarget{class_interface_af3b831e11a69de725ed8454e03b41b18}{}\label{class_interface_af3b831e11a69de725ed8454e03b41b18}
+\begin{DoxyCompactList}\small\item\em Imprime no ecrã os dados do condominio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a45714f2fad37ed40fa88432d3c2cf26f}{imprime\+Habitacoes} ()\hypertarget{class_interface_a45714f2fad37ed40fa88432d3c2cf26f}{}\label{class_interface_a45714f2fad37ed40fa88432d3c2cf26f}
 
-\item 
-void {\bfseries remove\+Cliente} ()\hypertarget{class_interface_a7c65a253d09316fd93ca81d1a2e8587a}{}\label{class_interface_a7c65a253d09316fd93ca81d1a2e8587a}
+\begin{DoxyCompactList}\small\item\em Imprime no ecrã a lista de habitações de um condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_af3b831e11a69de725ed8454e03b41b18}{adiciona\+Cliente} ()\hypertarget{class_interface_af3b831e11a69de725ed8454e03b41b18}{}\label{class_interface_af3b831e11a69de725ed8454e03b41b18}
 
-\item 
-void {\bfseries paga\+Mensalidade} ()\hypertarget{class_interface_aaad57b1cee2e56f7468b29522ff26822}{}\label{class_interface_aaad57b1cee2e56f7468b29522ff26822}
+\begin{DoxyCompactList}\small\item\em Função que adiciona um cliente ao condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a7c65a253d09316fd93ca81d1a2e8587a}{remove\+Cliente} ()\hypertarget{class_interface_a7c65a253d09316fd93ca81d1a2e8587a}{}\label{class_interface_a7c65a253d09316fd93ca81d1a2e8587a}
 
-\item 
-void {\bfseries adiciona\+Habitacao} ()\hypertarget{class_interface_a1cb89458dd7b90cd1b0b52ad429dd898}{}\label{class_interface_a1cb89458dd7b90cd1b0b52ad429dd898}
+\begin{DoxyCompactList}\small\item\em Função que remove um cliente do condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_aaad57b1cee2e56f7468b29522ff26822}{paga\+Mensalidade} ()\hypertarget{class_interface_aaad57b1cee2e56f7468b29522ff26822}{}\label{class_interface_aaad57b1cee2e56f7468b29522ff26822}
 
-\item 
-void {\bfseries consultar\+Dados\+Habitacao} ()\hypertarget{class_interface_a538aebd288ba7ebe79560d7d3263bf1a}{}\label{class_interface_a538aebd288ba7ebe79560d7d3263bf1a}
+\begin{DoxyCompactList}\small\item\em Função que permite a um cliente pagar a sua mensalidade. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a1cb89458dd7b90cd1b0b52ad429dd898}{adiciona\+Habitacao} ()\hypertarget{class_interface_a1cb89458dd7b90cd1b0b52ad429dd898}{}\label{class_interface_a1cb89458dd7b90cd1b0b52ad429dd898}
 
-\item 
-void {\bfseries remove\+Habitacao} ()\hypertarget{class_interface_a81422a4819d081d4b8d0af9c36e268f3}{}\label{class_interface_a81422a4819d081d4b8d0af9c36e268f3}
+\begin{DoxyCompactList}\small\item\em Função que permite adicionar uma habitação a um condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a538aebd288ba7ebe79560d7d3263bf1a}{consultar\+Dados\+Habitacao} ()\hypertarget{class_interface_a538aebd288ba7ebe79560d7d3263bf1a}{}\label{class_interface_a538aebd288ba7ebe79560d7d3263bf1a}
 
-\item 
-void {\bfseries requisita\+Servico} ()\hypertarget{class_interface_a1cd911a367d92b2ef9a1c2b05fadf5d7}{}\label{class_interface_a1cd911a367d92b2ef9a1c2b05fadf5d7}
+\begin{DoxyCompactList}\small\item\em Função que permite consultar os dados de uma habitação. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a81422a4819d081d4b8d0af9c36e268f3}{remove\+Habitacao} ()\hypertarget{class_interface_a81422a4819d081d4b8d0af9c36e268f3}{}\label{class_interface_a81422a4819d081d4b8d0af9c36e268f3}
 
-\item 
-void {\bfseries termina\+Servico} ()\hypertarget{class_interface_a4a258bbbcf8d46cf0301bb8ca1792966}{}\label{class_interface_a4a258bbbcf8d46cf0301bb8ca1792966}
+\begin{DoxyCompactList}\small\item\em Função que permite remover uma habitação de um condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a1cd911a367d92b2ef9a1c2b05fadf5d7}{requisita\+Servico} ()\hypertarget{class_interface_a1cd911a367d92b2ef9a1c2b05fadf5d7}{}\label{class_interface_a1cd911a367d92b2ef9a1c2b05fadf5d7}
 
-\item 
-void {\bfseries historico\+Servicos} ()\hypertarget{class_interface_a6b95f930f246c8a802873d3f84798d8a}{}\label{class_interface_a6b95f930f246c8a802873d3f84798d8a}
+\begin{DoxyCompactList}\small\item\em Função que permite a um condomínio requisitar um serviço (\hyperlink{class_limpeza}{Limpeza}, Canalização ou \hyperlink{class_pintura}{Pintura}). \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a4a258bbbcf8d46cf0301bb8ca1792966}{termina\+Servico} ()\hypertarget{class_interface_a4a258bbbcf8d46cf0301bb8ca1792966}{}\label{class_interface_a4a258bbbcf8d46cf0301bb8ca1792966}
 
-\item 
-void {\bfseries historico\+Servicos\+Habitacao} ()\hypertarget{class_interface_a9c249ee70e15d13ceaa4b88b7e2ad4d2}{}\label{class_interface_a9c249ee70e15d13ceaa4b88b7e2ad4d2}
+\begin{DoxyCompactList}\small\item\em Função que permite a um empregado (identificado pelo seu BI) terminar um serviço. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a6b95f930f246c8a802873d3f84798d8a}{historico\+Servicos} ()\hypertarget{class_interface_a6b95f930f246c8a802873d3f84798d8a}{}\label{class_interface_a6b95f930f246c8a802873d3f84798d8a}
 
-\item 
-void {\bfseries menu\+Principal} ()\hypertarget{class_interface_a417dd813f30bf427f6dd1fe57887a685}{}\label{class_interface_a417dd813f30bf427f6dd1fe57887a685}
+\begin{DoxyCompactList}\small\item\em Função que permite visualizar o histórico de serviços prestados a um condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a9c249ee70e15d13ceaa4b88b7e2ad4d2}{historico\+Servicos\+Habitacao} ()\hypertarget{class_interface_a9c249ee70e15d13ceaa4b88b7e2ad4d2}{}\label{class_interface_a9c249ee70e15d13ceaa4b88b7e2ad4d2}
 
-\item 
-void {\bfseries menu\+Condominio} ()\hypertarget{class_interface_a29d77218d33dab2c23a6c064b5f699db}{}\label{class_interface_a29d77218d33dab2c23a6c064b5f699db}
+\begin{DoxyCompactList}\small\item\em Função que permite visualizar o histórico de serviços prestados a uma dada habitação. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a417dd813f30bf427f6dd1fe57887a685}{menu\+Principal} ()\hypertarget{class_interface_a417dd813f30bf427f6dd1fe57887a685}{}\label{class_interface_a417dd813f30bf427f6dd1fe57887a685}
 
-\item 
-void {\bfseries menu\+Cliente} ()\hypertarget{class_interface_a9df9a75b68cd5009f39ff1ae9683d371}{}\label{class_interface_a9df9a75b68cd5009f39ff1ae9683d371}
+\begin{DoxyCompactList}\small\item\em Função que permite visualizar o menu principal de gestão de um condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a29d77218d33dab2c23a6c064b5f699db}{menu\+Condominio} ()\hypertarget{class_interface_a29d77218d33dab2c23a6c064b5f699db}{}\label{class_interface_a29d77218d33dab2c23a6c064b5f699db}
 
-\item 
-void {\bfseries menu\+Empregado} ()\hypertarget{class_interface_a6921af8d7a2a51836bec16fd5f892db3}{}\label{class_interface_a6921af8d7a2a51836bec16fd5f892db3}
+\begin{DoxyCompactList}\small\item\em Função que permite visualizar o menu de um condomínio onde é possível adicionar / remover um cliente, listar os clientes existentes, etc. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a9df9a75b68cd5009f39ff1ae9683d371}{menu\+Cliente} ()\hypertarget{class_interface_a9df9a75b68cd5009f39ff1ae9683d371}{}\label{class_interface_a9df9a75b68cd5009f39ff1ae9683d371}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função que permite visualizar o menu de clientes onde é possível adicionar / remover uma habitação, pagar mensalidade, etc. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a6921af8d7a2a51836bec16fd5f892db3}{menu\+Empregado} ()\hypertarget{class_interface_a6921af8d7a2a51836bec16fd5f892db3}{}\label{class_interface_a6921af8d7a2a51836bec16fd5f892db3}
+
+\begin{DoxyCompactList}\small\item\em Função que permite visualizar o menu de empregados onde é possível terminar um serviço ou listar o histórico de serviços. \end{DoxyCompactList}\item 
+int \hyperlink{class_interface_aec1bf503838bf4e4b2b956a5316ff803}{menu\+Atualiza\+Cliente} (int bi\+\_\+atualizar)
+\begin{DoxyCompactList}\small\item\em Função que atualiza os dados de um cliente. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_a377af5a888cc9ad6e70184ff505117ba}{menu\+Atualiza\+Condominio} ()\hypertarget{class_interface_a377af5a888cc9ad6e70184ff505117ba}{}\label{class_interface_a377af5a888cc9ad6e70184ff505117ba}
+
+\begin{DoxyCompactList}\small\item\em Função que atualiza os dados do condominio. \end{DoxyCompactList}\item 
+int \hyperlink{class_interface_a59857db02ac98caf066093f273d5bf55}{menu\+Atualiza\+Habitacao} (string morada\+\_\+atualizar)
+\begin{DoxyCompactList}\small\item\em Função que atualiza os dados de uma dada habitação. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -106,6 +126,44 @@ Função que inicializa os dados dos condomínios.
 
 
 \subsection{Member Function Documentation}
+\index{Interface@{Interface}!menu\+Atualiza\+Cliente@{menu\+Atualiza\+Cliente}}
+\index{menu\+Atualiza\+Cliente@{menu\+Atualiza\+Cliente}!Interface@{Interface}}
+\subsubsection[{menu\+Atualiza\+Cliente(int bi\+\_\+atualizar)}]{\setlength{\rightskip}{0pt plus 5cm}int Interface\+::menu\+Atualiza\+Cliente (
+\begin{DoxyParamCaption}
+\item[{int}]{bi\+\_\+atualizar}
+\end{DoxyParamCaption}
+)}\hypertarget{class_interface_aec1bf503838bf4e4b2b956a5316ff803}{}\label{class_interface_aec1bf503838bf4e4b2b956a5316ff803}
+
+
+Função que atualiza os dados de um cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bi\+\_\+atualizar} & -\/ número do bilhete de identidade do cliente a atualizar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
+\end{DoxyReturn}
+\index{Interface@{Interface}!menu\+Atualiza\+Habitacao@{menu\+Atualiza\+Habitacao}}
+\index{menu\+Atualiza\+Habitacao@{menu\+Atualiza\+Habitacao}!Interface@{Interface}}
+\subsubsection[{menu\+Atualiza\+Habitacao(string morada\+\_\+atualizar)}]{\setlength{\rightskip}{0pt plus 5cm}int Interface\+::menu\+Atualiza\+Habitacao (
+\begin{DoxyParamCaption}
+\item[{string}]{morada\+\_\+atualizar}
+\end{DoxyParamCaption}
+)}\hypertarget{class_interface_a59857db02ac98caf066093f273d5bf55}{}\label{class_interface_a59857db02ac98caf066093f273d5bf55}
+
+
+Função que atualiza os dados de uma dada habitação. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em morada\+\_\+atualizar} & -\/ morada da habitação a atualizar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
+\end{DoxyReturn}
 \index{Interface@{Interface}!procura\+Cliente@{procura\+Cliente}}
 \index{procura\+Cliente@{procura\+Cliente}!Interface@{Interface}}
 \subsubsection[{procura\+Cliente(int bi)}]{\setlength{\rightskip}{0pt plus 5cm}int Interface\+::procura\+Cliente (
@@ -257,6 +315,81 @@ Função que lê informação do ficheiro dos serviços.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Retorna 0 se ler corretamente o ficheiro e -\/1 caso não consiga abrir o ficheiro. 
+\end{DoxyReturn}
+\index{Interface@{Interface}!write\+Clientes@{write\+Clientes}}
+\index{write\+Clientes@{write\+Clientes}!Interface@{Interface}}
+\subsubsection[{write\+Clientes()}]{\setlength{\rightskip}{0pt plus 5cm}int Interface\+::write\+Clientes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_interface_a8e61f486409d01cb374ad5abf4d019ce}{}\label{class_interface_a8e61f486409d01cb374ad5abf4d019ce}
+
+
+Função que escreve os dados dos clientes atuais para o ficheiro de clientes. 
+
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
+\end{DoxyReturn}
+\index{Interface@{Interface}!write\+Condominio@{write\+Condominio}}
+\index{write\+Condominio@{write\+Condominio}!Interface@{Interface}}
+\subsubsection[{write\+Condominio()}]{\setlength{\rightskip}{0pt plus 5cm}int Interface\+::write\+Condominio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_interface_a4ea6569a9bce79db7d0135efc0778124}{}\label{class_interface_a4ea6569a9bce79db7d0135efc0778124}
+
+
+Função que escreve os dados do condomínio atual para o ficheiro do condomínio. 
+
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
+\end{DoxyReturn}
+\index{Interface@{Interface}!write\+Empregados@{write\+Empregados}}
+\index{write\+Empregados@{write\+Empregados}!Interface@{Interface}}
+\subsubsection[{write\+Empregados()}]{\setlength{\rightskip}{0pt plus 5cm}int Interface\+::write\+Empregados (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_interface_ac720fe22aaab1baed246761e2e5cff08}{}\label{class_interface_ac720fe22aaab1baed246761e2e5cff08}
+
+
+Função que escreve os dados dos empregados atuais para o ficheiro de empregados. 
+
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
+\end{DoxyReturn}
+\index{Interface@{Interface}!write\+Habitacoes@{write\+Habitacoes}}
+\index{write\+Habitacoes@{write\+Habitacoes}!Interface@{Interface}}
+\subsubsection[{write\+Habitacoes(string nome\+\_\+hab)}]{\setlength{\rightskip}{0pt plus 5cm}int Interface\+::write\+Habitacoes (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\+\_\+hab}
+\end{DoxyParamCaption}
+)}\hypertarget{class_interface_ab958fd934d292ca384de456f3a0e2887}{}\label{class_interface_ab958fd934d292ca384de456f3a0e2887}
+
+
+Função que escreve os dados das habitações atuais para o ficheiro de habitações. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+\_\+hab} & -\/ Nome da habitação a atualizar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
+\end{DoxyReturn}
+\index{Interface@{Interface}!write\+Servicos@{write\+Servicos}}
+\index{write\+Servicos@{write\+Servicos}!Interface@{Interface}}
+\subsubsection[{write\+Servicos()}]{\setlength{\rightskip}{0pt plus 5cm}int Interface\+::write\+Servicos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_interface_a246699e8b6e64e72e6134ab9e159bbdf}{}\label{class_interface_a246699e8b6e64e72e6134ab9e159bbdf}
+
+
+Função que escreve os dados dos serviços atuais para o ficheiro de serviços. 
+
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso e -\/1 caso contrário. 
 \end{DoxyReturn}
 
 

@@ -9,7 +9,7 @@ Inheritance diagram for Habitacao\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_habitacao_a3b5e5edb0ca3b52025ef46a796fcf18d}{Habitacao} (string morada, int area\+Habitacao)
+\hyperlink{class_habitacao_af0994a78f4f97e38f70c350c81bceca8}{Habitacao} (string morada, int area\+Habitacao, string tipo)
 \begin{DoxyCompactList}\small\item\em Função que cria uma habitação. \end{DoxyCompactList}\item 
 virtual float \hyperlink{class_habitacao_a479d2307661c87b05242b86ba849fb6e}{mensalidade} () const 
 \begin{DoxyCompactList}\small\item\em Função que calcula o valor da base mensal de condomínio. \end{DoxyCompactList}\item 
@@ -23,10 +23,14 @@ string \hyperlink{class_habitacao_a17ef78eef7746f92bd2814893bfafbab}{get\+Morada
 \begin{DoxyCompactList}\small\item\em Função para obter a morada da habitação. \end{DoxyCompactList}\item 
 int \hyperlink{class_habitacao_a8b8dc61b41f3bda37f3e517fe63f877a}{get\+Area\+Habitacao} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter a area habitacional. \end{DoxyCompactList}\item 
+string \hyperlink{class_habitacao_a8ab7eac482a13fd7932ae6aae03eeb7f}{get\+Tipo} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o tipo da habitação. \end{DoxyCompactList}\item 
 void \hyperlink{class_habitacao_a603791af3e08136c539c0516e95af41f}{set\+Morada} (string morada)
 \begin{DoxyCompactList}\small\item\em Função para atualizar a morada da habitação. \end{DoxyCompactList}\item 
 void \hyperlink{class_habitacao_a7b42d8414d288665bc0e6fd8bd2b212d}{set\+Area\+Habitacao} (int area\+Habitacao)
 \begin{DoxyCompactList}\small\item\em Função para atualizar a área habitacional. \end{DoxyCompactList}\item 
+void \hyperlink{class_habitacao_aa668bbab733fda60bbdeb38799c092b7}{set\+Tipo} (string tipo)
+\begin{DoxyCompactList}\small\item\em Função para atualizar o tipo da habitação. \end{DoxyCompactList}\item 
 void \hyperlink{class_habitacao_a2300762d9e6e88b91efb2e8177ce8106}{set\+Servicos} (vector$<$ \hyperlink{class_empregado}{Empregado} $\ast$ $>$ servicos)
 \begin{DoxyCompactList}\small\item\em Função para atualizar os serviços da habitação. \end{DoxyCompactList}\item 
 bool \hyperlink{class_habitacao_acd290b8d83f41d4667867d5dc353166e}{operator==} (const \hyperlink{class_habitacao}{Habitacao} \&hab)
@@ -36,12 +40,13 @@ bool \hyperlink{class_habitacao_acd290b8d83f41d4667867d5dc353166e}{operator==} (
 \subsection{Constructor \& Destructor Documentation}
 \index{Habitacao@{Habitacao}!Habitacao@{Habitacao}}
 \index{Habitacao@{Habitacao}!Habitacao@{Habitacao}}
-\subsubsection[{Habitacao(string morada, int area\+Habitacao)}]{\setlength{\rightskip}{0pt plus 5cm}Habitacao\+::\+Habitacao (
+\subsubsection[{Habitacao(string morada, int area\+Habitacao, string tipo)}]{\setlength{\rightskip}{0pt plus 5cm}Habitacao\+::\+Habitacao (
 \begin{DoxyParamCaption}
 \item[{string}]{morada, }
-\item[{int}]{area\+Habitacao}
+\item[{int}]{area\+Habitacao, }
+\item[{string}]{tipo}
 \end{DoxyParamCaption}
-)}\hypertarget{class_habitacao_a3b5e5edb0ca3b52025ef46a796fcf18d}{}\label{class_habitacao_a3b5e5edb0ca3b52025ef46a796fcf18d}
+)}\hypertarget{class_habitacao_af0994a78f4f97e38f70c350c81bceca8}{}\label{class_habitacao_af0994a78f4f97e38f70c350c81bceca8}
 
 
 Função que cria uma habitação. 
@@ -132,6 +137,20 @@ Função para obter o histórico de serviços prestados nesta habitação.
 \begin{DoxyReturn}{Returns}
 Retorna o histórico de serviços prestados nesta habitação. 
 \end{DoxyReturn}
+\index{Habitacao@{Habitacao}!get\+Tipo@{get\+Tipo}}
+\index{get\+Tipo@{get\+Tipo}!Habitacao@{Habitacao}}
+\subsubsection[{get\+Tipo() const }]{\setlength{\rightskip}{0pt plus 5cm}string Habitacao\+::get\+Tipo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_habitacao_a8ab7eac482a13fd7932ae6aae03eeb7f}{}\label{class_habitacao_a8ab7eac482a13fd7932ae6aae03eeb7f}
+
+
+Função para obter o tipo da habitação. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o tipo da habitação. 
+\end{DoxyReturn}
 \index{Habitacao@{Habitacao}!mensalidade@{mensalidade}}
 \index{mensalidade@{mensalidade}!Habitacao@{Habitacao}}
 \subsubsection[{mensalidade() const }]{\setlength{\rightskip}{0pt plus 5cm}float Habitacao\+::mensalidade (
@@ -215,6 +234,22 @@ Função para atualizar os serviços da habitação.
 
 \begin{DoxyParams}{Parameters}
 {\em servicos} & -\/ Serviços da habitação a serem atualizados. \\
+\hline
+\end{DoxyParams}
+\index{Habitacao@{Habitacao}!set\+Tipo@{set\+Tipo}}
+\index{set\+Tipo@{set\+Tipo}!Habitacao@{Habitacao}}
+\subsubsection[{set\+Tipo(string tipo)}]{\setlength{\rightskip}{0pt plus 5cm}void Habitacao\+::set\+Tipo (
+\begin{DoxyParamCaption}
+\item[{string}]{tipo}
+\end{DoxyParamCaption}
+)}\hypertarget{class_habitacao_aa668bbab733fda60bbdeb38799c092b7}{}\label{class_habitacao_aa668bbab733fda60bbdeb38799c092b7}
+
+
+Função para atualizar o tipo da habitação. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tipo} & -\/ tipo da habitação. \\
 \hline
 \end{DoxyParams}
 

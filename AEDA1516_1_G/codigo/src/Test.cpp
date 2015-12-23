@@ -6,8 +6,8 @@
 #include "Condominio.h"
 
 void testa_mensalidade() {
-	Apartamento a1("Rua da circunvalacao", 100, 1, 1);
-	Vivenda v1("Rua da constituicao", 100, 200, true);
+	Apartamento a1("Rua da circunvalacao", 100, "Apartamento", 1, 1);
+	Vivenda v1("Rua da constituicao", 100, "Vivenda", 200, true);
 
 	// Testa mensalidade de um apartamento
 	ASSERT_EQUAL_DELTA(72, a1.mensalidade(), 0.001); // 50 + 0.2 * areaHabitacao + piso
@@ -17,9 +17,9 @@ void testa_mensalidade() {
 }
 
 void testa_pagarMensalidade() {
-	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, 1, 1);
-	Habitacao *v1 = new Vivenda("Rua da constituicao", 100, 200, true);
-	Habitacao *v2 = new Vivenda("Rua da boavista", 100, 200, false);
+	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, "Apartamento", 1, 1);
+	Habitacao *v1 = new Vivenda("Rua da constituicao", 100, "Vivenda", 200, true);
+	Habitacao *v2 = new Vivenda("Rua da boavista", 100, "Vivenda", 200, false);
 
 	vector<Habitacao *> habitacoes;
 
@@ -186,7 +186,7 @@ void testa_requisitaServico() {
 	s1.adicionaEmpregado(e6);
 
 	vector<Habitacao *> habitacoes;
-	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, 1, 1);
+	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, "Apartamento", 1, 1);
 
 	Cliente *cliente1 = new Cliente("Maria", 12345678, 678901234,
 			"maria@email.com", habitacoes);
@@ -290,7 +290,7 @@ void testa_fimDoServico() {
 	s1.adicionaEmpregado(e6);
 
 	vector<Habitacao *> habitacoes;
-	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, 1, 1);
+	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, "Apartamento", 1, 1);
 
 	Cliente *cliente1 = new Cliente("Maria", 12345678, 789012345,
 			"maria@email.com", habitacoes);
@@ -435,7 +435,7 @@ void testa_removeEmpregado() {
 }
 
 void testa_adicionaHabitacao() {
-	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, 1, 1);
+	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, "Apartamento", 1, 1);
 
 	vector<Habitacao *> habitacoes;
 
@@ -460,8 +460,8 @@ void testa_adicionaHabitacao() {
 }
 
 void testa_removeHabitacao() {
-	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, 1, 1);
-	Habitacao *v1 = new Vivenda("Rua da constituicao", 100, 200, true);
+	Habitacao *a1 = new Apartamento("Rua da circunvalacao", 100, "Apartamento", 1, 1);
+	Habitacao *v1 = new Vivenda("Rua da constituicao", 100, "Vivenda", 200, true);
 
 	vector<Habitacao *> habitacoes;
 

@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['habitacao',['Habitacao',['../class_habitacao.html',1,'Habitacao'],['../class_habitacao.html#a3b5e5edb0ca3b52025ef46a796fcf18d',1,'Habitacao::Habitacao()']]],
+  ['habitacao',['Habitacao',['../class_habitacao.html',1,'Habitacao'],['../class_habitacao.html#af0994a78f4f97e38f70c350c81bceca8',1,'Habitacao::Habitacao()']]],
   ['habitacaoexistente',['HabitacaoExistente',['../class_habitacao_existente.html',1,'HabitacaoExistente'],['../class_habitacao_existente.html#a8b66daca08696822dd91e69e97274e1c',1,'HabitacaoExistente::HabitacaoExistente()']]],
-  ['habitacaoinexistente',['HabitacaoInexistente',['../class_habitacao_inexistente.html',1,'HabitacaoInexistente'],['../class_habitacao_inexistente.html#af33b2b6d673da889275cc83f1280bdb5',1,'HabitacaoInexistente::HabitacaoInexistente()']]]
+  ['habitacaoinexistente',['HabitacaoInexistente',['../class_habitacao_inexistente.html',1,'HabitacaoInexistente'],['../class_habitacao_inexistente.html#af33b2b6d673da889275cc83f1280bdb5',1,'HabitacaoInexistente::HabitacaoInexistente()']]],
+  ['hashservico',['hashServico',['../structhash_servico.html',1,'']]],
+  ['historicoservicos',['historicoServicos',['../class_interface.html#a6b95f930f246c8a802873d3f84798d8a',1,'Interface']]],
+  ['historicoservicoshabitacao',['historicoServicosHabitacao',['../class_interface.html#a9c249ee70e15d13ceaa4b88b7e2ad4d2',1,'Interface']]]
 ];

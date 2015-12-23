@@ -22,7 +22,7 @@ public:
 	 * @param tipologia - tipo de apartamento, em que 1 equivale a T1, 2 a T2, etc. ...
 	 * @param piso - andar do apartamento.
 	 */
-	Apartamento(string morada, int areaHabitacao, int tipologia, int piso);
+	Apartamento(string morada, int areaHabitacao, string tipo, int tipologia, int piso);
 	/**
 	 * @brief Função que calcula o valor da base mensal de condomínio.
 	 * @return Retorna o valor da base mensal de condomínio.

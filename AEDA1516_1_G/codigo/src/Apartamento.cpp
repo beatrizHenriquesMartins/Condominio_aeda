@@ -7,9 +7,9 @@
 
 #include "Apartamento.h"
 
-Apartamento::Apartamento(string morada, int areaHabitacao, int tipologia,
+Apartamento::Apartamento(string morada, int areaHabitacao, string tipo, int tipologia,
 		int piso) :
-		Habitacao(morada, areaHabitacao) {
+		Habitacao(morada, areaHabitacao, tipo) {
 	this->tipologia = tipologia;
 	this->piso = piso;
 }

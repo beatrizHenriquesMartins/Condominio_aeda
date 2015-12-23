@@ -7,11 +7,12 @@
 
 #include "Condominio.h"
 
-int Condominio::lastId = 0;
+int Condominio::lastId = 1;
 
 Condominio::Condominio(string nome, int nif, int numeroTelefone, string email,
 		vector<Cliente *> clientes, Servico *servico) {
-	this->id = ++lastId; // primeiro id é 1
+	this->id = lastId++; // primeiro id é 1
+	cout << id << endl;
 	this->nome = nome;
 	this->nif = nif;
 	this->numeroTelefone = numeroTelefone;

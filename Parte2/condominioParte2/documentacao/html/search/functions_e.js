@@ -19,6 +19,6 @@ var searchData=
   ['setpiso',['setPiso',['../class_apartamento.html#af620ef11e65b67939773cf23bc9a2582',1,'Apartamento']]],
   ['setservicos',['setServicos',['../class_habitacao.html#a2300762d9e6e88b91efb2e8177ce8106',1,'Habitacao']]],
   ['settempiscina',['setTemPiscina',['../class_vivenda.html#aad5c1d4f93acd1b96bc652d04a76a029',1,'Vivenda']]],
-  ['settipo',['setTipo',['../class_empregado.html#ac98a214b87035b73252cfb96fe2866bd',1,'Empregado']]],
+  ['settipo',['setTipo',['../class_empregado.html#ac98a214b87035b73252cfb96fe2866bd',1,'Empregado::setTipo()'],['../class_habitacao.html#aa668bbab733fda60bbdeb38799c092b7',1,'Habitacao::setTipo()']]],
   ['settipologia',['setTipologia',['../class_apartamento.html#a4d66d10fb8c13d78296df641a640a13b',1,'Apartamento']]]
 ];

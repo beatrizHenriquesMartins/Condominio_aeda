@@ -17,6 +17,7 @@ using namespace std;
 class Habitacao {
 	string morada;
 	int areaHabitacao;
+	string tipo;
 	vector<Empregado *> servicos; // Histórico de serviços da habitação
 public:
 	/**
@@ -24,7 +25,7 @@ public:
 	 * @param morada - localização geográfica da habitação.
 	 * @param areaHabitacao - area habitacional.
 	 */
-	Habitacao(string morada, int areaHabitacao);
+	Habitacao(string morada, int areaHabitacao, string tipo);
 	virtual ~Habitacao() {
 
 	}
@@ -59,6 +60,11 @@ public:
 	 * @return Retorna a area habitacional.
 	 */
 	int getAreaHabitacao() const;
+	/**
+	 * @brief Função para obter o tipo da habitação.
+	 * @return Retorna o tipo da habitação.
+	 */
+	string getTipo() const;
     /**
      * @brief Função para atualizar a morada da habitação.
      * @param morada - Morada da habitação.
@@ -69,6 +75,11 @@ public:
      * @param morada - Área habitacional.
      */
     void setAreaHabitacao(int areaHabitacao);
+    /**
+	 * @brief Função para atualizar o tipo da habitação.
+	 * @param tipo - tipo da habitação.
+	 */
+    void setTipo(string tipo);
     /**
      * @brief Função para atualizar os serviços da habitação.
      * @param servicos - Serviços da habitação a serem atualizados.
