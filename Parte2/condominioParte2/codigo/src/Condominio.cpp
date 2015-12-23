@@ -284,7 +284,7 @@ void Condominio::nTotalHabitacoesCond() const {
 		total = total + nHabs;
 	}
 
-	this->nTotalHabs = total;
+	nTotalHabs = total;
 }
 
 void Condominio::nTotalVivendasCond() const {
@@ -293,21 +293,26 @@ void Condominio::nTotalVivendasCond() const {
 	for (int i = 0; i < clientes.size(); i++) {
 		for (int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
 			if (clientes[i]->getHabitacoes()[j]->getTipoHab() == "vivenda"
-					|| clientes[i]->getHabitacoes()[j]->getTipoHab() == "Vivenda") {
+					|| clientes[i]->getHabitacoes()[j]->getTipoHab()
+							== "Vivenda") {
 				total++;
 			}
 		}
 	}
 
-	this->nTotalVivendas = total;
+	nTotalVivendas = total;
 }
 
 bool Condominio::operator <(const Condominio&cond) const {
 	if (this->getNTotalHabs() < cond.getNTotalHabs()) {
 		return true;
+	} else if (this->getNTotalHabs() > cond.getNTotalHabs()) {
+		return false;
 	} else if (this->getNTotalHabs() == cond.getNTotalHabs()) {
 		if (this->getNTotalVivendas() < cond.getNTotalVivendas()) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 }
