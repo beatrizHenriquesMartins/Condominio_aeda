@@ -10,17 +10,19 @@
 
 #include <iostream>
 #include "Condominio.h"
+#include "BST.h"
 
 using namespace std;
 
 class EmpresaCondominios {
-	vector<Condominio *> condominios;
+	//vector<Condominio *> condominios;
+	BST<Condominio*> condominios;
 public:
 	/**
 	 * @brief Função que cria uma empresa de condomínios.
 	 * @param condominio - vetor com os vários condomínios da empresa.
 	 */
-	EmpresaCondominios(vector<Condominio *> condominios);
+	EmpresaCondominios():condominios("",0,0,"", ,"","");
 	/**
 	 * @brief Função que adiciona um condomínio à empresa.
 	 * @param condominio - Condomínio a adicionar à empresa.
@@ -37,12 +39,12 @@ public:
 	 * @brief Função que retorna os condomínios da empresa.
 	 * @return Retorna os condomínios da empresa.
 	 */
-	vector<Condominio *> getCondominios() const;
+	BST<Condominio *> getCondominios() const;
 	/**
 	 * @brief Função que atualiza os condomínios da empresa.
 	 * @param condominios - Novo vetor de condomínios da empresa.
 	 */
-	void setCondominios(vector<Condominio *> condominios);
+	void setCondominios(BST<Condominio *> condominios);
 };
 
 #endif /* SRC_EMPRESACONDOMINIOS_H_ */

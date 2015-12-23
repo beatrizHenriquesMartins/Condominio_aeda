@@ -14,6 +14,7 @@
 #include "Servico.h"
 #include "Cliente.h"
 #include "excecoes.h"
+#include "BST.h"
 
 class Condominio {
 	int id;
@@ -23,6 +24,10 @@ class Condominio {
 	string email;
 	vector<Cliente *> clientes;
 	Servico *servico;
+	string designacao;
+	string localizacao;
+	int nTotalHabs;
+	int nTotalVivendas;
 public:
 	static int lastId;
 	/**
@@ -35,7 +40,8 @@ public:
 	 * @param serviço - empresa de serviços.
 	 */
 	Condominio(string nome, int nif, int numeroTelefone, string email,
-			vector<Cliente *> clientes, Servico *servico);
+			vector<Cliente *> clientes, Servico *servico, string designacao,
+			string localizacao);
 	/**
 	 * @brief Verifica se um dado cliente pertence ao condomínio.
 	 * @param cliente - cliente que se pretende procurar.
@@ -145,7 +151,21 @@ public:
 	 * @param cond - condomínio externa com a qual vai ser comparado o condominio.
 	 * @return Retorna verdade caso os condomínios sejam o mesmo e falso caso contrário.
 	 */
-	bool operator==(const Condominio & cond);
+	bool operator==(const Condominio & cond) const;
+
+	int getNTotalHabs() const;
+
+	void setNTotalHabs(int nTotalHabs);
+
+	int getNTotalVivendas() const;
+
+	void setNTotalVivendas(int nTotalVivendas);
+
+	void nTotalHabitacoesCond() const;
+
+	void nTotalVivendasCond() const;
+
+	bool operator<(const Condominio & cond) const;
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

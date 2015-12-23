@@ -10,7 +10,8 @@
 int Condominio::lastId = 1;
 
 Condominio::Condominio(string nome, int nif, int numeroTelefone, string email,
-		vector<Cliente *> clientes, Servico *servico) {
+		vector<Cliente *> clientes, Servico *servico, string designacao,
+		string localizacao) {
 	this->id = lastId++; // primeiro id é 1
 	cout << id << endl;
 	this->nome = nome;
@@ -19,6 +20,8 @@ Condominio::Condominio(string nome, int nif, int numeroTelefone, string email,
 	this->email = email;
 	this->servico = servico;
 	this->clientes = clientes;
+	this->designacao = designacao;
+	this->localizacao = localizacao;
 }
 
 int Condominio::existeCliente(Cliente *cliente) {
@@ -252,6 +255,59 @@ void Condominio::setEmail(string email) {
 	this->email = email;
 }
 
-bool Condominio::operator ==(const Condominio & cond) {
+bool Condominio::operator ==(const Condominio & cond) const {
 	return this->id == cond.getId();
+}
+
+int Condominio::getNTotalHabs() const {
+	return nTotalHabs;
+}
+
+void Condominio::setNTotalHabs(int nTotalHabs) {
+	this->nTotalHabs = nTotalHabs;
+}
+
+int Condominio::getNTotalVivendas() const {
+	return nTotalVivendas;
+}
+
+void Condominio::setNTotalVivendas(int nTotalVivendas) {
+	this->nTotalVivendas = nTotalVivendas;
+}
+
+void Condominio::nTotalHabitacoesCond() const {
+	int total = 0;
+
+	for (int i = 0; i < clientes.size(); i++) {
+		int nHabs = 0;
+		nHabs = clientes[i]->getHabitacoes().size();
+		total = total + nHabs;
+	}
+
+	this->nTotalHabs = total;
+}
+
+void Condominio::nTotalVivendasCond() const {
+	int total = 0;
+
+	for (int i = 0; i < clientes.size(); i++) {
+		for (int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
+			if (clientes[i]->getHabitacoes()[j]->getTipoHab() == "vivenda"
+					|| clientes[i]->getHabitacoes()[j]->getTipoHab() == "Vivenda") {
+				total++;
+			}
+		}
+	}
+
+	this->nTotalVivendas = total;
+}
+
+bool Condominio::operator <(const Condominio&cond) const {
+	if (this->getNTotalHabs() < cond.getNTotalHabs()) {
+		return true;
+	} else if (this->getNTotalHabs() == cond.getNTotalHabs()) {
+		if (this->getNTotalVivendas() < cond.getNTotalVivendas()) {
+			return true;
+		}
+	}
 }
