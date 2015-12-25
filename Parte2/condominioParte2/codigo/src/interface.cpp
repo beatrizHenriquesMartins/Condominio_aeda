@@ -271,6 +271,7 @@ int Interface::readCondominio(string nome) {
 		string maxEmpLimpeza;
 		string maxEmpCanalizacao;
 		string maxEmpPintura;
+		string localizacao;
 
 		getline(file, nif);
 		getline(file, numTelf);
@@ -278,6 +279,7 @@ int Interface::readCondominio(string nome) {
 		getline(file, maxEmpLimpeza);
 		getline(file, maxEmpCanalizacao);
 		getline(file, maxEmpPintura);
+		getline(file, localizacao);
 
 		Servico *s = new Servico(empregados, atoi(maxEmpLimpeza.c_str()),
 				atoi(maxEmpCanalizacao.c_str()), atoi(maxEmpPintura.c_str()));
@@ -285,7 +287,7 @@ int Interface::readCondominio(string nome) {
 		cout << "Here!" << endl;
 
 		condominio = new Condominio(nomeCondominio, atoi(nif.c_str()),
-				atoi(numTelf.c_str()), email, clientes, s);
+				atoi(numTelf.c_str()), email, clientes, s, localizacao);
 
 		cout << condominio->getId();
 	}
@@ -349,7 +351,7 @@ int Interface::procuraEmpregado(int bi) {
 
 void Interface::imprimeClientes() {
 	cout << endl << "*** Lista de Clientes do condominio "
-			<< condominio->getNome() << " ***" << endl << endl;
+			<< condominio->getDesignacao() << " ***" << endl << endl;
 
 	for (unsigned int i = 0; i < condominio->getClientes().size(); i++) {
 		Cliente *c = condominio->getClientes()[i];
@@ -393,7 +395,7 @@ void Interface::imprimeDadosCliente() {
 void Interface::imprimeDadosCondominio() {
 	int numHabs = 0, numLimpeza = 0, numCanalizacao = 0, numPintura = 0;
 
-	cout << "Nome: " << condominio->getNome() << endl;
+	cout << "Nome: " << condominio->getDesignacao() << endl;
 	cout << "NIF: " << condominio->getNIF() << endl;
 	cout << "Número de telefone: " << condominio->getNumeroTelefone() << endl;
 	cout << "Email: " << condominio->getEmail() << endl << endl;
@@ -1383,15 +1385,15 @@ int main() {
 	vector<string> cond = getDirs(nomeDirs);
 	string op;
 
+	cout << " * * * * * * * * * * * * * * * * * * * *  " << endl;
+	cout << "*                                        *" << endl;
+	cout << "*   Bem vindo ao gestor de condominios   *" << endl;
+	cout << "*                                        *" << endl;
+	cout << " * * * * * * * * * * * * * * * * * * * *  " << endl << endl;
+
 	while (1) {
 		vector<string>::iterator itb = cond.begin();
 		int i = 1;
-
-		cout << " * * * * * * * * * * * * * * * * * * * *  " << endl;
-		cout << "*                                        *" << endl;
-		cout << "*   Bem vindo ao gestor de condominios   *" << endl;
-		cout << "*                                        *" << endl;
-		cout << " * * * * * * * * * * * * * * * * * * * *  " << endl << endl;
 
 		for (; itb != cond.end(); itb++) {
 			cout << i << ". " << (*itb) << endl;

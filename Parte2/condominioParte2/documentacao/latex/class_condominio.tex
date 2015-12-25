@@ -3,7 +3,7 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_condominio_a3d835c6017cd8020d49bf550246bdca6}{Condominio} (string nome, int nif, int numero\+Telefone, string email, vector$<$ \hyperlink{class_cliente}{Cliente} $\ast$ $>$ clientes, \hyperlink{class_servico}{Servico} $\ast$servico)
+\hyperlink{class_condominio_a69e71aaab401f7ff0a92ff0f45bdb751}{Condominio} (string designacao, int nif, int numero\+Telefone, string email, vector$<$ \hyperlink{class_cliente}{Cliente} $\ast$ $>$ clientes, \hyperlink{class_servico}{Servico} $\ast$servico, string localizacao)
 \begin{DoxyCompactList}\small\item\em Função que cria um condominio. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_a08e2bf58344131ff357f2f7ed62a56fb}{existe\+Cliente} (\hyperlink{class_cliente}{Cliente} $\ast$cliente)
 \begin{DoxyCompactList}\small\item\em Verifica se um dado cliente pertence ao condomínio. \end{DoxyCompactList}\item 
@@ -23,26 +23,34 @@ int \hyperlink{class_condominio_abfbd356bc26fde54dc40de2f9174f430}{consulta\+Cli
 \begin{DoxyCompactList}\small\item\em Consulta dados de um dado cliente. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_a37df336e62f83189d9193f039e58935d}{get\+Id} () const 
 \begin{DoxyCompactList}\small\item\em Função que retorna o identificador do condomínio. \end{DoxyCompactList}\item 
-string \hyperlink{class_condominio_a7e358e29fa8b970fe11c8208aaadab95}{get\+Nome} () const 
-\begin{DoxyCompactList}\small\item\em Função para obter o nome do condominio. \end{DoxyCompactList}\item 
+string \hyperlink{class_condominio_a1c9390d8d9fcfe834568d74041a49e04}{get\+Designacao} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter a designacao do condominio. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_a131891ab8b9ca504227ec3f9edcbc326}{get\+N\+IF} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter o N\+IF do condominio. \end{DoxyCompactList}\item 
 int \hyperlink{class_condominio_adc7a4de5ad8ace80c0290fff0619f22d}{get\+Numero\+Telefone} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter o número de telefone do condominio. \end{DoxyCompactList}\item 
 string \hyperlink{class_condominio_adc4a6fa8a9fcb43a65226b722b7929d0}{get\+Email} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter o email do condominio. \end{DoxyCompactList}\item 
+string \hyperlink{class_condominio_a9404521b87cc71622544fe8ecc9c28fb}{get\+Localizacao} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter a localização do condomínio. \end{DoxyCompactList}\item 
 vector$<$ \hyperlink{class_cliente}{Cliente} $\ast$ $>$ \hyperlink{class_condominio_a6a9100e8a8a48847785f4c4b108ab8db}{get\+Clientes} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter os clientes do condomínio. \end{DoxyCompactList}\item 
 \hyperlink{class_servico}{Servico} $\ast$ \hyperlink{class_condominio_abb987c983caf8468935773b00505a5e2}{get\+Servico} () const 
 \begin{DoxyCompactList}\small\item\em Função para obter a empresa de serviços. \end{DoxyCompactList}\item 
-void \hyperlink{class_condominio_a64353c4a20129888074cdc9526cdc04b}{set\+Nome} (string nome)
-\begin{DoxyCompactList}\small\item\em Função para atualizar o nome do condomínio. \end{DoxyCompactList}\item 
+int \hyperlink{class_condominio_a81756f3ac4301c65deade4c520ea6ae1}{get\+Num\+Habs} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o número de habitações do condomínio. \end{DoxyCompactList}\item 
+int \hyperlink{class_condominio_a47e2e368a9e643017cad7a2e30a4c087}{get\+Num\+Vivendas} () const 
+\begin{DoxyCompactList}\small\item\em Função para obter o número de vivendas do condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_condominio_a54e452fd5905ec95a028cd2dfefbc437}{set\+Designacao} (string designacao)
+\begin{DoxyCompactList}\small\item\em Função para atualizar a designacao do condomínio. \end{DoxyCompactList}\item 
 void \hyperlink{class_condominio_a89d828306fcbcc0df34d52e07b7e9bb7}{set\+N\+IF} (int nif)
 \begin{DoxyCompactList}\small\item\em Função para atualizar o N\+IF do condomínio. \end{DoxyCompactList}\item 
 void \hyperlink{class_condominio_a7f454a535fe1ebc3ab244415d963b719}{set\+Numero\+Telefone} (int numero\+Telefone)
 \begin{DoxyCompactList}\small\item\em Função para atualizar o número de telefone do condomínio. \end{DoxyCompactList}\item 
 void \hyperlink{class_condominio_ae0521eb8186f3c4000cc8c0fa6d4b762}{set\+Email} (string email)
 \begin{DoxyCompactList}\small\item\em Função para atualizar o email do condomínio. \end{DoxyCompactList}\item 
+void \hyperlink{class_condominio_ae87fcb0812e926dbdf6609f3359b9df9}{set\+Localizacao} (string localizacao)
+\begin{DoxyCompactList}\small\item\em Função para atualizar a localização do condomínio. \end{DoxyCompactList}\item 
 bool \hyperlink{class_condominio_a6726cb42e54e4084b0824ea1c2bd9172}{operator==} (const \hyperlink{class_condominio}{Condominio} \&cond)
 \begin{DoxyCompactList}\small\item\em Operador para verificar se dois condomínios são o mesmo. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
@@ -56,23 +64,24 @@ static int {\bfseries last\+Id} = 1\hypertarget{class_condominio_ad6d8cc37886212
 \subsection{Constructor \& Destructor Documentation}
 \index{Condominio@{Condominio}!Condominio@{Condominio}}
 \index{Condominio@{Condominio}!Condominio@{Condominio}}
-\subsubsection[{Condominio(string nome, int nif, int numero\+Telefone, string email, vector$<$ Cliente $\ast$ $>$ clientes, Servico $\ast$servico)}]{\setlength{\rightskip}{0pt plus 5cm}Condominio\+::\+Condominio (
+\subsubsection[{Condominio(string designacao, int nif, int numero\+Telefone, string email, vector$<$ Cliente $\ast$ $>$ clientes, Servico $\ast$servico, string localizacao)}]{\setlength{\rightskip}{0pt plus 5cm}Condominio\+::\+Condominio (
 \begin{DoxyParamCaption}
-\item[{string}]{nome, }
+\item[{string}]{designacao, }
 \item[{int}]{nif, }
 \item[{int}]{numero\+Telefone, }
 \item[{string}]{email, }
 \item[{vector$<$ {\bf Cliente} $\ast$ $>$}]{clientes, }
-\item[{{\bf Servico} $\ast$}]{servico}
+\item[{{\bf Servico} $\ast$}]{servico, }
+\item[{string}]{localizacao}
 \end{DoxyParamCaption}
-)}\hypertarget{class_condominio_a3d835c6017cd8020d49bf550246bdca6}{}\label{class_condominio_a3d835c6017cd8020d49bf550246bdca6}
+)}\hypertarget{class_condominio_a69e71aaab401f7ff0a92ff0f45bdb751}{}\label{class_condominio_a69e71aaab401f7ff0a92ff0f45bdb751}
 
 
 Função que cria um condominio. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em nome} & -\/ nome do condomínio. \\
+{\em designacao} & -\/ nome do condomínio. \\
 \hline
 {\em nif} & -\/ número de identificação fiscal do condomínio. \\
 \hline
@@ -178,6 +187,20 @@ Função para obter os clientes do condomínio.
 \begin{DoxyReturn}{Returns}
 Retorna os clientes do condomínio. 
 \end{DoxyReturn}
+\index{Condominio@{Condominio}!get\+Designacao@{get\+Designacao}}
+\index{get\+Designacao@{get\+Designacao}!Condominio@{Condominio}}
+\subsubsection[{get\+Designacao() const }]{\setlength{\rightskip}{0pt plus 5cm}string Condominio\+::get\+Designacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_condominio_a1c9390d8d9fcfe834568d74041a49e04}{}\label{class_condominio_a1c9390d8d9fcfe834568d74041a49e04}
+
+
+Função para obter a designacao do condominio. 
+
+\begin{DoxyReturn}{Returns}
+Retorna a designacao do condominio. 
+\end{DoxyReturn}
 \index{Condominio@{Condominio}!get\+Email@{get\+Email}}
 \index{get\+Email@{get\+Email}!Condominio@{Condominio}}
 \subsubsection[{get\+Email() const }]{\setlength{\rightskip}{0pt plus 5cm}string Condominio\+::get\+Email (
@@ -206,6 +229,20 @@ Função que retorna o identificador do condomínio.
 \begin{DoxyReturn}{Returns}
 Retorna o identificador do condomínio. 
 \end{DoxyReturn}
+\index{Condominio@{Condominio}!get\+Localizacao@{get\+Localizacao}}
+\index{get\+Localizacao@{get\+Localizacao}!Condominio@{Condominio}}
+\subsubsection[{get\+Localizacao() const }]{\setlength{\rightskip}{0pt plus 5cm}string Condominio\+::get\+Localizacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_condominio_a9404521b87cc71622544fe8ecc9c28fb}{}\label{class_condominio_a9404521b87cc71622544fe8ecc9c28fb}
+
+
+Função para obter a localização do condomínio. 
+
+\begin{DoxyReturn}{Returns}
+Retorna a localização do condomínio. 
+\end{DoxyReturn}
 \index{Condominio@{Condominio}!get\+N\+IF@{get\+N\+IF}}
 \index{get\+N\+IF@{get\+N\+IF}!Condominio@{Condominio}}
 \subsubsection[{get\+N\+I\+F() const }]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::get\+N\+IF (
@@ -220,20 +257,6 @@ Função para obter o N\+IF do condominio.
 \begin{DoxyReturn}{Returns}
 Retorna o N\+IF do condominio. 
 \end{DoxyReturn}
-\index{Condominio@{Condominio}!get\+Nome@{get\+Nome}}
-\index{get\+Nome@{get\+Nome}!Condominio@{Condominio}}
-\subsubsection[{get\+Nome() const }]{\setlength{\rightskip}{0pt plus 5cm}string Condominio\+::get\+Nome (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_condominio_a7e358e29fa8b970fe11c8208aaadab95}{}\label{class_condominio_a7e358e29fa8b970fe11c8208aaadab95}
-
-
-Função para obter o nome do condominio. 
-
-\begin{DoxyReturn}{Returns}
-Retorna o nome do condominio. 
-\end{DoxyReturn}
 \index{Condominio@{Condominio}!get\+Numero\+Telefone@{get\+Numero\+Telefone}}
 \index{get\+Numero\+Telefone@{get\+Numero\+Telefone}!Condominio@{Condominio}}
 \subsubsection[{get\+Numero\+Telefone() const }]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::get\+Numero\+Telefone (
@@ -247,6 +270,34 @@ Função para obter o número de telefone do condominio.
 
 \begin{DoxyReturn}{Returns}
 Retorna o número de telefone do condominio. 
+\end{DoxyReturn}
+\index{Condominio@{Condominio}!get\+Num\+Habs@{get\+Num\+Habs}}
+\index{get\+Num\+Habs@{get\+Num\+Habs}!Condominio@{Condominio}}
+\subsubsection[{get\+Num\+Habs() const }]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::get\+Num\+Habs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_condominio_a81756f3ac4301c65deade4c520ea6ae1}{}\label{class_condominio_a81756f3ac4301c65deade4c520ea6ae1}
+
+
+Função para obter o número de habitações do condomínio. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o número de habitações do condomínio. 
+\end{DoxyReturn}
+\index{Condominio@{Condominio}!get\+Num\+Vivendas@{get\+Num\+Vivendas}}
+\index{get\+Num\+Vivendas@{get\+Num\+Vivendas}!Condominio@{Condominio}}
+\subsubsection[{get\+Num\+Vivendas() const }]{\setlength{\rightskip}{0pt plus 5cm}int Condominio\+::get\+Num\+Vivendas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_condominio_a47e2e368a9e643017cad7a2e30a4c087}{}\label{class_condominio_a47e2e368a9e643017cad7a2e30a4c087}
+
+
+Função para obter o número de vivendas do condomínio. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o número de vivendas do condomínio. 
 \end{DoxyReturn}
 \index{Condominio@{Condominio}!get\+Servico@{get\+Servico}}
 \index{get\+Servico@{get\+Servico}!Condominio@{Condominio}}
@@ -355,6 +406,22 @@ Requisita um serviço de um dado tipo.
 \begin{DoxyReturn}{Returns}
 Retorna 0 em caso de sucesso e -\/1 caso contrário. 
 \end{DoxyReturn}
+\index{Condominio@{Condominio}!set\+Designacao@{set\+Designacao}}
+\index{set\+Designacao@{set\+Designacao}!Condominio@{Condominio}}
+\subsubsection[{set\+Designacao(string designacao)}]{\setlength{\rightskip}{0pt plus 5cm}void Condominio\+::set\+Designacao (
+\begin{DoxyParamCaption}
+\item[{string}]{designacao}
+\end{DoxyParamCaption}
+)}\hypertarget{class_condominio_a54e452fd5905ec95a028cd2dfefbc437}{}\label{class_condominio_a54e452fd5905ec95a028cd2dfefbc437}
+
+
+Função para atualizar a designacao do condomínio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em designacao} & -\/ Nova designacao do condomínio. \\
+\hline
+\end{DoxyParams}
 \index{Condominio@{Condominio}!set\+Email@{set\+Email}}
 \index{set\+Email@{set\+Email}!Condominio@{Condominio}}
 \subsubsection[{set\+Email(string email)}]{\setlength{\rightskip}{0pt plus 5cm}void Condominio\+::set\+Email (
@@ -371,6 +438,22 @@ Função para atualizar o email do condomínio.
 {\em email} & -\/ Novo email do condomínio. \\
 \hline
 \end{DoxyParams}
+\index{Condominio@{Condominio}!set\+Localizacao@{set\+Localizacao}}
+\index{set\+Localizacao@{set\+Localizacao}!Condominio@{Condominio}}
+\subsubsection[{set\+Localizacao(string localizacao)}]{\setlength{\rightskip}{0pt plus 5cm}void Condominio\+::set\+Localizacao (
+\begin{DoxyParamCaption}
+\item[{string}]{localizacao}
+\end{DoxyParamCaption}
+)}\hypertarget{class_condominio_ae87fcb0812e926dbdf6609f3359b9df9}{}\label{class_condominio_ae87fcb0812e926dbdf6609f3359b9df9}
+
+
+Função para atualizar a localização do condomínio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em localizacao} & -\/ Nova localização do condomínio. \\
+\hline
+\end{DoxyParams}
 \index{Condominio@{Condominio}!set\+N\+IF@{set\+N\+IF}}
 \index{set\+N\+IF@{set\+N\+IF}!Condominio@{Condominio}}
 \subsubsection[{set\+N\+I\+F(int nif)}]{\setlength{\rightskip}{0pt plus 5cm}void Condominio\+::set\+N\+IF (
@@ -385,22 +468,6 @@ Função para atualizar o N\+IF do condomínio.
 
 \begin{DoxyParams}{Parameters}
 {\em nif} & -\/ Novo N\+IF do condomínio. \\
-\hline
-\end{DoxyParams}
-\index{Condominio@{Condominio}!set\+Nome@{set\+Nome}}
-\index{set\+Nome@{set\+Nome}!Condominio@{Condominio}}
-\subsubsection[{set\+Nome(string nome)}]{\setlength{\rightskip}{0pt plus 5cm}void Condominio\+::set\+Nome (
-\begin{DoxyParamCaption}
-\item[{string}]{nome}
-\end{DoxyParamCaption}
-)}\hypertarget{class_condominio_a64353c4a20129888074cdc9526cdc04b}{}\label{class_condominio_a64353c4a20129888074cdc9526cdc04b}
-
-
-Função para atualizar o nome do condomínio. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em nome} & -\/ Novo nome do condomínio. \\
 \hline
 \end{DoxyParams}
 \index{Condominio@{Condominio}!set\+Numero\+Telefone@{set\+Numero\+Telefone}}

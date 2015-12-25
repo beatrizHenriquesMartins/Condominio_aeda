@@ -14,33 +14,29 @@
 #include "Servico.h"
 #include "Cliente.h"
 #include "excecoes.h"
-#include "BST.h"
 
 class Condominio {
 	int id;
-	string nome;
+	string designacao;
 	int nif;
 	int numeroTelefone;
 	string email;
 	vector<Cliente *> clientes;
 	Servico *servico;
-	string designacao;
 	string localizacao;
-	int nTotalHabs;
-	int nTotalVivendas;
 public:
 	static int lastId;
 	/**
 	 * @brief Função que cria um condominio.
-	 * @param nome - nome do condomínio.
+	 * @param designacao - nome do condomínio.
 	 * @param nif - número de identificação fiscal do condomínio.
 	 * @param numeroTelefone - número de telefone do condomínio.
 	 * @param email - email do condomínio.
 	 * @param clientes - clientes do condomínio.
 	 * @param serviço - empresa de serviços.
 	 */
-	Condominio(string nome, int nif, int numeroTelefone, string email,
-			vector<Cliente *> clientes, Servico *servico, string designacao,
+	Condominio(string designacao, int nif, int numeroTelefone, string email,
+			vector<Cliente *> clientes, Servico *servico,
 			string localizacao);
 	/**
 	 * @brief Verifica se um dado cliente pertence ao condomínio.
@@ -97,10 +93,10 @@ public:
 	 */
 	int getId() const;
 	/**
-	 * @brief Função para obter o nome do condominio.
-	 * @return Retorna o nome do condominio.
+	 * @brief Função para obter a designacao do condominio.
+	 * @return Retorna a designacao do condominio.
 	 */
-	string getNome() const;
+	string getDesignacao() const;
 	/**
 	 * @brief Função para obter o NIF do condominio.
 	 * @return Retorna o NIF do condominio.
@@ -117,6 +113,11 @@ public:
 	 */
 	string getEmail() const;
 	/**
+	 * @brief Função para obter a localização do condomínio.
+	 * @return Retorna a localização do condomínio.
+	 */
+	string getLocalizacao() const;
+	/**
 	 * @brief Função para obter os clientes do condomínio.
 	 * @return Retorna os clientes do condomínio.
 	 */
@@ -127,10 +128,20 @@ public:
 	 */
 	Servico * getServico() const;
 	/**
-	 *@brief Função para atualizar o nome do condomínio.
-	 *@param nome - Novo nome do condomínio.
+	 * @brief Função para obter o número de habitações do condomínio.
+	 * @return Retorna o número de habitações do condomínio.
 	 */
-	void setNome(string nome);
+	int getNumHabs() const;
+	/**
+	 * @brief Função para obter o número de vivendas do condomínio.
+	 * @return Retorna o número de vivendas do condomínio.
+	 */
+	int getNumVivendas() const;
+	/**
+	 *@brief Função para atualizar a designacao do condomínio.
+	 *@param designacao - Nova designacao do condomínio.
+	 */
+	void setDesignacao(string designacao);
 	/**
 	 *@brief Função para atualizar o NIF do condomínio.
 	 *@param nif - Novo NIF do condomínio.
@@ -147,25 +158,16 @@ public:
 	 */
 	void setEmail(string email);
 	/**
+	 * @brief Função para atualizar a localização do condomínio.
+	 * @param localizacao - Nova localização do condomínio.
+	 */
+	void setLocalizacao(string localizacao);
+	/**
 	 * @brief Operador para verificar se dois condomínios são o mesmo.
 	 * @param cond - condomínio externa com a qual vai ser comparado o condominio.
 	 * @return Retorna verdade caso os condomínios sejam o mesmo e falso caso contrário.
 	 */
-	bool operator==(const Condominio & cond) const;
-
-	int getNTotalHabs() const;
-
-	void setNTotalHabs(int nTotalHabs);
-
-	int getNTotalVivendas() const;
-
-	void setNTotalVivendas(int nTotalVivendas);
-
-	void nTotalHabitacoesCond() const;
-
-	void nTotalVivendasCond() const;
-
-	bool operator<(const Condominio & cond) const;
+	bool operator==(const Condominio & cond);
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

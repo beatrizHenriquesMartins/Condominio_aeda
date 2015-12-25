@@ -7,39 +7,41 @@
 
 #include "EmpresaCondominios.h"
 
-int EmpresaCondominios::adicionaCondominio(Condominio * condominio) {
-	BSTItrIn<Condominio *> itb(condominios);
+EmpresaCondominios::EmpresaCondominios(vector<Condominio *> condominios) {
+	this->condominios = condominios;
+}
 
-	//verifica se já existe na empresa
-	while (!itb.isAtEnd()) {
-		if (itb.retrieve() == condominio) {
+int EmpresaCondominios::adicionaCondominio(Condominio *condominio) {
+	vector<Condominio *>::iterator itb = condominios.begin();
+
+	// Verifica se o condomínio já existe na empresa
+	for(; itb!= condominios.end(); itb++) {
+		if((*itb) == condominio)
 			return -1;
-		}
-		itb.advance();
 	}
 
-	condominios.insert(condominio);
+	condominios.push_back(condominio);
 	return 0;
 }
 
 int EmpresaCondominios::removeCondominio(int id) {
-	BSTItrIn<Condominio*> itb(condominios);
+	vector<Condominio *>::iterator itb = condominios.begin();
 
-	while (!itb.isAtEnd()) {
-		if (itb.retrieve()->getId() == id) {
-			condominios.remove(itb.retrieve());
+	// Verifica se o condomínio existe na empresa
+	for(; itb!= condominios.end(); itb++) {
+		if((*itb)->getId() == id) {
+			condominios.erase(itb);
 			return 0;
 		}
-		itb.advance();
 	}
 
 	return -1;
 }
 
-BST<Condominio*> EmpresaCondominios::getCondominios() const {
+vector<Condominio *> EmpresaCondominios::getCondominios() const {
 	return condominios;
 }
 
-void EmpresaCondominios::setCondominios(BST<Condominio*> condominios) {
+void EmpresaCondominios::setCondominios(vector<Condominio *> condominios) {
 	this->condominios = condominios;
 }

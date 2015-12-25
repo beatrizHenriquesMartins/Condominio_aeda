@@ -36,8 +36,9 @@ void testa_pagarMensalidade() {
 	Servico * servico = new Servico(empregados, 2, 2, 2);
 	int nTelefone = 123456789;
 	string email = "condominio@email.com";
+	string localizacao = "loc";
 	Condominio *c1 = new Condominio(nome, nif, nTelefone, email, clientes,
-			servico);
+			servico, localizacao);
 
 	c1->adicionaCliente(cliente1);
 
@@ -196,9 +197,10 @@ void testa_requisitaServico() {
 	string nome = "BestCondominio";
 	int nif = 122312543;
 	vector<Cliente *> clientes;
+	string localizacao = "loc";
 
 	Condominio *c1 = new Condominio(nome, nif, 789012345,
-			"condominio@email.com", clientes, &s1);
+			"condominio@email.com", clientes, &s1, localizacao);
 
 	c1->adicionaCliente(cliente1);
 
@@ -300,9 +302,10 @@ void testa_fimDoServico() {
 	string nome = "BestCondominio";
 	int nif = 122312543;
 	vector<Cliente *> clientes;
+	string localizacao = "loc";
 
-	Condominio *c1 = new Condominio(nome, nif, 890123456,
-			"condominio@email.com", clientes, &s1);
+	Condominio *c1 = new Condominio(nome, nif, 789012345,
+			"condominio@email.com", clientes, &s1, localizacao);
 
 	c1->adicionaCliente(cliente1);
 
@@ -351,8 +354,9 @@ void testa_adicionaCliente() {
 	vector<Cliente *> clientes;
 	vector<Empregado *> empregados;
 	Servico s1(empregados, 2, 2, 2);
+		string localizacao = "loc";
 	Condominio *cond = new Condominio("Condo", 213453423, 456789012,
-			"condo@email.com", clientes, &s1);
+			"condo@email.com", clientes, &s1, localizacao);
 
 	// Verifica se é possível adicionar um cliente
 	ASSERT_EQUAL(0, cond->adicionaCliente(c1));
@@ -506,8 +510,10 @@ void testa_removeCliente() {
 	vector<Cliente *> clientes;
 	vector<Empregado *> empregados;
 	Servico s1(empregados, 2, 2, 2);
+	string localizacao = "loc";
+
 	Condominio *cond = new Condominio("Condo", 213453423, 345678901,
-			"condo@email.com", clientes, &s1);
+			"condo@email.com", clientes, &s1, localizacao);
 
 	// Verifica se é possível remover um cliente que não existe
 

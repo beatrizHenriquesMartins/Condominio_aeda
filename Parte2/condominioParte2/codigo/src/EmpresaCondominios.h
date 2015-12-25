@@ -15,14 +15,14 @@
 using namespace std;
 
 class EmpresaCondominios {
-	//vector<Condominio *> condominios;
-	BST<Condominio*> condominios;
+	vector<Condominio *> condominios;
+	//BST<Condominio *> conds;
 public:
 	/**
 	 * @brief Função que cria uma empresa de condomínios.
 	 * @param condominio - vetor com os vários condomínios da empresa.
 	 */
-	EmpresaCondominios():condominios("",0,0,"", ,"","");
+	EmpresaCondominios(vector<Condominio *> condominios);
 	/**
 	 * @brief Função que adiciona um condomínio à empresa.
 	 * @param condominio - Condomínio a adicionar à empresa.
@@ -39,12 +39,12 @@ public:
 	 * @brief Função que retorna os condomínios da empresa.
 	 * @return Retorna os condomínios da empresa.
 	 */
-	BST<Condominio *> getCondominios() const;
+	vector<Condominio *> getCondominios() const;
 	/**
 	 * @brief Função que atualiza os condomínios da empresa.
 	 * @param condominios - Novo vetor de condomínios da empresa.
 	 */
-	void setCondominios(BST<Condominio *> condominios);
+	void setCondominios(vector<Condominio *> condominios);
 };
 
 #endif /* SRC_EMPRESACONDOMINIOS_H_ */

@@ -9,18 +9,16 @@
 
 int Condominio::lastId = 1;
 
-Condominio::Condominio(string nome, int nif, int numeroTelefone, string email,
-		vector<Cliente *> clientes, Servico *servico, string designacao,
+Condominio::Condominio(string designacao, int nif, int numeroTelefone,
+		string email, vector<Cliente *> clientes, Servico *servico,
 		string localizacao) {
 	this->id = lastId++; // primeiro id é 1
-	cout << id << endl;
-	this->nome = nome;
+	this->designacao = designacao;
 	this->nif = nif;
 	this->numeroTelefone = numeroTelefone;
 	this->email = email;
 	this->servico = servico;
 	this->clientes = clientes;
-	this->designacao = designacao;
 	this->localizacao = localizacao;
 }
 
@@ -215,8 +213,8 @@ int Condominio::getId() const {
 	return id;
 }
 
-string Condominio::getNome() const {
-	return nome;
+string Condominio::getDesignacao() const {
+	return designacao;
 }
 
 int Condominio::getNIF() const {
@@ -231,6 +229,10 @@ string Condominio::getEmail() const {
 	return email;
 }
 
+string Condominio::getLocalizacao() const {
+	return localizacao;
+}
+
 vector<Cliente *> Condominio::getClientes() const {
 	return clientes;
 }
@@ -239,8 +241,38 @@ Servico * Condominio::getServico() const {
 	return servico;
 }
 
-void Condominio::setNome(string nome) {
-	this->nome = nome;
+int Condominio::getNumHabs() const {
+	int numHabs = 0;
+
+	vector<Cliente *>::const_iterator it_c = clientes.begin();
+
+	for (; it_c != clientes.end(); it_c++) {
+		numHabs += (*it_c)->getHabitacoes().size();
+	}
+
+	return numHabs;
+}
+
+int Condominio::getNumVivendas() const {
+	int numVivendas = 0;
+
+	vector<Cliente *>::const_iterator it_c = clientes.begin();
+
+	for (; it_c != clientes.end(); it_c++) {
+		vector<Habitacao *>::const_iterator it_h =
+				(*it_c)->getHabitacoes().begin();
+
+		for (; it_h != (*it_c)->getHabitacoes().end(); it_h++)  {
+			if ((*it_h)->getTipo() == "Vivenda")
+				numVivendas++;
+		}
+	}
+
+	return numVivendas;
+}
+
+void Condominio::setDesignacao(string designacao) {
+	this->designacao = designacao;
 }
 
 void Condominio::setNIF(int nif) {
@@ -255,64 +287,10 @@ void Condominio::setEmail(string email) {
 	this->email = email;
 }
 
-bool Condominio::operator ==(const Condominio & cond) const {
+void Condominio::setLocalizacao(string localizacao) {
+	this->localizacao = localizacao;
+}
+
+bool Condominio::operator ==(const Condominio & cond) {
 	return this->id == cond.getId();
-}
-
-int Condominio::getNTotalHabs() const {
-	return nTotalHabs;
-}
-
-void Condominio::setNTotalHabs(int nTotalHabs) {
-	this->nTotalHabs = nTotalHabs;
-}
-
-int Condominio::getNTotalVivendas() const {
-	return nTotalVivendas;
-}
-
-void Condominio::setNTotalVivendas(int nTotalVivendas) {
-	this->nTotalVivendas = nTotalVivendas;
-}
-
-void Condominio::nTotalHabitacoesCond() const {
-	int total = 0;
-
-	for (int i = 0; i < clientes.size(); i++) {
-		int nHabs = 0;
-		nHabs = clientes[i]->getHabitacoes().size();
-		total = total + nHabs;
-	}
-
-	nTotalHabs = total;
-}
-
-void Condominio::nTotalVivendasCond() const {
-	int total = 0;
-
-	for (int i = 0; i < clientes.size(); i++) {
-		for (int j = 0; j < clientes[i]->getHabitacoes().size(); j++) {
-			if (clientes[i]->getHabitacoes()[j]->getTipoHab() == "vivenda"
-					|| clientes[i]->getHabitacoes()[j]->getTipoHab()
-							== "Vivenda") {
-				total++;
-			}
-		}
-	}
-
-	nTotalVivendas = total;
-}
-
-bool Condominio::operator <(const Condominio&cond) const {
-	if (this->getNTotalHabs() < cond.getNTotalHabs()) {
-		return true;
-	} else if (this->getNTotalHabs() > cond.getNTotalHabs()) {
-		return false;
-	} else if (this->getNTotalHabs() == cond.getNTotalHabs()) {
-		if (this->getNTotalVivendas() < cond.getNTotalVivendas()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 }
