@@ -5,5 +5,5 @@ var searchData=
   ['imprimedadoscondominio',['imprimeDadosCondominio',['../class_interface.html#aed67f4ad69432e696dee93694029fb2e',1,'Interface']]],
   ['imprimehabitacoes',['imprimeHabitacoes',['../class_interface.html#a45714f2fad37ed40fa88432d3c2cf26f',1,'Interface']]],
   ['incservicosdisponiveis',['incServicosDisponiveis',['../class_servico.html#a099b6ca2af6f7d577d1fe6b36349975c',1,'Servico']]],
-  ['interface',['Interface',['../class_interface.html#a4c177919e79ec95562a389e522f4600e',1,'Interface']]]
+  ['interfaceaux',['interfaceAux',['../class_interface.html#a616b89df79f6fc646274ae3b8bcf13f1',1,'Interface']]]
 ];

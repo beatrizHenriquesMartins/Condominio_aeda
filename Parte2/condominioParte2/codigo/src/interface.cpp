@@ -10,52 +10,52 @@
 #include <sys/stat.h>
 #include <string>
 
-Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes,
-		string ficheiroEmpregados, string ficheiroServicos,
-		string ficheiroCondominio) {
-	readHabitacoes(ficheiroHabitacoes);
+Condominio Interface::interfaceAux(string ficheiroHabitacoes,
+		string ficheiroClientes, string ficheiroEmpregados,
+		string ficheiroServicos, string ficheiroCondominio) {
+	vector<Habitacao *> hs = readHabitacoes(ficheiroHabitacoes);
 
 	// Para testar se está a funcionar
 	/*cout << "--- Habitações ---" << endl;
-	 for(unsigned int i = 0; i < habitacoes.size(); i++) {
-	 Habitacao *h = habitacoes[i];
+	 for(unsigned int i = 0; i < hs.size(); i++) {
+	 Habitacao *h = hs[i];
 	 cout << h->getMorada() << endl;
 	 cout << h->getAreaHabitacao() << endl;
 	 }*/
 
-	readClientes(ficheiroClientes);
+	vector<Cliente *> cs = readClientes(ficheiroClientes, hs);
 
 	// Para testar se está a funcionar
 	/*cout << "--- Clientes ---" << endl;
-	 for(unsigned int i = 0; i < clientes.size(); i++) {
-	 Cliente *c = clientes[i];
-	 cout << c->getNome() << endl;
-	 cout << c->getBI() << endl;
-	 for(unsigned int k = 0; k < clientes[i]->getHabitacoes().size(); k++) {
-	 Habitacao *h = clientes[i]->getHabitacoes()[k];
-	 cout << h->getMorada() << endl;
-	 cout << h->getAreaHabitacao() << endl;
-	 }
-	 }*/
+	for (unsigned int i = 0; i < cs.size(); i++) {
+		Cliente *c = cs[i];
+		cout << c->getNome() << endl;
+		cout << c->getBI() << endl;
+		for (unsigned int k = 0; k < hs.size(); k++) {
+			Habitacao *h = hs[k];
+			cout << h->getMorada() << endl;
+			cout << h->getAreaHabitacao() << endl;
+		}
+	}*/
 
-	readEmpregados(ficheiroEmpregados);
+	vector<Empregado *> es = readEmpregados(ficheiroEmpregados);
 
 	// Para testar se está a funcionar
 	/*cout << "--- Empregados ---" << endl;
-	 for(unsigned int i = 0; i < empregados.size(); i++) {
-	 Empregado *e = empregados[i];
+	 for(unsigned int i = 0; i < es.size(); i++) {
+	 Empregado *e = es[i];
 	 cout << e->getNome() << endl;
 	 cout << e->getBI() << endl;
 	 cout << e->getTipo() << endl;
 	 cout << e->getLivre() << endl;
 	 }*/
 
-	readServicos(ficheiroServicos);
+	vector<Servico *> ss = readServicos(ficheiroServicos, hs, es);
 
 	// Para testar se está a funcionar
 	/*cout << "--- Serviços ---" << endl;
-	 for(unsigned int i = 0; i < clientes.size(); i++) {
-	 Cliente * cli = clientes[i];
+	 for(unsigned int i = 0; i < cs.size(); i++) {
+	 Cliente * cli = cs[i];
 
 	 for(unsigned int j = 0; j < cli->getHabitacoes().size(); j++) {
 	 Habitacao * hab = cli->getHabitacoes()[j];
@@ -71,13 +71,13 @@ Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes,
 	 }
 	 }*/
 
-	readCondominio(ficheiroCondominio);
+	Condominio * c = readCondominio(ficheiroCondominio, es, cs);
 
 	/*cout << "--- Condominio ---" << endl << endl;
 
 	 //cliente
-	 for(unsigned int i = 0; i < condominio->getClientes().size(); i++) {
-	 Cliente * cli = condominio->getClientes()[i];
+	 for(unsigned int i = 0; i < c->getClientes().size(); i++) {
+	 Cliente * cli = c->getClientes()[i];
 
 	 cout << "--- Cliente ---" << endl;
 	 cout << cli->getNome() << endl;
@@ -102,20 +102,47 @@ Interface::Interface(string ficheiroHabitacoes, string ficheiroClientes,
 	 }
 	 //empregados do condominio
 	 cout << "--- Empregados ---" << endl;
-	 for(unsigned int i = 0; i < condominio->getServico()->getEmpregados().size(); i++) {
-	 Empregado *e = condominio->getServico()->getEmpregados()[i];
+	 for(unsigned int i = 0; i < c->getServico()->getEmpregados().size(); i++) {
+	 Empregado *e = c->getServico()->getEmpregados()[i];
 	 cout << e->getNome() << endl;
 	 cout << e->getBI() << endl;
 	 cout << e->getTipo() << endl;
 	 cout << e->getLivre() << endl;
 	 }*/
 
+	return *c;
 }
 
-int Interface::readHabitacoes(string nome) {
+Interface::Interface(vector<string> condsDir) {
+	conds = new EmpresaCondominios();
+
+	for (unsigned int i = 0; i < condsDir.size(); i++) {
+		string ficheiroHabitacoes = "condominios/" + condsDir[i]
+				+ "/habitacoes.txt";
+		string ficheiroClientes = "condominios/" + condsDir[i]
+				+ "/clientes.txt";
+		string ficheiroEmpregados = "condominios/" + condsDir[i]
+				+ "/empregados.txt";
+		string ficheiroServicos = "condominios/" + condsDir[i]
+				+ "/servicos.txt";
+		string ficheiroCondominio = "condominios/" + condsDir[i]
+				+ "/condominio.txt";
+
+		Condominio c = interfaceAux(ficheiroHabitacoes, ficheiroClientes,
+				ficheiroEmpregados, ficheiroServicos, ficheiroCondominio);
+
+		conds->adicionaCondominio(c);
+	}
+}
+
+vector<Habitacao *> Interface::readHabitacoes(string nome) {
+	vector<Habitacao *> habs;
+
 	ifstream file(nome);
-	if (!file.is_open())
-		return -1;
+	if (!file.is_open()) {
+		cout << "Não foi possível abrir o ficheiro!" << endl;
+		return habs;
+	}
 
 	string tipo;
 	while (getline(file, tipo)) {
@@ -132,27 +159,36 @@ int Interface::readHabitacoes(string nome) {
 
 			Habitacao * h = new Apartamento(morada, atoi(areaHabitacao.c_str()),
 					"Apartamento", atoi(tipologia.c_str()), atoi(piso.c_str()));
-			habitacoes.push_back(h);
+			habs.push_back(h);
 		}
 		if (tipo == "v") {
+			bool temP = false;
+
 			string areaExterior;
 			string temPiscina;
 			getline(file, areaExterior);
 			getline(file, temPiscina);
 
+			if(temPiscina == "true")
+				temP = true;
+
 			Habitacao * h = new Vivenda(morada, atoi(areaHabitacao.c_str()),
-					"Vivenda", atoi(areaExterior.c_str()),
-					atoi(temPiscina.c_str()));
-			habitacoes.push_back(h);
+					"Vivenda", atoi(areaExterior.c_str()), temP);
+			habs.push_back(h);
 		}
 	}
-	return 0;
+
+	file.close();
+
+	return habs;
 }
 
-int Interface::readClientes(string nome) {
+vector<Cliente *> Interface::readClientes(string nome, vector<Habitacao *> hs) {
+	vector<Cliente *> cls;
 	ifstream file(nome);
+
 	if (!file.is_open())
-		return -1;
+		return cls;
 
 	string nomeCliente;
 	while (getline(file, nomeCliente)) {
@@ -171,25 +207,35 @@ int Interface::readClientes(string nome) {
 			getline(file, morada);
 
 			while (morada != "endHabs") {
-				int i = procuraHabitacao(morada);
+				int k = -1;
+				for (unsigned int i = 0; i < hs.size(); i++) {
+					Habitacao *h = hs[i];
+					if (h->getMorada() == morada)
+						k = i;
+				}
 
-				habs.push_back(habitacoes[i]);
+				habs.push_back(hs[k]);
 
 				getline(file, morada);
 			}
 
 			Cliente *c = new Cliente(nomeCliente, atoi(bi.c_str()),
 					atoi(telm.c_str()), email, habs);
-			clientes.push_back(c);
+
+			cls.push_back(c);
 		}
 	}
-	return 0;
+
+	file.close();
+
+	return cls;
 }
 
-int Interface::readEmpregados(string nome) {
+vector<Empregado *> Interface::readEmpregados(string nome) {
+	vector<Empregado *> emps;
 	ifstream file(nome);
 	if (!file.is_open())
-		return -1;
+		return emps;
 
 	string nomeEmpregado;
 	while (getline(file, nomeEmpregado)) {
@@ -208,7 +254,7 @@ int Interface::readEmpregados(string nome) {
 
 			Empregado *e = new Limpeza(nomeEmpregado, atoi(bi.c_str()),
 					atoi(telm.c_str()), email, tipo, atoi(livre.c_str()));
-			empregados.push_back(e);
+			emps.push_back(e);
 		}
 		if (tipo == "Canalizacao") {
 			string livre;
@@ -216,7 +262,7 @@ int Interface::readEmpregados(string nome) {
 
 			Empregado *e = new Canalizacao(nomeEmpregado, atoi(bi.c_str()),
 					atoi(telm.c_str()), email, tipo, atoi(livre.c_str()));
-			empregados.push_back(e);
+			emps.push_back(e);
 		}
 		if (tipo == "Pintura") {
 			string livre;
@@ -224,101 +270,260 @@ int Interface::readEmpregados(string nome) {
 
 			Empregado *e = new Pintura(nomeEmpregado, atoi(bi.c_str()),
 					atoi(telm.c_str()), email, tipo, atoi(livre.c_str()));
-			empregados.push_back(e);
+			emps.push_back(e);
 		}
 	}
-	return 0;
+
+	file.close();
+
+	return emps;
 }
 
-int Interface::readServicos(string nome) {
+vector<Servico *> Interface::readServicos(string nome,
+		vector<Habitacao *> &habs, vector<Empregado *> &emps) {
+	vector<Servico *> servs;
 	ifstream file(nome);
 	if (!file.is_open())
-		return -1;
+		return servs;
 
 	string morada;
 	while (getline(file, morada)) {
-		int i_hab = procuraHabitacao(morada);
+		int i_hab = -1;
+		for (unsigned int i = 0; i < habs.size(); i++) {
+			Habitacao *h = habs[i];
+			if (h->getMorada() == morada)
+				i_hab = i;
+		}
 
 		string bi;
 		getline(file, bi);
 		while (bi != "end") {
-			int i_emp = procuraEmpregado(atoi(bi.c_str()));
+			int i_emp = -1;
+			for (unsigned int i = 0; i < emps.size(); i++) {
+				Empregado *e = emps[i];
+				if (e->getBI() == atoi(bi.c_str()))
+					i_emp = i;
+			}
 
-			Habitacao * hab = habitacoes[i_hab];
-			Empregado * emp = empregados[i_emp];
+			Habitacao * hab = habs[i_hab];
+			Empregado * emp = emps[i_emp];
 			hab->adicionaServico(emp);
 
 			getline(file, bi);
 		}
 	}
 
-	return 0;
+	file.close();
+
+	return servs;
 }
 
-int Interface::readCondominio(string nome) {
+Condominio * Interface::readCondominio(string nome, vector<Empregado *> emps,
+		vector<Cliente *> cls) {
+	Condominio * condos = NULL;
 	ifstream file(nome);
 
 	if (!file.is_open()) {
 		cout << "Não foi possível abrir o ficheiro!" << endl;
-		return -1;
+		return condos;
 	}
 
 	string nomeCondominio;
-	while (getline(file, nomeCondominio)) {
-		string nif;
-		string numTelf;
-		string email;
-		string maxEmpLimpeza;
-		string maxEmpCanalizacao;
-		string maxEmpPintura;
-		string localizacao;
+	string nif;
+	string numTelf;
+	string email;
+	string maxEmpLimpeza;
+	string maxEmpCanalizacao;
+	string maxEmpPintura;
+	string localizacao;
 
-		getline(file, nif);
-		getline(file, numTelf);
-		getline(file, email);
-		getline(file, maxEmpLimpeza);
-		getline(file, maxEmpCanalizacao);
-		getline(file, maxEmpPintura);
-		getline(file, localizacao);
+	getline(file, nomeCondominio);
+	getline(file, nif);
+	getline(file, numTelf);
+	getline(file, email);
+	getline(file, maxEmpLimpeza);
+	getline(file, maxEmpCanalizacao);
+	getline(file, maxEmpPintura);
+	getline(file, localizacao);
 
-		Servico *s = new Servico(empregados, atoi(maxEmpLimpeza.c_str()),
-				atoi(maxEmpCanalizacao.c_str()), atoi(maxEmpPintura.c_str()));
+	Servico *s = new Servico(emps, atoi(maxEmpLimpeza.c_str()),
+			atoi(maxEmpCanalizacao.c_str()), atoi(maxEmpPintura.c_str()));
 
-		cout << "Here!" << endl;
+	condos = new Condominio(nomeCondominio, atoi(nif.c_str()),
+			atoi(numTelf.c_str()), email, cls, s, localizacao);
 
-		condominio = new Condominio(nomeCondominio, atoi(nif.c_str()),
-				atoi(numTelf.c_str()), email, clientes, s, localizacao);
+	file.close();
 
-		cout << condominio->getId();
+	return condos;
+}
+
+int Interface::writeHabitacoes() const {
+	string id = to_string(condominio->getId()); //converte o Id do condomínio para uma string
+	string nome = "condominios/" + id + "-" + condominio->getDesignacao()
+			+ "/habitacoes.txt"; //nome do ficheiro
+	ofstream file(nome);
+
+	if (!file.is_open())
+		return -1;
+
+	vector<Habitacao *>::const_iterator itb = habitacoes.begin();
+	vector<Habitacao *>::const_iterator ite = habitacoes.end();
+
+	for (; itb != ite; itb++) {
+		string tipo = (*itb)->getTipo();
+
+		if (tipo == "Apartamento")
+			file << "a" << endl;
+		else
+			file << "v" << endl;
+		file << (*itb)->getMorada() << endl;
+		file << (*itb)->getAreaHabitacao() << endl;
+
+		if (tipo == "Apartamento") {
+			Apartamento *ap = (Apartamento *) (*itb);
+
+			file << ap->getTipologia() << endl;
+			file << ap->getPiso() << endl;
+		}
+
+		else if (tipo == "Vivenda") {
+			Vivenda *viv = (Vivenda *) (*itb);
+
+			file << viv->getAreaExterior() << endl;
+			file << ((viv->getTemPiscina()) ? "true" : "false") << endl;
+		}
 	}
+
+	file.close();
 
 	return 0;
 }
 
-/*int Interface::writeHabitacoes(string morada, string op) {
- string id = to_string(condominio->getId()); //converte o Id do condomínio para uma string
- string nome = "condominios/" + id + "-" + condominio->getNome() + "/habitacoes.txt"; //nome do ficheiro
- ifstream file(nome);
+int Interface::writeClientes() const {
+	string id = to_string(condominio->getId()); //converte o Id do condomínio para uma string
+	string nome = "condominios/" + id + "-" + condominio->getDesignacao()
+			+ "/clientes.txt"; //nome do ficheiro
+	ofstream file(nome);
 
- ofstream file("condominios/" + id + "-" + condominio->getNome() + "/temp.txt");
+	if (!file.is_open())
+		return -1;
 
- if(!file.is_open())
- return -1;
+	vector<Cliente *>::const_iterator itb = clientes.begin();
+	vector<Cliente *>::const_iterator ite = clientes.end();
 
- while(!file.eof()) {
+	for (; itb != ite; itb++) {
+		file << (*itb)->getNome() << endl;
+		file << (*itb)->getBI() << endl;
+		file << (*itb)->getNumeroTelemovel() << endl;
+		file << (*itb)->getEmail() << endl;
 
- string line;
+		file << "habs" << endl;
 
- getline(cin, line);
+		vector<Habitacao *> habitacoes_cliente = (*itb)->getHabitacoes();
 
- if(line == morada) {
+		vector<Habitacao *>::const_iterator ithb = habitacoes_cliente.begin();
+		vector<Habitacao *>::const_iterator ithe = habitacoes_cliente.end();
 
- }
+		for (; ithb != ithe; ithb++)
+			file << (*ithb)->getMorada() << endl;
 
- }
+		file << "endHabs" << endl;
+	}
 
- return 0;
- }*/
+	file.close();
+
+	return 0;
+}
+
+int Interface::writeEmpregados() const {
+	string id = to_string(condominio->getId()); //converte o Id do condomínio para uma string
+	string nome = "condominios/" + id + "-" + condominio->getDesignacao()
+			+ "/empregados.txt"; //nome do ficheiro
+	ofstream file(nome);
+
+	if (!file.is_open())
+		return -1;
+
+	Servico * servico = condominio->getServico();
+
+	vector<Empregado *> empregados_servico = servico->getEmpregados();
+	vector<Empregado *>::const_iterator itb = empregados_servico.begin();
+	vector<Empregado *>::const_iterator ite = empregados_servico.end();
+
+	for (; itb != ite; itb++) {
+
+		file << (*itb)->getNome() << endl;
+		file << (*itb)->getBI() << endl;
+		file << (*itb)->getNumeroTelemovel() << endl;
+		file << (*itb)->getEmail() << endl;
+		file << (*itb)->getTipo() << endl;
+		file << (*itb)->getLivre() << endl;
+
+	}
+
+	file.close();
+
+	return 0;
+}
+
+int Interface::writeServicos() const {
+	string id = to_string(condominio->getId()); //converte o Id do condomínio para uma string
+	string nome = "condominios/" + id + "-" + condominio->getDesignacao()
+			+ "/servicos.txt"; //nome do ficheiro
+	ofstream file(nome);
+
+	if (!file.is_open())
+		return -1;
+
+	vector<Habitacao *>::const_iterator itb = habitacoes.begin();
+	vector<Habitacao *>::const_iterator ite = habitacoes.end();
+
+	for (; itb != ite; itb++) {
+		file << (*itb)->getMorada() << endl;
+
+		vector<Empregado *> servicos_habitacao = (*itb)->getServicos();
+		vector<Empregado *>::const_iterator itsb = servicos_habitacao.begin();
+		vector<Empregado *>::const_iterator itse = servicos_habitacao.end();
+
+		for (; itsb != itse; itsb++)
+			file << (*itsb)->getBI() << endl;
+
+		file << "end" << endl;
+	}
+
+	file.close();
+
+	return 0;
+}
+
+int Interface::writeCondominio() const {
+	string id = to_string(condominio->getId()); //converte o Id do condomínio para uma string
+	string nome = "condominios/" + id + "-" + condominio->getDesignacao()
+			+ "/condominio.txt"; //nome do ficheiro
+	ofstream file(nome);
+
+	cout << nome << endl;
+
+	if (!file.is_open())
+		return -1;
+
+	Servico *servico = condominio->getServico();
+
+	file << condominio->getDesignacao() << endl;
+	file << condominio->getNIF() << endl;
+	file << condominio->getNumeroTelefone() << endl;
+	file << condominio->getEmail() << endl;
+
+	file << servico->getNumMaxLimpeza() << endl;
+	file << servico->getNumMaxCanalizacao() << endl;
+	file << servico->getNumMaxPintura() << endl;
+
+	file << condominio->getLocalizacao() << endl;
+
+	file.close();
+
+	return 0;
+}
 
 int Interface::procuraHabitacao(string morada) {
 	for (unsigned int i = 0; i < habitacoes.size(); i++) {
@@ -1110,7 +1315,7 @@ void Interface::menuAtualizaCondominio() {
 	int op;
 
 	do {
-		int novo_nif, novo_numTelf, idCond, result;
+		int novo_nif, novo_numTelf;
 		string novo_email, novo_nome;
 		stringstream newName, oldName;
 
@@ -1289,7 +1494,9 @@ int Interface::menuAtualizaHabitacao(string morada_atualizar) {
 
 					ap->setPiso(novoPiso);
 
-					cout << endl << "Piso atualizado com sucesso! O apartamento passou a ter piso = " << ap->getPiso() << "." << endl;
+					cout << endl
+							<< "Piso atualizado com sucesso! O apartamento passou a ter piso = "
+							<< ap->getPiso() << "." << endl;
 					op = 5;
 					break;
 				}
@@ -1338,7 +1545,31 @@ int Interface::menuAtualizaHabitacao(string morada_atualizar) {
 	}
 }
 
+EmpresaCondominios * Interface::getEmpresaCondominios() {
+	return conds;
+}
+
+void Interface::setAll(Condominio *cond) {
+	condominio = cond;
+
+	vector<Habitacao *> habs;
+
+	vector<Cliente *> clients = cond->getClientes();
+
+	for(unsigned int i = 0; i < clients.size(); i++) {
+		vector<Habitacao *> habs_client = clients[i]->getHabitacoes();
+
+		for(unsigned j = 0; j < habs_client.size(); j++)
+			habs.push_back(habs_client[j]);
+	}
+
+	habitacoes = habs;
+	clientes = cond->getClientes();
+	empregados = cond->getServico()->getEmpregados();
+}
+
 // Função para recolher o nome de todos os diretórios
+
 vector<string> getDirs(vector<string> &dirNames) {
 	const char* PATH = "condominios";
 	stringstream ss;
@@ -1372,6 +1603,7 @@ vector<string> getDirs(vector<string> &dirNames) {
 }
 
 // Função para verificar se o input é válido
+
 bool validInput(string in) {
 	for (unsigned int i = 0; i < in.size(); i++) {
 		if (!isdigit(in[i]))
@@ -1385,6 +1617,8 @@ int main() {
 	vector<string> cond = getDirs(nomeDirs);
 	string op;
 
+	Interface interface(nomeDirs);
+
 	cout << " * * * * * * * * * * * * * * * * * * * *  " << endl;
 	cout << "*                                        *" << endl;
 	cout << "*   Bem vindo ao gestor de condominios   *" << endl;
@@ -1394,6 +1628,8 @@ int main() {
 	while (1) {
 		vector<string>::iterator itb = cond.begin();
 		int i = 1;
+
+		cout << endl << "*** Menu inicial ***" << endl << endl;
 
 		for (; itb != cond.end(); itb++) {
 			cout << i << ". " << (*itb) << endl;
@@ -1405,32 +1641,26 @@ int main() {
 		cout << i++ << ". Sair" << endl;
 		cout << endl << "> ";
 
-		getline(cin, op);
+		cin >> op;
 
 		if (validInput(op)) {
-
 			// é um condominio
 			if (atoi(op.c_str()) <= cond.size()) {
-				string dirCond = nomeDirs[atoi(op.c_str()) - 1];
 
-				string ficheiroHabitacoes = "condominios/" + dirCond
-						+ "/habitacoes.txt";
-				string ficheiroClientes = "condominios/" + dirCond
-						+ "/clientes.txt";
-				string ficheiroEmpregados = "condominios/" + dirCond
-						+ "/empregados.txt";
-				string ficheiroServicos = "condominios/" + dirCond
-						+ "/servicos.txt";
-				string ficheiroCondominio = "condominios/" + dirCond
-						+ "/condominio.txt";
+				string nomeOp = cond[atoi(op.c_str()) - 1];
 
-				Interface interface(ficheiroHabitacoes, ficheiroClientes,
-						ficheiroEmpregados, ficheiroServicos,
-						ficheiroCondominio);
+				Condominio cOp = interface.getEmpresaCondominios()->find(nomeOp);
 
-				cout << endl << cond[atoi(op.c_str()) - 1] << endl;
+				interface.setAll(&cOp);
 
 				interface.menuPrincipal();
+
+				interface.writeClientes();
+				interface.writeCondominio();
+				interface.writeEmpregados();
+				interface.writeHabitacoes();
+				interface.writeServicos();
+
 				cin.ignore();
 			}
 
@@ -1443,7 +1673,8 @@ int main() {
 						<< endl;
 
 				cout << "Nome: ";
-				getline(cin, nome);
+				cin >> nome;
+				cin.ignore();
 				cout << endl;
 
 				cout << "NIF: ";

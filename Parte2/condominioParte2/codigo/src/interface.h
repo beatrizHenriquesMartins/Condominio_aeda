@@ -24,15 +24,16 @@
 #include "Pintura.h"
 #include "Servico.h"
 #include "Vivenda.h"
+#include "EmpresaCondominios.h"
 
 using namespace std;
 
 class Interface {
+	EmpresaCondominios *conds;
 	Condominio *condominio;
 	vector<Habitacao *> habitacoes;
 	vector<Cliente *> clientes;
 	vector<Empregado *> empregados;
-	vector<Empregado *> servicosPrestados;
 public:
     /**
      * @brief Função que inicializa os dados dos condomínios.
@@ -42,65 +43,73 @@ public:
      * @param ficheiroServicos - Ficheiro que contém informação sobre os serviços.
      * @param ficheiroCondominio - Ficheiro que contém informação sobre o condomínio.
      */
-	Interface(string ficheiroHabitacoes, string ficheiroClientes,
+	Condominio interfaceAux(string ficheiroHabitacoes, string ficheiroClientes,
 			string ficheiroEmpregados, string ficheiroServicos,
 			string ficheiroCondominio);
+	/*
+	 * @brief
+	 */
+	Interface(vector<string> condsDir);
     /**
      * @brief Função que lê informação do ficheiro das habitações.
      * @param nome - Nome do ficheiro que contém informação sobre as habitações.
      * @return Retorna 0 se ler corretamente o ficheiro e -1 caso não consiga abrir o ficheiro.
      */
-	int readHabitacoes(string nome);
+	vector<Habitacao *> readHabitacoes(string nome);
    /**
      * @brief Função que lê informação do ficheiro dos clientes.
      * @param nome - Nome do ficheiro que contém informação sobre os clientes.
      * @return Retorna 0 se ler corretamente o ficheiro e -1 caso não consiga abrir o ficheiro.
      */
-    int readClientes(string nome);
+    //int readClientes(string nome);
+	vector<Cliente *> readClientes(string nome, vector<Habitacao *> hs);
     /**
      * @brief Função que lê informação do ficheiro dos empregados.
      * @param nome - Nome do ficheiro que contém informação sobre os empregados.
      * @return Retorna 0 se ler corretamente o ficheiro e -1 caso não consiga abrir o ficheiro.
      */
-	int readEmpregados(string nome);
+	//int readEmpregados(string nome);
+    vector<Empregado *> readEmpregados(string nome);
     /**
      * @brief Função que lê informação do ficheiro dos serviços.
      * @param nome - Nome do ficheiro que contém informação sobre os serviços prestados.
      * @return Retorna 0 se ler corretamente o ficheiro e -1 caso não consiga abrir o ficheiro.
      */
-    int readServicos(string nome);
+    //int readServicos(string nome);
+	vector<Servico *> readServicos(string nome, vector<Habitacao *> &habs, vector<Empregado *> &emps);
     /**
      * @brief Função que lê informação do ficheiro do condomínio .
      * @param nome - Nome do ficheiro que contém informação sobre o condomínio.
      * @return Retorna 0 se ler corretamente o ficheiro e -1 caso não consiga abrir o ficheiro.
      */
-    int readCondominio(string nome);
+    //int readCondominio(string nome);
+    Condominio * readCondominio(string nome, vector<Empregado *> emps, vector<Cliente *> cls);
     /**
      * @brief Função que escreve os dados das habitações atuais para o ficheiro de habitações.
      * @param nome_hab - Nome da habitação a atualizar.
      * @return Retorna 0 em caso de sucesso e -1 caso contrário.
     */
-    int writeHabitacoes(string nome_hab);
+    int writeHabitacoes() const;
     /**
      * @brief Função que escreve os dados dos clientes atuais para o ficheiro de clientes.
      * @return Retorna 0 em caso de sucesso e -1 caso contrário.
     */
-    int writeClientes();
+    int writeClientes() const;
     /**
      * @brief Função que escreve os dados dos empregados atuais para o ficheiro de empregados.
      * @return Retorna 0 em caso de sucesso e -1 caso contrário.
     */
-    int writeEmpregados();
+    int writeEmpregados() const;
     /**
      * @brief Função que escreve os dados dos serviços atuais para o ficheiro de serviços.
      * @return Retorna 0 em caso de sucesso e -1 caso contrário.
     */
-    int writeServicos();
+    int writeServicos() const;
     /**
      * @brief Função que escreve os dados do condomínio atual para o ficheiro do condomínio.
      * @return Retorna 0 em caso de sucesso e -1 caso contrário.
     */
-    int writeCondominio();
+    int writeCondominio() const;
     /**
      * @brief Função que procura uma habitação pela morada.
      * @param morada - Morada da habitação a procurar.
@@ -207,6 +216,15 @@ public:
 	 * @return Retorna 0 em caso de sucesso e -1 caso contrário.
 	 */
 	int menuAtualizaHabitacao(string morada_atualizar);
+	/**
+	 * @brief Função que retorna a empresa de condomínios.
+	 */
+	EmpresaCondominios * getEmpresaCondominios();
+	/**
+	 * @brief Função para fazer set aos atributos da classe.
+	 * @param cond - condominio.
+	 */
+	void setAll(Condominio *cond);
 };
 
 #endif /* SRC_INTERFACE_H_ */

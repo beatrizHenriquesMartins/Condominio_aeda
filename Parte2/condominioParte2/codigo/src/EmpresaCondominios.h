@@ -15,20 +15,18 @@
 using namespace std;
 
 class EmpresaCondominios {
-	vector<Condominio *> condominios;
-	//BST<Condominio *> conds;
+	BST<Condominio> conds;
 public:
 	/**
 	 * @brief Função que cria uma empresa de condomínios.
-	 * @param condominio - vetor com os vários condomínios da empresa.
 	 */
-	EmpresaCondominios(vector<Condominio *> condominios);
+	EmpresaCondominios();
 	/**
 	 * @brief Função que adiciona um condomínio à empresa.
 	 * @param condominio - Condomínio a adicionar à empresa.
 	 * @return Retorna 0 se conseguir inserir o novo codomínio, ou seja se este ainda não existe. ou -1 caso contrário.
 	 */
-	int adicionaCondominio(Condominio *condominio);
+	int adicionaCondominio(Condominio condominio);
 	/**
 	 * @brief Função que remove um condomínio da empresa.
 	 * @param id - Identificador do condomínio a remover.
@@ -39,12 +37,18 @@ public:
 	 * @brief Função que retorna os condomínios da empresa.
 	 * @return Retorna os condomínios da empresa.
 	 */
-	vector<Condominio *> getCondominios() const;
+	BST<Condominio> getCondominios() const;
 	/**
 	 * @brief Função que atualiza os condomínios da empresa.
-	 * @param condominios - Novo vetor de condomínios da empresa.
+	 * @param condominios - Nova BST de condomínios da empresa.
 	 */
-	void setCondominios(vector<Condominio *> condominios);
+	void setCondominios(BST<Condominio> condominios);
+	/**
+	 * @brief Função que dado um nome retorna um condominio com esse nome.
+	 * @param nome - nome do condomínio.
+	 * @return Retorna o condomínio caso encontre ou notFound caso contrário.
+	 */
+	Condominio find(string nome);
 };
 
 #endif /* SRC_EMPRESACONDOMINIOS_H_ */

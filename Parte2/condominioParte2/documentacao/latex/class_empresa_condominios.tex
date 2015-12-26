@@ -3,45 +3,29 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_empresa_condominios_a70b22bc9c4109a5de1a1fb2348cedd9d}{Empresa\+Condominios} (vector$<$ \hyperlink{class_condominio}{Condominio} $\ast$ $>$ condominios)
+\hyperlink{class_empresa_condominios_a97cb28e27d638efefa89af590a37125b}{Empresa\+Condominios} ()\hypertarget{class_empresa_condominios_a97cb28e27d638efefa89af590a37125b}{}\label{class_empresa_condominios_a97cb28e27d638efefa89af590a37125b}
+
 \begin{DoxyCompactList}\small\item\em Função que cria uma empresa de condomínios. \end{DoxyCompactList}\item 
-int \hyperlink{class_empresa_condominios_a88f7bd8f0d17dcfdd346da4fa689ba53}{adiciona\+Condominio} (\hyperlink{class_condominio}{Condominio} $\ast$condominio)
+int \hyperlink{class_empresa_condominios_a4e031b9af04244fdc6c5391a58350f38}{adiciona\+Condominio} (\hyperlink{class_condominio}{Condominio} condominio)
 \begin{DoxyCompactList}\small\item\em Função que adiciona um condomínio à empresa. \end{DoxyCompactList}\item 
 int \hyperlink{class_empresa_condominios_a3cd1b44048bbe35005ca39c9bc1628a5}{remove\+Condominio} (int id)
 \begin{DoxyCompactList}\small\item\em Função que remove um condomínio da empresa. \end{DoxyCompactList}\item 
-vector$<$ \hyperlink{class_condominio}{Condominio} $\ast$ $>$ \hyperlink{class_empresa_condominios_af4475e3de96fe4f78b9de51da3dbb227}{get\+Condominios} () const 
+\hyperlink{class_b_s_t}{B\+ST}$<$ \hyperlink{class_condominio}{Condominio} $>$ \hyperlink{class_empresa_condominios_a0f91ef9bfc09eec8e2d01afe7ade9825}{get\+Condominios} () const 
 \begin{DoxyCompactList}\small\item\em Função que retorna os condomínios da empresa. \end{DoxyCompactList}\item 
-void \hyperlink{class_empresa_condominios_a9729cd6ee8a91c40cb73b294480f7c70}{set\+Condominios} (vector$<$ \hyperlink{class_condominio}{Condominio} $\ast$ $>$ condominios)
-\begin{DoxyCompactList}\small\item\em Função que atualiza os condomínios da empresa. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\subsection{Constructor \& Destructor Documentation}
-\index{Empresa\+Condominios@{Empresa\+Condominios}!Empresa\+Condominios@{Empresa\+Condominios}}
-\index{Empresa\+Condominios@{Empresa\+Condominios}!Empresa\+Condominios@{Empresa\+Condominios}}
-\subsubsection[{Empresa\+Condominios(vector$<$ Condominio $\ast$ $>$ condominios)}]{\setlength{\rightskip}{0pt plus 5cm}Empresa\+Condominios\+::\+Empresa\+Condominios (
-\begin{DoxyParamCaption}
-\item[{vector$<$ {\bf Condominio} $\ast$ $>$}]{condominios}
-\end{DoxyParamCaption}
-)}\hypertarget{class_empresa_condominios_a70b22bc9c4109a5de1a1fb2348cedd9d}{}\label{class_empresa_condominios_a70b22bc9c4109a5de1a1fb2348cedd9d}
-
-
-Função que cria uma empresa de condomínios. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em condominio} & -\/ vetor com os vários condomínios da empresa. \\
-\hline
-\end{DoxyParams}
+void \hyperlink{class_empresa_condominios_a876bc932f07c3d44f6713b7a615d7eb2}{set\+Condominios} (\hyperlink{class_b_s_t}{B\+ST}$<$ \hyperlink{class_condominio}{Condominio} $>$ condominios)
+\begin{DoxyCompactList}\small\item\em Função que atualiza os condomínios da empresa. \end{DoxyCompactList}\item 
+\hyperlink{class_condominio}{Condominio} \hyperlink{class_empresa_condominios_a8fff8545c382655f72e387aed3aa3964}{find} (string nome)
+\begin{DoxyCompactList}\small\item\em Função que dado um nome retorna um condominio com esse nome. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
 \index{Empresa\+Condominios@{Empresa\+Condominios}!adiciona\+Condominio@{adiciona\+Condominio}}
 \index{adiciona\+Condominio@{adiciona\+Condominio}!Empresa\+Condominios@{Empresa\+Condominios}}
-\subsubsection[{adiciona\+Condominio(\+Condominio $\ast$condominio)}]{\setlength{\rightskip}{0pt plus 5cm}int Empresa\+Condominios\+::adiciona\+Condominio (
+\subsubsection[{adiciona\+Condominio(\+Condominio condominio)}]{\setlength{\rightskip}{0pt plus 5cm}int Empresa\+Condominios\+::adiciona\+Condominio (
 \begin{DoxyParamCaption}
-\item[{{\bf Condominio} $\ast$}]{condominio}
+\item[{{\bf Condominio}}]{condominio}
 \end{DoxyParamCaption}
-)}\hypertarget{class_empresa_condominios_a88f7bd8f0d17dcfdd346da4fa689ba53}{}\label{class_empresa_condominios_a88f7bd8f0d17dcfdd346da4fa689ba53}
+)}\hypertarget{class_empresa_condominios_a4e031b9af04244fdc6c5391a58350f38}{}\label{class_empresa_condominios_a4e031b9af04244fdc6c5391a58350f38}
 
 
 Função que adiciona um condomínio à empresa. 
@@ -54,13 +38,32 @@ Função que adiciona um condomínio à empresa.
 \begin{DoxyReturn}{Returns}
 Retorna 0 se conseguir inserir o novo codomínio, ou seja se este ainda não existe. ou -\/1 caso contrário. 
 \end{DoxyReturn}
+\index{Empresa\+Condominios@{Empresa\+Condominios}!find@{find}}
+\index{find@{find}!Empresa\+Condominios@{Empresa\+Condominios}}
+\subsubsection[{find(string nome)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Condominio} Empresa\+Condominios\+::find (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{class_empresa_condominios_a8fff8545c382655f72e387aed3aa3964}{}\label{class_empresa_condominios_a8fff8545c382655f72e387aed3aa3964}
+
+
+Função que dado um nome retorna um condominio com esse nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & -\/ nome do condomínio. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o condomínio caso encontre ou not\+Found caso contrário. 
+\end{DoxyReturn}
 \index{Empresa\+Condominios@{Empresa\+Condominios}!get\+Condominios@{get\+Condominios}}
 \index{get\+Condominios@{get\+Condominios}!Empresa\+Condominios@{Empresa\+Condominios}}
-\subsubsection[{get\+Condominios() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Condominio} $\ast$ $>$ Empresa\+Condominios\+::get\+Condominios (
+\subsubsection[{get\+Condominios() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+ST}$<$ {\bf Condominio} $>$ Empresa\+Condominios\+::get\+Condominios (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}\hypertarget{class_empresa_condominios_af4475e3de96fe4f78b9de51da3dbb227}{}\label{class_empresa_condominios_af4475e3de96fe4f78b9de51da3dbb227}
+) const}\hypertarget{class_empresa_condominios_a0f91ef9bfc09eec8e2d01afe7ade9825}{}\label{class_empresa_condominios_a0f91ef9bfc09eec8e2d01afe7ade9825}
 
 
 Função que retorna os condomínios da empresa. 
@@ -89,18 +92,18 @@ Retorna 0 caso consiga remover o condomínio, ou seja se este existe, ou -\/1 ca
 \end{DoxyReturn}
 \index{Empresa\+Condominios@{Empresa\+Condominios}!set\+Condominios@{set\+Condominios}}
 \index{set\+Condominios@{set\+Condominios}!Empresa\+Condominios@{Empresa\+Condominios}}
-\subsubsection[{set\+Condominios(vector$<$ Condominio $\ast$ $>$ condominios)}]{\setlength{\rightskip}{0pt plus 5cm}void Empresa\+Condominios\+::set\+Condominios (
+\subsubsection[{set\+Condominios(\+B\+S\+T$<$ Condominio $>$ condominios)}]{\setlength{\rightskip}{0pt plus 5cm}void Empresa\+Condominios\+::set\+Condominios (
 \begin{DoxyParamCaption}
-\item[{vector$<$ {\bf Condominio} $\ast$ $>$}]{condominios}
+\item[{{\bf B\+ST}$<$ {\bf Condominio} $>$}]{condominios}
 \end{DoxyParamCaption}
-)}\hypertarget{class_empresa_condominios_a9729cd6ee8a91c40cb73b294480f7c70}{}\label{class_empresa_condominios_a9729cd6ee8a91c40cb73b294480f7c70}
+)}\hypertarget{class_empresa_condominios_a876bc932f07c3d44f6713b7a615d7eb2}{}\label{class_empresa_condominios_a876bc932f07c3d44f6713b7a615d7eb2}
 
 
 Função que atualiza os condomínios da empresa. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em condominios} & -\/ Novo vetor de condomínios da empresa. \\
+{\em condominios} & -\/ Nova \hyperlink{class_b_s_t}{B\+ST} de condomínios da empresa. \\
 \hline
 \end{DoxyParams}
 

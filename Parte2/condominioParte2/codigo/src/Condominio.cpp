@@ -7,7 +7,11 @@
 
 #include "Condominio.h"
 
-int Condominio::lastId = 1;
+int Condominio::lastId = 0;
+
+ostream & operator<< (ostream &o, const Condominio &c) {
+	o << c.getNIF() << endl;
+}
 
 Condominio::Condominio(string designacao, int nif, int numeroTelefone,
 		string email, vector<Cliente *> clientes, Servico *servico,
@@ -262,7 +266,7 @@ int Condominio::getNumVivendas() const {
 		vector<Habitacao *>::const_iterator it_h =
 				(*it_c)->getHabitacoes().begin();
 
-		for (; it_h != (*it_c)->getHabitacoes().end(); it_h++)  {
+		for (; it_h != (*it_c)->getHabitacoes().end(); it_h++) {
 			if ((*it_h)->getTipo() == "Vivenda")
 				numVivendas++;
 		}
@@ -291,6 +295,17 @@ void Condominio::setLocalizacao(string localizacao) {
 	this->localizacao = localizacao;
 }
 
-bool Condominio::operator ==(const Condominio & cond) {
-	return this->id == cond.getId();
+bool Condominio::operator ==(const Condominio & cond) const {
+	return this->nif == cond.getNIF();
+}
+
+bool Condominio::operator<(const Condominio & cond2) const {
+	if (this->getNumHabs() < cond2.getNumHabs())
+		return true;
+
+	if (this->getNumHabs() == cond2.getNumHabs()
+			&& this->getNumVivendas() < cond2.getNumVivendas())
+		return true;
+
+	return false;
 }

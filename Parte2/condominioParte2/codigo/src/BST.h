@@ -38,7 +38,14 @@ class BinaryNode
   friend class BSTItrPre<Comparable>;
   friend class BSTItrPost<Comparable>;
   friend class BSTItrLevel<Comparable>;
+public:
+  Comparable getElement() const;
 };
+
+template <class Comparable>
+Comparable BinaryNode<Comparable>::getElement() const {
+	return element;
+}
 
 template <class Comparable>
 class BST
@@ -53,6 +60,8 @@ class BST
   const Comparable & find( const Comparable & x ) const;
   bool isEmpty( ) const;
   void printTree( ) const;
+  const Comparable getItemNotFound() const;
+  BinaryNode<Comparable> * getRoot() const;
   
   void makeEmpty( );
   void insert( const Comparable & x );
@@ -99,6 +108,16 @@ template <class Comparable>
 BST<Comparable>::~BST( )
 {
   makeEmpty( );
+}
+
+template <class Comparable>
+const Comparable BST<Comparable>::getItemNotFound() const {
+	return ITEM_NOT_FOUND;
+}
+
+template <class Comparable>
+BinaryNode<Comparable> * BST<Comparable>::getRoot() const {
+	return root;
 }
 
 template <class Comparable>

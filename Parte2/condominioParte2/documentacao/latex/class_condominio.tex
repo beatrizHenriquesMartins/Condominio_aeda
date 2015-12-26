@@ -51,12 +51,14 @@ void \hyperlink{class_condominio_ae0521eb8186f3c4000cc8c0fa6d4b762}{set\+Email} 
 \begin{DoxyCompactList}\small\item\em Função para atualizar o email do condomínio. \end{DoxyCompactList}\item 
 void \hyperlink{class_condominio_ae87fcb0812e926dbdf6609f3359b9df9}{set\+Localizacao} (string localizacao)
 \begin{DoxyCompactList}\small\item\em Função para atualizar a localização do condomínio. \end{DoxyCompactList}\item 
-bool \hyperlink{class_condominio_a6726cb42e54e4084b0824ea1c2bd9172}{operator==} (const \hyperlink{class_condominio}{Condominio} \&cond)
-\begin{DoxyCompactList}\small\item\em Operador para verificar se dois condomínios são o mesmo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \hyperlink{class_condominio_ad42a7789ca5fc636ff97018f93426055}{operator==} (const \hyperlink{class_condominio}{Condominio} \&cond) const 
+\begin{DoxyCompactList}\small\item\em Operador para verificar se dois condomínios são o mesmo. \end{DoxyCompactList}\item 
+bool \hyperlink{class_condominio_a522f22fe4aedc504dab8728e73945777}{operator$<$} (const \hyperlink{class_condominio}{Condominio} \&cond2) const 
+\begin{DoxyCompactList}\small\item\em Operador para verificar se um condominio é menor que outro. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static int {\bfseries last\+Id} = 1\hypertarget{class_condominio_ad6d8cc37886212f5dbf8260c25a94961}{}\label{class_condominio_ad6d8cc37886212f5dbf8260c25a94961}
+static int {\bfseries last\+Id} = 0\hypertarget{class_condominio_ad6d8cc37886212f5dbf8260c25a94961}{}\label{class_condominio_ad6d8cc37886212f5dbf8260c25a94961}
 
 \end{DoxyCompactItemize}
 
@@ -313,20 +315,39 @@ Função para obter a empresa de serviços.
 \begin{DoxyReturn}{Returns}
 Retorna a empresa de serviços. 
 \end{DoxyReturn}
+\index{Condominio@{Condominio}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Condominio@{Condominio}}
+\subsubsection[{operator$<$(const Condominio \&cond2) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Condominio\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Condominio} \&}]{cond2}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_condominio_a522f22fe4aedc504dab8728e73945777}{}\label{class_condominio_a522f22fe4aedc504dab8728e73945777}
+
+
+Operador para verificar se um condominio é menor que outro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cond2} & -\/ condomínio externo com o qual vai ser comparado o condomínio. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdade caso o condominio tenha um número inferior de habitações que o condomínio externo, ou caso tenha um número de habitações iguais compara o número de vivendas. 
+\end{DoxyReturn}
 \index{Condominio@{Condominio}!operator==@{operator==}}
 \index{operator==@{operator==}!Condominio@{Condominio}}
-\subsubsection[{operator==(const Condominio \&cond)}]{\setlength{\rightskip}{0pt plus 5cm}bool Condominio\+::operator== (
+\subsubsection[{operator==(const Condominio \&cond) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Condominio\+::operator== (
 \begin{DoxyParamCaption}
 \item[{const {\bf Condominio} \&}]{cond}
 \end{DoxyParamCaption}
-)}\hypertarget{class_condominio_a6726cb42e54e4084b0824ea1c2bd9172}{}\label{class_condominio_a6726cb42e54e4084b0824ea1c2bd9172}
+) const}\hypertarget{class_condominio_ad42a7789ca5fc636ff97018f93426055}{}\label{class_condominio_ad42a7789ca5fc636ff97018f93426055}
 
 
 Operador para verificar se dois condomínios são o mesmo. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cond} & -\/ condomínio externa com a qual vai ser comparado o condominio. \\
+{\em cond} & -\/ condomínio externa com o qual vai ser comparado o condominio. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

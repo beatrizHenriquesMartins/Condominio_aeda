@@ -7,30 +7,42 @@
 
 #include "EmpresaCondominios.h"
 
-EmpresaCondominios::EmpresaCondominios(vector<Condominio *> condominios) {
-	this->condominios = condominios;
+Condominio notFoundC() {
+	string designacao = "";
+	int nif = 0;
+	int numTelf = 0;
+	string mail = "";
+	vector<Cliente *> c;
+	vector<Empregado *> e;
+	Servico * s = new Servico(e, 0, 0, 0);
+	string location = "";
+
+	return Condominio (designacao, nif, numTelf, mail, c, s, location);
 }
 
-int EmpresaCondominios::adicionaCondominio(Condominio *condominio) {
-	vector<Condominio *>::iterator itb = condominios.begin();
+EmpresaCondominios::EmpresaCondominios() :
+		conds(notFoundC()) {
 
+}
+
+int EmpresaCondominios::adicionaCondominio(Condominio condominio) {
 	// Verifica se o condomínio já existe na empresa
-	for(; itb!= condominios.end(); itb++) {
-		if((*itb) == condominio)
-			return -1;
-	}
 
-	condominios.push_back(condominio);
+	if(!(conds.find(condominio) == notFoundC()))
+		return -1;
+
+	conds.insert(condominio);
+
 	return 0;
 }
 
 int EmpresaCondominios::removeCondominio(int id) {
-	vector<Condominio *>::iterator itb = condominios.begin();
+	BSTItrIn<Condominio> itb(conds);
 
 	// Verifica se o condomínio existe na empresa
-	for(; itb!= condominios.end(); itb++) {
-		if((*itb)->getId() == id) {
-			condominios.erase(itb);
+	for (; !itb.isAtEnd(); itb.advance()) {
+		if (itb.retrieve().getId() == id) {
+			conds.remove(itb.retrieve());
 			return 0;
 		}
 	}
@@ -38,10 +50,22 @@ int EmpresaCondominios::removeCondominio(int id) {
 	return -1;
 }
 
-vector<Condominio *> EmpresaCondominios::getCondominios() const {
-	return condominios;
+BST<Condominio> EmpresaCondominios::getCondominios() const {
+	return conds;
 }
 
-void EmpresaCondominios::setCondominios(vector<Condominio *> condominios) {
-	this->condominios = condominios;
+void EmpresaCondominios::setCondominios(BST<Condominio> condominios) {
+	this->conds = condominios;
+}
+
+Condominio EmpresaCondominios::find(string nome) {
+	BSTItrIn<Condominio> itb(conds);
+
+	for (; !itb.isAtEnd(); itb.advance()) {
+		if (itb.retrieve().getDesignacao() == nome) {
+			return itb.retrieve();
+		}
+	}
+
+	return notFoundC();
 }

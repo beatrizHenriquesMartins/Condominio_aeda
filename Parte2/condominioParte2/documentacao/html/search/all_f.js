@@ -2,10 +2,11 @@ var searchData=
 [
   ['servico',['Servico',['../class_servico.html',1,'Servico'],['../class_servico.html#a920dbd3231fa6ca3ba9e118764bb7d4b',1,'Servico::Servico()']]],
   ['servicoinvalido',['ServicoInvalido',['../class_servico_invalido.html',1,'ServicoInvalido'],['../class_servico_invalido.html#a95c1921099dbc662b211afd87564f6eb',1,'ServicoInvalido::ServicoInvalido()']]],
+  ['setall',['setAll',['../class_interface.html#aec7e97358ae85467d8b2ec392869b61a',1,'Interface']]],
   ['setareaexterior',['setAreaExterior',['../class_vivenda.html#a78aade265c5cbaaa300c46b248b4e977',1,'Vivenda']]],
   ['setareahabitacao',['setAreaHabitacao',['../class_habitacao.html#a7b42d8414d288665bc0e6fd8bd2b212d',1,'Habitacao']]],
   ['setbi',['setBI',['../class_cliente.html#a94b552224f9bb3b3189e2c92282f311f',1,'Cliente::setBI()'],['../class_empregado.html#ad3981e81e67c5adeba56a5cd32927a62',1,'Empregado::setBI()']]],
-  ['setcondominios',['setCondominios',['../class_empresa_condominios.html#a9729cd6ee8a91c40cb73b294480f7c70',1,'EmpresaCondominios']]],
+  ['setcondominios',['setCondominios',['../class_empresa_condominios.html#a876bc932f07c3d44f6713b7a615d7eb2',1,'EmpresaCondominios']]],
   ['setdesignacao',['setDesignacao',['../class_condominio.html#a54e452fd5905ec95a028cd2dfefbc437',1,'Condominio']]],
   ['setemail',['setEmail',['../class_cliente.html#a2c44b0f11f5d58b3f5b793a073ed1ac9',1,'Cliente::setEmail()'],['../class_condominio.html#ae0521eb8186f3c4000cc8c0fa6d4b762',1,'Condominio::setEmail()'],['../class_empregado.html#ac158667fd5a237648c3aeeec5808f6e7',1,'Empregado::setEmail()']]],
   ['setlivre',['setLivre',['../class_empregado.html#a81997099011c547e71bc52c5e69532d9',1,'Empregado']]],

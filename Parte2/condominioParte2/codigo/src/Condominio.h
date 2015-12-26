@@ -164,10 +164,16 @@ public:
 	void setLocalizacao(string localizacao);
 	/**
 	 * @brief Operador para verificar se dois condomínios são o mesmo.
-	 * @param cond - condomínio externa com a qual vai ser comparado o condominio.
+	 * @param cond - condomínio externa com o qual vai ser comparado o condominio.
 	 * @return Retorna verdade caso os condomínios sejam o mesmo e falso caso contrário.
 	 */
-	bool operator==(const Condominio & cond);
+	bool operator==(const Condominio & cond) const;
+	/**
+	 * @brief Operador para verificar se um condominio é menor que outro
+	 * @param cond2 - condomínio externo com o qual vai ser comparado o condomínio.
+	 * @return Retorna verdade caso o condominio tenha um número inferior de habitações que o condomínio externo, ou caso tenha um número de habitações iguais compara o número de vivendas.
+	 */
+	bool operator<(const Condominio & cond2) const;
 };
 
 #endif /* SRC_CONDOMINIO_H_ */

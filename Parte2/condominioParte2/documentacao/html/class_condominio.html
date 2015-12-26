@@ -165,14 +165,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae87fcb0812e926dbdf6609f3359b9df9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#ae87fcb0812e926dbdf6609f3359b9df9">setLocalizacao</a> (string localizacao)</td></tr>
 <tr class="memdesc:ae87fcb0812e926dbdf6609f3359b9df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para atualizar a localização do condomínio.  <a href="#ae87fcb0812e926dbdf6609f3359b9df9">More...</a><br /></td></tr>
 <tr class="separator:ae87fcb0812e926dbdf6609f3359b9df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6726cb42e54e4084b0824ea1c2bd9172"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#a6726cb42e54e4084b0824ea1c2bd9172">operator==</a> (const <a class="el" href="class_condominio.html">Condominio</a> &amp;cond)</td></tr>
-<tr class="memdesc:a6726cb42e54e4084b0824ea1c2bd9172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador para verificar se dois condomínios são o mesmo.  <a href="#a6726cb42e54e4084b0824ea1c2bd9172">More...</a><br /></td></tr>
-<tr class="separator:a6726cb42e54e4084b0824ea1c2bd9172"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42a7789ca5fc636ff97018f93426055"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#ad42a7789ca5fc636ff97018f93426055">operator==</a> (const <a class="el" href="class_condominio.html">Condominio</a> &amp;cond) const </td></tr>
+<tr class="memdesc:ad42a7789ca5fc636ff97018f93426055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador para verificar se dois condomínios são o mesmo.  <a href="#ad42a7789ca5fc636ff97018f93426055">More...</a><br /></td></tr>
+<tr class="separator:ad42a7789ca5fc636ff97018f93426055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a522f22fe4aedc504dab8728e73945777"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_condominio.html#a522f22fe4aedc504dab8728e73945777">operator&lt;</a> (const <a class="el" href="class_condominio.html">Condominio</a> &amp;cond2) const </td></tr>
+<tr class="memdesc:a522f22fe4aedc504dab8728e73945777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador para verificar se um condominio é menor que outro.  <a href="#a522f22fe4aedc504dab8728e73945777">More...</a><br /></td></tr>
+<tr class="separator:a522f22fe4aedc504dab8728e73945777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ad6d8cc37886212f5dbf8260c25a94961"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6d8cc37886212f5dbf8260c25a94961"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>lastId</b> = 1</td></tr>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>lastId</b> = 0</td></tr>
 <tr class="separator:ad6d8cc37886212f5dbf8260c25a94961"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -526,7 +529,32 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>lastId</b> = 1<
 
 </div>
 </div>
-<a class="anchor" id="a6726cb42e54e4084b0824ea1c2bd9172"></a>
+<a class="anchor" id="a522f22fe4aedc504dab8728e73945777"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Condominio::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_condominio.html">Condominio</a> &amp;&#160;</td>
+          <td class="paramname"><em>cond2</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Operador para verificar se um condominio é menor que outro. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cond2</td><td>- condomínio externo com o qual vai ser comparado o condomínio. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna verdade caso o condominio tenha um número inferior de habitações que o condomínio externo, ou caso tenha um número de habitações iguais compara o número de vivendas. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad42a7789ca5fc636ff97018f93426055"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -535,7 +563,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>lastId</b> = 1<
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_condominio.html">Condominio</a> &amp;&#160;</td>
           <td class="paramname"><em>cond</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -543,7 +571,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>lastId</b> = 1<
 <p>Operador para verificar se dois condomínios são o mesmo. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cond</td><td>- condomínio externa com a qual vai ser comparado o condominio. </td></tr>
+    <tr><td class="paramname">cond</td><td>- condomínio externa com o qual vai ser comparado o condominio. </td></tr>
   </table>
   </dd>
 </dl>
