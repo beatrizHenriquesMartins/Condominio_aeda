@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.7)  24 DEC 2015 11:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.7)  26 DEC 2015 22:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -447,71 +447,65 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
-
-Overfull \hbox (5.94502pt too wide) in paragraph at lines 68--69
-[]\OT1/cmr/m/n/10 TODO: In-di-car al-gu-mas sec^^Xc~oes que "li-guem con-cei-to
-s", por exem-plo, Servi^^Xcos
- []
-
-[3]
-Overfull \hbox (1.61162pt too wide) in paragraph at lines 100--101
+ [3] [4]
+Overfull \hbox (1.61162pt too wide) in paragraph at lines 120--121
 []\OT1/cmr/m/n/10 Esta classe tem como ob-je-tivo guar-dar in-forma^^Xc~oes es-
 sen-cias so-bre um servi^^Xco
  []
 
-[4]
-Overfull \hbox (1.61162pt too wide) in paragraph at lines 124--125
+[5]
+Overfull \hbox (1.61162pt too wide) in paragraph at lines 144--145
 []\OT1/cmr/m/n/10 Esta classe tem como ob-je-tivo guar-dar in-forma^^Xc~oes es-
 sen-cias so-bre um servi^^Xco
  []
 
 
-Overfull \hbox (1.61162pt too wide) in paragraph at lines 128--129
+Overfull \hbox (1.61162pt too wide) in paragraph at lines 148--149
 []\OT1/cmr/m/n/10 Esta classe tem como ob-je-tivo guar-dar in-forma^^Xc~oes es-
 sen-cias so-bre um servi^^Xco
  []
 
 
-Overfull \hbox (3.19498pt too wide) in paragraph at lines 132--133
+Overfull \hbox (3.19498pt too wide) in paragraph at lines 152--153
 []\OT1/cmr/m/n/10 Esta classe tem como ob-je-tivo guar-dar in-forma^^Xc~oes so-
 bre o n^^Sumero de servi^^Xcos
  []
 
-[5] [6] [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+[6] [7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
-[9] (./relatorio.aux) ) 
+[10] (./relatorio.aux) ) 
 Here is how much of TeX's memory you used:
- 4005 strings out of 493089
- 54532 string characters out of 6134842
+ 4003 strings out of 493089
+ 54500 string characters out of 6134842
  129167 words of memory out of 5000000
- 7440 multiletter control sequences out of 15000+600000
+ 7438 multiletter control sequences out of 15000+600000
  8847 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,7n,35p,579b,238s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti10.pfb>
-Output written on relatorio.pdf (9 pages, 152962 bytes).
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti10.pfb>
+Output written on relatorio.pdf (10 pages, 154736 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
