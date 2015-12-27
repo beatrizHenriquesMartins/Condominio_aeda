@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.7)  26 DEC 2015 22:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.7)  27 DEC 2015 10:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -447,42 +447,48 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
- [3] [4]
-Overfull \hbox (1.61162pt too wide) in paragraph at lines 120--121
+ [3]
+Overfull \hbox (4.69511pt too wide) in paragraph at lines 83--84
+[]\OT1/cmr/m/n/10 Atualizar qual-quer in-forma^^Xc~ao dos cli-en-tes, dos con-d
+om^^S^^Pnios, das ha-bita^^Xc~ao,
+ []
+
+[4]
+Overfull \hbox (1.61162pt too wide) in paragraph at lines 118--119
 []\OT1/cmr/m/n/10 Esta classe tem como ob-je-tivo guar-dar in-forma^^Xc~oes es-
 sen-cias so-bre um servi^^Xco
  []
 
 [5]
-Overfull \hbox (1.61162pt too wide) in paragraph at lines 144--145
+Overfull \hbox (1.61162pt too wide) in paragraph at lines 142--143
 []\OT1/cmr/m/n/10 Esta classe tem como ob-je-tivo guar-dar in-forma^^Xc~oes es-
 sen-cias so-bre um servi^^Xco
  []
 
 
-Overfull \hbox (1.61162pt too wide) in paragraph at lines 148--149
+Overfull \hbox (1.61162pt too wide) in paragraph at lines 146--147
 []\OT1/cmr/m/n/10 Esta classe tem como ob-je-tivo guar-dar in-forma^^Xc~oes es-
 sen-cias so-bre um servi^^Xco
  []
 
 
-Overfull \hbox (3.19498pt too wide) in paragraph at lines 152--153
+Overfull \hbox (3.19498pt too wide) in paragraph at lines 150--151
 []\OT1/cmr/m/n/10 Esta classe tem como ob-je-tivo guar-dar in-forma^^Xc~oes so-
 bre o n^^Sumero de servi^^Xcos
  []
 
 [6] [7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 184--185
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
@@ -502,7 +508,7 @@ sfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti10.pfb>
-Output written on relatorio.pdf (10 pages, 154736 bytes).
+Output written on relatorio.pdf (10 pages, 154741 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream
