@@ -119,49 +119,49 @@ Após a análise do enunciado, devido a algumas dúvidas perante certas ambiguid
 
 Tendo em consideração os requisitos da aplicação, foram desenvolvidas as seguintes classes de forma a cumprir os objetivos pré-estabelecidos.
 
+\subsubsection{Condominio}
+
+Esta classe tem como objetivo guardar informações essenciais sobre o próprio condomínio, tais como o nome, o número de identificação fiscal, contacto telefónico e \textit{email}, os clientes existentes e informação sobre a empresa de serviços. Além disto é possível requisitar ou terminar um serviço de Limpeza, Canalização ou Pintura, ou adicionar e remover um dado cliente.
+
+\subsubsection{Habitacao}
+
+Esta classe tem como objetivo guardar informações essenciais sobre uma habitação, tais como a sua morada, a sua área e os serviços que foram prestados. Para além de ser possível armazenar esta informação, também é possível adicionar um serviço (\textbf{Limpeza}, \textbf{Canalização} ou \textbf{Pintura}), sendo que a aplicação tentará satisfazer essa necessidade e, por último, obter informações básicas. Uma habitação pode ser considerada uma \textbf{Vivenda} ou um \textbf{Apartamento}.
+
+\subsubsection{Vivenda}
+
+Esta classe tem como objetivo guardar informações sobre uma vivenda, herdadas da classe Habitação, tais como a morada da habitação e a sua área habitacional. Além disto, é possível armazenar dados sobre a área exterior e a possibilidade de ter uma piscina ou não.
+
 \subsubsection{Apartamento}
 
 Esta classe tem como objetivo guardar informações sobre um apartamento, herdadas da classe Habitação, tais como a morada da habitação e a sua área habitacional. Além disto, é possível armazenar dados sobre a tipologia e piso.
 
-\subsubsection{Canalizacao}
-
-Esta classe tem como objetivo guardar informações essencias sobre um serviço de \textbf{Pintura}, herdadas da classe \textbf{Empregado}, tais como o nome do empregado, o seu número de identificação, o número de telemóvel, etc.
-
-\subsubsection{Condominio}
-
-Esta classe tem como objetivo guardar informações essenciais sobre o próprio condomínio, tais como o nome, o número de identificação fiscal, contatos telefónicos e \textit{email}, os clientes existentes e informação sobre a empresa de serviços. Além disto é possível requisitar ou terminar um serviço de Limpeza, Canalização ou Pintura, ou adicionar e remover um dado cliente.
-
 \subsubsection{Cliente}
 
-Esta classe tem como objetivo guardar informações essenciais sobre um cliente, tais como o nome, o seu número de identificação, contatos telefónicos e \textit{email}, e respetivas habitações. Um dado cliente pode adicionar uma nova habitação (introduzindo os respetivos dados, i.e, a morada, a área de habitação, etc.) ou remover uma que já possua, sendo apenas necessário indicar a morada da habitação que se pretende remover.
-
-\subsubsection{Empregado}
-
-Esta classe tem como objetivo guardar informações essenciais sobre um empregado, tais como o nome, \textit{email}, número de telemóvel, o seu tipo (\textbf{Limpeza}, \textbf{Canalização} ou \textbf{Pintura}) e se está disponível de momento. No caso de um dado empregado não estar disponível, então o condomínio não poderá requisitá-lo para um serviço até que este termine. A aplicação irá tentar satisfazer um pedido do condomínio (e.g serviço de limpeza), procurando se existe pelo menos um empregado disponível desse tipo.
-
-\subsubsection{Interface}
-
-Esta classe tem como objetivo disponibilizar ao utilizador os menús essenciais da aplicação, ler os dados necessários dos ficheiros dos vários condomínios (ficheiro do próprio condomínio, dos clientes, empregados, habitações e serviços), proceder a pesquisas de informação básica (por nome, por tipo, etc.), edição de informação (e.g. tipologia no caso de ser um apartamento) e gestão do fluxo de dados e armazenamento do estado atual da aplicação, aquando da sua terminação.
-
-\subsubsection{Habitacao}
-
-Esta classe tem como objetivo guardar informações essenciais sobre uma habitação, tais como a sua morada, a sua área e os serviços que foram prestados a. Para além de ser possível armazenar esta informação, também é possível adicionar um serviço (\textbf{Limpeza}, \textbf{Canalização} ou \textbf{Pintura}), sendo que a aplicação tentará satisfazer essa necessidade e, por último, obter informações básicas. Uma habitação pode ser considerada uma \textbf{Vivenda} ou um \textbf{Apartamento}.
-
-\subsubsection{Limpeza}
-
-Esta classe tem como objetivo guardar informações essencias sobre um serviço de \textbf{Limpeza}, herdadas da classe \textbf{Empregado}, tais como o nome do empregado, o seu número de identificação, o número de telemóvel, etc.
-
-\subsubsection{Pintura}
-
-Esta classe tem como objetivo guardar informações essencias sobre um serviço de \textbf{Pintura}, herdadas da classe \textbf{Empregado}, tais como o nome do empregado, o seu número de identificação, o número de telemóvel, etc.
+Esta classe tem como objetivo guardar informações essenciais sobre um cliente, tais como o nome, o seu número de identificação, contacto telefónico e \textit{email}, e respetivas habitações. Um dado cliente pode adicionar uma nova habitação (introduzindo os respetivos dados, isto é, a morada, a área de habitação, etc.) ou remover uma que já possua, sendo apenas necessário indicar a morada da habitação que se pretende remover.
 
 \subsubsection{Servico}
 
 Esta classe tem como objetivo guardar informações sobre o número de serviços disponíveis, o número máximo de empregados de \textbf{Limpeza}, \textbf{Canalização} e \textbf{Pintura} e os empregados efetivos da empresa de serviços que são armazenados numa tabela de dispersão. Esta classe, além de permitir a inserção e remoção de empregados, garante a integridade dos dados, a não existência de empregados duplicados na tabela de dispersão e serve como base de informação para a classe \textbf{Condominio}. 
 
-\subsubsection{Vivenda}
+\subsubsection{Empregado}
 
-Esta classe tem como objetivo guardar informações sobre uma vivenda, herdadas da classe Habitação, tais como a morada da habitação e a sua área habitacional. Além disto, é possível armazenar dados sobre a área exterior e a possibilidade de ter uma piscina ou não.
+Esta classe tem como objetivo guardar informações essenciais sobre um empregado, tais como o nome, \textit{email}, número de telemóvel, o seu tipo (\textbf{Limpeza}, \textbf{Canalização} ou \textbf{Pintura}) e se está disponível de momento. No caso de um dado empregado não estar disponível, então o condomínio não poderá requisitá-lo para um serviço até que este termine. A aplicação irá tentar satisfazer um pedido do condomínio (e.g serviço de limpeza), procurando se existe pelo menos um empregado disponível desse tipo.
+
+\subsubsection{Canalizacao}
+
+Esta classe tem como objetivo guardar informações essenciais sobre um serviço de \textbf{Canalização}, herdadas da classe \textbf{Empregado}, tais como o nome do empregado, o seu número de identificação, o número de telemóvel, etc.
+
+\subsubsection{Pintura}
+
+Esta classe tem como objetivo guardar informações essenciais sobre um serviço de \textbf{Pintura}, herdadas da classe \textbf{Empregado}, tais como o nome do empregado, o seu número de identificação, o número de telemóvel, etc.
+
+\subsubsection{Limpeza}
+
+Esta classe tem como objetivo guardar informações essenciais sobre um serviço de \textbf{Limpeza}, herdadas da classe \textbf{Empregado}, tais como o nome do empregado, o seu número de identificação, o número de telemóvel, etc.
+
+\subsubsection{Interface}
+
+Esta classe tem como objetivo disponibilizar ao utilizador os menus essenciais da aplicação, ler os dados necessários dos ficheiros dos vários condomínios (ficheiro do próprio condomínio, dos clientes, empregados, habitações e serviços), proceder a pesquisas de informação básica (por nome, por tipo, etc.), edição de informação (e.g. tipologia no caso de ser um apartamento) e gestão do fluxo de dados e armazenamento do estado atual da aplicação, aquando da sua terminação.
 
 \newpage
 
